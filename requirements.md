@@ -1,9 +1,11 @@
 # My Learning Buddy – Product Requirements
 
-- **Version:** 0.3 (Draft)
+- **Version:** 0.4 (Draft)
 - **Platforms:** Mobile app (iOS / Android, tablet-friendly) and website
 - **Audience:** Children aged 2–6, with parents and teachers as supervisors
 - **Price:** Free to the user
+- **Release country:** United States only
+- **Technology:** Flutter (one codebase for iOS, Android and web)
 
 ---
 
@@ -19,18 +21,22 @@ through pictures, sounds, touch and play.
 |---|---|
 | Age range | 2–6 years |
 | Price | Free to the user |
-| Voice | Female voice, English |
+| Voice | Computer-generated (text-to-speech) female voice, English |
 | Language | English only |
 | Child profiles | Not included |
-| Saving progress | Not saved – every visit starts fresh (see section 2) |
+| Saving progress | Nothing is saved – every visit starts fresh (see section 2) |
+| Games | Not in the first release – learning sections only |
+| Images | Free cartoon-style clip art |
+| Release country | United States only |
+| Technology | Flutter |
 | Accounts / login | None |
-| Privacy | Follow all applicable children's privacy and safety laws (see section 9) |
+| Privacy | Follow all applicable children's privacy and safety laws (see section 8) |
 
 Every learning section must, at minimum, support:
 
 - A picture or illustration for every item
 - The item's name shown as text
-- Audio pronunciation (female voice, English) when the item is tapped
+- Audio pronunciation (computer-generated female voice, English) when the item is tapped
 - Simple next/previous navigation (swipe on touch devices, arrows on the web)
 
 ---
@@ -38,8 +44,10 @@ Every learning section must, at minimum, support:
 ## 2. Session Model (No Saved Progress)
 
 - The app and website are **stand-alone sessions**: each time they are opened, they start fresh.
-- Progress, stars, stickers and badges exist **only while the app or website is open**.
-- When the app is closed or the web page is closed/refreshed, all progress and rewards reset.
+- Progress, stars, stickers, badges **and parent settings (show/hide, sound)** exist **only while the app or website is open**.
+- When the app is closed or the web page is closed/refreshed, everything resets to the defaults
+  (all categories shown, sound on).
+- Nothing is stored on the device or on a server.
 - No user accounts, no login, and no progress stored on a server.
 
 ---
@@ -130,50 +138,43 @@ Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
 
 ---
 
-## 4. Activities and Games
+## 4. Rewards and Motivation
 
-- **Quizzes:** "Tap the red apple", "Which one is the cow?", "Find the letter B"
-- **Matching pairs:** memory card game (picture-to-picture, letter-to-word, uppercase-to-lowercase)
-- **Sound to picture:** play a sound (animal, vehicle) and the child taps the matching picture
-- **Counting games:** count the objects and tap the right number
-- **Drag and drop:** put shapes in matching holes, sort fruits vs. vegetables, simple jigsaw puzzles
-- **Coloring pages:** color in animals, vehicles, shapes, etc. with a tap-to-fill or brush tool
-- Games use content from the learning sections
-
----
-
-## 5. Rewards and Motivation
-
-- Stars or stickers earned for completing items, tracing and games
+- Stars or stickers earned for viewing items in a section and completing tracing
 - Sticker book screen to view rewards earned during the current session
 - Progress badges per section (e.g. "Alphabet Star", "Number Champ")
 - Celebration animations and sounds on success
-- Encouraging (never negative) feedback on wrong answers – e.g. "Try again!"
+- Encouraging (never negative) feedback when tracing goes off the path – e.g. "Try again!"
 - Rewards are **not saved**: they reset when the app or website is closed (see section 2)
 
 ---
 
-## 6. Audio
+## 5. Audio
 
-- **Voice:** a clear, friendly female voice
-- **Language:** English only
+- **Voice:** a clear, friendly, computer-generated (text-to-speech) female voice
+- **Language:** English (US)
+- Audio clips are generated ahead of time and bundled with the app/website, so the voice sounds the same
+  on every device, works offline and sends no data to any speech service while the child uses the app
+- The text-to-speech tool's licence must allow use of the generated audio in a free app and website
 - Letter names **and** letter sounds (phonics)
 - Captions: the text of what is spoken is always shown on screen
 - Separate volume / mute controls for speech and for music and sound effects
 
 ---
 
-## 7. Parent Area
+## 6. Parent Area
 
 - Protected by a parental lock (e.g. "solve this sum" or press-and-hold) so children can't enter
-- **Show / hide categories:** parents can turn each learning section (3.1–3.12) and each game on or off;
+- **Show / hide categories:** parents can turn each learning section (3.1–3.12) on or off;
   hidden categories do not appear on the child's home screen
 - Sound settings (speech volume, music / effects on or off)
+- Settings apply to the current visit only and reset when the app or website is closed (see section 2)
 - No progress reports (progress is not saved)
+- No screen-time or break reminder
 
 ---
 
-## 8. Accessibility
+## 7. Accessibility
 
 - Large touch targets suited to small fingers
 - High-contrast mode
@@ -184,14 +185,14 @@ Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
 
 ---
 
-## 9. Privacy and Safety
+## 8. Privacy and Safety
 
-The product must follow all applicable children's privacy and safety laws and
-store rules, including:
+The product is released in the United States only and must follow all applicable
+children's privacy and safety laws and store rules, including:
 
-- **COPPA** (United States – Children's Online Privacy Protection Act)
-- **GDPR / GDPR-K** (European Union) and **UK GDPR + Age Appropriate Design Code** (United Kingdom)
-- Other local equivalents in each country where it is released
+- **COPPA** (Children's Online Privacy Protection Act) and the FTC's COPPA Rule
+- US state privacy laws that cover children (e.g. California's CCPA/CPRA and similar state laws)
+- **ADA** accessibility expectations for the website (see section 7)
 - **Apple App Store Kids Category** rules and **Google Play Families Policy**
 
 Requirements that follow from this:
@@ -204,15 +205,15 @@ Requirements that follow from this:
 - No external links or social sharing for children; any link (e.g. privacy policy) sits behind the parental lock
 - No microphone or camera access
 - A clear, simple privacy policy for parents, published on the website and the app store listings
-- Website: no cookies other than strictly necessary ones (so no cookie banner is needed)
+- Website: no cookies and no browser storage
 
 ---
 
-## 10. Technical Requirements
+## 9. Technical Requirements
 
 - Same content and sections on the app and the website
-- Prefer one shared codebase for app and web (e.g. Flutter, or React Native + web) – to be decided
-- No backend database, user accounts or login; no progress stored on servers
+- **Flutter** – one shared codebase for the iOS app, Android app and website
+- No backend database, user accounts or login; nothing stored on servers or on the device
 - App works offline once installed
 - Runs smoothly on low-cost tablets and older phones; small download size
 - Works in portrait and landscape on phones and tablets
@@ -221,11 +222,15 @@ Requirements that follow from this:
 
 ---
 
-## 11. Business and Operations
+## 10. Business and Operations
 
 - Free to the user: no ads, no in-app purchases, no subscription
+- Release in the United States only (App Store and Google Play availability set to US)
 - Follow app store rules for kids' apps (Apple Kids Category, Google Play Families Policy)
-- Source of images and audio: create in-house, commission, or license – confirm the licence allows free distribution in an app and website
+- **Images:** free cartoon-style clip art; every image's licence must allow use in an app and website
+  (e.g. public domain / CC0, or a free licence that permits app use). Keep a record of each image's source
+  and licence, and give credit where the licence requires it (e.g. on a credits page behind the parental lock)
+- **Audio:** computer-generated female voice (see section 5)
 - Feedback channel for parents (e.g. a contact email shown behind the parental lock)
 - Running costs to plan for (paid by the owner, not the user):
   - Apple Developer Program (about US$99 per year)
@@ -234,26 +239,23 @@ Requirements that follow from this:
 
 ---
 
-## 12. Future Ideas (Not in Current Scope)
+## 11. Future Ideas (Not in Current Scope)
 
 These were considered and left out for now:
 
+- Activities and games: quizzes, matching pairs, sound to picture, counting, drag and drop, coloring pages
 - Additional learning sections: Body Parts, Family Members, Emotions, Opposites, Weather, Seasons,
   Months, Birds, Sea Creatures, Insects, Community Helpers, Food, Things Around the House
 - Child profiles and age-based levels
 - Saved progress, progress reports and sync across devices
 - Multiple languages and voices
+- Remembering parent settings between visits
+- Screen-time / break reminder
 
 ---
 
-## 13. Open Items / To Be Decided
+## 12. Open Items / To Be Decided
 
-- Should the parent's show/hide choices be remembered on the device between visits, or reset like everything else?
-- Technology stack for app and website
-- Art style and app character / mascot (and the app's name / logo)
-- Where images and audio will come from (create, commission or license); who records the female voice
-  or whether to use a text-to-speech voice
-- Which sections and games are in the first release vs. later releases
-- Countries to release in at launch
-- Whether the website should also work offline
-- Should the parent area include an optional screen-time / break reminder?
+- App character / mascot: wanted or not?
+- Which text-to-speech tool to use for the female voice
+- Which free clip-art source(s) to use

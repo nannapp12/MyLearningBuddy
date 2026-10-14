@@ -119,6 +119,31 @@ def cut_lead_in(samples, solo_length):
     raise ValueError("no pause after the lead-in")
 
 
+def drop_onset_hum(samples):
+    """Removes a hum of up to 80 ms before a "b", "d", "g" or "w" when a dip
+    follows it, since it can sound like a faint "uh"."""
+    n = len(samples) // FRAME
+    rms = np.sqrt(np.mean(samples[: n * FRAME].reshape(n, FRAME) ** 2, axis=1))
+    # One letter per 20 ms: " " silent, "." quiet, "v" loud.
+    shape = "".join(" " if r < 0.005 else "." if r < 0.035 else "v" for r in rms)
+    match = re.match(r" *\.?v{1,3}(?=[. ]{2})", shape)
+    cut = match.end() if match else None
+    if cut is None:
+        # Or: up to 3 frames of sound, a dip to under half that, then louder speech.
+        start = int(np.argmax(rms > 0.005))
+        for k in (1, 2, 3):
+            hum, dip, after = rms[start : start + k], rms[start + k : start + k + 2], rms[start + k + 2 : start + k + 6]
+            if len(after) and hum.max() >= 0.02 and dip.max() < 0.5 * hum.max() and after.max() > 2 * hum.max():
+                cut = start + k
+                break
+    if cut is None:
+        return samples
+    rest = samples[cut * FRAME :].copy()
+    fade = FRAME // 2  # 10 ms, so the cut does not click
+    rest[:fade] *= np.linspace(0, 1, fade, dtype=rest.dtype)
+    return rest
+
+
 def chime(rate=24000):
     """A short, bright three-note arpeggio (C6-E6-G6), made from sine waves."""
     notes, dur = [1046.5, 1318.5, 1568.0], 0.14
@@ -169,7 +194,7 @@ def main():
         for lead_in in LEAD_INS:
             samples, rate = tts.create(f"{lead_in} {spoken}", voice=args.voice, speed=args.speed, lang="en-us")
             try:
-                samples = cut_lead_in(samples, len(trim(solo)))
+                samples = drop_onset_hum(cut_lead_in(samples, len(trim(solo))))
                 break
             except ValueError:
                 continue

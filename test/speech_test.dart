@@ -18,8 +18,8 @@ void main() {
 
   test('speech rules', () {
     expect(clipName('Cow. Moo!'), 'cow_moo');
-    expect(Speech.trace('a'), 'Trace the small letter A.');
-    expect(Speech.trace('B'), 'Trace the big letter B.');
+    expect(Speech.trace('a'), 'Trace the letter A.');
+    expect(Speech.trace('B'), 'Trace the letter B.');
     expect(Speech.trace('12'), 'Trace the number 12.');
   });
 

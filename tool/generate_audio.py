@@ -57,9 +57,7 @@ def item_speech(item):
 def trace_speech(ch):
     if ch.isdigit():
         return f"Trace the number {ch}."
-    if ch == ch.upper():
-        return f"Trace the big letter {ch}."
-    return f"Trace the small letter {ch.upper()}."
+    return f"Trace the letter {ch.upper()}."
 
 
 def all_speech(content):

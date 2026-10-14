@@ -23,9 +23,8 @@ class Speech {
 
   static String trace(String character) {
     if (RegExp(r'^\d+$').hasMatch(character)) return 'Trace the number $character.';
-    if (character == character.toUpperCase()) return 'Trace the big letter $character.';
     // Written in capitals so the voice says the letter's name.
-    return 'Trace the small letter ${character.toUpperCase()}.';
+    return 'Trace the letter ${character.toUpperCase()}.';
   }
 
   /// Everything the app can say for [content].

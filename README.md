@@ -14,7 +14,7 @@ for the full product requirements.
   - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables (names only, no sounds)
 - Voice: every item, section name and "Great job!" is spoken in a slow, friendly female voice,
   plus a chime when a star is earned
-- Tracing: pick A–Z (then 1–10), a–z or 1–20, trace over a faint guide with crayon colours and two line
+- Tracing: pick A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
   widths, and move on with the next button
 - A home button on every screen returns to the main menu
 - Rewards: a star for finishing each section or tracing a character, with a "Great job!" celebration

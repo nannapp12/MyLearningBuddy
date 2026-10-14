@@ -107,8 +107,9 @@ Every learning section must, at minimum, support:
 
 ### 3.4 Tracing
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website
-- Traceable content: uppercase A–Z followed by numbers 1–10, lowercase a–z, numbers 1–20
-- A next button moves on to the next letter or number (after Z comes 1)
+- Traceable content: uppercase A–Z, lowercase a–z, numbers 1–20 (each in its own list)
+- A next button moves on to the next letter or number in the list
+- Voice prompt: "Trace the letter G." (no "big" or "small") or "Trace the number 7."
 - Tapping "Great job!" after tracing moves on to the next letter or number; after the last one it returns to the main menu
 - Dotted guide outline with stroke order and a start point
 - Detect whether the child stays roughly on the path; positive feedback (sound/animation) on completion

@@ -72,17 +72,19 @@ void main() {
     expect(find.text('Letters'), findsOneWidget);
   });
 
-  testWidgets('tracing moves on from Z to the number 1', (tester) async {
+  testWidgets('tracing next button moves on, and stops at Z', (tester) async {
     await pumpApp(tester);
     await tester.tap(find.text('Tracing'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Z'));
+    await tester.tap(find.text('Y'));
     await tester.pumpAndSettle();
-    expect(find.text('Trace Z'), findsOneWidget);
+    expect(audio.spoken.last, 'Trace the letter Y.');
     await tester.tap(find.byTooltip('Next'));
     await tester.pumpAndSettle();
-    expect(find.text('Trace 1'), findsOneWidget);
-    expect(audio.spoken.last, 'Trace the number 1.');
+    expect(find.text('Trace Z'), findsOneWidget);
+    expect(audio.spoken.last, 'Trace the letter Z.');
+    final next = tester.widget<IconButton>(find.widgetWithIcon(IconButton, Icons.arrow_forward_rounded));
+    expect(next.onPressed, isNull);
   });
 
   testWidgets('days of the week start on Monday with no "today"', (tester) async {
@@ -111,10 +113,10 @@ void main() {
     await traceAndFinish(tester);
     expect(find.text('Trace B'), findsOneWidget);
 
-    // The last item in the ABC list is 10.
+    // The last item in the ABC list is Z.
     await tester.tap(find.byTooltip('Back'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('10').first);
+    await tester.tap(find.text('Z'));
     await tester.pumpAndSettle();
     await traceAndFinish(tester);
     expect(find.text('Letters'), findsOneWidget);

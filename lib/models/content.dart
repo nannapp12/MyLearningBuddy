@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 /// How a category's items are presented.
-enum CategoryLayout { cards, groups, tracing, shapes, days, colors, pairs }
+enum CategoryLayout { cards, groups, tracing, shapes, days, colors, pairs, findit, pop }
 
 /// One thing a child can look at, e.g. a letter, a word or an animal.
 class LearningItem {

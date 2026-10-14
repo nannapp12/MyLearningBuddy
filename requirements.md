@@ -25,9 +25,9 @@ through pictures, sounds, touch and play.
 | Language | English only |
 | Child profiles | Not included |
 | Saving progress | Nothing is saved – every visit starts fresh (see section 2) |
-| Games | Not in the first release – learning sections only |
+| Games | Find It and Pop (see section 4a) |
 | Images | Free public-domain cartoon clip art (e.g. OpenClipart) |
-| Mascot | None |
+| Helper character | A friendly cartoon puppy that celebrates at the end of each section and game |
 | Release country | United States only |
 | Technology | Flutter |
 | Accounts / login | None |
@@ -152,7 +152,7 @@ Lion, Tiger, Elephant, Giraffe, Zebra, Monkey, Bear, Kangaroo, Hippopotamus, Cro
 - Audio: animal name only (no animal sounds)
 
 ### 3.9 Vehicles (10)
-Car, Bus, Truck, Bicycle, Motorcycle, Train, Airplane, Boat (Ship), Helicopter, Fire Truck
+Car, Bus, Truck, Bicycle, Motorcycle, Train, Airplane, Ship, Helicopter, Fire Truck
 - Bus: a yellow school bus
 - Train: side view showing the engine and its railcars
 - Audio: vehicle name only (no vehicle sounds)
@@ -210,14 +210,32 @@ Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Gro
 
 ## 4. Rewards and Motivation
 
-- Stars or stickers earned for viewing items in a section and completing tracing
-- Sticker book screen to view rewards earned during the current session
-- Progress badges per section (e.g. "Alphabet Star", "Number Champ")
-- Celebration animations and sounds on success
-- Finishing a section shows "Great job!" only after the voice has finished saying the last item, so the
-  child sees and hears it first; tapping "Great job!" returns to the main menu
+- Stars earned for finishing a section, a game and each traced letter
+- **Puppy:** at the end of every section (on its last card), the last tracing letter and every game, a
+  cartoon puppy hops around the screen, wags its tail and says "Woof woof! You did it!". It appears only
+  after the voice has finished the last item, so the child sees and hears it first. Tapping skips it
+- **Sticker reward:** after the puppy, a screen says "Great Job! Now pick your sticker" and offers up to
+  5 stickers (ones the child doesn't have yet first). Picking one returns to the main menu
+- **Sticker bar:** under the "My Learning Buddy" title on the home screen, showing the stickers collected
+  (newest first)
+- Celebration sounds (chime) on success
 - Encouraging (never negative) feedback when tracing goes off the path – e.g. "Try again!"
 - Rewards are **not saved**: they reset when the app or website is closed (see section 2)
+
+---
+
+## 4a. Games
+
+Shown as the first two tiles on the home screen; parents can hide them like any section.
+
+- **Find It:** the child picks a section with clear pictures (animals, fruits, shapes, colours …). The
+  voice asks "Can you find … Cow?" and shows 3 pictures. Right: the picture grows, shows its name and the
+  voice says "Yay! You found it!". Wrong: the picture shakes and the voice says "Try again!".
+  5 rounds, then the puppy and a sticker
+- **Pop:** the child picks ABC or 123. Balloons with letters (A–Z) or numbers (1–10) float up the screen;
+  the voice says "Pop the … B". Right: the balloon pops with a sound and a burst of colour. Wrong: it
+  wobbles and the voice says "Try again!". 5 rounds, then the puppy and a sticker
+- A speaker button repeats the question; stars at the top show the rounds done
 
 ---
 
@@ -319,7 +337,7 @@ Requirements that follow from this:
 
 These were considered and left out for now:
 
-- Activities and games: quizzes, matching pairs, sound to picture, counting, drag and drop, coloring pages
+- More games: matching pairs, sound to picture, counting, drag and drop, coloring pages
 - Additional learning section: Food
 - Child profiles and age-based levels
 - Saved progress, progress reports and sync across devices

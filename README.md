@@ -20,7 +20,10 @@ for the full product requirements.
 - Tracing: pick A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
   widths, and move on with the next button
 - A home button on every screen returns to the main menu
-- Rewards: a star for finishing each section or tracing a character, with a "Great job!" celebration
+- Games: **Find It** ("Can you find the cow?", 3 pictures) and **Pop** (pop the balloon with the letter
+  or number asked for), 5 rounds each
+- Rewards: at the end of each section, game and the last tracing letter, an animated puppy hops around
+  and cheers, then the child picks one of 5 stickers, shown in a sticker bar under the title
 - Parent area behind a simple sum: show/hide each section, speech and sound-effect switches
 - Nothing is saved: stars and settings reset when the app or web page is closed
 
@@ -31,7 +34,6 @@ for the full product requirements.
   drawings in `assets/images/`. (The emoji font, Noto Color Emoji under the SIL Open Font License, is served from
   `web/fonts/` so the website makes no requests to other servers.)
 - **Tracing:** stroke-order hints and checking that the child stayed on the path.
-- **Rewards:** sticker book and section badges.
 - **Accessibility:** high-contrast mode, dyslexia-friendly font, reduce-motion option.
 - App icons, store listings and the privacy policy.
 

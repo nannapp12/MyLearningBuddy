@@ -5,7 +5,10 @@ import '../state/app_state.dart';
 import '../widgets/category_icon.dart';
 import '../widgets/rainbow_title.dart';
 import '../widgets/star_badge.dart';
+import '../widgets/sticker_bar.dart';
+import 'find_it_screen.dart';
 import 'parent_area_screen.dart';
+import 'pop_screen.dart';
 import 'section_screen.dart';
 import 'tracing_screen.dart';
 
@@ -26,6 +29,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 72,
         title: const RainbowTitle('My Learning Buddy'),
+        bottom: const StickerBar(),
         actions: [
           const StarBadge(),
           IconButton(
@@ -42,7 +46,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisCount: (constraints.maxWidth / 220).floor().clamp(2, 6),
           mainAxisSpacing: 16,
           crossAxisSpacing: 16,
-          children: [for (final c in visible) _CategoryTile(category: c)],
+          children: [for (final c in visible) _CategoryTile(category: c, content: content)],
         ),
       ),
     );
@@ -50,14 +54,17 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _CategoryTile extends StatelessWidget {
-  const _CategoryTile({required this.category});
+  const _CategoryTile({required this.category, required this.content});
 
   final Category category;
+  final LearningContent content;
 
   void _open(BuildContext context) {
     final Widget screen = switch (category.layout) {
       CategoryLayout.groups => SectionScreen.groups(category),
       CategoryLayout.tracing => TracingPickerScreen(category: category),
+      CategoryLayout.findit => FindItScreen(game: category, content: content),
+      CategoryLayout.pop => PopScreen(game: category),
       _ => SectionScreen.items(category),
     };
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));

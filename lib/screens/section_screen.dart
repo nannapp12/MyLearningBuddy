@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
-import '../widgets/celebration.dart';
+import 'sticker_picker_screen.dart';
 import '../widgets/home_button.dart';
 import '../widgets/item_card.dart';
 import '../widgets/star_badge.dart';
@@ -66,6 +66,7 @@ class SectionScreen extends StatefulWidget {
 
 class _SectionScreenState extends State<SectionScreen> {
   late final PageController _controller;
+  bool _rewarding = false;
   int _page = 0;
 
   @override
@@ -100,11 +101,14 @@ class _SectionScreenState extends State<SectionScreen> {
         // In case the browser never reports the end of a clip.
         .timeout(Duration(seconds: 8) + (p.gap + const Duration(seconds: 2)) * texts.length, onTimeout: () => true);
     final isLast = page == widget.pages.length - 1;
-    if (!finished || !isLast || !mounted || _page != page) return;
+    if (!finished || !isLast || !mounted || _page != page || _rewarding) return;
     await Future<void>.delayed(const Duration(milliseconds: 400));
-    if (mounted && _page == page && _state.finish(widget.category.id)) {
-      showCelebration(context, goHome: true);
-    }
+    if (!mounted || _page != page || _rewarding) return;
+    // The puppy, then "Great Job! Now pick your sticker".
+    _rewarding = true;
+    _state.finish(widget.category.id);
+    await finishWithReward(context);
+    _rewarding = false;
   }
 
   void _go(int delta) =>

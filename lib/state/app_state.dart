@@ -13,10 +13,20 @@ class AppState extends ChangeNotifier {
   final Set<String> _hiddenCategoryIds = {};
   final Set<String> _finished = {};
   int _stars = 0;
+  final List<String> _stickers = [];
   bool _speechOn = true;
   bool _effectsOn = true;
 
   int get stars => _stars;
+
+  /// Stickers picked this session, oldest first.
+  List<String> get stickers => List.unmodifiable(_stickers);
+
+  void addSticker(String sticker) {
+    _stickers.add(sticker);
+    notifyListeners();
+  }
+
   bool get speechOn => _speechOn;
   bool get effectsOn => _effectsOn;
 
@@ -44,9 +54,15 @@ class AppState extends ChangeNotifier {
       _speechOn ? audio.speak(texts, gap: gap) : Future.value(true);
 
   /// Celebrates a finished section: chime (if effects are on) and "Great job!".
-  void celebrate(String message) {
+  /// The balloon pop sound, if effects are on.
+  void pop() {
+    if (_effectsOn) audio.pop();
+  }
+
+  /// Completes once [message] has been said (see [speak]).
+  Future<bool> celebrate(String message) {
     if (_effectsOn) audio.chime();
-    speak([message]);
+    return speak([message]);
   }
 
   @override

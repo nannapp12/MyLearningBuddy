@@ -4,6 +4,7 @@ import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
 import '../widgets/celebration.dart';
+import 'sticker_picker_screen.dart';
 import '../widgets/home_button.dart';
 import '../widgets/star_badge.dart';
 import '../widgets/label_grid.dart';
@@ -124,10 +125,14 @@ class _TracingScreenState extends State<TracingScreen> {
   Future<void> _done() async {
     final state = AppStateScope.of(context);
     final awarded = state.finish('tracing/$_character');
-    // Closing "Great job!" moves on to the next letter or number; after the
-    // last one it goes back to the main menu.
-    await showCelebration(context, message: awarded ? Speech.greatJob : Speech.wellDone, goHome: !_hasNext);
-    if (mounted && _hasNext) _next();
+    if (!_hasNext) {
+      // Last one: the puppy, then "Great Job! Now pick your sticker".
+      await finishWithReward(context);
+      return;
+    }
+    // Closing "Great job!" moves on to the next letter or number.
+    await showCelebration(context, message: awarded ? Speech.greatJob : Speech.wellDone);
+    if (mounted) _next();
   }
 
   @override

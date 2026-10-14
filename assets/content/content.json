@@ -1,6 +1,22 @@
 {
  "categories": [
   {
+   "id": "find_it",
+   "title": "Find It",
+   "emoji": "🔍",
+   "color": "#00897B",
+   "layout": "findit",
+   "items": []
+  },
+  {
+   "id": "pop",
+   "title": "Pop",
+   "emoji": "🎈",
+   "color": "#E91E63",
+   "layout": "pop",
+   "items": []
+  },
+  {
    "id": "letters",
    "title": "Letters",
    "emoji": "🔤",
@@ -1549,7 +1565,7 @@
      "emoji": "✈️"
     },
     {
-     "label": "Boat",
+     "label": "Ship",
      "emoji": "🚢"
     },
     {

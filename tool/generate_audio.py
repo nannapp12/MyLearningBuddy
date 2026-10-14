@@ -40,6 +40,16 @@ FRAME = 480  # 20 ms at 24 kHz
 
 GREAT_JOB = "Great job!"
 WELL_DONE = "Well done!"
+# Phrases used by the games and rewards (Speech.extras in lib/services/speech.dart).
+EXTRAS = [
+    "Great job! Now pick your sticker.",
+    "Woof woof! You did it!",
+    "Can you find",
+    "Pop the",
+    "Yay! You found it!",
+    "Try again!",
+]
+NUMBER_WORDS = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
 
 
 def clip_name(text):
@@ -78,7 +88,7 @@ def opposite_parts(content):
 
 
 def all_speech(content):
-    texts = [GREAT_JOB, WELL_DONE]
+    texts = [GREAT_JOB, WELL_DONE, *EXTRAS, *NUMBER_WORDS]
     for c in content["categories"]:
         texts.append(c["title"])
         texts += [item_speech(i) for i in c.get("items", [])]
@@ -177,6 +187,16 @@ def chime(rate=24000):
     return (0.35 * out / np.abs(out).max()).astype(np.float32)
 
 
+def pop_sound(rate=24000):
+    """A short balloon pop: a burst of noise that fades fast, with a falling 'thump'."""
+    rng = np.random.default_rng(7)
+    t = np.arange(int(rate * 0.18)) / rate
+    noise = rng.standard_normal(len(t)) * np.exp(-t * 60)
+    thump = np.sin(2 * np.pi * (220 - 600 * t) * t) * np.exp(-t * 25)
+    out = noise * 0.6 + thump * 0.8
+    return (0.6 * out / np.abs(out).max()).astype(np.float32)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--model", required=True)
@@ -196,6 +216,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "effects").mkdir(exist_ok=True)
     to_mp3(chime(), 24000, OUT / "effects" / "chime.mp3")
+    to_mp3(pop_sound(), 24000, OUT / "effects" / "pop.mp3")
 
     def record(text):
         """Records [text] without the extra "uh" at the start (see LEAD_INS)."""

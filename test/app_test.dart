@@ -30,28 +30,100 @@ void main() {
     }
   });
 
-  testWidgets('finishing a section awards a star', (tester) async {
+  testWidgets('finishing a section: puppy, then pick a sticker for the sticker bar', (tester) async {
     await pumpApp(tester);
     await tester.tap(find.text('Shapes'));
     await tester.pumpAndSettle();
     expect(find.text('Circle'), findsOneWidget);
 
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 8; i++) {
       await tester.tap(find.bySemanticsLabel('Next'));
       await tester.pumpAndSettle();
     }
+    await tester.tap(find.bySemanticsLabel('Next'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 360));
     expect(find.text('Hexagon'), findsOneWidget);
-    // "Great job!" follows a short pause after the last item is said.
+    // The puppy follows a short pause after the last item is said.
+    expect(find.text('Woof woof! You did it!'), findsNothing);
     await tester.pump(const Duration(seconds: 1));
+    await tester.pump(const Duration(seconds: 4));
+    expect(find.text('Woof woof! You did it!'), findsOneWidget);
     await tester.pumpAndSettle();
-    expect(find.text('Great job!'), findsOneWidget);
-    expect(audio.spoken, containsAllInOrder(['Shapes', 'Circle', 'Square', 'Hexagon', 'Great job!']));
 
-    // Tapping "Great job!" goes back to the main menu.
-    await tester.tap(find.text('Great job!'));
+    // Then "Great Job! Now pick your sticker" with five stickers.
+    expect(find.text('Now pick your sticker'), findsOneWidget);
+    expect(find.bySemanticsLabel('Sticker'), findsNWidgets(5));
+    expect(
+      audio.spoken,
+      containsAllInOrder([
+        'Shapes',
+        'Circle',
+        'Hexagon',
+        'Woof woof! You did it!',
+        'Great job! Now pick your sticker.',
+      ]),
+    );
+
+    // Picking one adds it to the sticker bar and goes back to the main menu.
+    await tester.tap(find.bySemanticsLabel('Sticker').first);
+    await tester.pump(const Duration(seconds: 2));
     await tester.pumpAndSettle();
-    expect(find.text('Hexagon'), findsNothing);
     expect(find.text('Letters'), findsOneWidget);
+    expect(find.text('Finish a section or game to win a sticker!'), findsNothing);
+  });
+
+  testWidgets('Find It: pick a section, find the right picture five times', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.text('Find It'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Fruits'));
+    await tester.pumpAndSettle();
+    final fruits = content.categories.firstWhere((c) => c.id == 'fruits').items;
+    for (var round = 0; round < 5; round++) {
+      // The voice asks "Can you find" + the fruit's name.
+      final asked = audio.spoken.last;
+      expect(audio.spoken[audio.spoken.length - 2], 'Can you find');
+      final answer = fruits.firstWhere((f) => f.label == asked);
+      if (round == 0) {
+        // A wrong picture says "Try again!".
+        final wrong = fruits.firstWhere((f) => f != answer && find.text(f.emoji!).evaluate().isNotEmpty);
+        await tester.tap(find.text(wrong.emoji!));
+        await tester.pump();
+        expect(audio.spoken.last, 'Try again!');
+      }
+      await tester.tap(find.text(answer.emoji!));
+      await tester.pumpAndSettle();
+    }
+    // After five rounds: the puppy, then the stickers.
+    expect(find.text('Now pick your sticker'), findsOneWidget);
+  });
+
+  testWidgets('Pop: pop the balloon the voice asks for', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.text('Pop'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('123'));
+    await tester.pump();
+    for (var round = 0; round < 5; round++) {
+      expect(audio.spoken[audio.spoken.length - 2], 'Pop the');
+      final names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
+      final number = names.indexOf(audio.spoken.last) + 1;
+      // Wait for the balloon to float into view.
+      final balloon = find.bySemanticsLabel('Balloon $number');
+      for (var i = 0; i < 100 && (balloon.evaluate().isEmpty || !_onScreen(tester, balloon)); i++) {
+        await tester.pump(const Duration(milliseconds: 200));
+      }
+      await tester.tap(balloon);
+      await tester.pump();
+      expect(audio.spoken.where((t) => t == 'Yay! You found it!').length, round + 1);
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 4));
+    expect(find.text('Woof woof! You did it!'), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(find.text('Now pick your sticker'), findsOneWidget);
   });
 
   testWidgets('"Great job!" waits until the last item has been said', (tester) async {
@@ -72,8 +144,8 @@ void main() {
 
     slow.finish();
     await tester.pump(const Duration(seconds: 1));
-    await tester.pumpAndSettle();
-    expect(find.text('Great job!'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 4));
+    expect(find.text('Woof woof! You did it!'), findsOneWidget);
   });
 
   testWidgets('words shows all five words for a letter on one card', (tester) async {
@@ -131,7 +203,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('tracing: Great job moves to the next letter, and home after the last', (tester) async {
+  testWidgets('tracing: Great job moves to the next letter; after the last, the puppy and stickers', (tester) async {
     await pumpApp(tester);
     await tester.tap(find.text('Tracing'));
     await tester.pumpAndSettle();
@@ -145,8 +217,11 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Z'));
     await tester.pumpAndSettle();
-    await traceAndFinish(tester);
-    expect(find.text('Letters'), findsOneWidget);
+    await tester.dragFrom(const Offset(600, 600), const Offset(100, 200));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Done'));
+    await tester.pumpAndSettle();
+    expect(find.text('Now pick your sticker'), findsOneWidget);
   });
 
   testWidgets('opposites show both words and say them', (tester) async {
@@ -209,5 +284,13 @@ class _ManualAudioService implements AudioService {
   void chime() {}
 
   @override
+  void pop() {}
+
+  @override
   void dispose() {}
+}
+
+bool _onScreen(WidgetTester tester, Finder finder) {
+  final r = tester.getRect(finder);
+  return r.top > 250 && r.bottom < 1850;
 }

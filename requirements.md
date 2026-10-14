@@ -94,7 +94,7 @@ subject needs more (letters, numbers, words, tracing and the 12 months).
 | F | Fish, Frog, Flower, Fan, Fork |
 | G | Goat, Grapes, Girl, Gift, Guitar |
 | H | Hat, House, Horse, Hen, Hand |
-| I | Ice cream, Igloo, Insect, Iron, Ink |
+| I | Ice cream, Ice Cube, Insect, Iron, Ink Pen |
 | J | Jug, Jam, Jeep, Jellyfish, Juice |
 | K | Kite, King, Key, Kangaroo, Kitten |
 | L | Lion, Lamp, Leaf, Lemon, Ladder |
@@ -113,6 +113,7 @@ subject needs more (letters, numbers, words, tracing and the 12 months).
 | Y | Yak, Yo-yo, Yarn, Yogurt, Yacht |
 | Z | Zebra, Zoo, Zip, Zero, Zigzag |
 
+- Any word still waiting for its picture shows an "Image to be added" placeholder
 - One card per letter showing all 5 words together; each word has a picture + text (with the target letter highlighted)
 - Tapping a word's picture says the word
 - Few kid-friendly words start with X, so Box, Fox and Six show X at the end of the word
@@ -135,6 +136,7 @@ Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond, Pentagon, Hexag
 ### 3.6 Days of the Week
 Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 - Show in order from Monday to Sunday, with no reference to today's date
+- Each day in its own colour
 - The section's tile shows a calendar page for January 1
 
 ### 3.7 Farm Animals (10)
@@ -176,7 +178,7 @@ Happy, Sad, Angry, Scared, Surprised, Sleepy, Silly, Excited, Calm, Worried
 Big / Small, Hot / Cold, Up / Down, Day / Night, Happy / Sad, Fast / Slow, Open / Closed,
 Loud / Quiet, Hard / Soft, Stop / Go
 - Both words on one card, side by side, each with a picture (e.g. a big elephant and a small mouse)
-- Audio: both words, e.g. "Big. Small."
+- Audio: both words with a clear pause (about 1 second) between them, e.g. "Big … Small."
 
 ### 3.17 Weather and Seasons (10)
 Weather: Sunny, Cloudy, Rainy, Snowy, Windy, Stormy. Seasons: Spring, Summer, Fall, Winter

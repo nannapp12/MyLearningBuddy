@@ -220,6 +220,8 @@ Requirements that follow from this:
 - Runs smoothly on low-cost tablets and older phones; small download size
 - Works in portrait and landscape on phones and tablets
 - Website works in modern desktop and mobile browsers
+- Website loads nothing from third-party servers (rendering engine, fonts and pictures are all served
+  from our own site), so no data about visitors reaches anyone else
 - Content (pictures, audio, word lists) stored as data files, not hard-coded, so it is easy to add more
 
 ---

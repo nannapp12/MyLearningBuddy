@@ -6,21 +6,17 @@ import 'shape_painter.dart';
 
 /// The large card showing a single item: picture, name and optional subtitle.
 class ItemCard extends StatelessWidget {
-  const ItemCard({super.key, required this.category, required this.item, this.isToday = false});
+  const ItemCard({super.key, required this.category, required this.item});
 
   final Category category;
   final LearningItem item;
-  final bool isToday;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Card(
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32),
-        side: isToday ? BorderSide(color: category.color, width: 8) : BorderSide.none,
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -34,14 +30,6 @@ class ItemCard extends StatelessWidget {
             ItemLabel(item: item, color: category.color),
             if (item.subtitle != null)
               Text(item.subtitle!, style: textTheme.headlineSmall?.copyWith(color: Colors.black54)),
-            if (isToday)
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Chip(
-                  label: Text('Today', style: textTheme.titleLarge?.copyWith(color: Colors.white)),
-                  backgroundColor: category.color,
-                ),
-              ),
           ],
         ),
       ),

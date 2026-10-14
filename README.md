@@ -10,7 +10,7 @@ for the full product requirements.
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
   - Letters (Aa–Zz, each a different colour); Numbers 1–20 with a different object to count each time ("seven strawberries")
   - Words: one card per letter showing all 5 words; tap a picture to hear it
-  - Shapes in different colours, Days of the Week (opens on today, marked "Today"), Colors (swatch + object)
+  - Shapes in different colours, Days of the Week (Monday to Sunday), Colors (swatch + object)
   - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables (names only, no sounds)
 - Voice: every item, section name and "Great job!" is spoken in a slow, friendly female voice,
   plus a chime when a star is earned

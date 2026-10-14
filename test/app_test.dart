@@ -85,6 +85,41 @@ void main() {
     expect(audio.spoken.last, 'Trace the number 1.');
   });
 
+  testWidgets('days of the week start on Monday with no "today"', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.text('Days of the Week'));
+    await tester.pumpAndSettle();
+    expect(find.text('Monday'), findsOneWidget);
+    expect(find.text('Today'), findsNothing);
+  });
+
+  Future<void> traceAndFinish(WidgetTester tester) async {
+    await tester.dragFrom(const Offset(600, 600), const Offset(100, 200));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Done'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Great job!'));
+    await tester.pumpAndSettle();
+  }
+
+  testWidgets('tracing: Great job moves to the next letter, and home after the last', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.text('Tracing'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('A'));
+    await tester.pumpAndSettle();
+    await traceAndFinish(tester);
+    expect(find.text('Trace B'), findsOneWidget);
+
+    // The last item in the ABC list is 10.
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('10').first);
+    await tester.pumpAndSettle();
+    await traceAndFinish(tester);
+    expect(find.text('Letters'), findsOneWidget);
+  });
+
   test('stars are awarded once per section', () {
     final state = AppState(audio: SilentAudioService());
     expect(state.finish('shapes'), isTrue);

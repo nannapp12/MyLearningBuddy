@@ -124,8 +124,10 @@ class _TracingScreenState extends State<TracingScreen> {
   Future<void> _done() async {
     final state = AppStateScope.of(context);
     final awarded = state.finish('tracing/$_character');
-    await showCelebration(context, message: awarded ? Speech.greatJob : Speech.wellDone);
-    if (mounted) setState(_strokes.clear);
+    // Closing "Great job!" moves on to the next letter or number; after the
+    // last one it goes back to the main menu.
+    await showCelebration(context, message: awarded ? Speech.greatJob : Speech.wellDone, goHome: !_hasNext);
+    if (mounted && _hasNext) _next();
   }
 
   @override

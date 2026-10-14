@@ -18,7 +18,6 @@ class LearningItem {
     this.countEmoji,
     this.shape,
     this.swatch,
-    this.weekday,
   });
 
   factory LearningItem.fromJson(Map<String, dynamic> json) => LearningItem(
@@ -33,7 +32,6 @@ class LearningItem {
     countEmoji: json['countEmoji'] as String?,
     shape: json['shape'] as String?,
     swatch: json['swatch'] == null ? null : parseHexColor(json['swatch'] as String),
-    weekday: json['weekday'] as int?,
   );
 
   final String label;
@@ -59,9 +57,6 @@ class LearningItem {
   final String? countEmoji;
   final String? shape;
   final Color? swatch;
-
-  /// [DateTime.weekday] value (1 = Monday, 7 = Sunday).
-  final int? weekday;
 }
 
 /// A named set of items within a category, e.g. the words for "A".

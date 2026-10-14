@@ -11,11 +11,10 @@ import '../widgets/word_group_card.dart';
 
 /// One page of a section: what to show and what to say.
 class SectionPage {
-  const SectionPage({required this.child, required this.speech, this.isToday = false});
+  const SectionPage({required this.child, required this.speech});
 
   final Widget child;
   final String speech;
-  final bool isToday;
 }
 
 /// Shows a section's pages one at a time, with swipe and big next/previous buttons.
@@ -24,15 +23,13 @@ class SectionScreen extends StatefulWidget {
 
   /// A page per item, e.g. one animal per page.
   factory SectionScreen.items(Category category) {
-    final today = DateTime.now().weekday;
     return SectionScreen(
       category: category,
       pages: [
         for (final item in category.items)
           SectionPage(
             speech: Speech.item(item),
-            isToday: item.weekday == today,
-            child: ItemCard(category: category, item: item, isToday: item.weekday == today),
+            child: ItemCard(category: category, item: item),
           ),
       ],
     );
@@ -59,14 +56,12 @@ class SectionScreen extends StatefulWidget {
 
 class _SectionScreenState extends State<SectionScreen> {
   late final PageController _controller;
-  late int _page;
+  int _page = 0;
 
   @override
   void initState() {
     super.initState();
-    final todayIndex = widget.pages.indexWhere((p) => p.isToday);
-    _page = todayIndex < 0 ? 0 : todayIndex;
-    _controller = PageController(initialPage: _page);
+    _controller = PageController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) _state.speak([Speech.category(widget.category), widget.pages[_page].speech]);
     });

@@ -1399,32 +1399,25 @@
    "layout": "days",
    "items": [
     {
-     "label": "Sunday",
-     "weekday": 7
+     "label": "Monday"
     },
     {
-     "label": "Monday",
-     "weekday": 1
+     "label": "Tuesday"
     },
     {
-     "label": "Tuesday",
-     "weekday": 2
+     "label": "Wednesday"
     },
     {
-     "label": "Wednesday",
-     "weekday": 3
+     "label": "Thursday"
     },
     {
-     "label": "Thursday",
-     "weekday": 4
+     "label": "Friday"
     },
     {
-     "label": "Friday",
-     "weekday": 5
+     "label": "Saturday"
     },
     {
-     "label": "Saturday",
-     "weekday": 6
+     "label": "Sunday"
     }
    ]
   },

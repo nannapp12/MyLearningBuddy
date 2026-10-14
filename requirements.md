@@ -109,6 +109,7 @@ Every learning section must, at minimum, support:
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website
 - Traceable content: uppercase A–Z followed by numbers 1–10, lowercase a–z, numbers 1–20
 - A next button moves on to the next letter or number (after Z comes 1)
+- Tapping "Great job!" after tracing moves on to the next letter or number; after the last one it returns to the main menu
 - Dotted guide outline with stroke order and a start point
 - Detect whether the child stays roughly on the path; positive feedback (sound/animation) on completion
 - "Clear" / "Try again" button
@@ -119,8 +120,8 @@ Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond, Pentagon, Hexag
 - Each shape in a different colour
 
 ### 3.6 Days of the Week
-Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-- Show in order; highlight "today"
+Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+- Show in order from Monday to Sunday, with no reference to today's date
 
 ### 3.7 Farm Animals (10)
 Cow, Horse, Pig, Sheep, Goat, Chicken (Hen), Duck, Dog, Cat, Donkey

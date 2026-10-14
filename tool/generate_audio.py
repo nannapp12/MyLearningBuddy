@@ -187,6 +187,35 @@ def chime(rate=24000):
     return (0.35 * out / np.abs(out).max()).astype(np.float32)
 
 
+def pop_sound(rate=24000):
+    """A short, soft 'pop' for taps: a quick burst of noise with a falling 'thump'."""
+    rng = np.random.default_rng(7)
+    t = np.arange(int(rate * 0.12)) / rate
+    noise = rng.standard_normal(len(t)) * np.exp(-t * 80)
+    thump = np.sin(2 * np.pi * (500 - 1800 * t) * t) * np.exp(-t * 35)
+    out = noise * 0.35 + thump
+    return (0.5 * out / np.abs(out).max()).astype(np.float32)
+
+
+def clap_sound(rate=24000):
+    """About two seconds of happy clapping: many short, slightly random hand claps."""
+    rng = np.random.default_rng(11)
+    out = np.zeros(int(rate * 2.2), dtype=np.float32)
+    for start in np.cumsum(rng.uniform(0.09, 0.2, 40)):
+        if start > 2.0:
+            break
+        n = int(rate * 0.06)
+        t = np.arange(n) / rate
+        burst = rng.standard_normal(n) * np.exp(-t * rng.uniform(55, 90))
+        # A clap is mostly mid/high frequencies: remove the low rumble.
+        burst = np.diff(burst, prepend=0) * rng.uniform(0.6, 1.0)
+        i = int(start * rate)
+        out[i : i + n] += burst[: len(out) - i]
+    fade = np.linspace(1, 0, int(rate * 0.4))
+    out[-len(fade) :] *= fade
+    return (0.45 * out / np.abs(out).max()).astype(np.float32)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--model", required=True)
@@ -206,6 +235,8 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "effects").mkdir(exist_ok=True)
     to_mp3(chime(), 24000, OUT / "effects" / "chime.mp3")
+    to_mp3(pop_sound(), 24000, OUT / "effects" / "pop.mp3")
+    to_mp3(clap_sound(), 24000, OUT / "effects" / "clap.mp3")
 
     def record(text):
         """Records [text] without the extra "uh" at the start (see LEAD_INS)."""

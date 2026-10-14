@@ -29,7 +29,10 @@ class DifficultyBar extends StatelessWidget {
                   difficulty: d,
                   color: _colors[d]!,
                   selected: state.difficulty == d,
-                  onTap: () => state.difficulty = d,
+                  onTap: () {
+                    state.pop();
+                    state.difficulty = d;
+                  },
                 ),
               ),
             ),

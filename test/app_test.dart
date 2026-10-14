@@ -7,6 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:my_learning_buddy/main.dart';
 import 'package:my_learning_buddy/models/content.dart';
 import 'package:my_learning_buddy/screens/parent_area_screen.dart';
+import 'package:my_learning_buddy/screens/sticker_picker_screen.dart';
 import 'package:my_learning_buddy/services/audio_service.dart';
 import 'package:my_learning_buddy/state/app_state.dart';
 
@@ -51,8 +52,10 @@ void main() {
     expect(find.text('Woof woof! You did it!'), findsOneWidget);
     await tester.pumpAndSettle();
 
-    // Then "Great Job! Now pick your sticker" with five stickers.
+    // Then "Great Job! Now pick your sticker" with five stickers, clapping and confetti.
     expect(find.text('Now pick your sticker'), findsOneWidget);
+    expect(audio.effects, contains('clap'));
+    expect(find.text('👏'), findsNWidgets(2));
     expect(find.bySemanticsLabel('Sticker'), findsNWidgets(5));
     expect(
       audio.spoken,
@@ -207,6 +210,16 @@ void main() {
     expect(audio.spoken, ['Opposites', 'Big. Small.']);
   });
 
+  testWidgets('taps on the main menu make a pop sound', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.bySemanticsLabel('Easy'));
+    await tester.pump();
+    expect(audio.effects, ['pop']);
+    await tester.tap(find.text('Shapes'));
+    await tester.pumpAndSettle();
+    expect(audio.effects, ['pop', 'pop']);
+  });
+
   testWidgets('Easy shows the first 5 items, Medium 8, Hard all; one mode at a time', (tester) async {
     await pumpApp(tester);
     Future<String> countIn(String section) async {
@@ -274,6 +287,35 @@ void main() {
     await tester.pumpAndSettle();
   });
 
+  testWidgets('tapping the puppy title goes to the main menu, where the puppy says "This is fun!"', (tester) async {
+    tester.view.physicalSize = const Size(1200, 2000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    audio = SilentAudioService();
+    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: audio));
+    await tester.pumpAndSettle(); // the "Hi! How are you?" puppy
+
+    // On the main menu: the puppy says "This is fun!".
+    await tester.tap(find.bySemanticsLabel('My Learning Buddy'));
+    await tester.pump();
+    expect(audio.spoken.last, 'This is fun!');
+    await tester.pumpAndSettle();
+
+    // From the sticker screen (which shows the title): back to the main menu.
+    await tester.tap(find.text('Shapes'));
+    await tester.pumpAndSettle();
+    final navigator = tester.state<NavigatorState>(find.byType(Navigator));
+    navigator.push(MaterialPageRoute<void>(builder: (_) => const StickerPickerScreen()));
+    await tester.pumpAndSettle();
+    await tester.tap(find.bySemanticsLabel('My Learning Buddy'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.text('Shapes'), findsOneWidget); // the main menu tile
+    expect(find.text('Circle'), findsNothing);
+    expect(audio.spoken.last, 'This is fun!');
+    await tester.pumpAndSettle();
+  });
+
   test('stars are awarded once per section', () {
     final state = AppState(audio: SilentAudioService());
     expect(state.finish('shapes'), isTrue);
@@ -322,6 +364,12 @@ class _ManualAudioService implements AudioService {
 
   @override
   void chime() {}
+
+  @override
+  void pop() {}
+
+  @override
+  void clap() {}
 
   @override
   void dispose() {}

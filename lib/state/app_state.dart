@@ -83,6 +83,16 @@ class AppState extends ChangeNotifier {
       _speechOn ? audio.speak(texts, gap: gap) : Future.value(true);
 
   /// Celebrates a finished section: chime (if effects are on) and "Great job!".
+  /// A soft pop for taps, if sound effects are on.
+  void pop() {
+    if (_effectsOn) audio.pop();
+  }
+
+  /// Happy clapping, if sound effects are on.
+  void clap() {
+    if (_effectsOn) audio.clap();
+  }
+
   /// Completes once [message] has been said (see [speak]).
   Future<bool> celebrate(String message) {
     if (_effectsOn) audio.chime();

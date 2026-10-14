@@ -17,6 +17,12 @@ abstract class AudioService {
   /// Plays the short "you earned a star" chime.
   void chime();
 
+  /// Plays a soft pop, for taps on the main menu.
+  void pop();
+
+  /// Plays happy clapping.
+  void clap();
+
   void dispose() {}
 }
 
@@ -67,6 +73,16 @@ class ClipAudioService implements AudioService {
   }
 
   @override
+  void pop() => _effect('pop');
+
+  @override
+  void clap() => _effect('clap');
+
+  void _effect(String name) => _effects
+      .play(AssetSource('audio/effects/$name.mp3'))
+      .catchError((Object e) => debugPrint('Could not play $name: $e'));
+
+  @override
   void chime() => _effects.play(AssetSource('audio/effects/chime.mp3')).catchError((Object e) {
     debugPrint('Could not play chime: $e');
   });
@@ -84,6 +100,7 @@ class ClipAudioService implements AudioService {
 /// Plays nothing; used in tests.
 class SilentAudioService implements AudioService {
   final List<String> spoken = [];
+  final List<String> effects = [];
 
   @override
   Future<bool> speak(List<String> texts, {Duration gap = Duration.zero}) {
@@ -93,6 +110,12 @@ class SilentAudioService implements AudioService {
 
   @override
   void chime() {}
+
+  @override
+  void pop() => effects.add('pop');
+
+  @override
+  void clap() => effects.add('clap');
 
   @override
   void dispose() {}

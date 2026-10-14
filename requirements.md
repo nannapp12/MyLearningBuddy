@@ -48,7 +48,9 @@ Every learning section must, at minimum, support:
 
 - Title "My Learning Buddy" in big, bold letters, each letter a different colour, in the Fredoka font
   (free, SIL Open Font License, bundled with the app)
-- The puppy next to the title
+- The puppy next to the title. Tapping the puppy or the title (on any screen that shows it) goes to the
+  main menu, where the puppy hops in and says "This is fun!"
+- A soft pop sound for taps on the main menu (section tiles, mode buttons, title)
 - Sticker bar under the title, then three mode buttons – **Easy**, **Medium**, **Hard** – only one can be
   picked (default Hard, resets when the app is closed):
   - Easy: each section shows only its first 5 items (e.g. letters A–E, Words A–E, tracing A–E)
@@ -231,10 +233,12 @@ Please and thank you · Good Morning · Good night · See you later
   cartoon puppy hops around the screen, wags its tail and says "Woof woof! You did it!". It appears only
   after the voice has finished the last item, so the child sees and hears it first. Tapping skips it
 - **Sticker reward:** after the puppy, a screen says "Great Job! Now pick your sticker" and offers up to
-  5 stickers (ones the child doesn't have yet first). Picking one returns to the main menu
+  5 stickers (ones the child doesn't have yet first). It opens with falling confetti, clapping hands
+  beside "Great Job!" and a clapping sound, then the voice. Picking one returns to the main menu
 - **Sticker bar:** under the "My Learning Buddy" title on the home screen, showing the stickers collected
   (newest first)
-- Celebration sounds (chime) on success
+- Celebration sounds (chime) on success; sound effects (pop, clapping, chime) are made by the project's
+  own script, so there are no licensing questions
 - Encouraging (never negative) feedback when tracing goes off the path – e.g. "Try again!"
 - Rewards are **not saved**: they reset when the app or website is closed (see section 2)
 

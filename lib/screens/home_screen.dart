@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
+import '../widgets/app_title.dart';
 import '../widgets/category_icon.dart';
 import '../widgets/difficulty_bar.dart';
 import '../widgets/puppy.dart';
-import '../widgets/rainbow_title.dart';
 import '../widgets/star_badge.dart';
 import '../widgets/sticker_bar.dart';
 import 'find_it_screen.dart';
@@ -59,8 +59,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   }
 
   @override
-  void didPopNext() {
-    // Back on the main menu.
+  void didPopNext() => _thisIsFun(); // back on the main menu
+
+  void _thisIsFun() {
     if (widget.puppyGreetings) showPuppy(context, message: Speech.thisIsFun, short: true);
   }
 
@@ -74,12 +75,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 72,
-        title: const Row(
-          children: [
-            Puppy(size: 56),
-            SizedBox(width: 4),
-            Flexible(child: RainbowTitle('My Learning Buddy')),
-          ],
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: AppTitle(onTapOnHome: _thisIsFun),
         ),
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(64 + DifficultyBar.height),
@@ -115,7 +113,7 @@ class _CategoryTile extends StatelessWidget {
   final LearningContent content;
 
   void _open(BuildContext context) {
-    final state = AppStateScope.of(context);
+    final state = AppStateScope.of(context)..pop();
     final Widget screen = switch (category.layout) {
       CategoryLayout.groups => SectionScreen.groups(category, groups: state.limited(category.groups)),
       CategoryLayout.tracing => TracingPickerScreen(category: category),

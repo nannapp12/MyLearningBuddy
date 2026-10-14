@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'models/content.dart';
 import 'screens/home_screen.dart';
+import 'services/audio_service.dart';
 import 'state/app_state.dart';
 
 Future<void> main() async {
@@ -12,9 +13,12 @@ Future<void> main() async {
 }
 
 class MyLearningBuddyApp extends StatefulWidget {
-  const MyLearningBuddyApp({super.key, required this.content});
+  const MyLearningBuddyApp({super.key, required this.content, this.audio});
 
   final LearningContent content;
+
+  /// Defaults to playing the bundled clips; tests pass a silent one.
+  final AudioService? audio;
 
   @override
   State<MyLearningBuddyApp> createState() => _MyLearningBuddyAppState();
@@ -22,7 +26,7 @@ class MyLearningBuddyApp extends StatefulWidget {
 
 class _MyLearningBuddyAppState extends State<MyLearningBuddyApp> {
   // In memory only: a fresh state every time the app starts.
-  final _state = AppState();
+  late final _state = AppState(audio: widget.audio);
 
   @override
   void dispose() {

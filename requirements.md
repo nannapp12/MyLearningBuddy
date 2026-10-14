@@ -63,8 +63,9 @@ Every learning section must, at minimum, support:
 
 ### 3.2 Numbers (1–20)
 - 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-- Show the numeral, the number word (e.g. "seven") and a matching count of objects
-- Audio: number name
+- Show the numeral, the number word and a matching count of objects
+- Use a different everyday object for each number, named on screen and aloud (e.g. "7 – seven strawberries")
+- Audio: number name, then the count (e.g. "Seven. Seven strawberries.")
 
 ### 3.3 Words (5 per letter)
 
@@ -97,7 +98,8 @@ Every learning section must, at minimum, support:
 | Y | Yak, Yo-yo, Yarn, Yogurt, Yacht |
 | Z | Zebra, Zoo, Zip, Zero, Zigzag |
 
-- Each word: picture + text (with the target letter highlighted) + audio
+- One card per letter showing all 5 words together; each word has a picture + text (with the target letter highlighted)
+- Tapping a word's picture says the word
 - Few kid-friendly words start with X, so Box, Fox and Six show X at the end of the word
 
 ### 3.4 Tracing
@@ -110,6 +112,7 @@ Every learning section must, at minimum, support:
 
 ### 3.5 Shapes (10)
 Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond, Pentagon, Hexagon
+- Each shape in a different colour
 
 ### 3.6 Days of the Week
 Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
@@ -117,14 +120,18 @@ Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 
 ### 3.7 Farm Animals (10)
 Cow, Horse, Pig, Sheep, Goat, Chicken (Hen), Duck, Dog, Cat, Donkey
+- Show the whole animal, not just its head
 - Audio: animal name + animal sound
 
 ### 3.8 Wild Animals (10)
 Lion, Tiger, Elephant, Giraffe, Zebra, Monkey, Bear, Kangaroo, Hippopotamus, Crocodile
+- Show the whole animal, not just its head
 - Audio: animal name + animal sound
 
 ### 3.9 Vehicles (10)
 Car, Bus, Truck, Bicycle, Motorcycle, Train, Airplane, Boat (Ship), Helicopter, Fire Truck
+- Bus: a yellow school bus
+- Train: side view showing the engine and its railcars
 - Audio: vehicle name + vehicle sound
 
 ### 3.10 Fruits (10)
@@ -156,8 +163,8 @@ Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
 - **Language:** English (US)
 - Audio clips are generated ahead of time and bundled with the app/website, so the voice sounds the same
   on every device, works offline and sends no data to any speech service while the child uses the app
-- Use a **free** text-to-speech tool whose terms allow the generated audio to be used in a free app and website
-- The owner approves a sample of the voice before all audio clips are generated
+- Tool: **Kokoro-82M** (free, Apache-2.0 licence), voice "Heart" (`af_heart`) – approved by the owner
+- Spoken slowly (0.75 speed) so it is easy for young children to follow
 - Letter names **and** letter sounds (phonics)
 - Captions: the text of what is spoken is always shown on screen
 - Separate volume / mute controls for speech and for music and sound effects
@@ -261,5 +268,5 @@ These were considered and left out for now:
 
 ## 12. Open Items / To Be Decided
 
-None – all requirements decisions are made. Remaining choices (exact text-to-speech tool and
-individual clip-art images) are made during building, within the rules above.
+None – all requirements decisions are made. Individual clip-art images are chosen during building,
+within the rules above.

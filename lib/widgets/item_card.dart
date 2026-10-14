@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../models/content.dart';
 import 'shape_painter.dart';
@@ -26,11 +27,11 @@ class ItemCard extends StatelessWidget {
           children: [
             Expanded(
               child: Center(
-                child: _Picture(category: category, item: item),
+                child: ItemPicture(category: category, item: item),
               ),
             ),
             const SizedBox(height: 16),
-            _Label(item: item, color: category.color),
+            ItemLabel(item: item, color: category.color),
             if (item.subtitle != null)
               Text(item.subtitle!, style: textTheme.headlineSmall?.copyWith(color: Colors.black54)),
             if (isToday)
@@ -48,8 +49,9 @@ class ItemCard extends StatelessWidget {
   }
 }
 
-class _Picture extends StatelessWidget {
-  const _Picture({required this.category, required this.item});
+/// The item's picture: a shape, colour swatch, objects to count, emoji or letter.
+class ItemPicture extends StatelessWidget {
+  const ItemPicture({super.key, required this.category, required this.item});
 
   final Category category;
   final LearningItem item;
@@ -57,7 +59,10 @@ class _Picture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (item.shape != null) {
-      return AspectRatio(aspectRatio: 1, child: CustomPaint(painter: ShapePainter(item.shape!, category.color)));
+      return AspectRatio(
+        aspectRatio: 1,
+        child: CustomPaint(painter: ShapePainter(item.shape!, item.color ?? category.color)),
+      );
     }
     if (item.swatch != null) {
       return Row(
@@ -94,6 +99,13 @@ class _Picture extends StatelessWidget {
         ),
       );
     }
+    if (item.image != null) {
+      return FractionallySizedBox(
+        widthFactor: 0.9,
+        heightFactor: 0.9,
+        child: SvgPicture.asset(item.image!, fit: BoxFit.contain, semanticsLabel: item.label),
+      );
+    }
     if (item.emoji != null) return _Emoji(item.emoji!);
     // No picture yet: show the item's first letter (or the item itself, e.g. "Aa").
     final text = item.label.length <= 2 ? item.label : item.label[0];
@@ -116,8 +128,8 @@ class _Emoji extends StatelessWidget {
 }
 
 /// The item's name, with the [LearningItem.highlight] letter coloured.
-class _Label extends StatelessWidget {
-  const _Label({required this.item, required this.color});
+class ItemLabel extends StatelessWidget {
+  const ItemLabel({super.key, required this.item, required this.color});
 
   final LearningItem item;
   final Color color;

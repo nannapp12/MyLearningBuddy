@@ -8,9 +8,12 @@ for the full product requirements.
 
 - Home screen with the 12 learning sections as big picture tiles
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
-  - Letters (Aa–Zz), Numbers 1–20 with objects to count, Words (5 per letter, target letter highlighted)
-  - Shapes (drawn in code), Days of the Week (opens on today, marked "Today"), Colors (swatch + object)
-  - Farm Animals, Wild Animals, Vehicles, Fruits, Vegetables
+  - Letters (Aa–Zz); Numbers 1–20 with a different object to count each time ("seven strawberries")
+  - Words: one card per letter showing all 5 words; tap a picture to hear it
+  - Shapes in different colours, Days of the Week (opens on today, marked "Today"), Colors (swatch + object)
+  - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables
+- Voice: every item, section name and "Great job!" is spoken in a slow, friendly female voice,
+  plus a chime when a star is earned
 - Tracing: pick A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line widths
 - Rewards: a star for finishing each section or tracing a character, with a "Great job!" celebration
 - Parent area behind a simple sum: show/hide each section, speech and sound-effect switches
@@ -18,11 +21,10 @@ for the full product requirements.
 
 ## Not done yet
 
-- **Pictures:** emoji are temporary placeholders. They will be replaced with free public-domain
-  cartoon clip art. (The emoji font, Noto Color Emoji under the SIL Open Font License, is served from
+- **Pictures:** most pictures are emoji placeholders; the lion, zebra, bear, school bus and
+  cauliflower are our own drawings in `assets/images/`. Some words (e.g. Igloo, Zoo) still show only
+  their letter. (The emoji font, Noto Color Emoji under the SIL Open Font License, is served from
   `web/fonts/` so the website makes no requests to other servers.)
-- **Audio:** `lib/services/audio_service.dart` is a stub. Pre-generated clips from a free
-  text-to-speech tool (female, US English) still need to be made and bundled.
 - **Tracing:** stroke-order hints and checking that the child stayed on the path.
 - **Rewards:** sticker book and section badges.
 - **Accessibility:** high-contrast mode, dyslexia-friendly font, reduce-motion option.
@@ -37,7 +39,11 @@ for the full product requirements.
 | `lib/state/app_state.dart` | In-memory stars and parent settings |
 | `lib/screens/` | Home, section viewer, word/tracing pickers, tracing canvas, parent area |
 | `lib/widgets/` | Item card, shapes, star counter, celebration popup |
-| `test/` | Content checks and widget tests |
+| `assets/audio/` | Voice clips (one per sentence) and sound effects |
+| `assets/images/` | SVG pictures drawn for the app |
+| `lib/services/speech.dart` | What the app says aloud |
+| `tool/generate_audio.py` | Makes the voice clips (see below) |
+| `test/` | Content, speech and widget tests |
 
 ## Running it
 
@@ -49,6 +55,17 @@ flutter test                 # run the tests
 flutter run -d chrome        # run the website locally
 flutter run                  # run on a connected phone/tablet or emulator
 ```
+
+## Voice clips
+
+The voice is **Kokoro-82M** (free, Apache-2.0 licence), voice `af_heart` (US English, female),
+at 0.75 speed so it is easy for young children to follow. Clips are made ahead of time and
+bundled, so the app works offline and sends nothing to a speech service.
+
+After changing `content.json`, run `tool/generate_audio.py` (setup steps are at the top of the
+script) to make clips for any new sentences. `flutter test` fails if a clip is missing.
+
+## Building
 
 Build the website so it loads nothing from outside servers:
 

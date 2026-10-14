@@ -6,16 +6,20 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:my_learning_buddy/main.dart';
 import 'package:my_learning_buddy/models/content.dart';
 import 'package:my_learning_buddy/screens/parent_area_screen.dart';
+import 'package:my_learning_buddy/services/audio_service.dart';
 import 'package:my_learning_buddy/state/app_state.dart';
 
 void main() {
   final content = LearningContent.fromJsonString(File('assets/content/content.json').readAsStringSync());
 
+  late SilentAudioService audio;
+
   Future<void> pumpApp(WidgetTester tester) async {
     tester.view.physicalSize = const Size(1200, 2000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
-    await tester.pumpWidget(MyLearningBuddyApp(content: content));
+    audio = SilentAudioService();
+    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: audio));
   }
 
   testWidgets('home screen shows all sections', (tester) async {
@@ -37,17 +41,29 @@ void main() {
     }
     expect(find.text('Hexagon'), findsOneWidget);
     expect(find.text('Great job!'), findsOneWidget);
+    expect(audio.spoken, containsAllInOrder(['Shapes', 'Circle', 'Square', 'Hexagon', 'Great job!']));
+  });
+
+  testWidgets('words shows all five words for a letter on one card', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.text('Words'));
+    await tester.pumpAndSettle();
+    for (final word in ['Apple', 'Ant', 'Airplane', 'Alligator', 'Arrow']) {
+      expect(find.byWidgetPredicate((w) => w is RichText && w.text.toPlainText() == word), findsOneWidget);
+    }
+    await tester.tap(find.byWidgetPredicate((w) => w is RichText && w.text.toPlainText() == 'Ant'));
+    expect(audio.spoken, ['Words', 'A', 'Ant']);
   });
 
   test('stars are awarded once per section', () {
-    final state = AppState();
+    final state = AppState(audio: SilentAudioService());
     expect(state.finish('shapes'), isTrue);
     expect(state.finish('shapes'), isFalse);
     expect(state.stars, 1);
   });
 
   testWidgets('parent area is locked and can hide a section', (tester) async {
-    final state = AppState();
+    final state = AppState(audio: SilentAudioService());
     // With a fixed seed the sum is predictable: read it from the screen.
     await tester.pumpWidget(
       AppStateScope(

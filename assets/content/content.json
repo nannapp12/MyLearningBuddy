@@ -122,143 +122,143 @@
    "items": [
     {
      "label": "1",
-     "subtitle": "one",
+     "subtitle": "one sun",
      "count": 1,
-     "countEmoji": "🍎",
-     "speak": "one"
+     "countEmoji": "☀️",
+     "speak": "One. One sun."
     },
     {
      "label": "2",
-     "subtitle": "two",
+     "subtitle": "two ducks",
      "count": 2,
-     "countEmoji": "🍎",
-     "speak": "two"
+     "countEmoji": "🦆",
+     "speak": "Two. Two ducks."
     },
     {
      "label": "3",
-     "subtitle": "three",
+     "subtitle": "three bananas",
      "count": 3,
-     "countEmoji": "🍎",
-     "speak": "three"
+     "countEmoji": "🍌",
+     "speak": "Three. Three bananas."
     },
     {
      "label": "4",
-     "subtitle": "four",
+     "subtitle": "four stars",
      "count": 4,
-     "countEmoji": "🍎",
-     "speak": "four"
+     "countEmoji": "⭐",
+     "speak": "Four. Four stars."
     },
     {
      "label": "5",
-     "subtitle": "five",
+     "subtitle": "five balloons",
      "count": 5,
-     "countEmoji": "🍎",
-     "speak": "five"
+     "countEmoji": "🎈",
+     "speak": "Five. Five balloons."
     },
     {
      "label": "6",
-     "subtitle": "six",
+     "subtitle": "six fish",
      "count": 6,
-     "countEmoji": "🍎",
-     "speak": "six"
+     "countEmoji": "🐟",
+     "speak": "Six. Six fish."
     },
     {
      "label": "7",
-     "subtitle": "seven",
+     "subtitle": "seven strawberries",
      "count": 7,
-     "countEmoji": "🍎",
-     "speak": "seven"
+     "countEmoji": "🍓",
+     "speak": "Seven. Seven strawberries."
     },
     {
      "label": "8",
-     "subtitle": "eight",
+     "subtitle": "eight cars",
      "count": 8,
-     "countEmoji": "🍎",
-     "speak": "eight"
+     "countEmoji": "🚗",
+     "speak": "Eight. Eight cars."
     },
     {
      "label": "9",
-     "subtitle": "nine",
+     "subtitle": "nine flowers",
      "count": 9,
-     "countEmoji": "🍎",
-     "speak": "nine"
+     "countEmoji": "🌸",
+     "speak": "Nine. Nine flowers."
     },
     {
      "label": "10",
-     "subtitle": "ten",
+     "subtitle": "ten apples",
      "count": 10,
      "countEmoji": "🍎",
-     "speak": "ten"
+     "speak": "Ten. Ten apples."
     },
     {
      "label": "11",
-     "subtitle": "eleven",
+     "subtitle": "eleven balls",
      "count": 11,
-     "countEmoji": "🍎",
-     "speak": "eleven"
+     "countEmoji": "⚽",
+     "speak": "Eleven. Eleven balls."
     },
     {
      "label": "12",
-     "subtitle": "twelve",
+     "subtitle": "twelve eggs",
      "count": 12,
-     "countEmoji": "🍎",
-     "speak": "twelve"
+     "countEmoji": "🥚",
+     "speak": "Twelve. Twelve eggs."
     },
     {
      "label": "13",
-     "subtitle": "thirteen",
+     "subtitle": "thirteen butterflies",
      "count": 13,
-     "countEmoji": "🍎",
-     "speak": "thirteen"
+     "countEmoji": "🦋",
+     "speak": "Thirteen. Thirteen butterflies."
     },
     {
      "label": "14",
-     "subtitle": "fourteen",
+     "subtitle": "fourteen cookies",
      "count": 14,
-     "countEmoji": "🍎",
-     "speak": "fourteen"
+     "countEmoji": "🍪",
+     "speak": "Fourteen. Fourteen cookies."
     },
     {
      "label": "15",
-     "subtitle": "fifteen",
+     "subtitle": "fifteen ladybugs",
      "count": 15,
-     "countEmoji": "🍎",
-     "speak": "fifteen"
+     "countEmoji": "🐞",
+     "speak": "Fifteen. Fifteen ladybugs."
     },
     {
      "label": "16",
-     "subtitle": "sixteen",
+     "subtitle": "sixteen cupcakes",
      "count": 16,
-     "countEmoji": "🍎",
-     "speak": "sixteen"
+     "countEmoji": "🧁",
+     "speak": "Sixteen. Sixteen cupcakes."
     },
     {
      "label": "17",
-     "subtitle": "seventeen",
+     "subtitle": "seventeen turtles",
      "count": 17,
-     "countEmoji": "🍎",
-     "speak": "seventeen"
+     "countEmoji": "🐢",
+     "speak": "Seventeen. Seventeen turtles."
     },
     {
      "label": "18",
-     "subtitle": "eighteen",
+     "subtitle": "eighteen birds",
      "count": 18,
-     "countEmoji": "🍎",
-     "speak": "eighteen"
+     "countEmoji": "🐦",
+     "speak": "Eighteen. Eighteen birds."
     },
     {
      "label": "19",
-     "subtitle": "nineteen",
+     "subtitle": "nineteen bees",
      "count": 19,
-     "countEmoji": "🍎",
-     "speak": "nineteen"
+     "countEmoji": "🐝",
+     "speak": "Nineteen. Nineteen bees."
     },
     {
      "label": "20",
-     "subtitle": "twenty",
+     "subtitle": "twenty lemons",
      "count": 20,
-     "countEmoji": "🍎",
-     "speak": "twenty"
+     "countEmoji": "🍋",
+     "speak": "Twenty. Twenty lemons."
     }
    ]
   },
@@ -324,8 +324,8 @@
       },
       {
        "label": "Bus",
-       "emoji": "🚌",
-       "highlight": "B"
+       "highlight": "B",
+       "image": "assets/images/school_bus.svg"
       }
      ]
     },
@@ -334,7 +334,7 @@
      "items": [
       {
        "label": "Cat",
-       "emoji": "🐱",
+       "emoji": "🐈",
        "highlight": "C"
       },
       {
@@ -364,7 +364,7 @@
      "items": [
       {
        "label": "Dog",
-       "emoji": "🐶",
+       "emoji": "🐕",
        "highlight": "D"
       },
       {
@@ -494,7 +494,7 @@
       },
       {
        "label": "Horse",
-       "emoji": "🐴",
+       "emoji": "🐎",
        "highlight": "H"
       },
       {
@@ -600,8 +600,8 @@
      "items": [
       {
        "label": "Lion",
-       "emoji": "🦁",
-       "highlight": "L"
+       "highlight": "L",
+       "image": "assets/images/lion.svg"
       },
       {
        "label": "Lamp",
@@ -645,7 +645,7 @@
       },
       {
        "label": "Mouse",
-       "emoji": "🐭",
+       "emoji": "🐁",
        "highlight": "M"
       },
       {
@@ -725,7 +725,7 @@
       },
       {
        "label": "Pig",
-       "emoji": "🐷",
+       "emoji": "🐖",
        "highlight": "P"
       },
       {
@@ -778,7 +778,7 @@
      "items": [
       {
        "label": "Rabbit",
-       "emoji": "🐰",
+       "emoji": "🐇",
        "highlight": "R"
       },
       {
@@ -838,7 +838,7 @@
      "items": [
       {
        "label": "Tiger",
-       "emoji": "🐯",
+       "emoji": "🐅",
        "highlight": "T"
       },
       {
@@ -848,7 +848,7 @@
       },
       {
        "label": "Train",
-       "emoji": "🚆",
+       "emoji": "🚂🚃🚃",
        "highlight": "T"
       },
       {
@@ -1012,8 +1012,8 @@
      "items": [
       {
        "label": "Zebra",
-       "emoji": "🦓",
-       "highlight": "Z"
+       "highlight": "Z",
+       "image": "assets/images/zebra.svg"
       },
       {
        "label": "Zoo",
@@ -1285,43 +1285,53 @@
    "items": [
     {
      "label": "Circle",
-     "shape": "circle"
+     "shape": "circle",
+     "color": "#E53935"
     },
     {
      "label": "Square",
-     "shape": "square"
+     "shape": "square",
+     "color": "#1E88E5"
     },
     {
      "label": "Triangle",
-     "shape": "triangle"
+     "shape": "triangle",
+     "color": "#43A047"
     },
     {
      "label": "Rectangle",
-     "shape": "rectangle"
+     "shape": "rectangle",
+     "color": "#FB8C00"
     },
     {
      "label": "Oval",
-     "shape": "oval"
+     "shape": "oval",
+     "color": "#8E24AA"
     },
     {
      "label": "Star",
-     "shape": "star"
+     "shape": "star",
+     "color": "#FBC02D"
     },
     {
      "label": "Heart",
-     "shape": "heart"
+     "shape": "heart",
+     "color": "#EC407A"
     },
     {
      "label": "Diamond",
-     "shape": "diamond"
+     "shape": "diamond",
+     "color": "#00ACC1"
     },
     {
      "label": "Pentagon",
-     "shape": "pentagon"
+     "shape": "pentagon",
+     "color": "#3949AB"
     },
     {
      "label": "Hexagon",
-     "shape": "hexagon"
+     "shape": "hexagon",
+     "color": "#7CB342"
     }
    ]
   },
@@ -1376,13 +1386,13 @@
     },
     {
      "label": "Horse",
-     "emoji": "🐴",
-     "subtitle": "Neigh!"
+     "subtitle": "Neigh!",
+     "emoji": "🐎"
     },
     {
      "label": "Pig",
-     "emoji": "🐷",
-     "subtitle": "Oink!"
+     "subtitle": "Oink!",
+     "emoji": "🐖"
     },
     {
      "label": "Sheep",
@@ -1396,8 +1406,8 @@
     },
     {
      "label": "Chicken",
-     "emoji": "🐔",
-     "subtitle": "Cluck cluck!"
+     "subtitle": "Cluck cluck!",
+     "emoji": "🐓"
     },
     {
      "label": "Duck",
@@ -1406,13 +1416,13 @@
     },
     {
      "label": "Dog",
-     "emoji": "🐶",
-     "subtitle": "Woof!"
+     "subtitle": "Woof!",
+     "emoji": "🐕"
     },
     {
      "label": "Cat",
-     "emoji": "🐱",
-     "subtitle": "Meow!"
+     "subtitle": "Meow!",
+     "emoji": "🐈"
     },
     {
      "label": "Donkey",
@@ -1430,13 +1440,13 @@
    "items": [
     {
      "label": "Lion",
-     "emoji": "🦁",
-     "subtitle": "Roar!"
+     "subtitle": "Roar!",
+     "image": "assets/images/lion.svg"
     },
     {
      "label": "Tiger",
-     "emoji": "🐯",
-     "subtitle": "Grrr!"
+     "subtitle": "Roar!",
+     "emoji": "🐅"
     },
     {
      "label": "Elephant",
@@ -1449,7 +1459,7 @@
     },
     {
      "label": "Zebra",
-     "emoji": "🦓"
+     "image": "assets/images/zebra.svg"
     },
     {
      "label": "Monkey",
@@ -1458,8 +1468,8 @@
     },
     {
      "label": "Bear",
-     "emoji": "🐻",
-     "subtitle": "Grrr!"
+     "subtitle": "Growl!",
+     "image": "assets/images/bear.svg"
     },
     {
      "label": "Kangaroo",
@@ -1489,8 +1499,8 @@
     },
     {
      "label": "Bus",
-     "emoji": "🚌",
-     "subtitle": "Beep!"
+     "subtitle": "Beep!",
+     "image": "assets/images/school_bus.svg"
     },
     {
      "label": "Truck",
@@ -1509,8 +1519,8 @@
     },
     {
      "label": "Train",
-     "emoji": "🚆",
-     "subtitle": "Choo choo!"
+     "subtitle": "Choo choo!",
+     "emoji": "🚂🚃🚃"
     },
     {
      "label": "Airplane",
@@ -1611,7 +1621,8 @@
      "emoji": "🥬"
     },
     {
-     "label": "Cauliflower"
+     "label": "Cauliflower",
+     "image": "assets/images/cauliflower.svg"
     },
     {
      "label": "Peas",

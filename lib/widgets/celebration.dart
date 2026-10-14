@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-/// A short "Great job!" popup shown when a star is earned.
-Future<void> showCelebration(BuildContext context, {String message = 'Great job!'}) {
+import '../services/speech.dart';
+import '../state/app_state.dart';
+
+/// A short "Great job!" popup, with a chime and the message spoken aloud.
+Future<void> showCelebration(BuildContext context, {String message = Speech.greatJob}) {
+  AppStateScope.of(context).celebrate(message);
   return showDialog<void>(
     context: context,
     builder: (context) => Dialog(

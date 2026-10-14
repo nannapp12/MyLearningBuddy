@@ -1,19 +1,34 @@
 import 'package:flutter/material.dart';
 
 import '../models/content.dart';
+import '../services/speech.dart';
 import '../state/app_state.dart';
 import '../widgets/celebration.dart';
 import '../widgets/star_badge.dart';
-import 'group_picker_screen.dart';
+import '../widgets/label_grid.dart';
 
 /// Lets the child pick a letter or number to trace.
-class TracingPickerScreen extends StatelessWidget {
+class TracingPickerScreen extends StatefulWidget {
   const TracingPickerScreen({super.key, required this.category});
 
   final Category category;
 
   @override
+  State<TracingPickerScreen> createState() => _TracingPickerScreenState();
+}
+
+class _TracingPickerScreenState extends State<TracingPickerScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) AppStateScope.of(context).speak([Speech.category(widget.category)]);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final category = widget.category;
     return DefaultTabController(
       length: category.groups.length,
       child: Scaffold(
@@ -75,10 +90,18 @@ class _TracingScreenState extends State<TracingScreen> {
   Color _color = TracingScreen.crayons.first;
   double _width = 24;
 
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) AppStateScope.of(context).speak([Speech.trace(widget.character)]);
+    });
+  }
+
   Future<void> _done() async {
     final state = AppStateScope.of(context);
     final awarded = state.finish('tracing/${widget.character}');
-    await showCelebration(context, message: awarded ? 'Great job!' : 'Well done!');
+    await showCelebration(context, message: awarded ? Speech.greatJob : Speech.wellDone);
     if (mounted) setState(_strokes.clear);
   }
 

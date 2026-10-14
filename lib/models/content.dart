@@ -9,6 +9,8 @@ class LearningItem {
   const LearningItem({
     required this.label,
     this.emoji,
+    this.image,
+    this.color,
     this.subtitle,
     this.speak,
     this.highlight,
@@ -22,6 +24,8 @@ class LearningItem {
   factory LearningItem.fromJson(Map<String, dynamic> json) => LearningItem(
     label: json['label'] as String,
     emoji: json['emoji'] as String?,
+    image: json['image'] as String?,
+    color: json['color'] == null ? null : parseHexColor(json['color'] as String),
     subtitle: json['subtitle'] as String?,
     speak: json['speak'] as String?,
     highlight: json['highlight'] as String?,
@@ -34,11 +38,17 @@ class LearningItem {
 
   final String label;
 
-  /// Placeholder picture until clip art is added.
+  /// Emoji picture, used when there is no [image].
   final String? emoji;
+
+  /// Asset path of an SVG picture.
+  final String? image;
+
+  /// Colour for a drawn shape.
+  final Color? color;
   final String? subtitle;
 
-  /// Text to say aloud; defaults to [label].
+  /// Text to say aloud instead of the default (see `Speech.item`).
   final String? speak;
 
   /// Letter to highlight within [label] (Words section).
@@ -52,8 +62,6 @@ class LearningItem {
 
   /// [DateTime.weekday] value (1 = Monday, 7 = Sunday).
   final int? weekday;
-
-  String get spokenText => speak ?? label;
 }
 
 /// A named set of items within a category, e.g. the words for "A".

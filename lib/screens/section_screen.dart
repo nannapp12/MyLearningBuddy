@@ -1,30 +1,56 @@
 import 'package:flutter/material.dart';
 
 import '../models/content.dart';
-import '../services/audio_service.dart';
+import '../services/speech.dart';
 import '../state/app_state.dart';
 import '../widgets/celebration.dart';
 import '../widgets/item_card.dart';
 import '../widgets/star_badge.dart';
+import '../widgets/word_group_card.dart';
 
-/// Shows a list of items one at a time, with swipe and big next/previous buttons.
+/// One page of a section: what to show and what to say.
+class SectionPage {
+  const SectionPage({required this.child, required this.speech, this.isToday = false});
+
+  final Widget child;
+  final String speech;
+  final bool isToday;
+}
+
+/// Shows a section's pages one at a time, with swipe and big next/previous buttons.
 class SectionScreen extends StatefulWidget {
-  const SectionScreen({
-    super.key,
-    required this.category,
-    required this.items,
-    required this.finishKey,
-    this.title,
-    this.audio = const AudioService(),
-  });
+  const SectionScreen({super.key, required this.category, required this.pages});
+
+  /// A page per item, e.g. one animal per page.
+  factory SectionScreen.items(Category category) {
+    final today = DateTime.now().weekday;
+    return SectionScreen(
+      category: category,
+      pages: [
+        for (final item in category.items)
+          SectionPage(
+            speech: Speech.item(item),
+            isToday: item.weekday == today,
+            child: ItemCard(category: category, item: item, isToday: item.weekday == today),
+          ),
+      ],
+    );
+  }
+
+  /// A page per group, e.g. one letter's five words per page.
+  factory SectionScreen.groups(Category category) => SectionScreen(
+    category: category,
+    pages: [
+      for (final group in category.groups)
+        SectionPage(
+          speech: Speech.group(group),
+          child: WordGroupCard(category: category, group: group),
+        ),
+    ],
+  );
 
   final Category category;
-  final List<LearningItem> items;
-
-  /// Identifies this section for awarding a star once all items are seen.
-  final String finishKey;
-  final String? title;
-  final AudioService audio;
+  final List<SectionPage> pages;
 
   @override
   State<SectionScreen> createState() => _SectionScreenState();
@@ -33,15 +59,16 @@ class SectionScreen extends StatefulWidget {
 class _SectionScreenState extends State<SectionScreen> {
   late final PageController _controller;
   late int _page;
-  late final int _today;
 
   @override
   void initState() {
     super.initState();
-    _today = DateTime.now().weekday;
-    final todayIndex = widget.items.indexWhere((i) => i.weekday == _today);
+    final todayIndex = widget.pages.indexWhere((p) => p.isToday);
     _page = todayIndex < 0 ? 0 : todayIndex;
     _controller = PageController(initialPage: _page);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _state.speak([Speech.category(widget.category), widget.pages[_page].speech]);
+    });
   }
 
   @override
@@ -50,15 +77,12 @@ class _SectionScreenState extends State<SectionScreen> {
     super.dispose();
   }
 
-  void _speak(LearningItem item) {
-    final text = item.subtitle != null && item.count == null ? '${item.label}. ${item.subtitle}' : item.spokenText;
-    widget.audio.speak(text, enabled: AppStateScope.of(context).speechOn);
-  }
+  AppState get _state => AppStateScope.of(context);
 
   void _onPageChanged(int page) {
     setState(() => _page = page);
-    _speak(widget.items[page]);
-    if (page == widget.items.length - 1 && AppStateScope.of(context).finish(widget.finishKey)) {
+    _state.speak([widget.pages[page].speech]);
+    if (page == widget.pages.length - 1 && _state.finish(widget.category.id)) {
       showCelebration(context);
     }
   }
@@ -71,7 +95,7 @@ class _SectionScreenState extends State<SectionScreen> {
     final color = widget.category.color;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title ?? widget.category.title),
+        title: Text(widget.category.title),
         backgroundColor: color,
         foregroundColor: Colors.white,
         actions: const [StarBadge()],
@@ -82,18 +106,15 @@ class _SectionScreenState extends State<SectionScreen> {
             Expanded(
               child: PageView.builder(
                 controller: _controller,
-                itemCount: widget.items.length,
+                itemCount: widget.pages.length,
                 onPageChanged: _onPageChanged,
-                itemBuilder: (context, i) {
-                  final item = widget.items[i];
-                  return Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: GestureDetector(
-                      onTap: () => _speak(item),
-                      child: ItemCard(category: widget.category, item: item, isToday: item.weekday == _today),
-                    ),
-                  );
-                },
+                itemBuilder: (context, i) => Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: GestureDetector(
+                    onTap: () => _state.speak([widget.pages[i].speech]),
+                    child: widget.pages[i].child,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -107,12 +128,12 @@ class _SectionScreenState extends State<SectionScreen> {
                     color: color,
                     onPressed: _page > 0 ? () => _go(-1) : null,
                   ),
-                  Text('${_page + 1} / ${widget.items.length}', style: Theme.of(context).textTheme.titleLarge),
+                  Text('${_page + 1} / ${widget.pages.length}', style: Theme.of(context).textTheme.titleLarge),
                   _NavButton(
                     icon: Icons.arrow_forward_rounded,
                     label: 'Next',
                     color: color,
-                    onPressed: _page < widget.items.length - 1 ? () => _go(1) : null,
+                    onPressed: _page < widget.pages.length - 1 ? () => _go(1) : null,
                   ),
                 ],
               ),

@@ -1,10 +1,15 @@
 import 'package:flutter/widgets.dart';
 
+import '../services/audio_service.dart';
+
 /// Everything that changes while the app is open.
 ///
 /// Held in memory only: per the requirements nothing is saved, so closing the
 /// app or web page resets stars, finished sections and parent settings.
 class AppState extends ChangeNotifier {
+  AppState({AudioService? audio}) : audio = audio ?? ClipAudioService();
+
+  final AudioService audio;
   final Set<String> _hiddenCategoryIds = {};
   final Set<String> _finished = {};
   int _stars = 0;
@@ -30,6 +35,23 @@ class AppState extends ChangeNotifier {
   set effectsOn(bool value) {
     _effectsOn = value;
     notifyListeners();
+  }
+
+  /// Says [texts] in order, if speech is switched on.
+  void speak(List<String> texts) {
+    if (_speechOn) audio.speak(texts);
+  }
+
+  /// Celebrates a finished section: chime (if effects are on) and "Great job!".
+  void celebrate(String message) {
+    if (_effectsOn) audio.chime();
+    speak([message]);
+  }
+
+  @override
+  void dispose() {
+    audio.dispose();
+    super.dispose();
   }
 
   /// Awards a star the first time [key] (e.g. a section or a traced letter) is

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/content.dart';
 import '../state/app_state.dart';
 import '../widgets/star_badge.dart';
-import 'group_picker_screen.dart';
 import 'parent_area_screen.dart';
 import 'section_screen.dart';
 import 'tracing_screen.dart';
@@ -54,9 +53,9 @@ class _CategoryTile extends StatelessWidget {
 
   void _open(BuildContext context) {
     final Widget screen = switch (category.layout) {
-      CategoryLayout.groups => GroupPickerScreen(category: category),
+      CategoryLayout.groups => SectionScreen.groups(category),
       CategoryLayout.tracing => TracingPickerScreen(category: category),
-      _ => SectionScreen(category: category, items: category.items, finishKey: category.id),
+      _ => SectionScreen.items(category),
     };
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));
   }

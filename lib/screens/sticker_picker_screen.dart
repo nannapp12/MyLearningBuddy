@@ -78,7 +78,13 @@ class _StickerPickerScreenState extends State<StickerPickerScreen> {
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFFFFF8E1),
         toolbarHeight: 72,
-        title: const RainbowTitle('My Learning Buddy'),
+        title: const Row(
+          children: [
+            Puppy(size: 56),
+            SizedBox(width: 4),
+            Flexible(child: RainbowTitle('My Learning Buddy')),
+          ],
+        ),
         bottom: const StickerBar(),
       ),
       body: SafeArea(

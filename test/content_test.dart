@@ -7,10 +7,8 @@ void main() {
   final content = LearningContent.fromJsonString(File('assets/content/content.json').readAsStringSync());
   Category byId(String id) => content.categories.firstWhere((c) => c.id == id);
 
-  test('has the 2 games and 24 sections in order', () {
+  test('has the 25 sections and the Find It game in order', () {
     expect(content.categories.map((c) => c.title), [
-      'Find It',
-      'Pop',
       'Letters',
       'Numbers',
       'Words',
@@ -35,6 +33,8 @@ void main() {
       'Community Helpers',
       'Things Around the House',
       'Places We Visit',
+      'Phrases',
+      'Find It',
     ]);
   });
 

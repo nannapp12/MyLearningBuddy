@@ -20,7 +20,7 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
     audio = SilentAudioService();
-    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: audio));
+    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: audio, puppyGreetings: false));
   }
 
   testWidgets('home screen shows all sections', (tester) async {
@@ -99,39 +99,12 @@ void main() {
     expect(find.text('Now pick your sticker'), findsOneWidget);
   });
 
-  testWidgets('Pop: pop the balloon the voice asks for', (tester) async {
-    await pumpApp(tester);
-    await tester.tap(find.text('Pop'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('123'));
-    await tester.pump();
-    for (var round = 0; round < 5; round++) {
-      expect(audio.spoken[audio.spoken.length - 2], 'Pop the');
-      final names = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
-      final number = names.indexOf(audio.spoken.last) + 1;
-      // Wait for the balloon to float into view.
-      final balloon = find.bySemanticsLabel('Balloon $number');
-      for (var i = 0; i < 100 && (balloon.evaluate().isEmpty || !_onScreen(tester, balloon)); i++) {
-        await tester.pump(const Duration(milliseconds: 200));
-      }
-      await tester.tap(balloon);
-      await tester.pump();
-      expect(audio.spoken.where((t) => t == 'Yay! You found it!').length, round + 1);
-      await tester.pump(const Duration(milliseconds: 100));
-    }
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 4));
-    expect(find.text('Woof woof! You did it!'), findsOneWidget);
-    await tester.pumpAndSettle();
-    expect(find.text('Now pick your sticker'), findsOneWidget);
-  });
-
   testWidgets('"Great job!" waits until the last item has been said', (tester) async {
     tester.view.physicalSize = const Size(1200, 2000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
     final slow = _ManualAudioService();
-    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: slow));
+    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: slow, puppyGreetings: false));
     await tester.tap(find.text('Shapes'));
     await tester.pumpAndSettle();
     for (var i = 0; i < 9; i++) {
@@ -234,6 +207,73 @@ void main() {
     expect(audio.spoken, ['Opposites', 'Big. Small.']);
   });
 
+  testWidgets('Easy shows the first 5 items, Medium 8, Hard all; one mode at a time', (tester) async {
+    await pumpApp(tester);
+    Future<String> countIn(String section) async {
+      await tester.tap(find.text(section));
+      await tester.pumpAndSettle();
+      final counter = tester.widget<Text>(find.textContaining(' / ')).data!;
+      await tester.tap(find.bySemanticsLabel('Home'));
+      await tester.pumpAndSettle();
+      return counter;
+    }
+
+    expect(await countIn('Shapes'), '1 / 10'); // Hard is the default
+    await tester.tap(find.bySemanticsLabel('Easy'));
+    await tester.pump();
+    expect(await countIn('Shapes'), '1 / 5');
+    await tester.tap(find.bySemanticsLabel('Medium'));
+    await tester.pump();
+    expect(await countIn('Shapes'), '1 / 8');
+    expect(await countIn('Words'), '1 / 8'); // letters A-H
+    expect(await countIn('Family'), '1 / 8');
+
+    final selected = [
+      for (final d in ['Easy', 'Medium', 'Hard'])
+        if (find
+            .byWidgetPredicate((w) => w is Semantics && w.properties.label == d && w.properties.selected == true)
+            .evaluate()
+            .isNotEmpty)
+          d,
+    ];
+    expect(selected, ['Medium']);
+  });
+
+  testWidgets('Phrases say the phrase and wait for the next button', (tester) async {
+    await pumpApp(tester);
+    await tester.scrollUntilVisible(find.text('Phrases'), 400);
+    await tester.tap(find.text('Phrases'));
+    await tester.pumpAndSettle();
+    expect(audio.spoken, ['Phrases', 'How are you?']);
+    await tester.pump(const Duration(seconds: 10));
+    expect(find.text('1 / 10'), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('Next'));
+    await tester.pumpAndSettle();
+    expect(find.text('2 / 10'), findsOneWidget);
+    expect(audio.spoken.last, 'I am doing well, thank you');
+  });
+
+  testWidgets('puppy says hello on start and "This is fun!" back on the main menu', (tester) async {
+    tester.view.physicalSize = const Size(1200, 2000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    audio = SilentAudioService();
+    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: audio));
+    await tester.pump();
+    expect(find.text('Hi! How are you?'), findsNothing); // the bubble shows once it sits down
+    expect(audio.spoken, ['Hi! How are you?']);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Shapes'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.bySemanticsLabel('Home'));
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 2));
+    expect(find.text('This is fun!'), findsOneWidget);
+    expect(audio.spoken.last, 'This is fun!');
+    await tester.pumpAndSettle();
+  });
+
   test('stars are awarded once per section', () {
     final state = AppState(audio: SilentAudioService());
     expect(state.finish('shapes'), isTrue);
@@ -284,13 +324,5 @@ class _ManualAudioService implements AudioService {
   void chime() {}
 
   @override
-  void pop() {}
-
-  @override
   void dispose() {}
-}
-
-bool _onScreen(WidgetTester tester, Finder finder) {
-  final r = tester.getRect(finder);
-  return r.top > 250 && r.bottom < 1850;
 }

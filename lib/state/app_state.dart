@@ -2,6 +2,21 @@ import 'package:flutter/widgets.dart';
 
 import '../services/audio_service.dart';
 
+/// How much of each section to show.
+enum Difficulty {
+  easy('Easy', '🐣', 5),
+  medium('Medium', '🐥', 8),
+  hard('Hard', '🦅', null);
+
+  const Difficulty(this.label, this.icon, this.limit);
+
+  final String label;
+  final String icon;
+
+  /// Items shown per section; null for all of them.
+  final int? limit;
+}
+
 /// Everything that changes while the app is open.
 ///
 /// Held in memory only: per the requirements nothing is saved, so closing the
@@ -14,10 +29,24 @@ class AppState extends ChangeNotifier {
   final Set<String> _finished = {};
   int _stars = 0;
   final List<String> _stickers = [];
+  Difficulty _difficulty = Difficulty.hard;
   bool _speechOn = true;
   bool _effectsOn = true;
 
   int get stars => _stars;
+
+  Difficulty get difficulty => _difficulty;
+
+  set difficulty(Difficulty value) {
+    _difficulty = value;
+    notifyListeners();
+  }
+
+  /// The first 5 (Easy), 8 (Medium) or all (Hard) of [items].
+  List<T> limited<T>(List<T> items) {
+    final limit = _difficulty.limit;
+    return limit == null || items.length <= limit ? items : items.sublist(0, limit);
+  }
 
   /// Stickers picked this session, oldest first.
   List<String> get stickers => List.unmodifiable(_stickers);
@@ -54,11 +83,6 @@ class AppState extends ChangeNotifier {
       _speechOn ? audio.speak(texts, gap: gap) : Future.value(true);
 
   /// Celebrates a finished section: chime (if effects are on) and "Great job!".
-  /// The balloon pop sound, if effects are on.
-  void pop() {
-    if (_effectsOn) audio.pop();
-  }
-
   /// Completes once [message] has been said (see [speak]).
   Future<bool> celebrate(String message) {
     if (_effectsOn) audio.chime();

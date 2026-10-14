@@ -56,7 +56,8 @@ class _FindItScreenState extends State<FindItScreen> {
   }
 
   void _start(Category section) {
-    final items = [...section.items]..shuffle(_random);
+    // Easy / Medium / Hard: only the first 5, 8 or all of the section's items.
+    final items = [..._state.limited(section.items)]..shuffle(_random);
     setState(() {
       _section = section;
       _targets = items.take(FindItScreen.rounds).toList();
@@ -67,7 +68,7 @@ class _FindItScreenState extends State<FindItScreen> {
 
   void _newRound() {
     final target = _targets[_round];
-    final others = [...?_section?.items.where((i) => i != target)]..shuffle(_random);
+    final others = [..._state.limited(_section!.items).where((i) => i != target)]..shuffle(_random);
     setState(() {
       _choices = [target, ...others.take(2)]..shuffle(_random);
       _found = null;

@@ -25,7 +25,7 @@ through pictures, sounds, touch and play.
 | Language | English only |
 | Child profiles | Not included |
 | Saving progress | Nothing is saved – every visit starts fresh (see section 2) |
-| Games | Find It and Pop (see section 4a) |
+| Games | Find It (see section 4a) |
 | Images | Free public-domain cartoon clip art (e.g. OpenClipart) |
 | Helper character | A friendly cartoon puppy that celebrates at the end of each section and game |
 | Release country | United States only |
@@ -48,8 +48,18 @@ Every learning section must, at minimum, support:
 
 - Title "My Learning Buddy" in big, bold letters, each letter a different colour, in the Fredoka font
   (free, SIL Open Font License, bundled with the app)
+- The puppy next to the title
+- Sticker bar under the title, then three mode buttons – **Easy**, **Medium**, **Hard** – only one can be
+  picked (default Hard, resets when the app is closed):
+  - Easy: each section shows only its first 5 items (e.g. letters A–E, Words A–E, tracing A–E)
+  - Medium: the first 8
+  - Hard: everything
+  Find It uses the same limit when choosing pictures
 - One big picture tile per section; tile pictures must not be cut off at the edges
 - Fruits tile is yellow
+- When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
+  tap, because browsers only allow sound after a tap); each time the child comes back to the main menu,
+  the puppy hops in and says "This is fun!"
 
 ---
 
@@ -206,6 +216,12 @@ Bed, Chair, Sofa, Door, Window, Clock, Toothbrush, Bathtub, Television, Broom
 ### 3.24 Places We Visit (10)
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
+### 3.25 Phrases (10)
+How are you? · I am doing well, thank you · This is fun · I am happy · I like playing · I am eating ·
+Please and thank you · Good Morning · Good night · See you later
+- One phrase per card with a matching picture; the voice says the phrase, and the child taps next to
+  move on (no auto-advance)
+
 ---
 
 ## 4. Rewards and Motivation
@@ -226,15 +242,12 @@ Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Gro
 
 ## 4a. Games
 
-Shown as the first two tiles on the home screen; parents can hide them like any section.
+Shown as the last tile on the home screen; parents can hide it like any section.
 
 - **Find It:** the child picks a section with clear pictures (animals, fruits, shapes, colours …). The
   voice asks "Can you find … Cow?" and shows 3 pictures. Right: the picture grows, shows its name and the
   voice says "Yay! You found it!". Wrong: the picture shakes and the voice says "Try again!".
   5 rounds, then the puppy and a sticker
-- **Pop:** the child picks ABC or 123. Balloons with letters (A–Z) or numbers (1–10) float up the screen;
-  the voice says "Pop the … B". Right: the balloon pops with a sound and a burst of colour. Wrong: it
-  wobbles and the voice says "Try again!". 5 rounds, then the puppy and a sticker
 - A speaker button repeats the question; stars at the top show the rounds done
 
 ---

@@ -11,17 +11,13 @@ class Speech {
   static const pickSticker = 'Great job! Now pick your sticker.';
   static const puppy = 'Woof woof! You did it!';
   static const canYouFind = 'Can you find';
-  static const popThe = 'Pop the';
   static const foundIt = 'Yay! You found it!';
   static const tryAgain = 'Try again!';
+  static const hello = 'Hi! How are you?';
+  static const thisIsFun = 'This is fun!';
 
   /// Phrases used by the games and rewards.
-  static const extras = [pickSticker, puppy, canYouFind, popThe, foundIt, tryAgain];
-
-  static const _numberWords = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
-
-  /// "One" to "Ten", for the Pop game.
-  static String number(int n) => _numberWords[n - 1];
+  static const extras = [pickSticker, puppy, canYouFind, foundIt, tryAgain, hello, thisIsFun];
 
   static String category(Category category) => category.title;
 
@@ -47,7 +43,6 @@ class Speech {
     greatJob,
     wellDone,
     ...extras,
-    for (var n = 1; n <= 10; n++) number(n),
     for (final c in content.categories) ...[
       category(c),
       for (final i in c.items) item(i),

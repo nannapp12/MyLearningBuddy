@@ -13,12 +13,15 @@ Future<void> main() async {
 }
 
 class MyLearningBuddyApp extends StatefulWidget {
-  const MyLearningBuddyApp({super.key, required this.content, this.audio});
+  const MyLearningBuddyApp({super.key, required this.content, this.audio, this.puppyGreetings = true});
 
   final LearningContent content;
 
   /// Defaults to playing the bundled clips; tests pass a silent one.
   final AudioService? audio;
+
+  /// Turned off in tests that don't want the puppy covering the screen.
+  final bool puppyGreetings;
 
   @override
   State<MyLearningBuddyApp> createState() => _MyLearningBuddyAppState();
@@ -42,7 +45,8 @@ class _MyLearningBuddyAppState extends State<MyLearningBuddyApp> {
         title: 'My Learning Buddy',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
-        home: HomeScreen(content: widget.content),
+        navigatorObservers: [homeRouteObserver],
+        home: HomeScreen(content: widget.content, puppyGreetings: widget.puppyGreetings),
       ),
     );
   }

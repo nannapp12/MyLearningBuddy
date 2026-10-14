@@ -56,12 +56,13 @@ class _TracingPickerScreenState extends State<TracingPickerScreen> {
             for (final g in category.groups)
               LabelGrid(
                 color: category.color,
-                labels: [for (final i in g.items) i.label],
+                // Easy / Medium / Hard: the first 5, 8 or all letters or numbers.
+                labels: [for (final i in AppStateScope.of(context).limited(g.items)) i.label],
                 onTap: (i) => Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (_) => TracingScreen(
                       category: category,
-                      characters: [for (final item in g.items) item.label],
+                      characters: [for (final item in AppStateScope.of(context).limited(g.items)) item.label],
                       index: i,
                     ),
                   ),

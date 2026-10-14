@@ -17,9 +17,6 @@ abstract class AudioService {
   /// Plays the short "you earned a star" chime.
   void chime();
 
-  /// Plays the balloon pop sound.
-  void pop();
-
   void dispose() {}
 }
 
@@ -70,11 +67,6 @@ class ClipAudioService implements AudioService {
   }
 
   @override
-  void pop() => _effects.play(AssetSource('audio/effects/pop.mp3')).catchError((Object e) {
-    debugPrint('Could not play pop: $e');
-  });
-
-  @override
   void chime() => _effects.play(AssetSource('audio/effects/chime.mp3')).catchError((Object e) {
     debugPrint('Could not play chime: $e');
   });
@@ -101,9 +93,6 @@ class SilentAudioService implements AudioService {
 
   @override
   void chime() {}
-
-  @override
-  void pop() {}
 
   @override
   void dispose() {}

@@ -20,8 +20,9 @@ for the full product requirements.
 - Tracing: pick A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
   widths, and move on with the next button
 - A home button on every screen returns to the main menu
-- Games: **Find It** ("Can you find the cow?", 3 pictures) and **Pop** (pop the balloon with the letter
-  or number asked for), 5 rounds each
+- Game: **Find It** ("Can you find the cow?", 3 pictures, 5 rounds), last on the home screen
+- **Phrases** section (10 everyday phrases) and **Easy / Medium / Hard** modes (first 5, 8 or all items)
+- The puppy says "Hi! How are you?" on start and "This is fun!" back on the main menu
 - Rewards: at the end of each section, game and the last tracing letter, an animated puppy hops around
   and cheers, then the child picks one of 5 stickers, shown in a sticker bar under the title
 - Parent area behind a simple sum: show/hide each section, speech and sound-effect switches

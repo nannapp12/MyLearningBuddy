@@ -1,22 +1,68 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
 import '../models/content.dart';
+import '../services/speech.dart';
 import '../state/app_state.dart';
 import '../widgets/category_icon.dart';
+import '../widgets/difficulty_bar.dart';
+import '../widgets/puppy.dart';
 import '../widgets/rainbow_title.dart';
 import '../widgets/star_badge.dart';
 import '../widgets/sticker_bar.dart';
 import 'find_it_screen.dart';
 import 'parent_area_screen.dart';
-import 'pop_screen.dart';
 import 'section_screen.dart';
 import 'tracing_screen.dart';
 
+/// Lets the home screen know when the child comes back to it.
+final homeRouteObserver = RouteObserver<ModalRoute<void>>();
+
 /// The child's home screen: one big tile per visible learning section.
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.content});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key, required this.content, this.puppyGreetings = true});
 
   final LearningContent content;
+
+  /// The puppy says "Hi! How are you?" on start and "This is fun!" on coming back.
+  final bool puppyGreetings;
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> with RouteAware {
+  LearningContent get content => widget.content;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.puppyGreetings) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        // On the web, sound only plays after a tap, so the puppy waits for one.
+        if (mounted) showPuppy(context, message: Speech.hello, short: true, waitForTap: kIsWeb);
+      });
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) homeRouteObserver.subscribe(this, route);
+  }
+
+  @override
+  void dispose() {
+    homeRouteObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPopNext() {
+    // Back on the main menu.
+    if (widget.puppyGreetings) showPuppy(context, message: Speech.thisIsFun, short: true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +74,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 72,
-        title: const RainbowTitle('My Learning Buddy'),
-        bottom: const StickerBar(),
+        title: const Row(
+          children: [
+            Puppy(size: 56),
+            SizedBox(width: 4),
+            Flexible(child: RainbowTitle('My Learning Buddy')),
+          ],
+        ),
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(64 + DifficultyBar.height),
+          child: Column(children: [StickerBar(), DifficultyBar()]),
+        ),
         actions: [
           const StarBadge(),
           IconButton(
@@ -60,12 +115,12 @@ class _CategoryTile extends StatelessWidget {
   final LearningContent content;
 
   void _open(BuildContext context) {
+    final state = AppStateScope.of(context);
     final Widget screen = switch (category.layout) {
-      CategoryLayout.groups => SectionScreen.groups(category),
+      CategoryLayout.groups => SectionScreen.groups(category, groups: state.limited(category.groups)),
       CategoryLayout.tracing => TracingPickerScreen(category: category),
       CategoryLayout.findit => FindItScreen(game: category, content: content),
-      CategoryLayout.pop => PopScreen(game: category),
-      _ => SectionScreen.items(category),
+      _ => SectionScreen.items(category, items: state.limited(category.items)),
     };
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));
   }

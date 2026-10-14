@@ -29,12 +29,12 @@ const wordGap = Duration(seconds: 3);
 class SectionScreen extends StatefulWidget {
   const SectionScreen({super.key, required this.category, required this.pages});
 
-  /// A page per item, e.g. one animal per page.
-  factory SectionScreen.items(Category category) {
+  /// A page per item, e.g. one animal per page. [items] defaults to all of them.
+  factory SectionScreen.items(Category category, {List<LearningItem>? items}) {
     return SectionScreen(
       category: category,
       pages: [
-        for (final item in category.items)
+        for (final item in items ?? category.items)
           SectionPage(
             speech: [Speech.item(item)],
             child: ItemCard(category: category, item: item),
@@ -43,11 +43,11 @@ class SectionScreen extends StatefulWidget {
     );
   }
 
-  /// A page per group, e.g. one letter's five words per page.
-  factory SectionScreen.groups(Category category) => SectionScreen(
+  /// A page per group, e.g. one letter's five words per page. [groups] defaults to all of them.
+  factory SectionScreen.groups(Category category, {List<ItemGroup>? groups}) => SectionScreen(
     category: category,
     pages: [
-      for (final group in category.groups)
+      for (final group in groups ?? category.groups)
         SectionPage(
           // The letter, then each word with a pause.
           speech: [Speech.group(group), for (final item in group.items) Speech.item(item)],

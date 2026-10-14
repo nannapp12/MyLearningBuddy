@@ -1,22 +1,6 @@
 {
  "categories": [
   {
-   "id": "find_it",
-   "title": "Find It",
-   "emoji": "🔍",
-   "color": "#00897B",
-   "layout": "findit",
-   "items": []
-  },
-  {
-   "id": "pop",
-   "title": "Pop",
-   "emoji": "🎈",
-   "color": "#E91E63",
-   "layout": "pop",
-   "items": []
-  },
-  {
    "id": "letters",
    "title": "Letters",
    "emoji": "🔤",
@@ -2363,6 +2347,63 @@
      "emoji": "🚜"
     }
    ]
+  },
+  {
+   "id": "phrases",
+   "title": "Phrases",
+   "emoji": "💬",
+   "color": "#00796B",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "How are you?",
+     "emoji": "🤗"
+    },
+    {
+     "label": "I am doing well, thank you",
+     "emoji": "😊"
+    },
+    {
+     "label": "This is fun",
+     "emoji": "🎉"
+    },
+    {
+     "label": "I am happy",
+     "emoji": "😄"
+    },
+    {
+     "label": "I like playing",
+     "emoji": "🧸"
+    },
+    {
+     "label": "I am eating",
+     "emoji": "🥣"
+    },
+    {
+     "label": "Please and thank you",
+     "emoji": "🙏"
+    },
+    {
+     "label": "Good Morning",
+     "emoji": "🌅"
+    },
+    {
+     "label": "Good night",
+     "emoji": "🌙"
+    },
+    {
+     "label": "See you later",
+     "emoji": "👋"
+    }
+   ]
+  },
+  {
+   "id": "find_it",
+   "title": "Find It",
+   "emoji": "🔍",
+   "color": "#00897B",
+   "layout": "findit",
+   "items": []
   }
  ]
 }

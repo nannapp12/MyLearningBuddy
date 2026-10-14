@@ -40,6 +40,7 @@ Every learning section must, at minimum, support:
 - Audio pronunciation (computer-generated female voice, English) when the item is tapped
 - Simple next/previous navigation (swipe on touch devices, arrows on the web)
 - A home button at the bottom of every screen inside a section, to return to the main menu
+- A large back button at the top left of every screen inside a section
 
 ---
 
@@ -135,7 +136,7 @@ Lion, Tiger, Elephant, Giraffe, Zebra, Monkey, Bear, Kangaroo, Hippopotamus, Cro
 Car, Bus, Truck, Bicycle, Motorcycle, Train, Airplane, Boat (Ship), Helicopter, Fire Truck
 - Bus: a yellow school bus
 - Train: side view showing the engine and its railcars
-- Audio: vehicle name + vehicle sound
+- Audio: vehicle name only (no vehicle sounds)
 
 ### 3.10 Fruits (10)
 Apple, Banana, Orange, Mango, Grapes, Strawberry, Watermelon, Pineapple, Pear, Cherry
@@ -155,6 +156,7 @@ Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
 - Sticker book screen to view rewards earned during the current session
 - Progress badges per section (e.g. "Alphabet Star", "Number Champ")
 - Celebration animations and sounds on success
+- Finishing a section shows "Great job!"; tapping it returns to the main menu
 - Encouraging (never negative) feedback when tracing goes off the path – e.g. "Try again!"
 - Rewards are **not saved**: they reset when the app or website is closed (see section 2)
 

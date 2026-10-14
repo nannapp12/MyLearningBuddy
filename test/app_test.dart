@@ -42,6 +42,12 @@ void main() {
     expect(find.text('Hexagon'), findsOneWidget);
     expect(find.text('Great job!'), findsOneWidget);
     expect(audio.spoken, containsAllInOrder(['Shapes', 'Circle', 'Square', 'Hexagon', 'Great job!']));
+
+    // Tapping "Great job!" goes back to the main menu.
+    await tester.tap(find.text('Great job!'));
+    await tester.pumpAndSettle();
+    expect(find.text('Hexagon'), findsNothing);
+    expect(find.text('Letters'), findsOneWidget);
   });
 
   testWidgets('words shows all five words for a letter on one card', (tester) async {

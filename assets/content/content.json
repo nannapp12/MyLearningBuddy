@@ -1535,53 +1535,43 @@
    "items": [
     {
      "label": "Car",
-     "emoji": "🚗",
-     "subtitle": "Beep beep!"
+     "emoji": "🚗"
     },
     {
      "label": "Bus",
-     "subtitle": "Beep!",
      "image": "assets/images/school_bus.svg"
     },
     {
      "label": "Truck",
-     "emoji": "🚚",
-     "subtitle": "Honk honk!"
+     "emoji": "🚚"
     },
     {
      "label": "Bicycle",
-     "emoji": "🚲",
-     "subtitle": "Ring ring!"
+     "emoji": "🚲"
     },
     {
      "label": "Motorcycle",
-     "emoji": "🏍️",
-     "subtitle": "Vroom!"
+     "emoji": "🏍️"
     },
     {
      "label": "Train",
-     "subtitle": "Choo choo!",
      "emoji": "🚂🚃🚃"
     },
     {
      "label": "Airplane",
-     "emoji": "✈️",
-     "subtitle": "Zoom!"
+     "emoji": "✈️"
     },
     {
      "label": "Boat",
-     "emoji": "🚢",
-     "subtitle": "Toot toot!"
+     "emoji": "🚢"
     },
     {
      "label": "Helicopter",
-     "emoji": "🚁",
-     "subtitle": "Whirr!"
+     "emoji": "🚁"
     },
     {
      "label": "Fire Truck",
-     "emoji": "🚒",
-     "subtitle": "Nee-naw!"
+     "emoji": "🚒"
     }
    ]
   },

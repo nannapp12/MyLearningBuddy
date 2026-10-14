@@ -37,6 +37,10 @@ class _TracingPickerScreenState extends State<TracingPickerScreen> {
           title: Text(category.title),
           backgroundColor: category.color,
           foregroundColor: Colors.white,
+          toolbarHeight: 80,
+          leadingWidth: 80,
+          iconTheme: const IconThemeData(color: Colors.white, size: 48),
+          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
           actions: const [StarBadge()],
           bottom: TabBar(
             labelColor: Colors.white,
@@ -132,6 +136,11 @@ class _TracingScreenState extends State<TracingScreen> {
         title: Text('Trace $_character'),
         backgroundColor: color,
         foregroundColor: Colors.white,
+        // A big back button that small fingers can hit.
+        toolbarHeight: 80,
+        leadingWidth: 80,
+        iconTheme: const IconThemeData(color: Colors.white, size: 48),
+        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
         actions: const [StarBadge()],
       ),
       body: SafeArea(

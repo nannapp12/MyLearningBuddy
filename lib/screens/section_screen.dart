@@ -84,7 +84,7 @@ class _SectionScreenState extends State<SectionScreen> {
     setState(() => _page = page);
     _state.speak([widget.pages[page].speech]);
     if (page == widget.pages.length - 1 && _state.finish(widget.category.id)) {
-      showCelebration(context);
+      showCelebration(context, goHome: true);
     }
   }
 
@@ -99,6 +99,11 @@ class _SectionScreenState extends State<SectionScreen> {
         title: Text(widget.category.title),
         backgroundColor: color,
         foregroundColor: Colors.white,
+        // A big back button that small fingers can hit.
+        toolbarHeight: 80,
+        leadingWidth: 80,
+        iconTheme: const IconThemeData(color: Colors.white, size: 48),
+        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
         actions: const [StarBadge()],
       ),
       body: SafeArea(

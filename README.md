@@ -74,3 +74,10 @@ Build the website so it loads nothing from outside servers:
 ```sh
 flutter build web --no-web-resources-cdn
 ```
+
+## Deploying the website (Vercel)
+
+`vercel.json` tells Vercel how to build the site: it downloads Flutter 3.47.7, runs
+`flutter build web`, and serves the `build/web` folder. In the Vercel project settings, leave
+**Root Directory** empty (the repository root) and **Framework Preset** as "Other". Vercel then
+rebuilds the site on every push to `main`.

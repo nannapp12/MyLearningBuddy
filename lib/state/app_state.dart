@@ -40,7 +40,8 @@ class AppState extends ChangeNotifier {
   /// Says [texts] in order, if speech is switched on. Completes with true once
   /// it has all been said (straight away when speech is off), or false if it
   /// was interrupted.
-  Future<bool> speak(List<String> texts) => _speechOn ? audio.speak(texts) : Future.value(true);
+  Future<bool> speak(List<String> texts, {Duration gap = Duration.zero}) =>
+      _speechOn ? audio.speak(texts, gap: gap) : Future.value(true);
 
   /// Celebrates a finished section: chime (if effects are on) and "Great job!".
   void celebrate(String message) {

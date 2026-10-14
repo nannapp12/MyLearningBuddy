@@ -115,7 +115,8 @@ subject needs more (letters, numbers, words, tracing and the 12 months).
 
 - Any word still waiting for its picture shows an "Image to be added" placeholder
 - One card per letter showing all 5 words together; each word has a picture + text (with the target letter highlighted)
-- Tapping a word's picture says the word
+- Opening a letter's card reads the letter, then each of its 5 words with a 3-second pause between them
+- Tapping a word's picture says just that word (and stops the read-out)
 - Few kid-friendly words start with X, so Box, Fox and Six show X at the end of the word
 - "X-mas Tree" is said as "ex-mas tree"
 

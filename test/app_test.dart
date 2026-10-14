@@ -84,7 +84,8 @@ void main() {
       expect(find.byWidgetPredicate((w) => w is RichText && w.text.toPlainText() == word), findsOneWidget);
     }
     await tester.tap(find.byWidgetPredicate((w) => w is RichText && w.text.toPlainText() == 'Ant'));
-    expect(audio.spoken, ['Words', 'A', 'Ant']);
+    // Opening the card reads the letter and all five words; tapping a picture says that word.
+    expect(audio.spoken, ['Words', 'A', 'Apple', 'Ant', 'Airplane', 'Alligator', 'Arrow', 'Ant']);
   });
 
   testWidgets('home button goes back to the main menu', (tester) async {
@@ -196,7 +197,7 @@ class _ManualAudioService implements AudioService {
   Completer<bool>? _done;
 
   @override
-  Future<bool> speak(List<String> texts) {
+  Future<bool> speak(List<String> texts, {Duration gap = Duration.zero}) {
     if (_done?.isCompleted == false) _done!.complete(false);
     lastSaid = texts;
     return (_done = Completer<bool>()).future;

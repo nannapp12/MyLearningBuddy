@@ -11,11 +11,19 @@ import '../widgets/word_group_card.dart';
 
 /// One page of a section: what to show and what to say.
 class SectionPage {
-  const SectionPage({required this.child, required this.speech});
+  const SectionPage({required this.child, required this.speech, this.gap = Duration.zero});
 
   final Widget child;
-  final String speech;
+
+  /// What to say for this page, in order.
+  final List<String> speech;
+
+  /// Silence between the things in [speech].
+  final Duration gap;
 }
+
+/// Pause between the words on a Words card, so children can repeat each one.
+const wordGap = Duration(seconds: 3);
 
 /// Shows a section's pages one at a time, with swipe and big next/previous buttons.
 class SectionScreen extends StatefulWidget {
@@ -28,7 +36,7 @@ class SectionScreen extends StatefulWidget {
       pages: [
         for (final item in category.items)
           SectionPage(
-            speech: Speech.item(item),
+            speech: [Speech.item(item)],
             child: ItemCard(category: category, item: item),
           ),
       ],
@@ -41,7 +49,9 @@ class SectionScreen extends StatefulWidget {
     pages: [
       for (final group in category.groups)
         SectionPage(
-          speech: Speech.group(group),
+          // The letter, then each word with a pause.
+          speech: [Speech.group(group), for (final item in group.items) Speech.item(item)],
+          gap: wordGap,
           child: WordGroupCard(category: category, group: group),
         ),
     ],
@@ -83,10 +93,12 @@ class _SectionScreenState extends State<SectionScreen> {
   /// Says the page; on the last page, "Great job!" follows once the voice has
   /// finished, so the child sees and hears the last item first.
   Future<void> _speakPage(int page, {bool intro = false}) async {
+    final p = widget.pages[page];
+    final texts = [if (intro) Speech.category(widget.category), ...p.speech];
     final finished = await _state
-        .speak([if (intro) Speech.category(widget.category), widget.pages[page].speech])
+        .speak(texts, gap: p.gap)
         // In case the browser never reports the end of a clip.
-        .timeout(const Duration(seconds: 8), onTimeout: () => true);
+        .timeout(Duration(seconds: 8) + (p.gap + const Duration(seconds: 2)) * texts.length, onTimeout: () => true);
     final isLast = page == widget.pages.length - 1;
     if (!finished || !isLast || !mounted || _page != page) return;
     await Future<void>.delayed(const Duration(milliseconds: 400));

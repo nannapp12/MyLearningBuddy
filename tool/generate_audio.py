@@ -62,6 +62,21 @@ def trace_speech(ch):
     return f"Trace the letter {ch.upper()}."
 
 
+# Silence between the two words of an opposite pair ("Big. ... Small.").
+PAIR_PAUSE = 0.8
+
+
+def opposite_parts(content):
+    """Maps each opposite pair's sentence to its two words, which are recorded
+    separately and joined with a pause."""
+    return {
+        item_speech(i): [f"{i['label']}.", f"{i['opposite']['label']}."]
+        for c in content["categories"]
+        for i in c.get("items", [])
+        if i.get("opposite")
+    }
+
+
 def all_speech(content):
     texts = [GREAT_JOB, WELL_DONE]
     for c in content["categories"]:
@@ -182,12 +197,8 @@ def main():
     (OUT / "effects").mkdir(exist_ok=True)
     to_mp3(chime(), 24000, OUT / "effects" / "chime.mp3")
 
-    texts = all_speech(json.loads(CONTENT.read_text()))
-    wanted = {clip_name(t) for t in texts}
-    for i, text in enumerate(texts, 1):
-        path = OUT / f"{clip_name(text)}.mp3"
-        if path.exists() and not args.force:
-            continue
+    def record(text):
+        """Records [text] without the extra "uh" at the start (see LEAD_INS)."""
         # Without closing punctuation Kokoro sometimes returns no audio at all.
         spoken = text if text[-1] in ".!?" else f"{text}."
         for variant in (spoken, spoken[:-1] + "!", spoken[:-1] + "."):
@@ -205,6 +216,21 @@ def main():
                 continue
         else:
             raise SystemExit(f"could not record {text!r}")
+        return samples, rate
+
+    content = json.loads(CONTENT.read_text())
+    texts = all_speech(content)
+    pairs = opposite_parts(content)
+    wanted = {clip_name(t) for t in texts}
+    for i, text in enumerate(texts, 1):
+        path = OUT / f"{clip_name(text)}.mp3"
+        if path.exists() and not args.force:
+            continue
+        if text in pairs:
+            (first, rate), (second, _) = (record(t) for t in pairs[text])
+            samples = np.concatenate([first, np.zeros(int(rate * PAIR_PAUSE), dtype=first.dtype), second])
+        else:
+            samples, rate = record(text)
         to_mp3(samples, rate, path)
         print(f"[{i}/{len(texts)}] {path.name}: {text}")
 

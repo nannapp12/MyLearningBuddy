@@ -83,6 +83,9 @@ class _Half extends StatelessWidget {
   );
 }
 
+/// Placeholder shown for items that do not have a picture yet.
+const imageToBeAdded = 'assets/images/image_to_be_added.svg';
+
 /// The item's picture: a shape, colour swatch, objects to count, emoji or letter.
 class ItemPicture extends StatelessWidget {
   const ItemPicture({super.key, required this.category, required this.item});
@@ -141,8 +144,17 @@ class ItemPicture extends StatelessWidget {
       );
     }
     if (item.emoji != null) return _Emoji(item.emoji!);
-    // No picture yet: show the item's first letter (or the item itself, e.g. "Aa").
-    final text = item.label.length <= 2 ? item.label : item.label[0];
+    // Letters ("Aa") and days of the week are shown as a big coloured letter.
+    final isLetter = item.label.length <= 2;
+    if (!isLetter && category.layout != CategoryLayout.days) {
+      // Any other item without a picture shows a placeholder until one is added.
+      return FractionallySizedBox(
+        widthFactor: 0.9,
+        heightFactor: 0.9,
+        child: SvgPicture.asset(imageToBeAdded, fit: BoxFit.contain, semanticsLabel: item.label),
+      );
+    }
+    final text = isLetter ? item.label : item.label[0];
     return FittedBox(
       child: Text(
         text,

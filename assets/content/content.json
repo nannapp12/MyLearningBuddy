@@ -544,8 +544,9 @@
        "highlight": "I"
       },
       {
-       "label": "Igloo",
-       "highlight": "I"
+       "label": "Ice Cube",
+       "highlight": "I",
+       "emoji": "🧊"
       },
       {
        "label": "Insect",
@@ -557,7 +558,7 @@
        "highlight": "I"
       },
       {
-       "label": "Ink",
+       "label": "Ink Pen",
        "emoji": "🖋️",
        "highlight": "I"
       }
@@ -1043,7 +1044,8 @@
       },
       {
        "label": "Zoo",
-       "highlight": "Z"
+       "highlight": "Z",
+       "image": "assets/images/zoo.svg"
       },
       {
        "label": "Zip",
@@ -1369,25 +1371,32 @@
    "layout": "days",
    "items": [
     {
-     "label": "Monday"
+     "label": "Monday",
+     "color": "#E53935"
     },
     {
-     "label": "Tuesday"
+     "label": "Tuesday",
+     "color": "#FB8C00"
     },
     {
-     "label": "Wednesday"
+     "label": "Wednesday",
+     "color": "#FBC02D"
     },
     {
-     "label": "Thursday"
+     "label": "Thursday",
+     "color": "#43A047"
     },
     {
-     "label": "Friday"
+     "label": "Friday",
+     "color": "#1E88E5"
     },
     {
-     "label": "Saturday"
+     "label": "Saturday",
+     "color": "#8E24AA"
     },
     {
-     "label": "Sunday"
+     "label": "Sunday",
+     "color": "#D81B60"
     }
    ],
    "image": "assets/images/calendar_jan_1.svg"

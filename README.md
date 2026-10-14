@@ -75,6 +75,10 @@ bundled, so the app works offline and sends nothing to a speech service.
 After changing `content.json`, run `tool/generate_audio.py` (setup steps are at the top of the
 script) to make clips for any new sentences. `flutter test` fails if a clip is missing.
 
+The puppy's greetings and rewards use a second, livelier voice (`af_nova`, pitched up 4 semitones to
+sound like a child), saved in `assets/audio/puppy/`. The list of puppy lines is `Speech.mascot` in
+`lib/services/speech.dart` and `MASCOT_LINES` in the script.
+
 ## Building
 
 Build the website so it loads nothing from outside servers:

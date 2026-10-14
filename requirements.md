@@ -21,7 +21,7 @@ through pictures, sounds, touch and play.
 |---|---|
 | Age range | 2–6 years |
 | Price | Free to the user |
-| Voice | Free text-to-speech tool, female voice, US English |
+| Voice | Free text-to-speech tool, female voice, US English; the puppy has its own livelier, child-like voice |
 | Language | English only |
 | Child profiles | Not included |
 | Saving progress | Nothing is saved – every visit starts fresh (see section 2) |
@@ -264,6 +264,11 @@ Shown as the last tile on the home screen; parents can hide it like any section.
   on every device, works offline and sends no data to any speech service while the child uses the app
 - Tool: **Kokoro-82M** (free, Apache-2.0 licence), voice "Heart" (`af_heart`) – approved by the owner
 - Spoken slowly (0.75 speed) so it is easy for young children to follow
+- **Puppy voice** (greetings and rewards only – "Hi! How are you?", "This is fun!", "Woof woof! You
+  did it!", "Great job!", "Great job! Now pick your sticker.", "Yay! You found it!", "Well done!",
+  "Try again!"): Kokoro voice "Nova" (`af_nova`) at normal speed, raised 4 semitones so it sounds like a
+  child – chosen by the owner (sample 4, "Sparkly"). Same loudness as the learning voice
+- All learning words keep the calm "Heart" voice
 - Letter names **and** letter sounds (phonics)
 - Captions: the text of what is spoken is always shown on screen
 - Separate volume / mute controls for speech and for music and sound effects

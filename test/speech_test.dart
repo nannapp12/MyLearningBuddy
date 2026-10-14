@@ -10,10 +10,15 @@ void main() {
   test('every sentence the app can say has a voice clip', () {
     final missing = [
       for (final text in Speech.all(content))
-        if (!File('assets/audio/${clipName(text)}.mp3').existsSync()) text,
+        if (!File('assets/${clipPath(text)}').existsSync()) text,
     ];
     expect(missing, isEmpty, reason: 'Run tool/generate_audio.py to make the missing clips');
-    expect(File('assets/audio/effects/chime.mp3').existsSync(), isTrue);
+    for (final effect in ['chime', 'pop', 'clap']) {
+      expect(File('assets/audio/effects/$effect.mp3').existsSync(), isTrue, reason: effect);
+    }
+    // The puppy speaks in its own voice; "This is fun" on the Phrases card stays in the teacher's voice.
+    expect(clipPath(Speech.thisIsFun), 'audio/puppy/this_is_fun.mp3');
+    expect(clipPath('This is fun'), 'audio/this_is_fun.mp3');
   });
 
   test('speech rules', () {

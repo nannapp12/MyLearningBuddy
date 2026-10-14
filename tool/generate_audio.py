@@ -38,18 +38,28 @@ OUT = ROOT / "assets" / "audio"
 LEAD_INS = ["Okay...", "Okay…", "Now...", "Yes..."]
 FRAME = 480  # 20 ms at 24 kHz
 
-GREAT_JOB = "Great job!"
-WELL_DONE = "Well done!"
-# Phrases used by the games and rewards (Speech.extras in lib/services/speech.dart).
-EXTRAS = [
+# Phrases used by the games (Speech.extras in lib/services/speech.dart).
+EXTRAS = ["Can you find"]
+
+# What the puppy says: greetings and rewards (Speech.mascot in lib/services/speech.dart).
+# These use a livelier, child-like voice and are saved in assets/audio/puppy/.
+MASCOT_LINES = [
+    "Great job!",
+    "Well done!",
     "Great job! Now pick your sticker.",
     "Woof woof! You did it!",
-    "Can you find",
     "Yay! You found it!",
     "Try again!",
     "Hi! How are you?",
     "This is fun!",
 ]
+# Recorded directly: at normal speed this voice doesn't add the "uh" at the start, and it doesn't
+# pause after a lead-in, so the lead-in trick isn't used (or needed) for it.
+MASCOT_VOICE = "af_nova"
+MASCOT_SPEED = 1.0
+MASCOT_SEMITONES = 4  # higher pitch, so it sounds like a child
+MASCOT_FILTER = f"rubberband=pitch={2 ** (MASCOT_SEMITONES / 12):.4f}:formant=shifted,loudnorm=I=-22:TP=-1.5:LRA=11"  # about as loud as the teacher voice
+MASCOT_OUT = OUT / "puppy"
 
 
 def clip_name(text):
@@ -88,7 +98,7 @@ def opposite_parts(content):
 
 
 def all_speech(content):
-    texts = [GREAT_JOB, WELL_DONE, *EXTRAS]
+    texts = [*EXTRAS]
     for c in content["categories"]:
         texts.append(c["title"])
         texts += [item_speech(i) for i in c.get("items", [])]
@@ -101,11 +111,12 @@ def all_speech(content):
     return list(dict.fromkeys(texts))
 
 
-def to_mp3(samples, rate, path):
+def to_mp3(samples, rate, path, audio_filter="anull"):
     with tempfile.NamedTemporaryFile(suffix=".wav") as wav:
         sf.write(wav.name, samples, rate)
         subprocess.run(
-            ["ffmpeg", "-loglevel", "error", "-y", "-i", wav.name, "-ac", "1", "-b:a", "48k", str(path)],
+            ["ffmpeg", "-loglevel", "error", "-y", "-i", wav.name, "-af", audio_filter, "-ar", str(rate), "-ac", "1",
+             "-b:a", "48k", str(path)],
             check=True,
         )
 
@@ -227,9 +238,11 @@ def main():
 
     from kokoro_onnx import Kokoro
 
-    voice = np.fromfile(Path(args.voices_dir) / f"{args.voice}.bin", dtype=np.float32).reshape(-1, 1, 256)
+    def load(name):
+        return np.fromfile(Path(args.voices_dir) / f"{name}.bin", dtype=np.float32).reshape(-1, 1, 256)
+
     with tempfile.NamedTemporaryFile(suffix=".npz") as voices:
-        np.savez(voices.name, **{args.voice: voice})
+        np.savez(voices.name, **{args.voice: load(args.voice), MASCOT_VOICE: load(MASCOT_VOICE)})
         tts = Kokoro(args.model, voices.name)
 
     OUT.mkdir(parents=True, exist_ok=True)
@@ -238,18 +251,18 @@ def main():
     to_mp3(pop_sound(), 24000, OUT / "effects" / "pop.mp3")
     to_mp3(clap_sound(), 24000, OUT / "effects" / "clap.mp3")
 
-    def record(text):
+    def record(text, voice=args.voice, speed=args.speed):
         """Records [text] without the extra "uh" at the start (see LEAD_INS)."""
         # Without closing punctuation Kokoro sometimes returns no audio at all.
         spoken = text if text[-1] in ".!?" else f"{text}."
         for variant in (spoken, spoken[:-1] + "!", spoken[:-1] + "."):
-            solo, rate = tts.create(variant, voice=args.voice, speed=args.speed, lang="en-us")
+            solo, rate = tts.create(variant, voice=voice, speed=speed, lang="en-us")
             if len(trim(solo)):
                 break
         else:
             raise SystemExit(f"could not record {text!r} on its own")
         for lead_in in LEAD_INS:
-            samples, rate = tts.create(f"{lead_in} {spoken}", voice=args.voice, speed=args.speed, lang="en-us")
+            samples, rate = tts.create(f"{lead_in} {spoken}", voice=voice, speed=speed, lang="en-us")
             try:
                 samples = drop_onset_hum(cut_lead_in(samples, len(trim(solo))))
                 break
@@ -275,10 +288,25 @@ def main():
         to_mp3(samples, rate, path)
         print(f"[{i}/{len(texts)}] {path.name}: {text}")
 
-    for stale in OUT.glob("*.mp3"):
-        if stale.stem not in wanted:
-            stale.unlink()
-            print(f"removed unused {stale.name}")
+    # The puppy's lines, in its own voice.
+    MASCOT_OUT.mkdir(exist_ok=True)
+    for text in MASCOT_LINES:
+        path = MASCOT_OUT / f"{clip_name(text)}.mp3"
+        if path.exists() and not args.force:
+            continue
+        spoken = text if text[-1] in ".!?" else f"{text}."
+        samples, rate = tts.create(spoken, voice=MASCOT_VOICE, speed=MASCOT_SPEED, lang="en-us")
+        samples = drop_onset_hum(trim(samples))
+        if not len(samples):
+            raise SystemExit(f"could not record {text!r} for the puppy")
+        to_mp3(samples, rate, path, MASCOT_FILTER)
+        print(f"puppy/{path.name}: {text}")
+
+    for folder, keep in ((OUT, wanted), (MASCOT_OUT, {clip_name(t) for t in MASCOT_LINES})):
+        for stale in folder.glob("*.mp3"):
+            if stale.stem not in keep:
+                stale.unlink()
+                print(f"removed unused {stale.relative_to(OUT)}")
 
 
 if __name__ == "__main__":

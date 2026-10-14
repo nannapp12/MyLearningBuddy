@@ -16,8 +16,12 @@ class Speech {
   static const hello = 'Hi! How are you?';
   static const thisIsFun = 'This is fun!';
 
-  /// Phrases used by the games and rewards.
-  static const extras = [pickSticker, puppy, canYouFind, foundIt, tryAgain, hello, thisIsFun];
+  /// Phrases used by the games.
+  static const extras = [canYouFind];
+
+  /// What the puppy says (greetings and rewards). These use the puppy's own
+  /// livelier, child-like voice and live in `assets/audio/puppy/`.
+  static const mascot = {greatJob, wellDone, pickSticker, puppy, foundIt, tryAgain, hello, thisIsFun};
 
   static String category(Category category) => category.title;
 
@@ -40,8 +44,7 @@ class Speech {
 
   /// Everything the app can say for [content].
   static Set<String> all(LearningContent content) => {
-    greatJob,
-    wellDone,
+    ...mascot,
     ...extras,
     for (final c in content.categories) ...[
       category(c),
@@ -54,6 +57,10 @@ class Speech {
     ],
   };
 }
+
+/// The asset path of [text]'s clip: the puppy's lines are in their own folder.
+String clipPath(String text) =>
+    Speech.mascot.contains(text) ? 'audio/puppy/${clipName(text)}.mp3' : 'audio/${clipName(text)}.mp3';
 
 /// The audio file name for [text], e.g. "Cow. Moo!" -> "cow_moo".
 String clipName(String text) =>

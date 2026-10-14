@@ -65,8 +65,8 @@ class ClipAudioService implements AudioService {
       _done = null;
       return;
     }
-    final clip = clipName(_queue.removeAt(0));
-    _voice.stop().then((_) => _voice.play(AssetSource('audio/$clip.mp3'))).catchError((Object e) {
+    final clip = clipPath(_queue.removeAt(0));
+    _voice.stop().then((_) => _voice.play(AssetSource(clip))).catchError((Object e) {
       debugPrint('Could not play $clip: $e');
       _playNext();
     });

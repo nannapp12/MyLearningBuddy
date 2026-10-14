@@ -61,6 +61,7 @@ flutter:
     - assets/images/
     - assets/audio/
     - assets/audio/effects/
+    - assets/audio/puppy/
 
   # Title font (SIL Open Font License, see assets/fonts/Fredoka-OFL.txt).
   fonts:

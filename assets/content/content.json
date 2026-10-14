@@ -1061,7 +1061,8 @@
       },
       {
        "label": "Zip",
-       "highlight": "Z"
+       "highlight": "Z",
+       "image": "assets/images/zip.svg"
       },
       {
        "label": "Zero",
@@ -1070,7 +1071,8 @@
       },
       {
        "label": "Zigzag",
-       "highlight": "Z"
+       "highlight": "Z",
+       "image": "assets/images/zigzag.svg"
       }
      ]
     }

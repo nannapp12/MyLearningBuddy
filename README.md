@@ -27,8 +27,8 @@ for the full product requirements.
 ## Not done yet
 
 - **Pictures:** most pictures are emoji placeholders; the lion, zebra, bear, school bus,
-  cauliflower, dragonfly, zoo, aquarium and Jan 1 calendar are our own drawings in `assets/images/`. Some words (e.g. Igloo, Zoo) still show only
-  their letter. (The emoji font, Noto Color Emoji under the SIL Open Font License, is served from
+  cauliflower, dragonfly, zoo, aquarium, police station, zip, zigzag and Jan 1 calendar are our own
+  drawings in `assets/images/`. (The emoji font, Noto Color Emoji under the SIL Open Font License, is served from
   `web/fonts/` so the website makes no requests to other servers.)
 - **Tracing:** stroke-order hints and checking that the child stayed on the path.
 - **Rewards:** sticker book and section badges.

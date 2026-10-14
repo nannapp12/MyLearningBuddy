@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/content.dart';
 import '../state/app_state.dart';
+import '../widgets/category_icon.dart';
 import '../widgets/star_badge.dart';
 import 'parent_area_screen.dart';
 import 'section_screen.dart';
@@ -74,7 +75,7 @@ class _CategoryTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                child: FittedBox(child: Text(category.emoji, style: const TextStyle(fontSize: 80))),
+                child: FittedBox(child: CategoryIcon(category: category, size: 100)),
               ),
               const SizedBox(height: 8),
               FittedBox(

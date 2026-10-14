@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../models/content.dart';
 import '../state/app_state.dart';
+import '../widgets/category_icon.dart';
 
 /// Parent-only settings, behind a simple sum that young children can't solve.
 class ParentAreaScreen extends StatefulWidget {
@@ -88,7 +89,7 @@ class _Settings extends StatelessWidget {
         const _Header('Show or hide sections'),
         for (final c in content.categories)
           SwitchListTile(
-            secondary: Text(c.emoji, style: const TextStyle(fontSize: 28)),
+            secondary: CategoryIcon(category: c, size: 36),
             title: Text(c.title),
             value: !state.isHidden(c.id),
             onChanged: (show) => state.setHidden(c.id, !show),

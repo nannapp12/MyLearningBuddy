@@ -76,6 +76,7 @@ class Category {
     required this.id,
     required this.title,
     required this.emoji,
+    this.image,
     required this.color,
     required this.layout,
     this.items = const [],
@@ -86,6 +87,7 @@ class Category {
     id: json['id'] as String,
     title: json['title'] as String,
     emoji: json['emoji'] as String,
+    image: json['image'] as String?,
     color: parseHexColor(json['color'] as String),
     layout: CategoryLayout.values.byName(json['layout'] as String),
     items: _items(json['items']),
@@ -95,6 +97,9 @@ class Category {
   final String id;
   final String title;
   final String emoji;
+
+  /// Asset path of an SVG picture shown instead of [emoji].
+  final String? image;
   final Color color;
   final CategoryLayout layout;
   final List<LearningItem> items;

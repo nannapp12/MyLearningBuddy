@@ -122,6 +122,7 @@ Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond, Pentagon, Hexag
 ### 3.6 Days of the Week
 Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 - Show in order from Monday to Sunday, with no reference to today's date
+- The section's tile shows a calendar page for January 1
 
 ### 3.7 Farm Animals (10)
 Cow, Horse, Pig, Sheep, Goat, Chicken (Hen), Duck, Dog, Cat, Donkey

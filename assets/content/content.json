@@ -1419,7 +1419,8 @@
     {
      "label": "Sunday"
     }
-   ]
+   ],
+   "image": "assets/images/calendar_jan_1.svg"
   },
   {
    "id": "farm_animals",

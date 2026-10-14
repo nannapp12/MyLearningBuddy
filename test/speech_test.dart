@@ -25,6 +25,7 @@ void main() {
 
   test('every picture file exists', () {
     for (final c in content.categories) {
+      if (c.image != null) expect(File(c.image!).existsSync(), isTrue, reason: c.image);
       for (final i in [...c.items, for (final g in c.groups) ...g.items]) {
         if (i.image != null) expect(File(i.image!).existsSync(), isTrue, reason: i.image);
       }

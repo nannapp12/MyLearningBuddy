@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect x="12" y="22" width="104" height="96" rx="12" fill="#B0BEC5"/>
+  <rect x="12" y="18" width="104" height="96" rx="12" fill="#FAFAFA"/>
+  <path d="M12 30 Q12 18 24 18 H104 Q116 18 116 30 V48 H12 Z" fill="#F44336"/>
+  <text x="64" y="42" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">JAN</text>
+  <text x="64" y="104" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="56" font-weight="700" fill="#212121">1</text>
+  <g fill="#455A64">
+    <rect x="34" y="8" width="8" height="20" rx="4"/>
+    <rect x="86" y="8" width="8" height="20" rx="4"/>
+  </g>
+</svg>

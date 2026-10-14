@@ -19,8 +19,8 @@ for the full product requirements.
 ## Not done yet
 
 - **Pictures:** emoji are temporary placeholders. They will be replaced with free public-domain
-  cartoon clip art. On the website the emoji font is downloaded from Google, which must not happen
-  in the released product.
+  cartoon clip art. (The emoji font, Noto Color Emoji under the SIL Open Font License, is served from
+  `web/fonts/` so the website makes no requests to other servers.)
 - **Audio:** `lib/services/audio_service.dart` is a stub. Pre-generated clips from a free
   text-to-speech tool (female, US English) still need to be made and bundled.
 - **Tracing:** stroke-order hints and checking that the child stayed on the path.

@@ -46,7 +46,8 @@ Every learning section must, at minimum, support:
 
 ## 1a. Home Screen
 
-- Title "My Learning Buddy" in big, bold letters, each letter a different colour
+- Title "My Learning Buddy" in big, bold letters, each letter a different colour, in the Fredoka font
+  (free, SIL Open Font License, bundled with the app)
 - One big picture tile per section; tile pictures must not be cut off at the edges
 - Fruits tile is yellow
 

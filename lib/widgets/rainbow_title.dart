@@ -39,8 +39,9 @@ class RainbowTitle extends StatelessWidget {
               ],
             ),
             style: TextStyle(
+              fontFamily: 'Fredoka',
               fontSize: fontSize,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
               letterSpacing: 1,
               shadows: const [Shadow(color: Colors.black26, blurRadius: 2, offset: Offset(0, 1))],
             ),

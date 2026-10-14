@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <rect x="0" y="136" width="200" height="24" fill="#8BC34A"/>
+  <rect x="18" y="40" width="22" height="100" rx="4" fill="#8D6E63"/>
+  <rect x="160" y="40" width="22" height="100" rx="4" fill="#8D6E63"/>
+  <path d="M10 46 Q100 0 190 46 V66 Q100 22 10 66 Z" fill="#43A047"/>
+  <rect x="58" y="30" width="84" height="34" rx="8" fill="#FFF8E1" stroke="#8D6E63" stroke-width="3"/>
+  <text x="100" y="57" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="26" font-weight="700" fill="#2E7D32">ZOO</text>
+  <g stroke="#6D4C41" stroke-width="5" stroke-linecap="round">
+    <path d="M52 76 V136 M72 76 V136 M92 76 V136 M112 76 V136 M132 76 V136 M152 76 V136"/>
+    <path d="M44 78 H158 M44 132 H158"/>
+  </g>
+  <g transform="translate(78 82)">
+    <path d="M22 54 L26 30 L30 54 Z" fill="#F9A825"/>
+    <rect x="18" y="8" width="10" height="34" rx="5" fill="#FBC02D"/>
+    <ellipse cx="22" cy="8" rx="11" ry="8" fill="#FBC02D"/>
+    <circle cx="18" cy="6" r="2" fill="#3E2723"/>
+    <path d="M16 -1 L14 -7 M26 -1 L28 -7" stroke="#8D6E63" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="22" cy="20" r="3" fill="#E65100"/><circle cx="24" cy="32" r="3" fill="#E65100"/>
+  </g>
+</svg>

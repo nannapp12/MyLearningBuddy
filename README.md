@@ -6,12 +6,15 @@ for the full product requirements.
 
 ## What's built so far
 
-- Home screen with the 12 learning sections as big picture tiles
+- Home screen with the 24 learning sections as big picture tiles
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
   - Letters (Aa–Zz, each a different colour); Numbers 1–20 with a different object to count each time ("seven strawberries")
   - Words: one card per letter showing all 5 words; tap a picture to hear it
   - Shapes in different colours, Days of the Week (Monday to Sunday), Colors (swatch + object)
   - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables (names only, no sounds)
+- 12 more sections: Body Parts, Family, Emotions, Opposites (both words on one card), Weather and
+  Seasons, Months, Birds, Sea Creatures, Insects, Community Helpers, Things Around the House, Places
+  We Visit – at most 10 items each (12 for Months)
 - Voice: every item, section name and "Great job!" is spoken in a slow, friendly female voice,
   plus a chime when a star is earned
 - Tracing: pick A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
@@ -23,8 +26,8 @@ for the full product requirements.
 
 ## Not done yet
 
-- **Pictures:** most pictures are emoji placeholders; the lion, zebra, bear, school bus and
-  cauliflower are our own drawings in `assets/images/`. Some words (e.g. Igloo, Zoo) still show only
+- **Pictures:** most pictures are emoji placeholders; the lion, zebra, bear, school bus,
+  cauliflower, dragonfly, zoo, aquarium and Jan 1 calendar are our own drawings in `assets/images/`. Some words (e.g. Igloo, Zoo) still show only
   their letter. (The emoji font, Noto Color Emoji under the SIL Open Font License, is served from
   `web/fonts/` so the website makes no requests to other servers.)
 - **Tracing:** stroke-order hints and checking that the child stayed on the path.

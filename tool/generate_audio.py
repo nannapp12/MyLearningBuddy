@@ -49,6 +49,8 @@ def clip_name(text):
 def item_speech(item):
     if item.get("speak"):
         return item["speak"]
+    if item.get("opposite"):
+        return f"{item['label']}. {item['opposite']['label']}."
     if item.get("subtitle"):
         return f"{item['label']}. {item['subtitle']}"
     return item["label"]

@@ -57,6 +57,9 @@ Every learning section must, at minimum, support:
 
 ## 3. Learning Sections
 
+To keep each section easy to learn, a section has **at most 10 items**, except where the
+subject needs more (letters, numbers, words, tracing and the 12 months).
+
 ### 3.1 Letters
 - Uppercase: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 - Lowercase: a b c d e f g h i j k l m n o p q r s t u v w x y z
@@ -151,6 +154,45 @@ Carrot, Potato, Tomato, Onion, Cabbage, Cauliflower, Peas, Corn, Cucumber, Brocc
 Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
 - Show a color swatch plus a familiar object of that color
 
+### 3.13 Body Parts (10)
+Eye, Ear, Nose, Mouth, Teeth, Tongue, Hand, Arm, Leg, Foot
+
+### 3.14 Family (8)
+Mother, Father, Baby, Sister, Brother, Grandmother, Grandfather, Family
+
+### 3.15 Emotions (10)
+Happy, Sad, Angry, Scared, Surprised, Sleepy, Silly, Excited, Calm, Worried
+
+### 3.16 Opposites (10 pairs)
+Big / Small, Hot / Cold, Up / Down, Day / Night, Happy / Sad, Fast / Slow, Open / Closed,
+Loud / Quiet, Hard / Soft, Stop / Go
+- Both words on one card, side by side, each with a picture (e.g. a big elephant and a small mouse)
+- Audio: both words, e.g. "Big. Small."
+
+### 3.17 Weather and Seasons (10)
+Weather: Sunny, Cloudy, Rainy, Snowy, Windy, Stormy. Seasons: Spring, Summer, Fall, Winter
+
+### 3.18 Months (12)
+January to December, each with a picture for that time of year (e.g. a pumpkin for October)
+
+### 3.19 Birds (10)
+Parrot, Owl, Eagle, Penguin, Flamingo, Peacock, Swan, Dove, Turkey, Duck
+
+### 3.20 Sea Creatures (10)
+Fish, Whale, Dolphin, Shark, Octopus, Crab, Jellyfish, Seal, Sea Turtle, Lobster
+
+### 3.21 Insects (10)
+Butterfly, Bee, Ant, Ladybug, Caterpillar, Beetle, Cricket, Fly, Mosquito, Dragonfly
+
+### 3.22 Community Helpers (10)
+Doctor, Nurse, Firefighter, Police Officer, Teacher, Farmer, Chef, Pilot, Mechanic, Construction Worker
+
+### 3.23 Things Around the House (10)
+Bed, Chair, Sofa, Door, Window, Clock, Toothbrush, Bathtub, Television, Broom
+
+### 3.24 Places We Visit (10)
+Zoo, Aquarium, Park, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
+
 ---
 
 ## 4. Rewards and Motivation
@@ -182,7 +224,7 @@ Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
 ## 6. Parent Area
 
 - Protected by a parental lock (e.g. "solve this sum" or press-and-hold) so children can't enter
-- **Show / hide categories:** parents can turn each learning section (3.1–3.12) on or off;
+- **Show / hide categories:** parents can turn each learning section (3.1–3.24) on or off;
   hidden categories do not appear on the child's home screen
 - Sound settings (speech volume, music / effects on or off)
 - Settings apply to the current visit only and reset when the app or website is closed (see section 2)
@@ -264,8 +306,7 @@ Requirements that follow from this:
 These were considered and left out for now:
 
 - Activities and games: quizzes, matching pairs, sound to picture, counting, drag and drop, coloring pages
-- Additional learning sections: Body Parts, Family Members, Emotions, Opposites, Weather, Seasons,
-  Months, Birds, Sea Creatures, Insects, Community Helpers, Food, Things Around the House
+- Additional learning section: Food
 - Child profiles and age-based levels
 - Saved progress, progress reports and sync across devices
 - Multiple languages and voices

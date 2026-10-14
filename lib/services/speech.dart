@@ -11,9 +11,10 @@ class Speech {
 
   static String category(Category category) => category.title;
 
-  /// E.g. "Apple", "seven", "Cow. Moo!".
+  /// E.g. "Apple", "Seven strawberries.", "Big. Small.".
   static String item(LearningItem item) {
     if (item.speak != null) return item.speak!;
+    if (item.opposite != null) return '${item.label}. ${item.opposite!.label}.';
     if (item.subtitle != null) return '${item.label}. ${item.subtitle}';
     return item.label;
   }

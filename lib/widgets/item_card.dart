@@ -14,6 +14,27 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final opposite = item.opposite;
+    if (opposite != null) {
+      return Card(
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Row(
+            children: [
+              Expanded(
+                child: _Half(category: category, item: item),
+              ),
+              VerticalDivider(width: 32, thickness: 2, color: category.color.withValues(alpha: 0.3)),
+              Expanded(
+                child: _Half(category: category, item: opposite),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
@@ -35,6 +56,31 @@ class ItemCard extends StatelessWidget {
       ),
     );
   }
+}
+
+/// One side of an opposite pair: picture and name.
+class _Half extends StatelessWidget {
+  const _Half({required this.category, required this.item});
+
+  final Category category;
+  final LearningItem item;
+
+  @override
+  Widget build(BuildContext context) => Column(
+    children: [
+      Expanded(
+        child: Center(
+          child: FractionallySizedBox(
+            widthFactor: item.scale ?? 1,
+            heightFactor: item.scale ?? 1,
+            child: ItemPicture(category: category, item: item),
+          ),
+        ),
+      ),
+      const SizedBox(height: 16),
+      ItemLabel(item: item, color: category.color),
+    ],
+  );
 }
 
 /// The item's picture: a shape, colour swatch, objects to count, emoji or letter.

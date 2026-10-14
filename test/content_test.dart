@@ -7,7 +7,7 @@ void main() {
   final content = LearningContent.fromJsonString(File('assets/content/content.json').readAsStringSync());
   Category byId(String id) => content.categories.firstWhere((c) => c.id == id);
 
-  test('has the 12 required sections in order', () {
+  test('has the 24 sections in order', () {
     expect(content.categories.map((c) => c.title), [
       'Letters',
       'Numbers',
@@ -21,7 +21,33 @@ void main() {
       'Fruits',
       'Vegetables',
       'Colors',
+      'Body Parts',
+      'Family',
+      'Emotions',
+      'Opposites',
+      'Weather and Seasons',
+      'Months',
+      'Birds',
+      'Sea Creatures',
+      'Insects',
+      'Community Helpers',
+      'Things Around the House',
+      'Places We Visit',
     ]);
+  });
+
+  test('sections have at most 10 items, except where the subject needs more', () {
+    const longer = {'letters', 'numbers', 'words', 'tracing', 'months'};
+    for (final c in content.categories) {
+      if (!longer.contains(c.id)) expect(c.items.length, lessThanOrEqualTo(10), reason: c.title);
+    }
+    expect(byId('months').items, hasLength(12));
+  });
+
+  test('every opposite has a pair', () {
+    for (final i in byId('opposites').items) {
+      expect(i.opposite, isNotNull, reason: i.label);
+    }
   });
 
   test('section sizes match the requirements', () {

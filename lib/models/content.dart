@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 /// How a category's items are presented.
-enum CategoryLayout { cards, groups, tracing, shapes, days, colors }
+enum CategoryLayout { cards, groups, tracing, shapes, days, colors, pairs }
 
 /// One thing a child can look at, e.g. a letter, a word or an animal.
 class LearningItem {
@@ -18,6 +18,8 @@ class LearningItem {
     this.countEmoji,
     this.shape,
     this.swatch,
+    this.opposite,
+    this.scale,
   });
 
   factory LearningItem.fromJson(Map<String, dynamic> json) => LearningItem(
@@ -32,6 +34,8 @@ class LearningItem {
     countEmoji: json['countEmoji'] as String?,
     shape: json['shape'] as String?,
     swatch: json['swatch'] == null ? null : parseHexColor(json['swatch'] as String),
+    opposite: json['opposite'] == null ? null : LearningItem.fromJson(json['opposite'] as Map<String, dynamic>),
+    scale: (json['scale'] as num?)?.toDouble(),
   );
 
   final String label;
@@ -57,6 +61,12 @@ class LearningItem {
   final String? countEmoji;
   final String? shape;
   final Color? swatch;
+
+  /// The other half of an opposite pair, e.g. "Small" for "Big".
+  final LearningItem? opposite;
+
+  /// Picture size relative to normal, e.g. 0.45 for the small mouse.
+  final double? scale;
 }
 
 /// A named set of items within a category, e.g. the words for "A".

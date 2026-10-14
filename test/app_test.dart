@@ -122,6 +122,16 @@ void main() {
     expect(find.text('Letters'), findsOneWidget);
   });
 
+  testWidgets('opposites show both words and say them', (tester) async {
+    await pumpApp(tester);
+    await tester.scrollUntilVisible(find.text('Opposites'), 300);
+    await tester.tap(find.text('Opposites'));
+    await tester.pumpAndSettle();
+    expect(find.text('Big'), findsOneWidget);
+    expect(find.text('Small'), findsOneWidget);
+    expect(audio.spoken, ['Opposites', 'Big. Small.']);
+  });
+
   test('stars are awarded once per section', () {
     final state = AppState(audio: SilentAudioService());
     expect(state.finish('shapes'), isTrue);

@@ -63,7 +63,7 @@ class _SectionScreenState extends State<SectionScreen> {
     super.initState();
     _controller = PageController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) _state.speak([Speech.category(widget.category), widget.pages[_page].speech]);
+      if (mounted) _speakPage(_page, intro: true);
     });
   }
 
@@ -77,8 +77,20 @@ class _SectionScreenState extends State<SectionScreen> {
 
   void _onPageChanged(int page) {
     setState(() => _page = page);
-    _state.speak([widget.pages[page].speech]);
-    if (page == widget.pages.length - 1 && _state.finish(widget.category.id)) {
+    _speakPage(page);
+  }
+
+  /// Says the page; on the last page, "Great job!" follows once the voice has
+  /// finished, so the child sees and hears the last item first.
+  Future<void> _speakPage(int page, {bool intro = false}) async {
+    final finished = await _state
+        .speak([if (intro) Speech.category(widget.category), widget.pages[page].speech])
+        // In case the browser never reports the end of a clip.
+        .timeout(const Duration(seconds: 8), onTimeout: () => true);
+    final isLast = page == widget.pages.length - 1;
+    if (!finished || !isLast || !mounted || _page != page) return;
+    await Future<void>.delayed(const Duration(milliseconds: 400));
+    if (mounted && _page == page && _state.finish(widget.category.id)) {
       showCelebration(context, goHome: true);
     }
   }
@@ -111,10 +123,7 @@ class _SectionScreenState extends State<SectionScreen> {
                 onPageChanged: _onPageChanged,
                 itemBuilder: (context, i) => Padding(
                   padding: const EdgeInsets.all(16),
-                  child: GestureDetector(
-                    onTap: () => _state.speak([widget.pages[i].speech]),
-                    child: widget.pages[i].child,
-                  ),
+                  child: GestureDetector(onTap: () => _speakPage(i), child: widget.pages[i].child),
                 ),
               ),
             ),

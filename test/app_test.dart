@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
@@ -40,6 +41,9 @@ void main() {
       await tester.pumpAndSettle();
     }
     expect(find.text('Hexagon'), findsOneWidget);
+    // "Great job!" follows a short pause after the last item is said.
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
     expect(find.text('Great job!'), findsOneWidget);
     expect(audio.spoken, containsAllInOrder(['Shapes', 'Circle', 'Square', 'Hexagon', 'Great job!']));
 
@@ -48,6 +52,28 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Hexagon'), findsNothing);
     expect(find.text('Letters'), findsOneWidget);
+  });
+
+  testWidgets('"Great job!" waits until the last item has been said', (tester) async {
+    tester.view.physicalSize = const Size(1200, 2000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    final slow = _ManualAudioService();
+    await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: slow));
+    await tester.tap(find.text('Shapes'));
+    await tester.pumpAndSettle();
+    for (var i = 0; i < 9; i++) {
+      await tester.tap(find.bySemanticsLabel('Next'));
+      await tester.pumpAndSettle();
+    }
+    expect(slow.lastSaid, ['Hexagon']);
+    await tester.pump(const Duration(seconds: 2));
+    expect(find.text('Great job!'), findsNothing);
+
+    slow.finish();
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
+    expect(find.text('Great job!'), findsOneWidget);
   });
 
   testWidgets('words shows all five words for a letter on one card', (tester) async {
@@ -162,4 +188,25 @@ void main() {
     await tester.pump();
     expect(state.isHidden('shapes'), isTrue);
   });
+}
+
+/// Speaks only when told to [finish], to test what waits for the voice.
+class _ManualAudioService implements AudioService {
+  List<String> lastSaid = [];
+  Completer<bool>? _done;
+
+  @override
+  Future<bool> speak(List<String> texts) {
+    if (_done?.isCompleted == false) _done!.complete(false);
+    lastSaid = texts;
+    return (_done = Completer<bool>()).future;
+  }
+
+  void finish() => _done?.complete(true);
+
+  @override
+  void chime() {}
+
+  @override
+  void dispose() {}
 }

@@ -44,6 +44,14 @@ Every learning section must, at minimum, support:
 
 ---
 
+## 1a. Home Screen
+
+- Title "My Learning Buddy" in big, bold letters, each letter a different colour
+- One big picture tile per section; tile pictures must not be cut off at the edges
+- Fruits tile is yellow
+
+---
+
 ## 2. Session Model (No Saved Progress)
 
 - The app and website are **stand-alone sessions**: each time they are opened, they start fresh.
@@ -191,7 +199,7 @@ Doctor, Nurse, Firefighter, Police Officer, Teacher, Farmer, Chef, Pilot, Mechan
 Bed, Chair, Sofa, Door, Window, Clock, Toothbrush, Bathtub, Television, Broom
 
 ### 3.24 Places We Visit (10)
-Zoo, Aquarium, Park, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
+Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
 ---
 
@@ -201,7 +209,8 @@ Zoo, Aquarium, Park, School, Hospital, Library, Playground, Beach, Grocery Store
 - Sticker book screen to view rewards earned during the current session
 - Progress badges per section (e.g. "Alphabet Star", "Number Champ")
 - Celebration animations and sounds on success
-- Finishing a section shows "Great job!"; tapping it returns to the main menu
+- Finishing a section shows "Great job!" only after the voice has finished saying the last item, so the
+  child sees and hears it first; tapping "Great job!" returns to the main menu
 - Encouraging (never negative) feedback when tracing goes off the path – e.g. "Try again!"
 - Rewards are **not saved**: they reset when the app or website is closed (see section 2)
 

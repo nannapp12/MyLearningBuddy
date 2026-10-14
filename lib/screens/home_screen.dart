@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/content.dart';
 import '../state/app_state.dart';
 import '../widgets/category_icon.dart';
+import '../widgets/rainbow_title.dart';
 import '../widgets/star_badge.dart';
 import 'parent_area_screen.dart';
 import 'section_screen.dart';
@@ -23,7 +24,8 @@ class HomeScreen extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Learning Buddy'),
+        toolbarHeight: 72,
+        title: const RainbowTitle('My Learning Buddy'),
         actions: [
           const StarBadge(),
           IconButton(
@@ -75,13 +77,23 @@ class _CategoryTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                child: FittedBox(child: CategoryIcon(category: category, size: 100)),
+                // Padding so pictures that reach the edge (like the apple's leaf) are not cut off.
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: FittedBox(child: CategoryIcon(category: category, size: 100)),
+                ),
               ),
               const SizedBox(height: 8),
               FittedBox(
                 child: Text(
                   category.title,
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    // Keeps the white name readable on light tiles such as yellow.
+                    shadows: [Shadow(color: Colors.black45, blurRadius: 4, offset: Offset(0, 1))],
+                  ),
                 ),
               ),
             ],

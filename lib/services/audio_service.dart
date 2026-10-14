@@ -8,7 +8,10 @@ import 'speech.dart';
 /// Plays the bundled voice clips and sound effects.
 abstract class AudioService {
   /// Says [texts] one after another, stopping anything already being said.
-  void speak(List<String> texts);
+  ///
+  /// Completes with true once everything has been said, or false if it was
+  /// interrupted by another call.
+  Future<bool> speak(List<String> texts);
 
   /// Plays the short "you earned a star" chime.
   void chime();
@@ -22,24 +25,33 @@ class ClipAudioService implements AudioService {
   final _effects = AudioPlayer();
   final List<String> _queue = [];
   StreamSubscription<void>? _onComplete;
+  Completer<bool>? _done;
 
   ClipAudioService() {
     _onComplete = _voice.onPlayerComplete.listen((_) => _playNext());
   }
 
   @override
-  void speak(List<String> texts) {
+  Future<bool> speak(List<String> texts) {
+    _done?.complete(false);
+    final done = _done = Completer<bool>();
     _queue
       ..clear()
       ..addAll(texts);
     _playNext();
+    return done.future;
   }
 
   void _playNext() {
-    if (_queue.isEmpty) return;
+    if (_queue.isEmpty) {
+      _done?.complete(true);
+      _done = null;
+      return;
+    }
     final clip = clipName(_queue.removeAt(0));
     _voice.stop().then((_) => _voice.play(AssetSource('audio/$clip.mp3'))).catchError((Object e) {
       debugPrint('Could not play $clip: $e');
+      _playNext();
     });
   }
 
@@ -50,6 +62,7 @@ class ClipAudioService implements AudioService {
 
   @override
   void dispose() {
+    _done?.complete(false);
     _onComplete?.cancel();
     _voice.dispose();
     _effects.dispose();
@@ -61,7 +74,10 @@ class SilentAudioService implements AudioService {
   final List<String> spoken = [];
 
   @override
-  void speak(List<String> texts) => spoken.addAll(texts);
+  Future<bool> speak(List<String> texts) {
+    spoken.addAll(texts);
+    return Future.value(true);
+  }
 
   @override
   void chime() {}

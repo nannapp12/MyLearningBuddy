@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <rect x="0" y="140" width="200" height="20" fill="#9E9E9E"/>
+  <rect x="20" y="52" width="160" height="90" fill="#ECEFF1"/>
+  <path d="M10 56 L100 18 L190 56 Z" fill="#1565C0"/>
+  <rect x="10" y="52" width="180" height="8" fill="#0D47A1"/>
+  <rect x="52" y="64" width="96" height="24" rx="4" fill="#1565C0"/>
+  <text x="100" y="82" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">POLICE</text>
+  <path d="M100 26 L106 34 L116 34 L108 40 L111 49 L100 44 L89 49 L92 40 L84 34 L94 34 Z" fill="#FFD54F"/>
+  <g fill="#90CAF9" stroke="#546E7A" stroke-width="3">
+    <rect x="30" y="96" width="30" height="26" rx="3"/>
+    <rect x="140" y="96" width="30" height="26" rx="3"/>
+  </g>
+  <rect x="80" y="96" width="40" height="46" rx="4" fill="#0D47A1"/>
+  <path d="M100 96 V142" stroke="#1565C0" stroke-width="3"/>
+  <circle cx="94" cy="122" r="2.5" fill="#FFD54F"/><circle cx="106" cy="122" r="2.5" fill="#FFD54F"/>
+  <rect x="96" y="2" width="8" height="14" rx="2" fill="#E53935"/>
+  <rect x="98" y="16" width="4" height="4" fill="#546E7A"/>
+</svg>

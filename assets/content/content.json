@@ -1543,7 +1543,7 @@
    "id": "fruits",
    "title": "Fruits",
    "emoji": "🍎",
-   "color": "#C62828",
+   "color": "#FBC02D",
    "layout": "cards",
    "items": [
     {
@@ -2292,8 +2292,8 @@
      "image": "assets/images/aquarium.svg"
     },
     {
-     "label": "Park",
-     "emoji": "🏞️"
+     "label": "Police Station",
+     "image": "assets/images/police_station.svg"
     },
     {
      "label": "School",

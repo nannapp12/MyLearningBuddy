@@ -129,12 +129,17 @@ def drop_onset_hum(samples):
     match = re.match(r" *\.?v{1,3}(?=[. ]{2})", shape)
     cut = match.end() if match else None
     if cut is None:
-        # Or: up to 3 frames of sound, a dip to under half that, then louder speech.
+        # Or: up to 3 frames of sound, a dip (1-2 frames) to under half that, then
+        # much louder speech.
         start = int(np.argmax(rms > 0.005))
         for k in (1, 2, 3):
-            hum, dip, after = rms[start : start + k], rms[start + k : start + k + 2], rms[start + k + 2 : start + k + 6]
-            if len(after) and hum.max() >= 0.02 and dip.max() < 0.5 * hum.max() and after.max() > 2 * hum.max():
-                cut = start + k
+            for gap in (2, 1):
+                hum, dip = rms[start : start + k], rms[start + k : start + k + gap]
+                after = rms[start + k + gap : start + k + gap + 4]
+                if len(after) and hum.max() >= 0.02 and dip.max() < 0.5 * hum.max() and after.max() > 2 * hum.max():
+                    cut = start + k
+                    break
+            if cut is not None:
                 break
     if cut is None:
         return samples

@@ -112,7 +112,7 @@ class ItemPicture extends StatelessWidget {
     return FittedBox(
       child: Text(
         text,
-        style: TextStyle(fontSize: 200, fontWeight: FontWeight.bold, color: category.color),
+        style: TextStyle(fontSize: 200, fontWeight: FontWeight.bold, color: item.color ?? category.color),
       ),
     );
   }

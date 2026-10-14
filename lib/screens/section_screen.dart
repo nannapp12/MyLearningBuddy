@@ -4,6 +4,7 @@ import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
 import '../widgets/celebration.dart';
+import '../widgets/home_button.dart';
 import '../widgets/item_card.dart';
 import '../widgets/star_badge.dart';
 import '../widgets/word_group_card.dart';
@@ -128,7 +129,14 @@ class _SectionScreenState extends State<SectionScreen> {
                     color: color,
                     onPressed: _page > 0 ? () => _go(-1) : null,
                   ),
-                  Text('${_page + 1} / ${widget.pages.length}', style: Theme.of(context).textTheme.titleLarge),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      HomeButton(color: color),
+                      const SizedBox(height: 4),
+                      Text('${_page + 1} / ${widget.pages.length}', style: Theme.of(context).textTheme.labelLarge),
+                    ],
+                  ),
                   _NavButton(
                     icon: Icons.arrow_forward_rounded,
                     label: 'Next',

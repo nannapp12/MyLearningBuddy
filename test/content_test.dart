@@ -44,8 +44,9 @@ void main() {
     }
   });
 
-  test('tracing covers A-Z, a-z and 1-20', () {
+  test('tracing covers A-Z then 1-10, a-z and 1-20', () {
     final groups = byId('tracing').groups;
-    expect(groups.map((g) => g.items.length), [26, 26, 20]);
+    expect(groups.map((g) => g.items.length), [36, 26, 20]);
+    expect(groups.first.items.skip(25).map((i) => i.label), ['Z', for (var n = 1; n <= 10; n++) '$n']);
   });
 }

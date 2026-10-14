@@ -8,13 +8,15 @@ for the full product requirements.
 
 - Home screen with the 12 learning sections as big picture tiles
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
-  - Letters (Aa–Zz); Numbers 1–20 with a different object to count each time ("seven strawberries")
+  - Letters (Aa–Zz, each a different colour); Numbers 1–20 with a different object to count each time ("seven strawberries")
   - Words: one card per letter showing all 5 words; tap a picture to hear it
   - Shapes in different colours, Days of the Week (opens on today, marked "Today"), Colors (swatch + object)
-  - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables
+  - Farm Animals and Wild Animals (whole animals, name only), Vehicles, Fruits, Vegetables
 - Voice: every item, section name and "Great job!" is spoken in a slow, friendly female voice,
   plus a chime when a star is earned
-- Tracing: pick A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line widths
+- Tracing: pick A–Z (then 1–10), a–z or 1–20, trace over a faint guide with crayon colours and two line
+  widths, and move on with the next button
+- A home button on every screen returns to the main menu
 - Rewards: a star for finishing each section or tracing a character, with a "Great job!" celebration
 - Parent area behind a simple sum: show/hide each section, speech and sound-effect switches
 - Nothing is saved: stars and settings reset when the app or web page is closed

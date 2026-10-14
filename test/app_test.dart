@@ -55,6 +55,30 @@ void main() {
     expect(audio.spoken, ['Words', 'A', 'Ant']);
   });
 
+  testWidgets('home button goes back to the main menu', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.text('Farm Animals'));
+    await tester.pumpAndSettle();
+    expect(find.text('Cow'), findsOneWidget);
+    expect(audio.spoken, ['Farm Animals', 'Cow']);
+    await tester.tap(find.bySemanticsLabel('Home'));
+    await tester.pumpAndSettle();
+    expect(find.text('Letters'), findsOneWidget);
+  });
+
+  testWidgets('tracing moves on from Z to the number 1', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.text('Tracing'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Z'));
+    await tester.pumpAndSettle();
+    expect(find.text('Trace Z'), findsOneWidget);
+    await tester.tap(find.byTooltip('Next'));
+    await tester.pumpAndSettle();
+    expect(find.text('Trace 1'), findsOneWidget);
+    expect(audio.spoken.last, 'Trace the number 1.');
+  });
+
   test('stars are awarded once per section', () {
     final state = AppState(audio: SilentAudioService());
     expect(state.finish('shapes'), isTrue);

@@ -4,6 +4,7 @@ import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
 import '../widgets/celebration.dart';
+import '../widgets/home_button.dart';
 import '../widgets/star_badge.dart';
 import '../widgets/label_grid.dart';
 
@@ -53,7 +54,11 @@ class _TracingPickerScreenState extends State<TracingPickerScreen> {
                 labels: [for (final i in g.items) i.label],
                 onTap: (i) => Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (_) => TracingScreen(category: category, character: g.items[i].label),
+                    builder: (_) => TracingScreen(
+                      category: category,
+                      characters: [for (final item in g.items) item.label],
+                      index: i,
+                    ),
                   ),
                 ),
               ),
@@ -72,12 +77,14 @@ class _Stroke {
   final List<Offset> points = [];
 }
 
-/// A drawing canvas over a faint guide of [character].
+/// A drawing canvas over a faint guide of a letter or number, with a button to
+/// move on to the next one in [characters].
 class TracingScreen extends StatefulWidget {
-  const TracingScreen({super.key, required this.category, required this.character});
+  const TracingScreen({super.key, required this.category, required this.characters, required this.index});
 
   final Category category;
-  final String character;
+  final List<String> characters;
+  final int index;
 
   static const crayons = [Colors.red, Colors.blue, Colors.green, Colors.purple, Colors.orange];
 
@@ -89,18 +96,30 @@ class _TracingScreenState extends State<TracingScreen> {
   final List<_Stroke> _strokes = [];
   Color _color = TracingScreen.crayons.first;
   double _width = 24;
+  late int _index = widget.index;
+
+  String get _character => widget.characters[_index];
+  bool get _hasNext => _index < widget.characters.length - 1;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) AppStateScope.of(context).speak([Speech.trace(widget.character)]);
+      if (mounted) AppStateScope.of(context).speak([Speech.trace(_character)]);
     });
+  }
+
+  void _next() {
+    setState(() {
+      _index++;
+      _strokes.clear();
+    });
+    AppStateScope.of(context).speak([Speech.trace(_character)]);
   }
 
   Future<void> _done() async {
     final state = AppStateScope.of(context);
-    final awarded = state.finish('tracing/${widget.character}');
+    final awarded = state.finish('tracing/$_character');
     await showCelebration(context, message: awarded ? Speech.greatJob : Speech.wellDone);
     if (mounted) setState(_strokes.clear);
   }
@@ -110,7 +129,7 @@ class _TracingScreenState extends State<TracingScreen> {
     final color = widget.category.color;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Trace ${widget.character}'),
+        title: Text('Trace $_character'),
         backgroundColor: color,
         foregroundColor: Colors.white,
         actions: const [StarBadge()],
@@ -130,7 +149,7 @@ class _TracingScreenState extends State<TracingScreen> {
                           setState(() => _strokes.add(_Stroke(_color, _width)..points.add(d.localPosition))),
                       onPanUpdate: (d) => setState(() => _strokes.last.points.add(d.localPosition)),
                       child: CustomPaint(
-                        painter: _TracingPainter(widget.character, _strokes),
+                        painter: _TracingPainter(_character, _strokes),
                         child: const SizedBox.expand(),
                       ),
                     ),
@@ -180,6 +199,14 @@ class _TracingScreenState extends State<TracingScreen> {
                     onPressed: _strokes.isEmpty ? null : _done,
                     icon: const Icon(Icons.check_rounded),
                   ),
+                  IconButton.filled(
+                    iconSize: 40,
+                    tooltip: 'Next',
+                    style: IconButton.styleFrom(backgroundColor: color),
+                    onPressed: _hasNext ? _next : null,
+                    icon: const Icon(Icons.arrow_forward_rounded),
+                  ),
+                  HomeButton(color: color),
                 ],
               ),
             ),

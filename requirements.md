@@ -39,6 +39,7 @@ Every learning section must, at minimum, support:
 - The item's name shown as text
 - Audio pronunciation (computer-generated female voice, English) when the item is tapped
 - Simple next/previous navigation (swipe on touch devices, arrows on the web)
+- A home button at the bottom of every screen inside a section, to return to the main menu
 
 ---
 
@@ -59,13 +60,14 @@ Every learning section must, at minimum, support:
 - Uppercase: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 - Lowercase: a b c d e f g h i j k l m n o p q r s t u v w x y z
 - Show uppercase and lowercase pairs together (e.g. "Aa")
+- Each letter in a different colour
 - Audio: letter name, plus letter sound (phonics)
 
 ### 3.2 Numbers (1–20)
 - 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 - Show the numeral, the number word and a matching count of objects
 - Use a different everyday object for each number, named on screen and aloud (e.g. "7 – seven strawberries")
-- Audio: number name, then the count (e.g. "Seven. Seven strawberries.")
+- Audio: the count only, said once (e.g. "Seven strawberries.")
 
 ### 3.3 Words (5 per letter)
 
@@ -104,7 +106,8 @@ Every learning section must, at minimum, support:
 
 ### 3.4 Tracing
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website
-- Traceable content: uppercase A–Z, lowercase a–z, numbers 1–20
+- Traceable content: uppercase A–Z followed by numbers 1–10, lowercase a–z, numbers 1–20
+- A next button moves on to the next letter or number (after Z comes 1)
 - Dotted guide outline with stroke order and a start point
 - Detect whether the child stays roughly on the path; positive feedback (sound/animation) on completion
 - "Clear" / "Try again" button
@@ -121,12 +124,12 @@ Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 ### 3.7 Farm Animals (10)
 Cow, Horse, Pig, Sheep, Goat, Chicken (Hen), Duck, Dog, Cat, Donkey
 - Show the whole animal, not just its head
-- Audio: animal name + animal sound
+- Audio: animal name only (no animal sounds)
 
 ### 3.8 Wild Animals (10)
 Lion, Tiger, Elephant, Giraffe, Zebra, Monkey, Bear, Kangaroo, Hippopotamus, Crocodile
 - Show the whole animal, not just its head
-- Audio: animal name + animal sound
+- Audio: animal name only (no animal sounds)
 
 ### 3.9 Vehicles (10)
 Car, Bus, Truck, Bicycle, Motorcycle, Train, Airplane, Boat (Ship), Helicopter, Fire Truck

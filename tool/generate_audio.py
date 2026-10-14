@@ -7,11 +7,11 @@ the app can say has a clip.
 
 Setup (once):
   python3 -m venv .venv && .venv/bin/pip install kokoro-onnx soundfile numpy
-  npm pack kokoro-q8-shards@1.0.0 kokoro-js@1.2.1   # model weights + voices
-  # join kokoro-q8.part0.bin ... part5.bin (in order) into kokoro-q8.onnx
+  npm pack kokoro-fp16-shards@1.0.4 kokoro-js@1.2.1   # model weights + voices
+  # join kokoro-fp16.part0.bin ... part9.bin (in order) into kokoro-fp16.onnx
 
 Run:
-  .venv/bin/python tool/generate_audio.py --model kokoro-q8.onnx \
+  .venv/bin/python tool/generate_audio.py --model kokoro-fp16.onnx \
       --voices-dir <kokoro-js>/package/voices [--voice af_heart] [--force]
 
 Needs ffmpeg on the PATH.
@@ -30,6 +30,13 @@ import soundfile as sf
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "assets" / "content" / "content.json"
 OUT = ROOT / "assets" / "audio"
+
+# Kokoro adds a short "uh" sound at the very start of a recording, which made
+# single words sound like "a horse". So each clip is recorded after a lead-in,
+# which is cut off at the pause that follows it. Kokoro occasionally returns no
+# audio for a sentence, so the next lead-in is tried if that happens.
+LEAD_INS = ["Okay...", "Okay…", "Now...", "Yes..."]
+FRAME = 480  # 20 ms at 24 kHz
 
 GREAT_JOB = "Great job!"
 WELL_DONE = "Well done!"
@@ -78,6 +85,40 @@ def to_mp3(samples, rate, path):
         )
 
 
+def trim(samples, rate=24000):
+    """Trims to the speech plus a little padding."""
+    loud = np.flatnonzero(np.abs(samples) > 0.01)
+    if not loud.size:
+        return samples[:0]
+    pad = int(rate * 0.05)
+    return samples[max(loud[0] - pad, 0) : loud[-1] + pad]
+
+
+def cut_lead_in(samples, solo_length):
+    """Returns the audio after the first pause, which follows the lead-in.
+
+    [solo_length] is the length of the phrase recorded on its own; the result
+    must be close to it, which catches a cut in the wrong place.
+    """
+    n = len(samples) // FRAME
+    rms = np.sqrt(np.mean(samples[: n * FRAME].reshape(n, FRAME) ** 2, axis=1))
+    speaking = np.flatnonzero(rms > 0.005)
+    if not speaking.size:
+        raise ValueError("no speech")
+    quiet = 0
+    for i in range(speaking[0], n - 1):
+        quiet = quiet + 1 if rms[i] < 0.005 else 0
+        # Gaps inside "Okay" are under 60 ms; the "..." pause is 200-400 ms.
+        if quiet >= 6 and rms[i + 1] >= 0.005:
+            rest = trim(samples[(i - 2) * FRAME :])  # keep 60 ms of the pause
+            # The solo recording includes the extra "uh" (up to ~0.3 s), so it can
+            # be noticeably longer than a correct cut.
+            if min(0.75 * solo_length, solo_length - 0.35 * 24000) < len(rest) < 1.5 * solo_length + 0.3 * 24000:
+                return rest
+            raise ValueError("cut in the wrong place")
+    raise ValueError("no pause after the lead-in")
+
+
 def chime(rate=24000):
     """A short, bright three-note arpeggio (C6-E6-G6), made from sine waves."""
     notes, dur = [1046.5, 1318.5, 1568.0], 0.14
@@ -117,12 +158,23 @@ def main():
         path = OUT / f"{clip_name(text)}.mp3"
         if path.exists() and not args.force:
             continue
-        samples, rate = tts.create(text, voice=args.voice, speed=args.speed, lang="en-us")
-        # Trim to the speech plus a little padding.
-        loud = np.flatnonzero(np.abs(samples) > 0.01)
-        if loud.size:
-            pad = int(rate * 0.05)
-            samples = samples[max(loud[0] - pad, 0) : loud[-1] + pad]
+        # Without closing punctuation Kokoro sometimes returns no audio at all.
+        spoken = text if text[-1] in ".!?" else f"{text}."
+        for variant in (spoken, spoken[:-1] + "!", spoken[:-1] + "."):
+            solo, rate = tts.create(variant, voice=args.voice, speed=args.speed, lang="en-us")
+            if len(trim(solo)):
+                break
+        else:
+            raise SystemExit(f"could not record {text!r} on its own")
+        for lead_in in LEAD_INS:
+            samples, rate = tts.create(f"{lead_in} {spoken}", voice=args.voice, speed=args.speed, lang="en-us")
+            try:
+                samples = cut_lead_in(samples, len(trim(solo)))
+                break
+            except ValueError:
+                continue
+        else:
+            raise SystemExit(f"could not record {text!r}")
         to_mp3(samples, rate, path)
         print(f"[{i}/{len(texts)}] {path.name}: {text}")
 

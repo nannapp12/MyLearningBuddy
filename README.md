@@ -59,7 +59,9 @@ flutter run                  # run on a connected phone/tablet or emulator
 ## Voice clips
 
 The voice is **Kokoro-82M** (free, Apache-2.0 licence), voice `af_heart` (US English, female),
-at 0.75 speed so it is easy for young children to follow. Clips are made ahead of time and
+at 0.75 speed so it is easy for young children to follow. Each clip is recorded after a short
+lead-in ("Okay...") that is then cut off, because Kokoro adds a faint "uh" at the very start of
+a recording, which made single words sound like "a horse". Clips are made ahead of time and
 bundled, so the app works offline and sends nothing to a speech service.
 
 After changing `content.json`, run `tool/generate_audio.py` (setup steps are at the top of the

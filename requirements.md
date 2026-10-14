@@ -1,6 +1,6 @@
 # My Learning Buddy – Product Requirements
 
-- **Version:** 0.4 (Draft)
+- **Version:** 1.0 (Ready to build)
 - **Platforms:** Mobile app (iOS / Android, tablet-friendly) and website
 - **Audience:** Children aged 2–6, with parents and teachers as supervisors
 - **Price:** Free to the user
@@ -21,12 +21,13 @@ through pictures, sounds, touch and play.
 |---|---|
 | Age range | 2–6 years |
 | Price | Free to the user |
-| Voice | Computer-generated (text-to-speech) female voice, English |
+| Voice | Free text-to-speech tool, female voice, US English |
 | Language | English only |
 | Child profiles | Not included |
 | Saving progress | Nothing is saved – every visit starts fresh (see section 2) |
 | Games | Not in the first release – learning sections only |
-| Images | Free cartoon-style clip art |
+| Images | Free public-domain cartoon clip art (e.g. OpenClipart) |
+| Mascot | None |
 | Release country | United States only |
 | Technology | Flutter |
 | Accounts / login | None |
@@ -155,7 +156,8 @@ Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
 - **Language:** English (US)
 - Audio clips are generated ahead of time and bundled with the app/website, so the voice sounds the same
   on every device, works offline and sends no data to any speech service while the child uses the app
-- The text-to-speech tool's licence must allow use of the generated audio in a free app and website
+- Use a **free** text-to-speech tool whose terms allow the generated audio to be used in a free app and website
+- The owner approves a sample of the voice before all audio clips are generated
 - Letter names **and** letter sounds (phonics)
 - Captions: the text of what is spoken is always shown on screen
 - Separate volume / mute controls for speech and for music and sound effects
@@ -227,10 +229,11 @@ Requirements that follow from this:
 - Free to the user: no ads, no in-app purchases, no subscription
 - Release in the United States only (App Store and Google Play availability set to US)
 - Follow app store rules for kids' apps (Apple Kids Category, Google Play Families Policy)
-- **Images:** free cartoon-style clip art; every image's licence must allow use in an app and website
-  (e.g. public domain / CC0, or a free licence that permits app use). Keep a record of each image's source
+- **Images:** free public-domain (CC0) cartoon clip art, e.g. from OpenClipart; every image's licence must
+  allow use in an app and website. Keep a record of each image's source
   and licence, and give credit where the licence requires it (e.g. on a credits page behind the parental lock)
-- **Audio:** computer-generated female voice (see section 5)
+- **Audio:** female voice from a free text-to-speech tool (see section 5)
+- **No mascot / app character**; branding is the name "My Learning Buddy"
 - Feedback channel for parents (e.g. a contact email shown behind the parental lock)
 - Running costs to plan for (paid by the owner, not the user):
   - Apple Developer Program (about US$99 per year)
@@ -256,6 +259,5 @@ These were considered and left out for now:
 
 ## 12. Open Items / To Be Decided
 
-- App character / mascot: wanted or not?
-- Which text-to-speech tool to use for the female voice
-- Which free clip-art source(s) to use
+None – all requirements decisions are made. Remaining choices (exact text-to-speech tool and
+individual clip-art images) are made during building, within the rules above.

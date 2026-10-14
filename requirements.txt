@@ -1,0 +1,128 @@
+MY LEARNING BUDDY - PRODUCT REQUIREMENTS
+=======================================
+
+Version: 0.1 (Draft)
+Platforms: Mobile app (iOS / Android, tablet-friendly) and Website
+Audience: Young children (approx. ages 2-6), with parents/teachers as supervisors
+
+
+1. OVERVIEW
+-----------
+My Learning Buddy is an early-learning app and website that helps children
+learn letters, numbers, words, shapes, days, colors and everyday objects
+through pictures, sounds and touch interaction.
+
+Each learning section should, at minimum, support:
+  - A picture/illustration for every item
+  - The item's name shown as text
+  - Audio pronunciation when the item is tapped
+  - Simple next/previous navigation (swipe on touch devices, arrows on web)
+
+
+2. LEARNING SECTIONS
+--------------------
+
+2.1 LETTERS
+  - Uppercase: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+  - Lowercase: a b c d e f g h i j k l m n o p q r s t u v w x y z
+  - Show uppercase and lowercase pairs together (e.g. "Aa")
+  - Audio: letter name (and optionally letter sound / phonics)
+
+2.2 NUMBERS (1-20)
+  - 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+  - Show the numeral, the number word (e.g. "seven") and a matching
+    count of objects
+  - Audio: number name
+
+2.3 WORDS (5 basic words per letter)
+  A: Apple, Ant, Airplane, Alligator, Arrow
+  B: Ball, Bat, Banana, Bird, Bus
+  C: Cat, Car, Cake, Cup, Cow
+  D: Dog, Duck, Door, Drum, Doll
+  E: Egg, Elephant, Ear, Eagle, Envelope
+  F: Fish, Frog, Flower, Fan, Fork
+  G: Goat, Grapes, Girl, Gift, Guitar
+  H: Hat, House, Horse, Hen, Hand
+  I: Ice cream, Igloo, Insect, Iron, Ink
+  J: Jug, Jam, Jeep, Jellyfish, Juice
+  K: Kite, King, Key, Kangaroo, Kitten
+  L: Lion, Lamp, Leaf, Lemon, Ladder
+  M: Monkey, Moon, Mango, Mouse, Milk
+  N: Nest, Nose, Nut, Net, Nurse
+  O: Orange, Owl, Octopus, Onion, Ox
+  P: Pen, Pig, Parrot, Pencil, Pumpkin
+  Q: Queen, Quilt, Question mark, Quail, Quarter
+  R: Rabbit, Rainbow, Ring, Rose, Robot
+  S: Sun, Star, Snake, Sock, Ship
+  T: Tiger, Tree, Train, Table, Tomato
+  U: Umbrella, Unicorn, Uniform, Up, Under
+  V: Van, Violin, Vase, Vest, Volcano
+  W: Watch, Whale, Window, Watermelon, Wolf
+  X: Xylophone, X-ray, Box, Fox, Six  (few kid-friendly words start with X;
+     the last three show X at the end of the word)
+  Y: Yak, Yo-yo, Yarn, Yogurt, Yacht
+  Z: Zebra, Zoo, Zip, Zero, Zigzag
+  - Each word: picture + text (starting letter highlighted) + audio
+
+2.4 TRACING
+  - Touch-screen tracing on mobile/tablet; mouse/stylus/touch on website
+  - Traceable content:
+      * Uppercase letters A-Z
+      * Lowercase letters a-z
+      * Numbers 1-20
+  - Show a dotted guide outline with stroke order and a start point
+  - Detect whether the child stays roughly on the path; give positive
+    feedback (sound/animation) on completion
+  - "Clear" / "Try again" button
+  - Choice of crayon color and line thickness
+
+2.5 SHAPES (10)
+  Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond,
+  Pentagon, Hexagon
+
+2.6 DAYS OF THE WEEK
+  Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+  - Show in order; highlight "today"
+
+2.7 FARM ANIMALS (10)
+  Cow, Horse, Pig, Sheep, Goat, Chicken (Hen), Duck, Dog, Cat, Donkey
+  - Audio: animal name + animal sound
+
+2.8 WILD ANIMALS (10)
+  Lion, Tiger, Elephant, Giraffe, Zebra, Monkey, Bear, Kangaroo,
+  Hippopotamus, Crocodile
+  - Audio: animal name + animal sound
+
+2.9 VEHICLES (10)
+  Car, Bus, Truck, Bicycle, Motorcycle, Train, Airplane, Boat (Ship),
+  Helicopter, Fire Truck
+  - Audio: vehicle name + vehicle sound
+
+2.10 FRUITS (10)
+  Apple, Banana, Orange, Mango, Grapes, Strawberry, Watermelon,
+  Pineapple, Pear, Cherry
+
+2.11 VEGETABLES (10)
+  Carrot, Potato, Tomato, Onion, Cabbage, Cauliflower, Peas, Corn,
+  Cucumber, Broccoli
+
+2.12 COLORS (10)
+  Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
+  - Show a color swatch plus a familiar object of that color
+
+
+3. CROSS-PLATFORM REQUIREMENTS
+------------------------------
+  - Same content and sections on app and website
+  - Large, colorful buttons suitable for small fingers
+  - Works in portrait and landscape on phones and tablets
+  - Website works in modern desktop and mobile browsers
+
+
+4. OPEN ITEMS / TO BE DECIDED
+-----------------------------
+  - Target age range (confirm)
+  - Language(s) and accent for audio
+  - Offline support
+  - Free vs. paid, and whether ads are allowed
+  - Technology stack for app and website

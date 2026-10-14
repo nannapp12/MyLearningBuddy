@@ -554,8 +554,9 @@
        "highlight": "I"
       },
       {
-       "label": "Iron",
-       "highlight": "I"
+       "label": "Ivy",
+       "highlight": "I",
+       "emoji": "🌿"
       },
       {
        "label": "Ink Pen",
@@ -568,12 +569,14 @@
      "label": "J",
      "items": [
       {
-       "label": "Jug",
-       "highlight": "J"
+       "label": "Jeans",
+       "highlight": "J",
+       "emoji": "👖"
       },
       {
-       "label": "Jam",
-       "highlight": "J"
+       "label": "Jacket",
+       "highlight": "J",
+       "emoji": "🧥"
       },
       {
        "label": "Jeep",
@@ -781,8 +784,9 @@
        "highlight": "Q"
       },
       {
-       "label": "Quilt",
-       "highlight": "Q"
+       "label": "Quiet",
+       "highlight": "Q",
+       "emoji": "🤫"
       },
       {
        "label": "Question mark",
@@ -790,8 +794,9 @@
        "highlight": "Q"
       },
       {
-       "label": "Quail",
-       "highlight": "Q"
+       "label": "Quill",
+       "highlight": "Q",
+       "emoji": "🪶"
       },
       {
        "label": "Quarter",
@@ -879,8 +884,9 @@
        "highlight": "T"
       },
       {
-       "label": "Table",
-       "highlight": "T"
+       "label": "Teapot",
+       "highlight": "T",
+       "emoji": "🫖"
       },
       {
        "label": "Tomato",
@@ -903,8 +909,9 @@
        "highlight": "U"
       },
       {
-       "label": "Uniform",
-       "highlight": "U"
+       "label": "Upset",
+       "highlight": "U",
+       "emoji": "😞"
       },
       {
        "label": "Up",
@@ -912,8 +919,9 @@
        "highlight": "U"
       },
       {
-       "label": "Under",
-       "highlight": "U"
+       "label": "Uncle",
+       "highlight": "U",
+       "emoji": "🧔"
       }
      ]
     },
@@ -981,8 +989,10 @@
      "label": "X",
      "items": [
       {
-       "label": "Xylophone",
-       "highlight": "X"
+       "label": "X-mas Tree",
+       "highlight": "X",
+       "emoji": "🎄",
+       "speak": "Xmas Tree"
       },
       {
        "label": "X-ray",
@@ -1010,8 +1020,9 @@
      "label": "Y",
      "items": [
       {
-       "label": "Yak",
-       "highlight": "Y"
+       "label": "Yellow",
+       "highlight": "Y",
+       "emoji": "🟡"
       },
       {
        "label": "Yo-yo",
@@ -1024,8 +1035,9 @@
        "highlight": "Y"
       },
       {
-       "label": "Yogurt",
-       "highlight": "Y"
+       "label": "Yolk",
+       "highlight": "Y",
+       "emoji": "🍳"
       },
       {
        "label": "Yacht",

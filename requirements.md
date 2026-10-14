@@ -94,29 +94,30 @@ subject needs more (letters, numbers, words, tracing and the 12 months).
 | F | Fish, Frog, Flower, Fan, Fork |
 | G | Goat, Grapes, Girl, Gift, Guitar |
 | H | Hat, House, Horse, Hen, Hand |
-| I | Ice cream, Ice Cube, Insect, Iron, Ink Pen |
-| J | Jug, Jam, Jeep, Jellyfish, Juice |
+| I | Ice cream, Ice Cube, Insect, Ivy, Ink Pen |
+| J | Jeans, Jacket, Jeep, Jellyfish, Juice |
 | K | Kite, King, Key, Kangaroo, Kitten |
 | L | Lion, Lamp, Leaf, Lemon, Ladder |
 | M | Monkey, Moon, Mango, Mouse, Milk |
 | N | Nest, Nose, Nut, Net, Nurse |
 | O | Orange, Owl, Octopus, Onion, Ox |
 | P | Pen, Pig, Parrot, Pencil, Pumpkin |
-| Q | Queen, Quilt, Question mark, Quail, Quarter |
+| Q | Queen, Quiet, Question mark, Quill, Quarter |
 | R | Rabbit, Rainbow, Ring, Rose, Robot |
 | S | Sun, Star, Snake, Sock, Ship |
-| T | Tiger, Tree, Train, Table, Tomato |
-| U | Umbrella, Unicorn, Uniform, Up, Under |
+| T | Tiger, Tree, Train, Teapot, Tomato |
+| U | Umbrella, Unicorn, Upset, Up, Uncle |
 | V | Van, Violin, Vase, Vest, Volcano |
 | W | Watch, Whale, Window, Watermelon, Wolf |
-| X | Xylophone, X-ray, Box, Fox, Six |
-| Y | Yak, Yo-yo, Yarn, Yogurt, Yacht |
+| X | X-mas Tree, X-ray, Box, Fox, Six |
+| Y | Yellow, Yo-yo, Yarn, Yolk, Yacht |
 | Z | Zebra, Zoo, Zip, Zero, Zigzag |
 
 - Any word still waiting for its picture shows an "Image to be added" placeholder
 - One card per letter showing all 5 words together; each word has a picture + text (with the target letter highlighted)
 - Tapping a word's picture says the word
 - Few kid-friendly words start with X, so Box, Fox and Six show X at the end of the word
+- "X-mas Tree" is said as "ex-mas tree"
 
 ### 3.4 Tracing
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website

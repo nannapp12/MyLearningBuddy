@@ -118,6 +118,8 @@ class _CategoryTile extends StatelessWidget {
       CategoryLayout.groups => SectionScreen.groups(category, groups: state.limited(category.groups)),
       CategoryLayout.tracing => TracingPickerScreen(category: category),
       CategoryLayout.findit => FindItScreen(game: category, content: content),
+      // A week is always all seven days, Monday to Sunday, whatever the mode.
+      CategoryLayout.days => SectionScreen.items(category, items: category.items),
       _ => SectionScreen.items(category, items: state.limited(category.items)),
     };
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));

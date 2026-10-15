@@ -56,7 +56,7 @@ Every learning section must, at minimum, support:
   - Easy: each section shows only its first 5 items (e.g. letters A–E, Words A–E, tracing A–E)
   - Medium: the first 8
   - Hard: everything
-  Find It uses the same limit when choosing pictures
+  Find It uses the same limit when choosing pictures. Days of the Week always shows all 7 days
 - One big picture tile per section; tile pictures must not be cut off at the edges
 - Fruits tile is yellow
 - When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
@@ -150,6 +150,7 @@ Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond, Pentagon, Hexag
 ### 3.6 Days of the Week
 Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 - Show in order from Monday to Sunday, with no reference to today's date
+- Always all 7 days, whatever the Easy / Medium / Hard mode
 - Each day in its own colour
 - The section's tile shows a calendar page for January 1
 

@@ -169,12 +169,13 @@ void main() {
     expect(next.onPressed, isNull);
   });
 
-  testWidgets('days of the week start on Monday with no "today"', (tester) async {
+  testWidgets('days of the week start on Monday with no "today", all 7 even on Easy', (tester) async {
     await pumpApp(tester);
     await tester.tap(find.text('Days of the Week'));
     await tester.pumpAndSettle();
     expect(find.text('Monday'), findsOneWidget);
     expect(find.text('Today'), findsNothing);
+    expect(find.text('1 / 7'), findsOneWidget);
   });
 
   Future<void> traceAndFinish(WidgetTester tester) async {

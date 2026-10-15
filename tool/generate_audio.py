@@ -208,37 +208,39 @@ def pop_sound(rate=24000):
     return (0.5 * out / np.abs(out).max()).astype(np.float32)
 
 
-def clap_sound(rate=24000):
-    """About two seconds of happy clapping: many short, slightly random hand claps."""
-    rng = np.random.default_rng(11)
-    out = np.zeros(int(rate * 2.2), dtype=np.float32)
-    for start in np.cumsum(rng.uniform(0.09, 0.2, 40)):
-        if start > 2.0:
-            break
-        n = int(rate * 0.06)
-        t = np.arange(n) / rate
-        burst = rng.standard_normal(n) * np.exp(-t * rng.uniform(55, 90))
-        # A clap is mostly mid/high frequencies: remove the low rumble.
-        burst = np.diff(burst, prepend=0) * rng.uniform(0.6, 1.0)
-        i = int(start * rate)
-        out[i : i + n] += burst[: len(out) - i]
-    fade = np.linspace(1, 0, int(rate * 0.4))
-    out[-len(fade) :] *= fade
-    return (0.45 * out / np.abs(out).max()).astype(np.float32)
+def hand_clap(rng, rate=24000):
+    """One hand clap: a short burst of noise around 1-3 kHz with a fast decay."""
+    n = int(rate * 0.08)
+    t = np.arange(n) / rate
+    centre = (rng.uniform(700, 1100) + rng.uniform(2200, 3200)) / 2 * rng.uniform(0.9, 1.3)
+    spec = np.fft.rfft(rng.standard_normal(n))
+    spec *= np.exp(-((np.log(np.fft.rfftfreq(n, 1 / rate) + 1) - np.log(centre)) ** 2) / (2 * 0.45**2))
+    # Real claps have a few tiny hits in the first 10 ms.
+    env = np.exp(-t * rng.uniform(45, 70))
+    for delay in (0.0, rng.uniform(0.002, 0.004), rng.uniform(0.006, 0.009)):
+        env += 0.5 * np.exp(-np.maximum(t - delay, 0) * 300) * (t >= delay)
+    return np.fft.irfft(spec, n) * env
 
 
-# Children cheering: several voices, pitched up to sound like kids, shouting at slightly
-# different moments over the clapping. (voice, word, semitones up, start in seconds, volume)
-CHEERS = [
-    ("af_nova", "Yay!", 5, 0.00, 1.0),
-    ("am_puck", "Hooray!", 7, 0.15, 0.9),
-    ("af_bella", "Woohoo!", 5, 0.35, 0.8),
-    ("af_sky", "Yippee!", 6, 0.55, 0.8),
-    ("af_jessica", "Yay!", 7, 0.80, 0.7),
-    ("am_puck", "Yay!", 8, 1.10, 0.7),
-    ("af_nova", "Hooray!", 6, 1.30, 0.8),
-    ("af_kore", "Woohoo!", 6, 1.55, 0.7),
-]
+def applause(rate=24000, length=3.5, clappers=20):
+    """A classroom applauding: each clapper claps at their own speed."""
+    rng = np.random.default_rng(3)
+    out = np.zeros(int(rate * length))
+    for _ in range(clappers):
+        t, speed = rng.uniform(0, 0.3), rng.uniform(3.5, 6.5)
+        while t < length - 0.1:
+            c = hand_clap(rng, rate) * rng.uniform(0.3, 1.0)
+            i = int(t * rate)
+            out[i : i + len(c)] += c[: len(out) - i]
+            t += 1 / speed + rng.uniform(-0.04, 0.04)
+    return out / np.abs(out).max()
+
+
+# Children cheering "Yaaay!" together over the applause: (voice, semitones up), pitched up
+# to sound like kids.
+CHEERS = [("af_nova", 4), ("af_sky", 5), ("af_bella", 5), ("am_puck", 7), ("af_jessica", 5),
+          ("af_heart", 5), ("am_echo", 8), ("af_nicole", 5), ("af_river", 5), ("am_liam", 8)]
+CHEER_FILTER = "aecho=0.8:0.6:40|70:0.25|0.15,loudnorm=I=-18:TP=-1.5:LRA=11"  # a little room echo
 
 
 def pitch_up(samples, rate, semitones):
@@ -254,25 +256,29 @@ def pitch_up(samples, rate, semitones):
 
 
 def cheer_sound(tts, rate=24000):
-    """About three seconds of children cheering and clapping."""
-    out = np.zeros(int(rate * 3.2), dtype=np.float32)
-    for voice, word, semitones, start, volume in CHEERS:
+    """About 3.5 seconds of a classroom applauding, with the children shouting "Yaaay!"."""
+    rng = np.random.default_rng(5)
+    kids = np.zeros(int(rate * 1.6))
+    for voice, semitones in CHEERS:
         # Kokoro sometimes returns no audio for a short word: try small variations.
-        for text, speed in ((word, 1.1), (word[:-1] + ".", 1.1), (word, 1.0), (f"{word} {word}", 1.1)):
-            raw = trim(tts.create(text, voice=voice, speed=speed, lang="en-us")[0])
+        for text in ("Yaaay!", "Yaaay.", "Yay!"):
+            raw = trim(tts.create(text, voice=voice, speed=0.75, lang="en-us")[0])
             if len(raw):
                 break
         else:
-            raise SystemExit(f"could not record the cheer {word!r} ({voice})")
-        shout = pitch_up(raw, rate, semitones)
-        i = int(start * rate)
-        n = min(len(shout), len(out) - i)
-        out[i : i + n] += shout[:n] / max(np.abs(shout).max(), 1e-6) * volume * 0.5
-    claps = clap_sound(rate)
-    out[: len(claps)] += claps * 0.9
-    fade = np.linspace(1, 0, int(rate * 0.6))
+            raise SystemExit(f"could not record the cheer ({voice})")
+        shout = pitch_up(raw, rate, semitones + rng.uniform(-0.5, 0.5))
+        i = int(rng.uniform(0, 0.12) * rate)  # all together, not one after another
+        n = min(len(shout), len(kids) - i)
+        kids[i : i + n] += shout[:n] / max(np.abs(shout).max(), 1e-6) * rng.uniform(0.6, 1.0)
+    out = np.zeros(int(rate * 3.6))
+    out[: len(kids)] += kids / np.abs(kids).max() * 0.8
+    claps = applause(rate)
+    start = int(rate * 0.15)
+    out[start : start + len(claps)] += claps[: len(out) - start] * 0.6
+    fade = np.linspace(1, 0, int(rate * 1.0))
     out[-len(fade) :] *= fade
-    return (0.6 * out / np.abs(out).max()).astype(np.float32)
+    return (0.7 * out / np.abs(out).max()).astype(np.float32)
 
 
 def main():
@@ -298,7 +304,7 @@ def main():
     (OUT / "effects").mkdir(exist_ok=True)
     to_mp3(chime(), 24000, OUT / "effects" / "chime.mp3")
     to_mp3(pop_sound(), 24000, OUT / "effects" / "pop.mp3")
-    to_mp3(cheer_sound(tts), 24000, OUT / "effects" / "cheer.mp3")
+    to_mp3(cheer_sound(tts), 24000, OUT / "effects" / "cheer.mp3", CHEER_FILTER)
 
     def record(text, voice=args.voice, speed=args.speed):
         """Records [text] without the extra "uh" at the start (see LEAD_INS)."""

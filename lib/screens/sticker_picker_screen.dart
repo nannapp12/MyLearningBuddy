@@ -70,7 +70,7 @@ class _StickerPickerScreenState extends State<StickerPickerScreen> {
       if (!mounted) return;
       // Cheering and clapping with the confetti, then "Great job! Now pick your sticker."
       AppStateScope.of(context).cheer();
-      _speakTimer = Timer(const Duration(milliseconds: 3000), () {
+      _speakTimer = Timer(const Duration(milliseconds: 3500), () {
         if (mounted) AppStateScope.of(context).speak([Speech.pickSticker]);
       });
     });

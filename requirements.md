@@ -234,7 +234,7 @@ Please and thank you · Good Morning · Good night · See you later
   after the voice has finished the last item, so the child sees and hears it first. Tapping skips it
 - **Sticker reward:** after the puppy, a screen says "Great Job! Now pick your sticker" and offers up to
   5 stickers (ones the child doesn't have yet first). It opens with falling confetti, clapping hands
-  beside "Great Job!", and the sound of children cheering and clapping, then the voice. Picking one returns to the main menu
+  beside "Great Job!", and the sound of a classroom applauding while the children shout "Yaaay!" together (about 3.5 s; chosen by the owner), then the voice. Picking one returns to the main menu
 - **Sticker bar:** under the "My Learning Buddy" title on the home screen, showing the stickers collected
   (newest first)
 - Celebration sounds (chime) on success; sound effects (pop, cheering and clapping, chime) are made by the project's

@@ -227,6 +227,54 @@ def clap_sound(rate=24000):
     return (0.45 * out / np.abs(out).max()).astype(np.float32)
 
 
+# Children cheering: several voices, pitched up to sound like kids, shouting at slightly
+# different moments over the clapping. (voice, word, semitones up, start in seconds, volume)
+CHEERS = [
+    ("af_nova", "Yay!", 5, 0.00, 1.0),
+    ("am_puck", "Hooray!", 7, 0.15, 0.9),
+    ("af_bella", "Woohoo!", 5, 0.35, 0.8),
+    ("af_sky", "Yippee!", 6, 0.55, 0.8),
+    ("af_jessica", "Yay!", 7, 0.80, 0.7),
+    ("am_puck", "Yay!", 8, 1.10, 0.7),
+    ("af_nova", "Hooray!", 6, 1.30, 0.8),
+    ("af_kore", "Woohoo!", 6, 1.55, 0.7),
+]
+
+
+def pitch_up(samples, rate, semitones):
+    """Raises the pitch (and voice size) with ffmpeg's rubberband, keeping the speed."""
+    with tempfile.NamedTemporaryFile(suffix=".wav") as src, tempfile.NamedTemporaryFile(suffix=".wav") as dst:
+        sf.write(src.name, samples, rate)
+        subprocess.run(
+            ["ffmpeg", "-loglevel", "error", "-y", "-i", src.name, "-af",
+             f"rubberband=pitch={2 ** (semitones / 12):.4f}:formant=shifted", dst.name],
+            check=True,
+        )
+        return sf.read(dst.name, dtype="float32")[0]
+
+
+def cheer_sound(tts, rate=24000):
+    """About three seconds of children cheering and clapping."""
+    out = np.zeros(int(rate * 3.2), dtype=np.float32)
+    for voice, word, semitones, start, volume in CHEERS:
+        # Kokoro sometimes returns no audio for a short word: try small variations.
+        for text, speed in ((word, 1.1), (word[:-1] + ".", 1.1), (word, 1.0), (f"{word} {word}", 1.1)):
+            raw = trim(tts.create(text, voice=voice, speed=speed, lang="en-us")[0])
+            if len(raw):
+                break
+        else:
+            raise SystemExit(f"could not record the cheer {word!r} ({voice})")
+        shout = pitch_up(raw, rate, semitones)
+        i = int(start * rate)
+        n = min(len(shout), len(out) - i)
+        out[i : i + n] += shout[:n] / max(np.abs(shout).max(), 1e-6) * volume * 0.5
+    claps = clap_sound(rate)
+    out[: len(claps)] += claps * 0.9
+    fade = np.linspace(1, 0, int(rate * 0.6))
+    out[-len(fade) :] *= fade
+    return (0.6 * out / np.abs(out).max()).astype(np.float32)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--model", required=True)
@@ -242,14 +290,15 @@ def main():
         return np.fromfile(Path(args.voices_dir) / f"{name}.bin", dtype=np.float32).reshape(-1, 1, 256)
 
     with tempfile.NamedTemporaryFile(suffix=".npz") as voices:
-        np.savez(voices.name, **{args.voice: load(args.voice), MASCOT_VOICE: load(MASCOT_VOICE)})
+        names = {args.voice, MASCOT_VOICE, *(c[0] for c in CHEERS)}
+        np.savez(voices.name, **{name: load(name) for name in names})
         tts = Kokoro(args.model, voices.name)
 
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "effects").mkdir(exist_ok=True)
     to_mp3(chime(), 24000, OUT / "effects" / "chime.mp3")
     to_mp3(pop_sound(), 24000, OUT / "effects" / "pop.mp3")
-    to_mp3(clap_sound(), 24000, OUT / "effects" / "clap.mp3")
+    to_mp3(cheer_sound(tts), 24000, OUT / "effects" / "cheer.mp3")
 
     def record(text, voice=args.voice, speed=args.speed):
         """Records [text] without the extra "uh" at the start (see LEAD_INS)."""

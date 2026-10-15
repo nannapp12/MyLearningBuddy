@@ -54,7 +54,7 @@ void main() {
 
     // Then "Great Job! Now pick your sticker" with five stickers, clapping and confetti.
     expect(find.text('Now pick your sticker'), findsOneWidget);
-    expect(audio.effects, contains('clap'));
+    expect(audio.effects, contains('cheer'));
     expect(find.text('👏'), findsNWidgets(2));
     expect(find.bySemanticsLabel('Sticker'), findsNWidgets(5));
     expect(
@@ -369,7 +369,7 @@ class _ManualAudioService implements AudioService {
   void pop() {}
 
   @override
-  void clap() {}
+  void cheer() {}
 
   @override
   void dispose() {}

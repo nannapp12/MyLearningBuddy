@@ -88,9 +88,9 @@ class AppState extends ChangeNotifier {
     if (_effectsOn) audio.pop();
   }
 
-  /// Happy clapping, if sound effects are on.
-  void clap() {
-    if (_effectsOn) audio.clap();
+  /// Children cheering and clapping, if sound effects are on.
+  void cheer() {
+    if (_effectsOn) audio.cheer();
   }
 
   /// Completes once [message] has been said (see [speak]).

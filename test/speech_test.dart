@@ -13,7 +13,7 @@ void main() {
         if (!File('assets/${clipPath(text)}').existsSync()) text,
     ];
     expect(missing, isEmpty, reason: 'Run tool/generate_audio.py to make the missing clips');
-    for (final effect in ['chime', 'pop', 'clap']) {
+    for (final effect in ['chime', 'pop', 'cheer']) {
       expect(File('assets/audio/effects/$effect.mp3').existsSync(), isTrue, reason: effect);
     }
     // The puppy speaks in its own voice; "This is fun" on the Phrases card stays in the teacher's voice.

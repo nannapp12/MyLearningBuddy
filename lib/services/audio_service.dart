@@ -20,8 +20,8 @@ abstract class AudioService {
   /// Plays a soft pop, for taps on the main menu.
   void pop();
 
-  /// Plays happy clapping.
-  void clap();
+  /// Plays children cheering and clapping.
+  void cheer();
 
   void dispose() {}
 }
@@ -76,7 +76,7 @@ class ClipAudioService implements AudioService {
   void pop() => _effect('pop');
 
   @override
-  void clap() => _effect('clap');
+  void cheer() => _effect('cheer');
 
   void _effect(String name) => _effects
       .play(AssetSource('audio/effects/$name.mp3'))
@@ -115,7 +115,7 @@ class SilentAudioService implements AudioService {
   void pop() => effects.add('pop');
 
   @override
-  void clap() => effects.add('clap');
+  void cheer() => effects.add('cheer');
 
   @override
   void dispose() {}

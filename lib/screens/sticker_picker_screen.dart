@@ -68,9 +68,9 @@ class _StickerPickerScreenState extends State<StickerPickerScreen> {
     _options = [...fresh, ...old].take(5).toList();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
-      // Clapping first, then "Great job! Now pick your sticker."
-      AppStateScope.of(context).clap();
-      _speakTimer = Timer(const Duration(milliseconds: 1500), () {
+      // Cheering and clapping with the confetti, then "Great job! Now pick your sticker."
+      AppStateScope.of(context).cheer();
+      _speakTimer = Timer(const Duration(milliseconds: 3000), () {
         if (mounted) AppStateScope.of(context).speak([Speech.pickSticker]);
       });
     });

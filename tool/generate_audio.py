@@ -236,11 +236,9 @@ def applause(rate=24000, length=3.5, clappers=20):
     return out / np.abs(out).max()
 
 
-# Children cheering "Yaaay!" together over the applause: (voice, semitones up), pitched up
-# to sound like kids.
-CHEERS = [("af_nova", 4), ("af_sky", 5), ("af_bella", 5), ("am_puck", 7), ("af_jessica", 5),
-          ("af_heart", 5), ("am_echo", 8), ("af_nicole", 5), ("af_river", 5), ("am_liam", 8)]
-CHEER_FILTER = "aecho=0.8:0.6:40|70:0.25|0.15,loudnorm=I=-18:TP=-1.5:LRA=11"  # a little room echo
+# The puppy cheers over the applause, in its own voice.
+CHEER_LINE = "Woof woof! You did it!"
+CHEER_FILTER = "loudnorm=I=-18:TP=-1.5:LRA=11"
 
 
 def pitch_up(samples, rate, semitones):
@@ -256,26 +254,20 @@ def pitch_up(samples, rate, semitones):
 
 
 def cheer_sound(tts, rate=24000):
-    """About 3.5 seconds of a classroom applauding, with the children shouting "Yaaay!"."""
-    rng = np.random.default_rng(5)
-    kids = np.zeros(int(rate * 1.6))
-    for voice, semitones in CHEERS:
-        # Kokoro sometimes returns no audio for a short word: try small variations.
-        for text in ("Yaaay!", "Yaaay.", "Yay!"):
-            raw = trim(tts.create(text, voice=voice, speed=0.75, lang="en-us")[0])
-            if len(raw):
-                break
-        else:
-            raise SystemExit(f"could not record the cheer ({voice})")
-        shout = pitch_up(raw, rate, semitones + rng.uniform(-0.5, 0.5))
-        i = int(rng.uniform(0, 0.12) * rate)  # all together, not one after another
-        n = min(len(shout), len(kids) - i)
-        kids[i : i + n] += shout[:n] / max(np.abs(shout).max(), 1e-6) * rng.uniform(0.6, 1.0)
-    out = np.zeros(int(rate * 3.6))
-    out[: len(kids)] += kids / np.abs(kids).max() * 0.8
+    """About 3.5 seconds of a classroom applauding, with the puppy saying "Woof woof! You did it!"."""
+    # Kokoro sometimes returns no audio for a sentence: try small variations.
+    for text in (CHEER_LINE, CHEER_LINE[:-1] + ".", CHEER_LINE.replace("! ", ", ")):
+        raw = trim(tts.create(text, voice=MASCOT_VOICE, speed=MASCOT_SPEED, lang="en-us")[0])
+        if len(raw):
+            break
+    else:
+        raise SystemExit("could not record the cheer")
+    puppy = pitch_up(raw, rate, MASCOT_SEMITONES)
+    out = np.zeros(int(rate * max(3.6, 0.3 + len(puppy) / rate + 0.8)))
     claps = applause(rate)
-    start = int(rate * 0.15)
-    out[start : start + len(claps)] += claps[: len(out) - start] * 0.6
+    out[: len(claps)] += claps * 0.45
+    start = int(rate * 0.3)
+    out[start : start + len(puppy)] += puppy / max(np.abs(puppy).max(), 1e-6)
     fade = np.linspace(1, 0, int(rate * 1.0))
     out[-len(fade) :] *= fade
     return (0.7 * out / np.abs(out).max()).astype(np.float32)
@@ -296,7 +288,7 @@ def main():
         return np.fromfile(Path(args.voices_dir) / f"{name}.bin", dtype=np.float32).reshape(-1, 1, 256)
 
     with tempfile.NamedTemporaryFile(suffix=".npz") as voices:
-        names = {args.voice, MASCOT_VOICE, *(c[0] for c in CHEERS)}
+        names = {args.voice, MASCOT_VOICE}
         np.savez(voices.name, **{name: load(name) for name in names})
         tts = Kokoro(args.model, voices.name)
 

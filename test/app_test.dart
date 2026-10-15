@@ -16,12 +16,17 @@ void main() {
 
   late SilentAudioService audio;
 
-  Future<void> pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(WidgetTester tester, {bool allItems = false}) async {
     tester.view.physicalSize = const Size(1200, 2000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
     audio = SilentAudioService();
     await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: audio, puppyGreetings: false));
+    if (allItems) {
+      // Easy is the default; Hard shows every item.
+      await tester.tap(find.bySemanticsLabel('Hard'));
+      await tester.pump();
+    }
   }
 
   testWidgets('home screen shows all sections', (tester) async {
@@ -32,7 +37,7 @@ void main() {
   });
 
   testWidgets('finishing a section: puppy, then pick a sticker for the sticker bar', (tester) async {
-    await pumpApp(tester);
+    await pumpApp(tester, allItems: true);
     await tester.tap(find.text('Shapes'));
     await tester.pumpAndSettle();
     expect(find.text('Circle'), findsOneWidget);
@@ -108,6 +113,8 @@ void main() {
     addTearDown(tester.view.reset);
     final slow = _ManualAudioService();
     await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: slow, puppyGreetings: false));
+    await tester.tap(find.bySemanticsLabel('Hard'));
+    await tester.pump();
     await tester.tap(find.text('Shapes'));
     await tester.pumpAndSettle();
     for (var i = 0; i < 9; i++) {
@@ -148,7 +155,7 @@ void main() {
   });
 
   testWidgets('tracing next button moves on, and stops at Z', (tester) async {
-    await pumpApp(tester);
+    await pumpApp(tester, allItems: true);
     await tester.tap(find.text('Tracing'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Y'));
@@ -180,7 +187,7 @@ void main() {
   }
 
   testWidgets('tracing: Great job moves to the next letter; after the last, the puppy and stickers', (tester) async {
-    await pumpApp(tester);
+    await pumpApp(tester, allItems: true);
     await tester.tap(find.text('Tracing'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('A'));
@@ -231,10 +238,10 @@ void main() {
       return counter;
     }
 
-    expect(await countIn('Shapes'), '1 / 10'); // Hard is the default
-    await tester.tap(find.bySemanticsLabel('Easy'));
+    expect(await countIn('Shapes'), '1 / 5'); // Easy is the default
+    await tester.tap(find.bySemanticsLabel('Hard'));
     await tester.pump();
-    expect(await countIn('Shapes'), '1 / 5');
+    expect(await countIn('Shapes'), '1 / 10');
     await tester.tap(find.bySemanticsLabel('Medium'));
     await tester.pump();
     expect(await countIn('Shapes'), '1 / 8');
@@ -253,7 +260,7 @@ void main() {
   });
 
   testWidgets('Phrases say the phrase and wait for the next button', (tester) async {
-    await pumpApp(tester);
+    await pumpApp(tester, allItems: true);
     await tester.scrollUntilVisible(find.text('Phrases'), 400);
     await tester.tap(find.text('Phrases'));
     await tester.pumpAndSettle();

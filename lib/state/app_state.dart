@@ -29,7 +29,7 @@ class AppState extends ChangeNotifier {
   final Set<String> _finished = {};
   int _stars = 0;
   final List<String> _stickers = [];
-  Difficulty _difficulty = Difficulty.hard;
+  Difficulty _difficulty = Difficulty.easy;
   bool _speechOn = true;
   bool _effectsOn = true;
 

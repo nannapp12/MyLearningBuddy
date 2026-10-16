@@ -2904,28 +2904,24 @@
    ]
   },
   {
-   "id": "humpty_dumpty",
-   "title": "Humpty Dumpty",
+   "id": "rain_rain",
+   "title": "Rain, Rain, Go Away",
    "section": "nurseryRhymes",
-   "emoji": "🥚",
-   "color": "#F9A825",
+   "emoji": "🌧️",
+   "color": "#546E7A",
    "layout": "story",
    "items": [
     {
-     "label": "Humpty Dumpty sat on a wall.",
-     "emoji": "🥚"
+     "label": "Rain, rain, go away,\nCome again another day.",
+     "emoji": "🌧️"
     },
     {
-     "label": "Humpty Dumpty had a great fall.",
-     "emoji": "🧱"
+     "label": "Little Johnny wants to play.",
+     "emoji": "⚽"
     },
     {
-     "label": "All the king's horses\nAnd all the king's men",
-     "emoji": "🐴"
-    },
-    {
-     "label": "Couldn't put Humpty together again.",
-     "emoji": "👑"
+     "label": "Rain, rain, go away!",
+     "emoji": "☀️"
     }
    ]
   },

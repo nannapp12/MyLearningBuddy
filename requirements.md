@@ -69,7 +69,7 @@ Every learning section must, at minimum, support:
   - **Tracing:** Shapes, Letters, Numbers
   - **Games:** Find It
   - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,
-    Teddy Bear Teddy Bear, One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Humpty Dumpty,
+    Teddy Bear Teddy Bear, One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Rain Rain Go Away,
     Row Row Row Your Boat, Hey Diddle Diddle
   - **Short Stories:** Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast,
     The Three Little Pigs, Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling,
@@ -263,8 +263,8 @@ Please and thank you · Good Morning · Good night · See you later
 
 ### 3.25a Nursery Rhymes (10, under the Nursery Rhymes heading, before Short Stories)
 Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb, Teddy Bear Teddy Bear,
-One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider (owner's picks), plus Humpty Dumpty,
-Row Row Row Your Boat and Hey Diddle Diddle
+One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider (owner's picks), plus Rain Rain Go Away
+(chosen instead of Humpty Dumpty, which has a sad ending), Row Row Row Your Boat and Hey Diddle Diddle
 - Traditional (public-domain) words, shown one verse (usually two lines) per card with a picture
 - No voice, like the stories; every verse is shown whatever the mode; the puppy and a sticker at the end
 

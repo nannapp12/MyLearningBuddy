@@ -26,7 +26,7 @@ void main() {
       expect(
         names(MenuSection.nurseryRhymes),
         'Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb, Teddy Bear, Teddy Bear, '
-        'One, Two, Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Humpty Dumpty, '
+        'One, Two, Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Rain, Rain, Go Away, '
         'Row, Row, Row Your Boat, Hey Diddle Diddle',
       );
       expect(

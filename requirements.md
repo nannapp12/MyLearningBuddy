@@ -144,8 +144,9 @@ subject needs more (letters, numbers, words, tracing letters and numbers, and th
 ### 3.4 Tracing
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website
 - Three tiles under the **Tracing** heading:
-  - **Shapes:** every shape from the Shapes section (including the lines and signs), picked from a grid
-    of shape pictures
+  - **Shapes:** every shape from the Shapes section, picked from a grid of shape pictures. The simpler
+    lines and signs come first (Vertical Line, Horizontal Line, Plus, Minus, Cross, Check, Equal), then
+    Circle, Square and the other shapes, so children learn the simple strokes first
   - **Letters:** uppercase A–Z and lowercase a–z (two lists)
   - **Numbers:** 1–20
 - **No voice in tracing** (owner's choice): no section name and no "Trace the …" prompt

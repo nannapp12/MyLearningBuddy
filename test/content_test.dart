@@ -97,7 +97,9 @@ void main() {
   });
 
   test('tracing covers every shape, A-Z, a-z and 1-20', () {
-    expect(byId('trace_shapes').groups.single.items.map((i) => i.shape), byId('shapes').items.map((i) => i.shape));
+    // Tracing starts with the simple lines and signs, then the other shapes.
+    final shapes = byId('shapes').items.map((i) => i.shape).toList();
+    expect(byId('trace_shapes').groups.single.items.map((i) => i.shape), [...shapes.skip(10), ...shapes.take(10)]);
     expect(byId('trace_letters').groups.map((g) => g.items.length), [26, 26]);
     expect(byId('trace_numbers').groups.single.items, hasLength(20));
   });

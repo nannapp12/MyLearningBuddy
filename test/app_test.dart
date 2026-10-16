@@ -179,10 +179,12 @@ void main() {
     await pumpApp(tester);
     await open(tester, 'trace_shapes');
     expect(audio.spoken, isEmpty); // tracing has no voice
-    expect(find.bySemanticsLabel('Circle'), findsOneWidget);
-    await tester.tap(find.bySemanticsLabel('Circle'));
+    // The simple lines and signs come first; on Easy, the circle is not one of the first 5.
+    expect(find.bySemanticsLabel('Vertical Line'), findsOneWidget);
+    expect(find.bySemanticsLabel('Circle'), findsNothing);
+    await tester.tap(find.bySemanticsLabel('Vertical Line'));
     await tester.pumpAndSettle();
-    expect(find.text('Trace Circle'), findsOneWidget);
+    expect(find.text('Trace Vertical Line'), findsOneWidget);
     expect(audio.spoken, isEmpty);
   });
 

@@ -2378,6 +2378,34 @@
      "label": "Shapes",
      "items": [
       {
+       "label": "Vertical Line",
+       "shape": "vertical_line"
+      },
+      {
+       "label": "Horizontal Line",
+       "shape": "horizontal_line"
+      },
+      {
+       "label": "Plus",
+       "shape": "plus"
+      },
+      {
+       "label": "Minus",
+       "shape": "minus"
+      },
+      {
+       "label": "Cross",
+       "shape": "cross"
+      },
+      {
+       "label": "Check",
+       "shape": "check"
+      },
+      {
+       "label": "Equal",
+       "shape": "equal"
+      },
+      {
        "label": "Circle",
        "shape": "circle"
       },
@@ -2416,34 +2444,6 @@
       {
        "label": "Hexagon",
        "shape": "hexagon"
-      },
-      {
-       "label": "Vertical Line",
-       "shape": "vertical_line"
-      },
-      {
-       "label": "Horizontal Line",
-       "shape": "horizontal_line"
-      },
-      {
-       "label": "Plus",
-       "shape": "plus"
-      },
-      {
-       "label": "Minus",
-       "shape": "minus"
-      },
-      {
-       "label": "Cross",
-       "shape": "cross"
-      },
-      {
-       "label": "Check",
-       "shape": "check"
-      },
-      {
-       "label": "Equal",
-       "shape": "equal"
       }
      ]
     }

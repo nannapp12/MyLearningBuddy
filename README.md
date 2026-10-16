@@ -8,7 +8,7 @@ for the full product requirements.
 
 - Home screen with big picture tiles under four headings: Learning (25 sections), Tracing (Shapes,
   Letters, Numbers), Games (Find It), Nursery Rhymes (10) and Short Stories (12 fairy tales and fables,
-  one line at a time). Tracing and stories have no voice
+  one line at a time). Tracing has no voice; stories and rhymes are read aloud only with Auto-read on
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
   - Letters (Aa–Zz, each a different colour); Numbers 1–20 with a different object to count each time ("seven strawberries")
   - Words: one card per letter showing all 5 words; tap a picture to hear it
@@ -25,6 +25,7 @@ for the full product requirements.
 - A home button on every screen returns to the main menu; a speaker button says the card again
 - Game: **Find It** ("Can you find the cow?", 3 pictures, 5 rounds), under the Games heading
 - **Phrases** section (10 everyday phrases) and **Easy / Medium / Hard** modes (first 5, 8 or all items)
+- **Auto-read** button: reads each card, waits 5 seconds and moves on; also reads stories and rhymes aloud, slowly
 - The puppy says "Hi! How are you?" on start and "This is fun!" back on the main menu
 - Rewards: at the end of each section, game and the last tracing letter, an animated puppy hops around
   and cheers, then the child picks one of 5 stickers, shown in a sticker bar under the title

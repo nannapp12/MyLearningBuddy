@@ -100,7 +100,7 @@ void main() {
   test('nursery rhymes are shown a verse at a time, each with a picture', () {
     for (final c in content.categories.where((c) => c.section == MenuSection.nurseryRhymes)) {
       expect(c.layout, CategoryLayout.story);
-      expect(c.silent, isTrue);
+      expect(c.readOnlyInAutoRead, isTrue);
       for (final verse in c.items) {
         expect(verse.emoji, isNotNull, reason: verse.label);
       }

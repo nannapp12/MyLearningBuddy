@@ -32,6 +32,7 @@ class AppState extends ChangeNotifier {
   Difficulty _difficulty = Difficulty.easy;
   bool _speechOn = true;
   bool _effectsOn = true;
+  bool _autoRead = false;
 
   int get stars => _stars;
 
@@ -53,6 +54,15 @@ class AppState extends ChangeNotifier {
 
   void addSticker(String sticker) {
     _stickers.add(sticker);
+    notifyListeners();
+  }
+
+  /// Auto-read: sections read each card, wait 5 seconds and move on by
+  /// themselves, and stories and rhymes are read aloud. Off by default.
+  bool get autoRead => _autoRead;
+
+  set autoRead(bool value) {
+    _autoRead = value;
     notifyListeners();
   }
 

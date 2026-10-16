@@ -60,6 +60,12 @@ Every learning section must, at minimum, support:
   - Hard: everything
   Find It uses the same limit when choosing pictures. Days of the Week always shows all 7 days, and
   short stories are always read to the end
+- Under the mode buttons, an **Auto-read** on/off button (off when the app opens; resets when closed). When on:
+  - a section reads each card, waits 5 seconds, then moves to the next card by itself, until the last card,
+    then the puppy and the sticker screen
+  - stories and nursery rhymes are read aloud too, in a slower voice (speed 0.65 instead of 0.75), and move
+    on the same way
+  - tracing stays silent; the child can still tap next/previous or the speaker button at any time
 - One big picture tile per section; tile pictures must not be cut off at the edges
 - The tiles are grouped under five sub-headings, in this order:
   - **Learning:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
@@ -266,7 +272,7 @@ Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb, Teddy
 One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider (owner's picks), plus Rain Rain Go Away
 (chosen instead of Humpty Dumpty, which has a sad ending), Row Row Row Your Boat and Hey Diddle Diddle
 - Traditional (public-domain) words, shown one verse (usually two lines) per card with a picture
-- No voice, like the stories; every verse is shown whatever the mode; the puppy and a sticker at the end
+- No voice unless Auto-read is on, like the stories; every verse is shown whatever the mode; the puppy and a sticker at the end
 
 ### 3.26 Short Stories (under the Short Stories heading)
 Twelve well-known fairy tales and fables, each condensed to 7–8 short, gentle lines for ages 2–6 (no scary endings:
@@ -275,8 +281,8 @@ Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beas
 Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse,
 The Little Red Hen, Jack and the Beanstalk (approved by the owner; the wolf gives up and runs away, Jack
 and the giant have no fall, and everyone helps the hen next time)
-- One line per card with a matching picture; **no voice** (owner's choice) – a parent reads along and the
-  child taps next
+- One line per card with a matching picture; **no voice** unless Auto-read is on (owner's choice) – a parent
+  reads along and the child taps next
 - The line is shown in large text that wraps; a story always shows every line, whatever the mode
 - At the end of a story (5 seconds after the last line shows): the puppy and a sticker, like every section
 

@@ -205,6 +205,49 @@ void main() {
     await tester.pump(const Duration(seconds: 6)); // the reading time before the next page
   });
 
+  testWidgets('auto-read: each card is read, then after 5 seconds the next, up to the stickers', (tester) async {
+    await pumpApp(tester);
+    expect(find.text('🔈 Auto-read: OFF'), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('Auto-read'));
+    await tester.pump();
+    expect(find.text('🔊 Auto-read: ON'), findsOneWidget);
+    await open(tester, 'farm_animals');
+    expect(find.text('1 / 5'), findsOneWidget);
+    expect(audio.spoken, ['Farm Animals', 'Cow']);
+    await tester.pump(const Duration(seconds: 4));
+    expect(find.text('1 / 5'), findsOneWidget); // still waiting
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
+    expect(find.text('2 / 5'), findsOneWidget);
+    for (var i = 0; i < 3; i++) {
+      await tester.pump(const Duration(seconds: 5));
+      await tester.pumpAndSettle();
+    }
+    expect(find.text('5 / 5'), findsOneWidget);
+    // After the last card: the puppy, then the stickers.
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pump(const Duration(seconds: 4));
+    await tester.pumpAndSettle();
+    expect(find.text('Now pick your sticker'), findsOneWidget);
+  });
+
+  testWidgets('auto-read reads stories and rhymes aloud', (tester) async {
+    await pumpApp(tester);
+    await tester.tap(find.bySemanticsLabel('Auto-read'));
+    await tester.pump();
+    await open(tester, 'twinkle_star');
+    expect(audio.spoken, ['Twinkle Twinkle Little Star', 'Twinkle, twinkle, little star,\nHow I wonder what you are!']);
+    await tester.pump(const Duration(seconds: 5));
+    await tester.pumpAndSettle();
+    expect(find.text('2 / 3'), findsOneWidget);
+    expect(audio.spoken.last, 'Up above the world so high,\nLike a diamond in the sky.');
+    expect(find.byTooltip('Say it again'), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('Home'));
+    await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 6)); // the 5-second wait ends quietly once the story is closed
+    expect(find.text('3 / 3'), findsNothing);
+  });
+
   testWidgets('days of the week start on Monday with no "today", all 7 even on Easy', (tester) async {
     await pumpApp(tester);
     await open(tester, 'days');

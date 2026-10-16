@@ -37,7 +37,7 @@ class SectionScreen extends StatefulWidget {
       pages: [
         for (final item in items ?? category.items)
           SectionPage(
-            speech: [if (!category.silent) Speech.item(item)],
+            speech: [Speech.item(item)],
             child: ItemCard(category: category, item: item),
           ),
       ],
@@ -87,6 +87,9 @@ class _SectionScreenState extends State<SectionScreen> {
 
   AppState get _state => AppStateScope.of(context);
 
+  /// Whether the cards are read aloud: not tracing, and stories and rhymes only in auto-read.
+  bool get _voice => !widget.category.silent && (!widget.category.readOnlyInAutoRead || _state.autoRead);
+
   void _onPageChanged(int page) {
     setState(() => _page = page);
     _speakPage(page);
@@ -96,7 +99,7 @@ class _SectionScreenState extends State<SectionScreen> {
   /// finished, so the child sees and hears the last item first.
   Future<void> _speakPage(int page, {bool intro = false}) async {
     final p = widget.pages[page];
-    final texts = [if (intro && !widget.category.silent) Speech.category(widget.category), ...p.speech];
+    final texts = _voice ? [if (intro) Speech.category(widget.category), ...p.speech] : <String>[];
     final finished = texts.isEmpty
         // A story has no voice: leave time to read the last line before the puppy comes.
         ? await Future<bool>.delayed(const Duration(seconds: 5), () => true)
@@ -108,6 +111,12 @@ class _SectionScreenState extends State<SectionScreen> {
                 onTimeout: () => true,
               );
     final isLast = page == widget.pages.length - 1;
+    if (finished && !isLast && mounted && _page == page && _state.autoRead) {
+      // Auto-read: wait 5 seconds, then the next card.
+      await Future<void>.delayed(const Duration(seconds: 5));
+      if (mounted && _page == page && _state.autoRead) _go(1);
+      return;
+    }
     if (!finished || !isLast || !mounted || _page != page || _rewarding) return;
     await Future<void>.delayed(const Duration(milliseconds: 400));
     if (!mounted || _page != page || _rewarding) return;
@@ -168,7 +177,7 @@ class _SectionScreenState extends State<SectionScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           // Says the card again (sections with a voice only).
-                          if (!widget.category.silent) ...[
+                          if (_voice) ...[
                             ReplayButton(color: color, onPressed: () => _speakPage(_page)),
                             const SizedBox(width: 12),
                           ],

@@ -133,8 +133,11 @@ class Category {
   final List<LearningItem> items;
   final List<ItemGroup> groups;
 
-  /// Tracing, nursery rhymes and stories have no voice (the owner's choice).
-  bool get silent => layout == CategoryLayout.tracing || layout == CategoryLayout.story;
+  /// Tracing has no voice (the owner's choice).
+  bool get silent => layout == CategoryLayout.tracing;
+
+  /// Stories and nursery rhymes are read aloud only in auto-read mode.
+  bool get readOnlyInAutoRead => layout == CategoryLayout.story;
 }
 
 /// All learning content, loaded from `assets/content/content.json`.

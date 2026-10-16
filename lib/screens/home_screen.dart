@@ -5,6 +5,7 @@ import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
 import '../widgets/app_title.dart';
+import '../widgets/auto_read_bar.dart';
 import '../widgets/category_icon.dart';
 import '../widgets/difficulty_bar.dart';
 import '../widgets/puppy.dart';
@@ -80,8 +81,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
           child: AppTitle(onTapOnHome: _thisIsFun),
         ),
         bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(64 + DifficultyBar.height),
-          child: Column(children: [StickerBar(), DifficultyBar()]),
+          preferredSize: Size.fromHeight(64 + DifficultyBar.height + AutoReadBar.height),
+          child: Column(children: [StickerBar(), DifficultyBar(), AutoReadBar()]),
         ),
         actions: [
           const StarBadge(),

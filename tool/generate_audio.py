@@ -76,8 +76,15 @@ def item_speech(item):
     return item["label"]
 
 
-# Tracing and stories have no voice (the owner's choice).
-SILENT_LAYOUTS = {"tracing", "story"}
+# Tracing has no voice (the owner's choice).
+SILENT_LAYOUTS = {"tracing"}
+
+# Stories and nursery rhymes (read aloud in auto-read mode) are read more slowly.
+STORY_SPEED = 0.65
+
+
+def story_lines(content):
+    return {item_speech(i) for c in content["categories"] if c["layout"] == "story" for i in c["items"]}
 
 # Silence between the two words of an opposite pair ("Big. ... Small.").
 PAIR_PAUSE = 0.8
@@ -295,7 +302,21 @@ def main():
     to_mp3(cheer_sound(tts), 24000, OUT / "effects" / "cheer.mp3", CHEER_FILTER)
 
     def record(text, voice=args.voice, speed=args.speed):
-        """Records [text] without the extra "uh" at the start (see LEAD_INS)."""
+        """Records [text] without the extra "uh" at the start (see LEAD_INS).
+
+        Kokoro occasionally returns no audio for a sentence at one speed, so a
+        very slightly different speed is tried next.
+        """
+        for attempt in (speed, speed + 0.02, speed - 0.02):
+            try:
+                return record_at(text, voice, attempt)
+            except ValueError:
+                continue
+        raise SystemExit(f"could not record {text!r}")
+
+    def record_at(text, voice, speed):
+        # Rhyme verses have line breaks and may end in a comma.
+        text = text.replace("\n", " ").rstrip(",")
         # Without closing punctuation Kokoro sometimes returns no audio at all.
         spoken = text if text[-1] in ".!?" else f"{text}."
         for variant in (spoken, spoken[:-1] + "!", spoken[:-1] + "."):
@@ -303,7 +324,7 @@ def main():
             if len(trim(solo)):
                 break
         else:
-            raise SystemExit(f"could not record {text!r} on its own")
+            raise ValueError("no audio on its own")
         for lead_in in LEAD_INS:
             samples, rate = tts.create(f"{lead_in} {spoken}", voice=voice, speed=speed, lang="en-us")
             try:
@@ -312,12 +333,13 @@ def main():
             except ValueError:
                 continue
         else:
-            raise SystemExit(f"could not record {text!r}")
+            raise ValueError("no cut point")
         return samples, rate
 
     content = json.loads(CONTENT.read_text())
     texts = all_speech(content)
     pairs = opposite_parts(content)
+    slow = story_lines(content)
     wanted = {clip_name(t) for t in texts}
     for i, text in enumerate(texts, 1):
         path = OUT / f"{clip_name(text)}.mp3"
@@ -327,7 +349,7 @@ def main():
             (first, rate), (second, _) = (record(t) for t in pairs[text])
             samples = np.concatenate([first, np.zeros(int(rate * PAIR_PAUSE), dtype=first.dtype), second])
         else:
-            samples, rate = record(text)
+            samples, rate = record(text, speed=STORY_SPEED if text in slow else args.speed)
         to_mp3(samples, rate, path)
         print(f"[{i}/{len(texts)}] {path.name}: {text}")
 

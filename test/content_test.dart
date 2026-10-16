@@ -7,7 +7,7 @@ void main() {
   final content = LearningContent.fromJsonString(File('assets/content/content.json').readAsStringSync());
   Category byId(String id) => content.categories.firstWhere((c) => c.id == id);
 
-  test('has the 27 learning sections, 3 tracing sections, the Find It game and 5 stories in order', () {
+  test('has the 27 learning sections, 3 tracing sections, the Find It game and 12 stories in order', () {
     String names(MenuSection section) => [
       for (final c in content.categories)
         if (c.section == section) c.title,
@@ -23,7 +23,9 @@ void main() {
     expect(names(MenuSection.games), 'Find It');
     expect(
       names(MenuSection.shortStories),
-      'Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast',
+      'Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs, '
+      'Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse, '
+      'The Little Red Hen, Jack and the Beanstalk',
     );
     // In content.json the sections are listed in the order of the headings.
     final order = [for (final c in content.categories) c.section.index];

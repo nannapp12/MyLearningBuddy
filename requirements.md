@@ -68,7 +68,9 @@ Every learning section must, at minimum, support:
     In the School, Opposites, Phrases
   - **Tracing:** Shapes, Letters, Numbers
   - **Games:** Find It
-  - **Short Stories:** Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast
+  - **Short Stories:** Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast,
+    The Three Little Pigs, Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling,
+    The Lion and the Mouse, The Little Red Hen, Jack and the Beanstalk
 - Fruits tile is yellow
 - When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
   tap, because browsers only allow sound after a tap); each time the child comes back to the main menu,
@@ -257,9 +259,12 @@ Please and thank you · Good Morning · Good night · See you later
 ---
 
 ### 3.26 Short Stories (under the Short Stories heading)
-Five well-known fairy tales, each condensed to 7–8 short, gentle lines for ages 2–6 (no scary endings:
+Twelve well-known fairy tales and fables, each condensed to 7–8 short, gentle lines for ages 2–6 (no scary endings:
 Gretel tricks the witch and opens the door; a woodcutter comes and the wolf runs away):
-Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast
+Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs,
+Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse,
+The Little Red Hen, Jack and the Beanstalk (approved by the owner; the wolf gives up and runs away, Jack
+and the giant have no fall, and everyone helps the hen next time)
 - One line per card with a matching picture; **no voice** (owner's choice) – a parent reads along and the
   child taps next
 - The line is shown in large text that wraps; a story always shows every line, whatever the mode

@@ -2910,6 +2910,284 @@
      "emoji": "🌹"
     }
    ]
+  },
+  {
+   "id": "three_little_pigs",
+   "title": "The Three Little Pigs",
+   "section": "shortStories",
+   "emoji": "🐷",
+   "color": "#EC407A",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Three little pigs each built a house.",
+     "emoji": "🐷"
+    },
+    {
+     "label": "The first pig built a house of straw.",
+     "emoji": "🌾"
+    },
+    {
+     "label": "The second pig built a house of sticks.",
+     "emoji": "🪵"
+    },
+    {
+     "label": "The third pig built a strong house of bricks.",
+     "emoji": "🧱"
+    },
+    {
+     "label": "A big wolf huffed and puffed and blew down the straw and stick houses.",
+     "emoji": "🐺"
+    },
+    {
+     "label": "The pigs ran to the brick house, and the wolf could not blow it down.",
+     "emoji": "🏠"
+    },
+    {
+     "label": "The wolf gave up and ran away.",
+     "emoji": "💨"
+    },
+    {
+     "label": "The three little pigs were safe and happy together.",
+     "emoji": "🤗"
+    }
+   ]
+  },
+  {
+   "id": "goldilocks",
+   "title": "Goldilocks and the Three Bears",
+   "section": "shortStories",
+   "emoji": "🐻",
+   "color": "#F9A825",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Three bears lived in a house in the woods.",
+     "emoji": "🐻"
+    },
+    {
+     "label": "A girl named Goldilocks came to visit while they were out.",
+     "emoji": "👧"
+    },
+    {
+     "label": "She tasted their porridge, and the little bowl was just right.",
+     "emoji": "🥣"
+    },
+    {
+     "label": "She sat in their chairs, and the little chair was just right.",
+     "emoji": "🪑"
+    },
+    {
+     "label": "She lay on their beds, and the little bed was just right.",
+     "emoji": "🛏️"
+    },
+    {
+     "label": "The bears came home and found her fast asleep.",
+     "emoji": "😴"
+    },
+    {
+     "label": "Goldilocks woke up, said sorry and ran home.",
+     "emoji": "🏃‍♀️"
+    },
+    {
+     "label": "She learned to always ask before going in.",
+     "emoji": "🙋‍♀️"
+    }
+   ]
+  },
+  {
+   "id": "tortoise_hare",
+   "title": "The Tortoise and the Hare",
+   "section": "shortStories",
+   "emoji": "🐢",
+   "color": "#43A047",
+   "layout": "story",
+   "items": [
+    {
+     "label": "A fast hare laughed at a slow tortoise.",
+     "emoji": "🐇"
+    },
+    {
+     "label": "\"Let's have a race!\" said the tortoise.",
+     "emoji": "🏁"
+    },
+    {
+     "label": "The hare ran very fast and was far ahead.",
+     "emoji": "💨"
+    },
+    {
+     "label": "He was so sure he would win that he took a nap.",
+     "emoji": "😴"
+    },
+    {
+     "label": "The tortoise kept going, slow and steady.",
+     "emoji": "🐢"
+    },
+    {
+     "label": "The hare woke up, but the tortoise was at the finish line!",
+     "emoji": "🏆"
+    },
+    {
+     "label": "Slow and steady wins the race.",
+     "emoji": "⭐"
+    }
+   ]
+  },
+  {
+   "id": "ugly_duckling",
+   "title": "The Ugly Duckling",
+   "section": "shortStories",
+   "emoji": "🦢",
+   "color": "#0288D1",
+   "layout": "story",
+   "items": [
+    {
+     "label": "A mother duck had five little eggs.",
+     "emoji": "🥚"
+    },
+    {
+     "label": "One duckling looked big and gray and different.",
+     "emoji": "🐣"
+    },
+    {
+     "label": "The other animals said he was ugly, and he felt sad.",
+     "emoji": "😢"
+    },
+    {
+     "label": "He walked far away and lived alone all winter.",
+     "emoji": "❄️"
+    },
+    {
+     "label": "When spring came, he saw his face in the water.",
+     "emoji": "💧"
+    },
+    {
+     "label": "He had grown into a beautiful white swan!",
+     "emoji": "🦢"
+    },
+    {
+     "label": "He found other swans, and they became his friends.",
+     "emoji": "💕"
+    }
+   ]
+  },
+  {
+   "id": "lion_mouse",
+   "title": "The Lion and the Mouse",
+   "section": "shortStories",
+   "emoji": "🦁",
+   "color": "#EF6C00",
+   "layout": "story",
+   "items": [
+    {
+     "label": "A big lion was sleeping in the sun.",
+     "emoji": "🦁"
+    },
+    {
+     "label": "A tiny mouse ran across his nose and woke him up.",
+     "emoji": "🐭"
+    },
+    {
+     "label": "\"Please let me go, and one day I will help you,\" said the mouse.",
+     "emoji": "🙏"
+    },
+    {
+     "label": "The lion laughed and let the little mouse go.",
+     "emoji": "😄"
+    },
+    {
+     "label": "One day, the lion got stuck in a hunter's net.",
+     "emoji": "🪢"
+    },
+    {
+     "label": "The mouse came and chewed the ropes until the lion was free.",
+     "emoji": "✂️"
+    },
+    {
+     "label": "Little friends can be big helpers.",
+     "emoji": "🤝"
+    }
+   ]
+  },
+  {
+   "id": "little_red_hen",
+   "title": "The Little Red Hen",
+   "section": "shortStories",
+   "emoji": "🐔",
+   "color": "#C62828",
+   "layout": "story",
+   "items": [
+    {
+     "label": "The little red hen found some wheat seeds.",
+     "emoji": "🌾"
+    },
+    {
+     "label": "\"Who will help me plant them?\" \"Not I,\" said the cat, the dog and the duck.",
+     "emoji": "🐱"
+    },
+    {
+     "label": "So she planted them all by herself.",
+     "emoji": "🌱"
+    },
+    {
+     "label": "Nobody helped her cut the wheat or grind it into flour.",
+     "emoji": "🌾"
+    },
+    {
+     "label": "She baked a warm loaf of bread all by herself.",
+     "emoji": "🍞"
+    },
+    {
+     "label": "\"Who will help me eat it?\" \"I will!\" said everyone.",
+     "emoji": "🙋"
+    },
+    {
+     "label": "\"You did not help, so I will eat it with my chicks,\" said the hen.",
+     "emoji": "🐥"
+    },
+    {
+     "label": "Next time, everyone helped!",
+     "emoji": "🤝"
+    }
+   ]
+  },
+  {
+   "id": "jack_beanstalk",
+   "title": "Jack and the Beanstalk",
+   "section": "shortStories",
+   "emoji": "🌱",
+   "color": "#2E7D32",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Jack and his mother were very poor.",
+     "emoji": "🏠"
+    },
+    {
+     "label": "Jack swapped their cow for some magic beans.",
+     "emoji": "🐄"
+    },
+    {
+     "label": "In the night, the beans grew into a giant beanstalk!",
+     "emoji": "🌱"
+    },
+    {
+     "label": "Jack climbed all the way up into the clouds.",
+     "emoji": "☁️"
+    },
+    {
+     "label": "He found a giant's castle and a hen that laid golden eggs.",
+     "emoji": "🥚"
+    },
+    {
+     "label": "Jack took the hen and climbed down fast.",
+     "emoji": "🐔"
+    },
+    {
+     "label": "Jack and his mother were never poor again.",
+     "emoji": "💛"
+    }
+   ]
   }
  ]
 }

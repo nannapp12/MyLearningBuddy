@@ -50,6 +50,7 @@ void main() {
       await tester.scrollUntilVisible(tile(c.id), 300, scrollable: menu);
       expect(find.descendant(of: tile(c.id), matching: find.text(c.title)), findsOneWidget);
     }
+    expect(find.textContaining('abridged and condensed to under 100 words'), findsOneWidget);
     for (final heading in ['Learning', 'Tracing', 'Games', 'Short Stories']) {
       await tester.scrollUntilVisible(find.text(heading), -300, scrollable: menu);
     }

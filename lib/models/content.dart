@@ -86,11 +86,19 @@ enum MenuSection {
   tracing('Tracing'),
   games('Games'),
   nurseryRhymes('Nursery Rhymes'),
-  shortStories('Short Stories');
+  shortStories(
+    'Short Stories',
+    note:
+        'The stories are abridged and condensed to under 100 words so our little readers can enjoy them, '
+        'so the content may have been adjusted accordingly.',
+  );
 
-  const MenuSection(this.heading);
+  const MenuSection(this.heading, {this.note});
 
   final String heading;
+
+  /// A short note shown under the heading.
+  final String? note;
 }
 
 /// One of the learning sections shown on the home screen.

@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
             slivers: [
               for (final section in MenuSection.values) ...[
                 if (visible.any((c) => c.section == section)) ...[
-                  SliverToBoxAdapter(child: _Heading(section.heading)),
+                  SliverToBoxAdapter(child: _Heading(section.heading, note: section.note)),
                   SliverPadding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     sliver: grid([
@@ -128,24 +128,38 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
 /// A heading above a group of tiles, e.g. "Learning".
 class _Heading extends StatelessWidget {
-  const _Heading(this.text);
+  const _Heading(this.text, {this.note});
 
   final String text;
+  final String? note;
 
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-    child: Semantics(
-      header: true,
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontFamily: 'Fredoka',
-          fontSize: 32,
-          fontWeight: FontWeight.w700,
-          color: Color(0xFF4A3A8C),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Semantics(
+          header: true,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontFamily: 'Fredoka',
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFF4A3A8C),
+            ),
+          ),
         ),
-      ),
+        if (note != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Text(
+              note!,
+              style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: Colors.black54),
+            ),
+          ),
+      ],
     ),
   );
 }

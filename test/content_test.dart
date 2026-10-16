@@ -107,6 +107,13 @@ void main() {
     }
   });
 
+  test('short stories are under 100 words, as the note under the heading says', () {
+    for (final c in content.categories.where((c) => c.section == MenuSection.shortStories)) {
+      final words = c.items.expand((i) => i.label.split(RegExp(r'\s+'))).length;
+      expect(words, lessThan(100), reason: c.title);
+    }
+  });
+
   test('short stories have 6 to 8 lines, each with a picture', () {
     for (final c in content.categories.where((c) => c.section == MenuSection.shortStories)) {
       expect(c.layout, CategoryLayout.story);

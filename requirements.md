@@ -281,6 +281,9 @@ Hansel & Gretel, Little Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & t
 Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse,
 The Little Red Hen, Jack and the Beanstalk (approved by the owner; the wolf gives up and runs away, Jack
 and the giant have no fall, and everyone helps the hen next time)
+- A note under the Short Stories heading: "The stories are abridged and condensed to under 100 words so our
+  little readers can enjoy them, so the content may have been adjusted accordingly." Every story stays under
+  100 words
 - One line per card with a matching picture; **no voice** unless Auto-read is on (owner's choice) – a parent
   reads along and the child taps next
 - The line is shown in large text that wraps; a story always shows every line, whatever the mode

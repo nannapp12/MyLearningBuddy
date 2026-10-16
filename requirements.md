@@ -77,7 +77,7 @@ Every learning section must, at minimum, support:
   - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,
     Teddy Bear Teddy Bear, One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Rain Rain Go Away,
     Row Row Row Your Boat, Hey Diddle Diddle
-  - **Short Stories:** Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast,
+  - **Short Stories:** Hansel & Gretel, Little Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast,
     The Three Little Pigs, Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling,
     The Lion and the Mouse, The Little Red Hen, Jack and the Beanstalk
 - Fruits tile is yellow
@@ -277,7 +277,7 @@ One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider (owner's picks), 
 ### 3.26 Short Stories (under the Short Stories heading)
 Twelve well-known fairy tales and fables, each condensed to 7–8 short, gentle lines for ages 2–6 (no scary endings:
 Gretel tricks the witch and opens the door; a woodcutter comes and the wolf runs away):
-Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs,
+Hansel & Gretel, Little Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs,
 Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse,
 The Little Red Hen, Jack and the Beanstalk (approved by the owner; the wolf gives up and runs away, Jack
 and the giant have no fall, and everyone helps the hen next time)

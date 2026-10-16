@@ -31,7 +31,7 @@ void main() {
       );
       expect(
         names(MenuSection.shortStories),
-        'Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs, '
+        'Hansel & Gretel, Little Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs, '
         'Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse, '
         'The Little Red Hen, Jack and the Beanstalk',
       );

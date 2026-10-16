@@ -94,20 +94,97 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         ],
       ),
       body: LayoutBuilder(
-        builder: (context, constraints) => GridView.count(
-          padding: const EdgeInsets.all(16),
-          crossAxisCount: (constraints.maxWidth / 220).floor().clamp(2, 6),
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-          children: [for (final c in visible) _CategoryTile(category: c, content: content)],
-        ),
+        builder: (context, constraints) {
+          SliverGrid grid(List<Widget> tiles) => SliverGrid.count(
+            crossAxisCount: (constraints.maxWidth / 220).floor().clamp(2, 6),
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
+            children: tiles,
+          );
+          return CustomScrollView(
+            slivers: [
+              for (final section in MenuSection.values) ...[
+                if (section == MenuSection.shortStories || visible.any((c) => c.section == section)) ...[
+                  SliverToBoxAdapter(child: _Heading(section.heading)),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    sliver: grid([
+                      for (final c in visible)
+                        if (c.section == section)
+                          _CategoryTile(key: ValueKey('tile-${c.id}'), category: c, content: content),
+                      if (section == MenuSection.shortStories) const _ComingSoonTile(),
+                    ]),
+                  ),
+                ],
+              ],
+              const SliverToBoxAdapter(child: SizedBox(height: 24)),
+            ],
+          );
+        },
       ),
     );
   }
 }
 
+/// A heading above a group of tiles, e.g. "Learning".
+class _Heading extends StatelessWidget {
+  const _Heading(this.text);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+    child: Semantics(
+      header: true,
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontFamily: 'Fredoka',
+          fontSize: 32,
+          fontWeight: FontWeight.w700,
+          color: Color(0xFF4A3A8C),
+        ),
+      ),
+    ),
+  );
+}
+
+/// Shown under "Short Stories" until the stories are added.
+class _ComingSoonTile extends StatelessWidget {
+  const _ComingSoonTile();
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.all(12),
+    decoration: BoxDecoration(color: Colors.grey.shade400, borderRadius: BorderRadius.circular(28)),
+    child: Column(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 6),
+            child: const FittedBox(child: Text('📚', style: TextStyle(fontSize: 80))),
+          ),
+        ),
+        const SizedBox(height: 8),
+        const FittedBox(
+          child: Text(
+            'To Be Added',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: [Shadow(color: Colors.black45, blurRadius: 4, offset: Offset(0, 1))],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 class _CategoryTile extends StatelessWidget {
-  const _CategoryTile({required this.category, required this.content});
+  const _CategoryTile({super.key, required this.category, required this.content});
 
   final Category category;
   final LearningContent content;

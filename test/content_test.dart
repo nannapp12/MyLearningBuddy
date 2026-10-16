@@ -7,39 +7,27 @@ void main() {
   final content = LearningContent.fromJsonString(File('assets/content/content.json').readAsStringSync());
   Category byId(String id) => content.categories.firstWhere((c) => c.id == id);
 
-  test('has the 25 sections and the Find It game in order', () {
-    expect(content.categories.map((c) => c.title), [
-      'Letters',
-      'Numbers',
-      'Words',
-      'Tracing',
-      'Shapes',
-      'Days of the Week',
-      'Farm Animals',
-      'Wild Animals',
-      'Vehicles',
-      'Fruits',
-      'Vegetables',
-      'Colors',
-      'Body Parts',
-      'Family',
-      'Emotions',
-      'Opposites',
-      'Weather and Seasons',
-      'Months',
-      'Birds',
-      'Sea Creatures',
-      'Insects',
-      'Community Helpers',
-      'Things Around the House',
-      'Places We Visit',
-      'Phrases',
-      'Find It',
-    ]);
+  test('has the 25 learning sections, the 3 tracing sections and the Find It game in order', () {
+    String names(MenuSection section) => [
+      for (final c in content.categories)
+        if (c.section == section) c.title,
+    ].join(', ');
+    expect(
+      names(MenuSection.learning),
+      'Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects, Vehicles, Fruits, '
+      'Vegetables, Food, Colors, Shapes, Days of the Week, Months, Body Parts, Family, Emotions, '
+      'Community Helpers, Places We Visit, Things Around the House, Opposites, Weather and Seasons, Phrases',
+    );
+    expect(names(MenuSection.tracing), 'Shapes, Letters, Numbers');
+    expect(names(MenuSection.games), 'Find It');
+    expect(names(MenuSection.shortStories), '');
+    // In content.json the sections are listed in the order of the headings.
+    final order = [for (final c in content.categories) c.section.index];
+    expect(order, [...order]..sort());
   });
 
   test('sections have at most 10 items, except where the subject needs more', () {
-    const longer = {'letters', 'numbers', 'words', 'tracing', 'months'};
+    const longer = {'letters', 'numbers', 'words', 'months'};
     for (final c in content.categories) {
       if (!longer.contains(c.id)) expect(c.items.length, lessThanOrEqualTo(10), reason: c.title);
     }
@@ -56,7 +44,7 @@ void main() {
     expect(byId('letters').items, hasLength(26));
     expect(byId('numbers').items.map((i) => i.count), List.generate(20, (i) => i + 1));
     expect(byId('days').items, hasLength(7));
-    for (final id in ['shapes', 'farm_animals', 'wild_animals', 'vehicles', 'fruits', 'vegetables', 'colors']) {
+    for (final id in ['shapes', 'food', 'farm_animals', 'wild_animals', 'vehicles', 'fruits', 'vegetables', 'colors']) {
       expect(byId(id).items, hasLength(10), reason: id);
     }
   });
@@ -72,8 +60,9 @@ void main() {
     }
   });
 
-  test('tracing covers A-Z, a-z and 1-20', () {
-    final groups = byId('tracing').groups;
-    expect(groups.map((g) => g.items.length), [26, 26, 20]);
+  test('tracing covers the 10 shapes, A-Z, a-z and 1-20', () {
+    expect(byId('trace_shapes').groups.single.items.map((i) => i.shape), byId('shapes').items.map((i) => i.shape));
+    expect(byId('trace_letters').groups.map((g) => g.items.length), [26, 26]);
+    expect(byId('trace_numbers').groups.single.items, hasLength(20));
   });
 }

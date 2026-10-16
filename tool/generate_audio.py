@@ -76,7 +76,10 @@ def item_speech(item):
     return item["label"]
 
 
-def trace_speech(ch):
+def trace_speech(item):
+    ch = item["label"]
+    if item.get("shape"):
+        return f"Trace the {ch.lower()}."
     if ch.isdigit():
         return f"Trace the number {ch}."
     return f"Trace the letter {ch.upper()}."
@@ -100,11 +103,11 @@ def opposite_parts(content):
 def all_speech(content):
     texts = [*EXTRAS]
     for c in content["categories"]:
-        texts.append(c["title"])
+        texts.append(c.get("speak", c["title"]))
         texts += [item_speech(i) for i in c.get("items", [])]
         for g in c.get("groups", []):
             if c["layout"] == "tracing":
-                texts += [trace_speech(i["label"]) for i in g["items"]]
+                texts += [trace_speech(i) for i in g["items"]]
             else:
                 texts.append(g["label"])
                 texts += [item_speech(i) for i in g["items"]]

@@ -87,13 +87,21 @@ class _Settings extends StatelessWidget {
     return ListView(
       children: [
         const _Header('Show or hide sections'),
-        for (final c in content.categories)
-          SwitchListTile(
-            secondary: CategoryIcon(category: c, size: 36),
-            title: Text(c.title),
-            value: !state.isHidden(c.id),
-            onChanged: (show) => state.setHidden(c.id, !show),
-          ),
+        for (final section in MenuSection.values)
+          if (content.categories.any((c) => c.section == section)) ...[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: Text(section.heading, style: Theme.of(context).textTheme.titleSmall),
+            ),
+            for (final c in content.categories)
+              if (c.section == section)
+                SwitchListTile(
+                  secondary: CategoryIcon(category: c, size: 36),
+                  title: Text(c.title),
+                  value: !state.isHidden(c.id),
+                  onChanged: (show) => state.setHidden(c.id, !show),
+                ),
+          ],
         const _Header('Sound'),
         SwitchListTile(title: const Text('Speech'), value: state.speechOn, onChanged: (v) => state.speechOn = v),
         SwitchListTile(

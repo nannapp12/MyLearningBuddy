@@ -58,6 +58,14 @@ Every learning section must, at minimum, support:
   - Hard: everything
   Find It uses the same limit when choosing pictures. Days of the Week always shows all 7 days
 - One big picture tile per section; tile pictures must not be cut off at the edges
+- The tiles are grouped under four sub-headings, in this order:
+  - **Learning:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
+    Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Days of the Week, Months, Body Parts, Family,
+    Emotions, Community Helpers, Places We Visit, Things Around the House, Opposites, Weather and Seasons,
+    Phrases
+  - **Tracing:** Shapes, Letters, Numbers
+  - **Games:** Find It
+  - **Short Stories:** to be added (shows a grey "To Be Added" tile for now)
 - Fruits tile is yellow
 - When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
   tap, because browsers only allow sound after a tap); each time the child comes back to the main menu,
@@ -79,7 +87,7 @@ Every learning section must, at minimum, support:
 ## 3. Learning Sections
 
 To keep each section easy to learn, a section has **at most 10 items**, except where the
-subject needs more (letters, numbers, words, tracing and the 12 months).
+subject needs more (letters, numbers, words, tracing letters and numbers, and the 12 months).
 
 ### 3.1 Letters
 - Uppercase: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
@@ -134,10 +142,14 @@ subject needs more (letters, numbers, words, tracing and the 12 months).
 
 ### 3.4 Tracing
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website
-- Traceable content: uppercase A–Z, lowercase a–z, numbers 1–20 (each in its own list)
-- A next button moves on to the next letter or number in the list
-- Voice prompt: "Trace the letter G." (no "big" or "small") or "Trace the number 7."
-- Tapping "Great job!" after tracing moves on to the next letter or number; after the last one it returns to the main menu
+- Three tiles under the **Tracing** heading:
+  - **Shapes:** the 10 shapes from the Shapes section, picked from a grid of shape pictures
+  - **Letters:** uppercase A–Z and lowercase a–z (two lists)
+  - **Numbers:** 1–20
+- Opening a tile says "Tracing shapes", "Tracing letters" or "Tracing numbers"
+- A next button moves on to the next shape, letter or number in the list
+- Voice prompt: "Trace the circle.", "Trace the letter G." (no "big" or "small") or "Trace the number 7."
+- Tapping "Great job!" after tracing moves on to the next one; after the last one, the puppy and stickers
 - Dotted guide outline with stroke order and a start point
 - Detect whether the child stays roughly on the path; positive feedback (sound/animation) on completion
 - "Clear" / "Try again" button
@@ -175,6 +187,10 @@ Apple, Banana, Orange, Mango, Grapes, Strawberry, Watermelon, Pineapple, Pear, C
 
 ### 3.11 Vegetables (10)
 Carrot, Potato, Tomato, Onion, Cabbage, Cauliflower, Peas, Corn, Cucumber, Broccoli
+
+### 3.11a Food (10)
+Pizza, Bread, Cheese, Rice, Pasta, Egg, Milk, Pancakes, Sandwich, Soup
+- Names only, one emoji picture each; listed after Vegetables on the home screen
 
 ### 3.12 Colors (10)
 Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White
@@ -220,7 +236,7 @@ Bed, Chair, Sofa, Door, Window, Clock, Toothbrush, Bathtub, Television, Broom
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
 ### 3.25 Phrases (10)
-How are you? · I am doing well, thank you · This is fun · I am happy · I like playing · I am eating ·
+How are you? · I am doing well · This is fun · I am happy · I like playing · I am eating ·
 Please and thank you · Good Morning · Good night · See you later
 - One phrase per card with a matching picture; the voice says the phrase, and the child taps next to
   move on (no auto-advance)
@@ -247,7 +263,7 @@ Please and thank you · Good Morning · Good night · See you later
 
 ## 4a. Games
 
-Shown as the last tile on the home screen; parents can hide it like any section.
+Shown under the **Games** heading on the home screen; parents can hide it like any section.
 
 - **Find It:** the child picks a section with clear pictures (animals, fruits, shapes, colours …). The
   voice asks "Can you find … Cow?" and shows 3 pictures. Right: the picture grows, shows its name and the

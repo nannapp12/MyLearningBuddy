@@ -3,6 +3,7 @@
   {
    "id": "letters",
    "title": "Letters",
+   "section": "learning",
    "emoji": "🔤",
    "color": "#E53935",
    "layout": "cards",
@@ -142,6 +143,7 @@
   {
    "id": "numbers",
    "title": "Numbers",
+   "section": "learning",
    "emoji": "🔢",
    "color": "#1E88E5",
    "layout": "cards",
@@ -291,6 +293,7 @@
   {
    "id": "words",
    "title": "Words",
+   "section": "learning",
    "emoji": "📖",
    "color": "#8E24AA",
    "layout": "groups",
@@ -1079,9 +1082,1217 @@
    ]
   },
   {
-   "id": "tracing",
-   "title": "Tracing",
-   "emoji": "✏️",
+   "id": "farm_animals",
+   "title": "Farm Animals",
+   "section": "learning",
+   "emoji": "🐄",
+   "color": "#6D4C41",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Cow",
+     "emoji": "🐄"
+    },
+    {
+     "label": "Horse",
+     "emoji": "🐎"
+    },
+    {
+     "label": "Pig",
+     "emoji": "🐖"
+    },
+    {
+     "label": "Sheep",
+     "emoji": "🐑"
+    },
+    {
+     "label": "Goat",
+     "emoji": "🐐"
+    },
+    {
+     "label": "Chicken",
+     "emoji": "🐓"
+    },
+    {
+     "label": "Duck",
+     "emoji": "🦆"
+    },
+    {
+     "label": "Dog",
+     "emoji": "🐕"
+    },
+    {
+     "label": "Cat",
+     "emoji": "🐈"
+    },
+    {
+     "label": "Donkey",
+     "emoji": "🫏"
+    }
+   ]
+  },
+  {
+   "id": "wild_animals",
+   "title": "Wild Animals",
+   "section": "learning",
+   "emoji": "🦁",
+   "color": "#F9A825",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Lion",
+     "image": "assets/images/lion.svg"
+    },
+    {
+     "label": "Tiger",
+     "emoji": "🐅"
+    },
+    {
+     "label": "Elephant",
+     "emoji": "🐘"
+    },
+    {
+     "label": "Giraffe",
+     "emoji": "🦒"
+    },
+    {
+     "label": "Zebra",
+     "image": "assets/images/zebra.svg"
+    },
+    {
+     "label": "Monkey",
+     "emoji": "🐒"
+    },
+    {
+     "label": "Bear",
+     "image": "assets/images/bear.svg"
+    },
+    {
+     "label": "Kangaroo",
+     "emoji": "🦘"
+    },
+    {
+     "label": "Hippopotamus",
+     "emoji": "🦛"
+    },
+    {
+     "label": "Crocodile",
+     "emoji": "🐊"
+    }
+   ]
+  },
+  {
+   "id": "birds",
+   "title": "Birds",
+   "section": "learning",
+   "emoji": "🦜",
+   "color": "#2E7D32",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Parrot",
+     "emoji": "🦜"
+    },
+    {
+     "label": "Owl",
+     "emoji": "🦉"
+    },
+    {
+     "label": "Eagle",
+     "emoji": "🦅"
+    },
+    {
+     "label": "Penguin",
+     "emoji": "🐧"
+    },
+    {
+     "label": "Flamingo",
+     "emoji": "🦩"
+    },
+    {
+     "label": "Peacock",
+     "emoji": "🦚"
+    },
+    {
+     "label": "Swan",
+     "emoji": "🦢"
+    },
+    {
+     "label": "Dove",
+     "emoji": "🕊️"
+    },
+    {
+     "label": "Turkey",
+     "emoji": "🦃"
+    },
+    {
+     "label": "Duck",
+     "emoji": "🦆"
+    }
+   ]
+  },
+  {
+   "id": "sea_creatures",
+   "title": "Sea Creatures",
+   "section": "learning",
+   "emoji": "🐙",
+   "color": "#00838F",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Fish",
+     "emoji": "🐟"
+    },
+    {
+     "label": "Whale",
+     "emoji": "🐳"
+    },
+    {
+     "label": "Dolphin",
+     "emoji": "🐬"
+    },
+    {
+     "label": "Shark",
+     "emoji": "🦈"
+    },
+    {
+     "label": "Octopus",
+     "emoji": "🐙"
+    },
+    {
+     "label": "Crab",
+     "emoji": "🦀"
+    },
+    {
+     "label": "Jellyfish",
+     "emoji": "🪼"
+    },
+    {
+     "label": "Seal",
+     "emoji": "🦭"
+    },
+    {
+     "label": "Sea Turtle",
+     "emoji": "🐢"
+    },
+    {
+     "label": "Lobster",
+     "emoji": "🦞"
+    }
+   ]
+  },
+  {
+   "id": "insects",
+   "title": "Insects",
+   "section": "learning",
+   "emoji": "🦋",
+   "color": "#558B2F",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Butterfly",
+     "emoji": "🦋"
+    },
+    {
+     "label": "Bee",
+     "emoji": "🐝"
+    },
+    {
+     "label": "Ant",
+     "emoji": "🐜"
+    },
+    {
+     "label": "Ladybug",
+     "emoji": "🐞"
+    },
+    {
+     "label": "Caterpillar",
+     "emoji": "🐛"
+    },
+    {
+     "label": "Beetle",
+     "emoji": "🪲"
+    },
+    {
+     "label": "Cricket",
+     "emoji": "🦗"
+    },
+    {
+     "label": "Fly",
+     "emoji": "🪰"
+    },
+    {
+     "label": "Mosquito",
+     "emoji": "🦟"
+    },
+    {
+     "label": "Dragonfly",
+     "image": "assets/images/dragonfly.svg"
+    }
+   ]
+  },
+  {
+   "id": "vehicles",
+   "title": "Vehicles",
+   "section": "learning",
+   "emoji": "🚗",
+   "color": "#D81B60",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Car",
+     "emoji": "🚗"
+    },
+    {
+     "label": "Bus",
+     "image": "assets/images/school_bus.svg"
+    },
+    {
+     "label": "Truck",
+     "emoji": "🚚"
+    },
+    {
+     "label": "Bicycle",
+     "emoji": "🚲"
+    },
+    {
+     "label": "Motorcycle",
+     "emoji": "🏍️"
+    },
+    {
+     "label": "Train",
+     "emoji": "🚂🚃🚃"
+    },
+    {
+     "label": "Airplane",
+     "emoji": "✈️"
+    },
+    {
+     "label": "Ship",
+     "emoji": "🚢"
+    },
+    {
+     "label": "Helicopter",
+     "emoji": "🚁"
+    },
+    {
+     "label": "Fire Truck",
+     "emoji": "🚒"
+    }
+   ]
+  },
+  {
+   "id": "fruits",
+   "title": "Fruits",
+   "section": "learning",
+   "emoji": "🍎",
+   "color": "#FBC02D",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Apple",
+     "emoji": "🍎"
+    },
+    {
+     "label": "Banana",
+     "emoji": "🍌"
+    },
+    {
+     "label": "Orange",
+     "emoji": "🍊"
+    },
+    {
+     "label": "Mango",
+     "emoji": "🥭"
+    },
+    {
+     "label": "Grapes",
+     "emoji": "🍇"
+    },
+    {
+     "label": "Strawberry",
+     "emoji": "🍓"
+    },
+    {
+     "label": "Watermelon",
+     "emoji": "🍉"
+    },
+    {
+     "label": "Pineapple",
+     "emoji": "🍍"
+    },
+    {
+     "label": "Pear",
+     "emoji": "🍐"
+    },
+    {
+     "label": "Cherry",
+     "emoji": "🍒"
+    }
+   ]
+  },
+  {
+   "id": "vegetables",
+   "title": "Vegetables",
+   "section": "learning",
+   "emoji": "🥕",
+   "color": "#43A047",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Carrot",
+     "emoji": "🥕"
+    },
+    {
+     "label": "Potato",
+     "emoji": "🥔"
+    },
+    {
+     "label": "Tomato",
+     "emoji": "🍅"
+    },
+    {
+     "label": "Onion",
+     "emoji": "🧅"
+    },
+    {
+     "label": "Cabbage",
+     "emoji": "🥬"
+    },
+    {
+     "label": "Cauliflower",
+     "image": "assets/images/cauliflower.svg"
+    },
+    {
+     "label": "Peas",
+     "emoji": "🫛"
+    },
+    {
+     "label": "Corn",
+     "emoji": "🌽"
+    },
+    {
+     "label": "Cucumber",
+     "emoji": "🥒"
+    },
+    {
+     "label": "Broccoli",
+     "emoji": "🥦"
+    }
+   ]
+  },
+  {
+   "id": "food",
+   "title": "Food",
+   "section": "learning",
+   "emoji": "🍕",
+   "color": "#E64A19",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Pizza",
+     "emoji": "🍕"
+    },
+    {
+     "label": "Bread",
+     "emoji": "🍞"
+    },
+    {
+     "label": "Cheese",
+     "emoji": "🧀"
+    },
+    {
+     "label": "Rice",
+     "emoji": "🍚"
+    },
+    {
+     "label": "Pasta",
+     "emoji": "🍝"
+    },
+    {
+     "label": "Egg",
+     "emoji": "🥚"
+    },
+    {
+     "label": "Milk",
+     "emoji": "🥛"
+    },
+    {
+     "label": "Pancakes",
+     "emoji": "🥞"
+    },
+    {
+     "label": "Sandwich",
+     "emoji": "🥪"
+    },
+    {
+     "label": "Soup",
+     "emoji": "🍲"
+    }
+   ]
+  },
+  {
+   "id": "colors",
+   "title": "Colors",
+   "section": "learning",
+   "emoji": "🎨",
+   "color": "#5E35B1",
+   "layout": "colors",
+   "items": [
+    {
+     "label": "Red",
+     "emoji": "🍎",
+     "swatch": "#E53935"
+    },
+    {
+     "label": "Blue",
+     "emoji": "🫐",
+     "swatch": "#1E88E5"
+    },
+    {
+     "label": "Yellow",
+     "emoji": "🍌",
+     "swatch": "#FDD835"
+    },
+    {
+     "label": "Green",
+     "emoji": "🐸",
+     "swatch": "#43A047"
+    },
+    {
+     "label": "Orange",
+     "emoji": "🍊",
+     "swatch": "#FB8C00"
+    },
+    {
+     "label": "Purple",
+     "emoji": "🍇",
+     "swatch": "#8E24AA"
+    },
+    {
+     "label": "Pink",
+     "emoji": "🌸",
+     "swatch": "#EC407A"
+    },
+    {
+     "label": "Brown",
+     "emoji": "🐻",
+     "swatch": "#795548"
+    },
+    {
+     "label": "Black",
+     "emoji": "🐈‍⬛",
+     "swatch": "#212121"
+    },
+    {
+     "label": "White",
+     "emoji": "☁️",
+     "swatch": "#FFFFFF"
+    }
+   ]
+  },
+  {
+   "id": "shapes",
+   "title": "Shapes",
+   "section": "learning",
+   "emoji": "🔷",
+   "color": "#00897B",
+   "layout": "shapes",
+   "items": [
+    {
+     "label": "Circle",
+     "shape": "circle",
+     "color": "#E53935"
+    },
+    {
+     "label": "Square",
+     "shape": "square",
+     "color": "#1E88E5"
+    },
+    {
+     "label": "Triangle",
+     "shape": "triangle",
+     "color": "#43A047"
+    },
+    {
+     "label": "Rectangle",
+     "shape": "rectangle",
+     "color": "#FB8C00"
+    },
+    {
+     "label": "Oval",
+     "shape": "oval",
+     "color": "#8E24AA"
+    },
+    {
+     "label": "Star",
+     "shape": "star",
+     "color": "#FBC02D"
+    },
+    {
+     "label": "Heart",
+     "shape": "heart",
+     "color": "#EC407A"
+    },
+    {
+     "label": "Diamond",
+     "shape": "diamond",
+     "color": "#00ACC1"
+    },
+    {
+     "label": "Pentagon",
+     "shape": "pentagon",
+     "color": "#3949AB"
+    },
+    {
+     "label": "Hexagon",
+     "shape": "hexagon",
+     "color": "#7CB342"
+    }
+   ]
+  },
+  {
+   "id": "days",
+   "title": "Days of the Week",
+   "section": "learning",
+   "emoji": "📅",
+   "image": "assets/images/calendar_jan_1.svg",
+   "color": "#3949AB",
+   "layout": "days",
+   "items": [
+    {
+     "label": "Monday",
+     "color": "#E53935"
+    },
+    {
+     "label": "Tuesday",
+     "color": "#FB8C00"
+    },
+    {
+     "label": "Wednesday",
+     "color": "#FBC02D"
+    },
+    {
+     "label": "Thursday",
+     "color": "#43A047"
+    },
+    {
+     "label": "Friday",
+     "color": "#1E88E5"
+    },
+    {
+     "label": "Saturday",
+     "color": "#8E24AA"
+    },
+    {
+     "label": "Sunday",
+     "color": "#D81B60"
+    }
+   ]
+  },
+  {
+   "id": "months",
+   "title": "Months",
+   "section": "learning",
+   "emoji": "🗓️",
+   "color": "#5D4037",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "January",
+     "emoji": "⛄"
+    },
+    {
+     "label": "February",
+     "emoji": "💝"
+    },
+    {
+     "label": "March",
+     "emoji": "🍀"
+    },
+    {
+     "label": "April",
+     "emoji": "☔"
+    },
+    {
+     "label": "May",
+     "emoji": "🌸"
+    },
+    {
+     "label": "June",
+     "emoji": "🌞"
+    },
+    {
+     "label": "July",
+     "emoji": "🎆"
+    },
+    {
+     "label": "August",
+     "emoji": "🏖️"
+    },
+    {
+     "label": "September",
+     "emoji": "🍎"
+    },
+    {
+     "label": "October",
+     "emoji": "🎃"
+    },
+    {
+     "label": "November",
+     "emoji": "🦃"
+    },
+    {
+     "label": "December",
+     "emoji": "🎄"
+    }
+   ]
+  },
+  {
+   "id": "body_parts",
+   "title": "Body Parts",
+   "section": "learning",
+   "emoji": "🖐️",
+   "color": "#EF6C00",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Eye",
+     "emoji": "👁️"
+    },
+    {
+     "label": "Ear",
+     "emoji": "👂"
+    },
+    {
+     "label": "Nose",
+     "emoji": "👃"
+    },
+    {
+     "label": "Mouth",
+     "emoji": "👄"
+    },
+    {
+     "label": "Teeth",
+     "emoji": "🦷"
+    },
+    {
+     "label": "Tongue",
+     "emoji": "👅"
+    },
+    {
+     "label": "Hand",
+     "emoji": "✋"
+    },
+    {
+     "label": "Arm",
+     "emoji": "💪"
+    },
+    {
+     "label": "Leg",
+     "emoji": "🦵"
+    },
+    {
+     "label": "Foot",
+     "emoji": "🦶"
+    }
+   ]
+  },
+  {
+   "id": "family",
+   "title": "Family",
+   "section": "learning",
+   "emoji": "👪",
+   "color": "#AD1457",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Mother",
+     "emoji": "👩"
+    },
+    {
+     "label": "Father",
+     "emoji": "👨"
+    },
+    {
+     "label": "Baby",
+     "emoji": "👶"
+    },
+    {
+     "label": "Sister",
+     "emoji": "👧"
+    },
+    {
+     "label": "Brother",
+     "emoji": "👦"
+    },
+    {
+     "label": "Grandmother",
+     "emoji": "👵"
+    },
+    {
+     "label": "Grandfather",
+     "emoji": "👴"
+    },
+    {
+     "label": "Family",
+     "emoji": "👪"
+    }
+   ]
+  },
+  {
+   "id": "emotions",
+   "title": "Emotions",
+   "section": "learning",
+   "emoji": "😊",
+   "color": "#F9A825",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Happy",
+     "emoji": "😄"
+    },
+    {
+     "label": "Sad",
+     "emoji": "😢"
+    },
+    {
+     "label": "Angry",
+     "emoji": "😠"
+    },
+    {
+     "label": "Scared",
+     "emoji": "😨"
+    },
+    {
+     "label": "Surprised",
+     "emoji": "😲"
+    },
+    {
+     "label": "Sleepy",
+     "emoji": "😴"
+    },
+    {
+     "label": "Silly",
+     "emoji": "🤪"
+    },
+    {
+     "label": "Excited",
+     "emoji": "🤩"
+    },
+    {
+     "label": "Calm",
+     "emoji": "😌"
+    },
+    {
+     "label": "Worried",
+     "emoji": "😟"
+    }
+   ]
+  },
+  {
+   "id": "community_helpers",
+   "title": "Community Helpers",
+   "section": "learning",
+   "emoji": "🧑‍🚒",
+   "color": "#C62828",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Doctor",
+     "emoji": "🧑‍⚕️"
+    },
+    {
+     "label": "Nurse",
+     "emoji": "👩‍⚕️"
+    },
+    {
+     "label": "Firefighter",
+     "emoji": "🧑‍🚒"
+    },
+    {
+     "label": "Police Officer",
+     "emoji": "👮"
+    },
+    {
+     "label": "Teacher",
+     "emoji": "🧑‍🏫"
+    },
+    {
+     "label": "Farmer",
+     "emoji": "🧑‍🌾"
+    },
+    {
+     "label": "Chef",
+     "emoji": "🧑‍🍳"
+    },
+    {
+     "label": "Pilot",
+     "emoji": "🧑‍✈️"
+    },
+    {
+     "label": "Mechanic",
+     "emoji": "🧑‍🔧"
+    },
+    {
+     "label": "Construction Worker",
+     "emoji": "👷"
+    }
+   ]
+  },
+  {
+   "id": "places",
+   "title": "Places We Visit",
+   "section": "learning",
+   "emoji": "🎡",
+   "color": "#283593",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Zoo",
+     "image": "assets/images/zoo.svg"
+    },
+    {
+     "label": "Aquarium",
+     "image": "assets/images/aquarium.svg"
+    },
+    {
+     "label": "Police Station",
+     "image": "assets/images/police_station.svg"
+    },
+    {
+     "label": "School",
+     "emoji": "🏫"
+    },
+    {
+     "label": "Hospital",
+     "emoji": "🏥"
+    },
+    {
+     "label": "Library",
+     "emoji": "📚"
+    },
+    {
+     "label": "Playground",
+     "emoji": "🛝"
+    },
+    {
+     "label": "Beach",
+     "emoji": "🏖️"
+    },
+    {
+     "label": "Grocery Store",
+     "emoji": "🛒"
+    },
+    {
+     "label": "Farm",
+     "emoji": "🚜"
+    }
+   ]
+  },
+  {
+   "id": "house",
+   "title": "Things Around the House",
+   "section": "learning",
+   "emoji": "🏠",
+   "color": "#4E342E",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Bed",
+     "emoji": "🛏️"
+    },
+    {
+     "label": "Chair",
+     "emoji": "🪑"
+    },
+    {
+     "label": "Sofa",
+     "emoji": "🛋️"
+    },
+    {
+     "label": "Door",
+     "emoji": "🚪"
+    },
+    {
+     "label": "Window",
+     "emoji": "🪟"
+    },
+    {
+     "label": "Clock",
+     "emoji": "⏰"
+    },
+    {
+     "label": "Toothbrush",
+     "emoji": "🪥"
+    },
+    {
+     "label": "Bathtub",
+     "emoji": "🛁"
+    },
+    {
+     "label": "Television",
+     "emoji": "📺"
+    },
+    {
+     "label": "Broom",
+     "emoji": "🧹"
+    }
+   ]
+  },
+  {
+   "id": "opposites",
+   "title": "Opposites",
+   "section": "learning",
+   "emoji": "↔️",
+   "color": "#6A1B9A",
+   "layout": "pairs",
+   "items": [
+    {
+     "label": "Big",
+     "emoji": "🐘",
+     "opposite": {
+      "label": "Small",
+      "emoji": "🐁",
+      "scale": 0.45
+     }
+    },
+    {
+     "label": "Hot",
+     "emoji": "🔥",
+     "opposite": {
+      "label": "Cold",
+      "emoji": "🧊"
+     }
+    },
+    {
+     "label": "Up",
+     "emoji": "⬆️",
+     "opposite": {
+      "label": "Down",
+      "emoji": "⬇️"
+     }
+    },
+    {
+     "label": "Day",
+     "emoji": "☀️",
+     "opposite": {
+      "label": "Night",
+      "emoji": "🌙"
+     }
+    },
+    {
+     "label": "Happy",
+     "emoji": "😄",
+     "opposite": {
+      "label": "Sad",
+      "emoji": "😢"
+     }
+    },
+    {
+     "label": "Fast",
+     "emoji": "🐆",
+     "opposite": {
+      "label": "Slow",
+      "emoji": "🐢"
+     }
+    },
+    {
+     "label": "Open",
+     "emoji": "📖",
+     "opposite": {
+      "label": "Closed",
+      "emoji": "📕"
+     }
+    },
+    {
+     "label": "Loud",
+     "emoji": "📢",
+     "opposite": {
+      "label": "Quiet",
+      "emoji": "🤫"
+     }
+    },
+    {
+     "label": "Hard",
+     "emoji": "🪨",
+     "opposite": {
+      "label": "Soft",
+      "emoji": "🧸"
+     }
+    },
+    {
+     "label": "Stop",
+     "emoji": "🛑",
+     "opposite": {
+      "label": "Go",
+      "emoji": "🟢"
+     }
+    }
+   ]
+  },
+  {
+   "id": "weather_seasons",
+   "title": "Weather and Seasons",
+   "section": "learning",
+   "emoji": "🌦️",
+   "color": "#0288D1",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Sunny",
+     "emoji": "☀️"
+    },
+    {
+     "label": "Cloudy",
+     "emoji": "☁️"
+    },
+    {
+     "label": "Rainy",
+     "emoji": "🌧️"
+    },
+    {
+     "label": "Snowy",
+     "emoji": "🌨️"
+    },
+    {
+     "label": "Windy",
+     "emoji": "🌬️"
+    },
+    {
+     "label": "Stormy",
+     "emoji": "⛈️"
+    },
+    {
+     "label": "Spring",
+     "emoji": "🌷"
+    },
+    {
+     "label": "Summer",
+     "emoji": "🏖️"
+    },
+    {
+     "label": "Fall",
+     "emoji": "🍂"
+    },
+    {
+     "label": "Winter",
+     "emoji": "⛄"
+    }
+   ]
+  },
+  {
+   "id": "phrases",
+   "title": "Phrases",
+   "section": "learning",
+   "emoji": "💬",
+   "color": "#00796B",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "How are you?",
+     "emoji": "🤗"
+    },
+    {
+     "label": "I am doing well",
+     "emoji": "😊"
+    },
+    {
+     "label": "This is fun",
+     "emoji": "🎉"
+    },
+    {
+     "label": "I am happy",
+     "emoji": "😄"
+    },
+    {
+     "label": "I like playing",
+     "emoji": "🧸"
+    },
+    {
+     "label": "I am eating",
+     "emoji": "🥣"
+    },
+    {
+     "label": "Please and thank you",
+     "emoji": "🙏"
+    },
+    {
+     "label": "Good Morning",
+     "emoji": "🌅"
+    },
+    {
+     "label": "Good night",
+     "emoji": "🌙"
+    },
+    {
+     "label": "See you later",
+     "emoji": "👋"
+    }
+   ]
+  },
+  {
+   "id": "trace_shapes",
+   "title": "Shapes",
+   "speak": "Tracing shapes",
+   "section": "tracing",
+   "emoji": "🔷",
+   "color": "#FB8C00",
+   "layout": "tracing",
+   "groups": [
+    {
+     "label": "Shapes",
+     "items": [
+      {
+       "label": "Circle",
+       "shape": "circle"
+      },
+      {
+       "label": "Square",
+       "shape": "square"
+      },
+      {
+       "label": "Triangle",
+       "shape": "triangle"
+      },
+      {
+       "label": "Rectangle",
+       "shape": "rectangle"
+      },
+      {
+       "label": "Oval",
+       "shape": "oval"
+      },
+      {
+       "label": "Star",
+       "shape": "star"
+      },
+      {
+       "label": "Heart",
+       "shape": "heart"
+      },
+      {
+       "label": "Diamond",
+       "shape": "diamond"
+      },
+      {
+       "label": "Pentagon",
+       "shape": "pentagon"
+      },
+      {
+       "label": "Hexagon",
+       "shape": "hexagon"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "trace_letters",
+   "title": "Letters",
+   "speak": "Tracing letters",
+   "section": "tracing",
+   "emoji": "🔤",
    "color": "#FB8C00",
    "layout": "tracing",
    "groups": [
@@ -1250,7 +2461,18 @@
        "label": "z"
       }
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "trace_numbers",
+   "title": "Numbers",
+   "speak": "Tracing numbers",
+   "section": "tracing",
+   "emoji": "🔢",
+   "color": "#FB8C00",
+   "layout": "tracing",
+   "groups": [
     {
      "label": "123",
      "items": [
@@ -1319,1087 +2541,9 @@
    ]
   },
   {
-   "id": "shapes",
-   "title": "Shapes",
-   "emoji": "🔷",
-   "color": "#00897B",
-   "layout": "shapes",
-   "items": [
-    {
-     "label": "Circle",
-     "shape": "circle",
-     "color": "#E53935"
-    },
-    {
-     "label": "Square",
-     "shape": "square",
-     "color": "#1E88E5"
-    },
-    {
-     "label": "Triangle",
-     "shape": "triangle",
-     "color": "#43A047"
-    },
-    {
-     "label": "Rectangle",
-     "shape": "rectangle",
-     "color": "#FB8C00"
-    },
-    {
-     "label": "Oval",
-     "shape": "oval",
-     "color": "#8E24AA"
-    },
-    {
-     "label": "Star",
-     "shape": "star",
-     "color": "#FBC02D"
-    },
-    {
-     "label": "Heart",
-     "shape": "heart",
-     "color": "#EC407A"
-    },
-    {
-     "label": "Diamond",
-     "shape": "diamond",
-     "color": "#00ACC1"
-    },
-    {
-     "label": "Pentagon",
-     "shape": "pentagon",
-     "color": "#3949AB"
-    },
-    {
-     "label": "Hexagon",
-     "shape": "hexagon",
-     "color": "#7CB342"
-    }
-   ]
-  },
-  {
-   "id": "days",
-   "title": "Days of the Week",
-   "emoji": "📅",
-   "color": "#3949AB",
-   "layout": "days",
-   "items": [
-    {
-     "label": "Monday",
-     "color": "#E53935"
-    },
-    {
-     "label": "Tuesday",
-     "color": "#FB8C00"
-    },
-    {
-     "label": "Wednesday",
-     "color": "#FBC02D"
-    },
-    {
-     "label": "Thursday",
-     "color": "#43A047"
-    },
-    {
-     "label": "Friday",
-     "color": "#1E88E5"
-    },
-    {
-     "label": "Saturday",
-     "color": "#8E24AA"
-    },
-    {
-     "label": "Sunday",
-     "color": "#D81B60"
-    }
-   ],
-   "image": "assets/images/calendar_jan_1.svg"
-  },
-  {
-   "id": "farm_animals",
-   "title": "Farm Animals",
-   "emoji": "🐄",
-   "color": "#6D4C41",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Cow",
-     "emoji": "🐄"
-    },
-    {
-     "label": "Horse",
-     "emoji": "🐎"
-    },
-    {
-     "label": "Pig",
-     "emoji": "🐖"
-    },
-    {
-     "label": "Sheep",
-     "emoji": "🐑"
-    },
-    {
-     "label": "Goat",
-     "emoji": "🐐"
-    },
-    {
-     "label": "Chicken",
-     "emoji": "🐓"
-    },
-    {
-     "label": "Duck",
-     "emoji": "🦆"
-    },
-    {
-     "label": "Dog",
-     "emoji": "🐕"
-    },
-    {
-     "label": "Cat",
-     "emoji": "🐈"
-    },
-    {
-     "label": "Donkey",
-     "emoji": "🫏"
-    }
-   ]
-  },
-  {
-   "id": "wild_animals",
-   "title": "Wild Animals",
-   "emoji": "🦁",
-   "color": "#F9A825",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Lion",
-     "image": "assets/images/lion.svg"
-    },
-    {
-     "label": "Tiger",
-     "emoji": "🐅"
-    },
-    {
-     "label": "Elephant",
-     "emoji": "🐘"
-    },
-    {
-     "label": "Giraffe",
-     "emoji": "🦒"
-    },
-    {
-     "label": "Zebra",
-     "image": "assets/images/zebra.svg"
-    },
-    {
-     "label": "Monkey",
-     "emoji": "🐒"
-    },
-    {
-     "label": "Bear",
-     "image": "assets/images/bear.svg"
-    },
-    {
-     "label": "Kangaroo",
-     "emoji": "🦘"
-    },
-    {
-     "label": "Hippopotamus",
-     "emoji": "🦛"
-    },
-    {
-     "label": "Crocodile",
-     "emoji": "🐊"
-    }
-   ]
-  },
-  {
-   "id": "vehicles",
-   "title": "Vehicles",
-   "emoji": "🚗",
-   "color": "#D81B60",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Car",
-     "emoji": "🚗"
-    },
-    {
-     "label": "Bus",
-     "image": "assets/images/school_bus.svg"
-    },
-    {
-     "label": "Truck",
-     "emoji": "🚚"
-    },
-    {
-     "label": "Bicycle",
-     "emoji": "🚲"
-    },
-    {
-     "label": "Motorcycle",
-     "emoji": "🏍️"
-    },
-    {
-     "label": "Train",
-     "emoji": "🚂🚃🚃"
-    },
-    {
-     "label": "Airplane",
-     "emoji": "✈️"
-    },
-    {
-     "label": "Ship",
-     "emoji": "🚢"
-    },
-    {
-     "label": "Helicopter",
-     "emoji": "🚁"
-    },
-    {
-     "label": "Fire Truck",
-     "emoji": "🚒"
-    }
-   ]
-  },
-  {
-   "id": "fruits",
-   "title": "Fruits",
-   "emoji": "🍎",
-   "color": "#FBC02D",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Apple",
-     "emoji": "🍎"
-    },
-    {
-     "label": "Banana",
-     "emoji": "🍌"
-    },
-    {
-     "label": "Orange",
-     "emoji": "🍊"
-    },
-    {
-     "label": "Mango",
-     "emoji": "🥭"
-    },
-    {
-     "label": "Grapes",
-     "emoji": "🍇"
-    },
-    {
-     "label": "Strawberry",
-     "emoji": "🍓"
-    },
-    {
-     "label": "Watermelon",
-     "emoji": "🍉"
-    },
-    {
-     "label": "Pineapple",
-     "emoji": "🍍"
-    },
-    {
-     "label": "Pear",
-     "emoji": "🍐"
-    },
-    {
-     "label": "Cherry",
-     "emoji": "🍒"
-    }
-   ]
-  },
-  {
-   "id": "vegetables",
-   "title": "Vegetables",
-   "emoji": "🥕",
-   "color": "#43A047",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Carrot",
-     "emoji": "🥕"
-    },
-    {
-     "label": "Potato",
-     "emoji": "🥔"
-    },
-    {
-     "label": "Tomato",
-     "emoji": "🍅"
-    },
-    {
-     "label": "Onion",
-     "emoji": "🧅"
-    },
-    {
-     "label": "Cabbage",
-     "emoji": "🥬"
-    },
-    {
-     "label": "Cauliflower",
-     "image": "assets/images/cauliflower.svg"
-    },
-    {
-     "label": "Peas",
-     "emoji": "🫛"
-    },
-    {
-     "label": "Corn",
-     "emoji": "🌽"
-    },
-    {
-     "label": "Cucumber",
-     "emoji": "🥒"
-    },
-    {
-     "label": "Broccoli",
-     "emoji": "🥦"
-    }
-   ]
-  },
-  {
-   "id": "colors",
-   "title": "Colors",
-   "emoji": "🎨",
-   "color": "#5E35B1",
-   "layout": "colors",
-   "items": [
-    {
-     "label": "Red",
-     "emoji": "🍎",
-     "swatch": "#E53935"
-    },
-    {
-     "label": "Blue",
-     "emoji": "🫐",
-     "swatch": "#1E88E5"
-    },
-    {
-     "label": "Yellow",
-     "emoji": "🍌",
-     "swatch": "#FDD835"
-    },
-    {
-     "label": "Green",
-     "emoji": "🐸",
-     "swatch": "#43A047"
-    },
-    {
-     "label": "Orange",
-     "emoji": "🍊",
-     "swatch": "#FB8C00"
-    },
-    {
-     "label": "Purple",
-     "emoji": "🍇",
-     "swatch": "#8E24AA"
-    },
-    {
-     "label": "Pink",
-     "emoji": "🌸",
-     "swatch": "#EC407A"
-    },
-    {
-     "label": "Brown",
-     "emoji": "🐻",
-     "swatch": "#795548"
-    },
-    {
-     "label": "Black",
-     "emoji": "🐈‍⬛",
-     "swatch": "#212121"
-    },
-    {
-     "label": "White",
-     "emoji": "☁️",
-     "swatch": "#FFFFFF"
-    }
-   ]
-  },
-  {
-   "id": "body_parts",
-   "title": "Body Parts",
-   "emoji": "🖐️",
-   "color": "#EF6C00",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Eye",
-     "emoji": "👁️"
-    },
-    {
-     "label": "Ear",
-     "emoji": "👂"
-    },
-    {
-     "label": "Nose",
-     "emoji": "👃"
-    },
-    {
-     "label": "Mouth",
-     "emoji": "👄"
-    },
-    {
-     "label": "Teeth",
-     "emoji": "🦷"
-    },
-    {
-     "label": "Tongue",
-     "emoji": "👅"
-    },
-    {
-     "label": "Hand",
-     "emoji": "✋"
-    },
-    {
-     "label": "Arm",
-     "emoji": "💪"
-    },
-    {
-     "label": "Leg",
-     "emoji": "🦵"
-    },
-    {
-     "label": "Foot",
-     "emoji": "🦶"
-    }
-   ]
-  },
-  {
-   "id": "family",
-   "title": "Family",
-   "emoji": "👪",
-   "color": "#AD1457",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Mother",
-     "emoji": "👩"
-    },
-    {
-     "label": "Father",
-     "emoji": "👨"
-    },
-    {
-     "label": "Baby",
-     "emoji": "👶"
-    },
-    {
-     "label": "Sister",
-     "emoji": "👧"
-    },
-    {
-     "label": "Brother",
-     "emoji": "👦"
-    },
-    {
-     "label": "Grandmother",
-     "emoji": "👵"
-    },
-    {
-     "label": "Grandfather",
-     "emoji": "👴"
-    },
-    {
-     "label": "Family",
-     "emoji": "👪"
-    }
-   ]
-  },
-  {
-   "id": "emotions",
-   "title": "Emotions",
-   "emoji": "😊",
-   "color": "#F9A825",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Happy",
-     "emoji": "😄"
-    },
-    {
-     "label": "Sad",
-     "emoji": "😢"
-    },
-    {
-     "label": "Angry",
-     "emoji": "😠"
-    },
-    {
-     "label": "Scared",
-     "emoji": "😨"
-    },
-    {
-     "label": "Surprised",
-     "emoji": "😲"
-    },
-    {
-     "label": "Sleepy",
-     "emoji": "😴"
-    },
-    {
-     "label": "Silly",
-     "emoji": "🤪"
-    },
-    {
-     "label": "Excited",
-     "emoji": "🤩"
-    },
-    {
-     "label": "Calm",
-     "emoji": "😌"
-    },
-    {
-     "label": "Worried",
-     "emoji": "😟"
-    }
-   ]
-  },
-  {
-   "id": "opposites",
-   "title": "Opposites",
-   "emoji": "↔️",
-   "color": "#6A1B9A",
-   "layout": "pairs",
-   "items": [
-    {
-     "label": "Big",
-     "emoji": "🐘",
-     "opposite": {
-      "label": "Small",
-      "emoji": "🐁",
-      "scale": 0.45
-     }
-    },
-    {
-     "label": "Hot",
-     "emoji": "🔥",
-     "opposite": {
-      "label": "Cold",
-      "emoji": "🧊"
-     }
-    },
-    {
-     "label": "Up",
-     "emoji": "⬆️",
-     "opposite": {
-      "label": "Down",
-      "emoji": "⬇️"
-     }
-    },
-    {
-     "label": "Day",
-     "emoji": "☀️",
-     "opposite": {
-      "label": "Night",
-      "emoji": "🌙"
-     }
-    },
-    {
-     "label": "Happy",
-     "emoji": "😄",
-     "opposite": {
-      "label": "Sad",
-      "emoji": "😢"
-     }
-    },
-    {
-     "label": "Fast",
-     "emoji": "🐆",
-     "opposite": {
-      "label": "Slow",
-      "emoji": "🐢"
-     }
-    },
-    {
-     "label": "Open",
-     "emoji": "📖",
-     "opposite": {
-      "label": "Closed",
-      "emoji": "📕"
-     }
-    },
-    {
-     "label": "Loud",
-     "emoji": "📢",
-     "opposite": {
-      "label": "Quiet",
-      "emoji": "🤫"
-     }
-    },
-    {
-     "label": "Hard",
-     "emoji": "🪨",
-     "opposite": {
-      "label": "Soft",
-      "emoji": "🧸"
-     }
-    },
-    {
-     "label": "Stop",
-     "emoji": "🛑",
-     "opposite": {
-      "label": "Go",
-      "emoji": "🟢"
-     }
-    }
-   ]
-  },
-  {
-   "id": "weather_seasons",
-   "title": "Weather and Seasons",
-   "emoji": "🌦️",
-   "color": "#0288D1",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Sunny",
-     "emoji": "☀️"
-    },
-    {
-     "label": "Cloudy",
-     "emoji": "☁️"
-    },
-    {
-     "label": "Rainy",
-     "emoji": "🌧️"
-    },
-    {
-     "label": "Snowy",
-     "emoji": "🌨️"
-    },
-    {
-     "label": "Windy",
-     "emoji": "🌬️"
-    },
-    {
-     "label": "Stormy",
-     "emoji": "⛈️"
-    },
-    {
-     "label": "Spring",
-     "emoji": "🌷"
-    },
-    {
-     "label": "Summer",
-     "emoji": "🏖️"
-    },
-    {
-     "label": "Fall",
-     "emoji": "🍂"
-    },
-    {
-     "label": "Winter",
-     "emoji": "⛄"
-    }
-   ]
-  },
-  {
-   "id": "months",
-   "title": "Months",
-   "emoji": "🗓️",
-   "color": "#5D4037",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "January",
-     "emoji": "⛄"
-    },
-    {
-     "label": "February",
-     "emoji": "💝"
-    },
-    {
-     "label": "March",
-     "emoji": "🍀"
-    },
-    {
-     "label": "April",
-     "emoji": "☔"
-    },
-    {
-     "label": "May",
-     "emoji": "🌸"
-    },
-    {
-     "label": "June",
-     "emoji": "🌞"
-    },
-    {
-     "label": "July",
-     "emoji": "🎆"
-    },
-    {
-     "label": "August",
-     "emoji": "🏖️"
-    },
-    {
-     "label": "September",
-     "emoji": "🍎"
-    },
-    {
-     "label": "October",
-     "emoji": "🎃"
-    },
-    {
-     "label": "November",
-     "emoji": "🦃"
-    },
-    {
-     "label": "December",
-     "emoji": "🎄"
-    }
-   ]
-  },
-  {
-   "id": "birds",
-   "title": "Birds",
-   "emoji": "🦜",
-   "color": "#2E7D32",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Parrot",
-     "emoji": "🦜"
-    },
-    {
-     "label": "Owl",
-     "emoji": "🦉"
-    },
-    {
-     "label": "Eagle",
-     "emoji": "🦅"
-    },
-    {
-     "label": "Penguin",
-     "emoji": "🐧"
-    },
-    {
-     "label": "Flamingo",
-     "emoji": "🦩"
-    },
-    {
-     "label": "Peacock",
-     "emoji": "🦚"
-    },
-    {
-     "label": "Swan",
-     "emoji": "🦢"
-    },
-    {
-     "label": "Dove",
-     "emoji": "🕊️"
-    },
-    {
-     "label": "Turkey",
-     "emoji": "🦃"
-    },
-    {
-     "label": "Duck",
-     "emoji": "🦆"
-    }
-   ]
-  },
-  {
-   "id": "sea_creatures",
-   "title": "Sea Creatures",
-   "emoji": "🐙",
-   "color": "#00838F",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Fish",
-     "emoji": "🐟"
-    },
-    {
-     "label": "Whale",
-     "emoji": "🐳"
-    },
-    {
-     "label": "Dolphin",
-     "emoji": "🐬"
-    },
-    {
-     "label": "Shark",
-     "emoji": "🦈"
-    },
-    {
-     "label": "Octopus",
-     "emoji": "🐙"
-    },
-    {
-     "label": "Crab",
-     "emoji": "🦀"
-    },
-    {
-     "label": "Jellyfish",
-     "emoji": "🪼"
-    },
-    {
-     "label": "Seal",
-     "emoji": "🦭"
-    },
-    {
-     "label": "Sea Turtle",
-     "emoji": "🐢"
-    },
-    {
-     "label": "Lobster",
-     "emoji": "🦞"
-    }
-   ]
-  },
-  {
-   "id": "insects",
-   "title": "Insects",
-   "emoji": "🦋",
-   "color": "#558B2F",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Butterfly",
-     "emoji": "🦋"
-    },
-    {
-     "label": "Bee",
-     "emoji": "🐝"
-    },
-    {
-     "label": "Ant",
-     "emoji": "🐜"
-    },
-    {
-     "label": "Ladybug",
-     "emoji": "🐞"
-    },
-    {
-     "label": "Caterpillar",
-     "emoji": "🐛"
-    },
-    {
-     "label": "Beetle",
-     "emoji": "🪲"
-    },
-    {
-     "label": "Cricket",
-     "emoji": "🦗"
-    },
-    {
-     "label": "Fly",
-     "emoji": "🪰"
-    },
-    {
-     "label": "Mosquito",
-     "emoji": "🦟"
-    },
-    {
-     "label": "Dragonfly",
-     "image": "assets/images/dragonfly.svg"
-    }
-   ]
-  },
-  {
-   "id": "community_helpers",
-   "title": "Community Helpers",
-   "emoji": "🧑‍🚒",
-   "color": "#C62828",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Doctor",
-     "emoji": "🧑‍⚕️"
-    },
-    {
-     "label": "Nurse",
-     "emoji": "👩‍⚕️"
-    },
-    {
-     "label": "Firefighter",
-     "emoji": "🧑‍🚒"
-    },
-    {
-     "label": "Police Officer",
-     "emoji": "👮"
-    },
-    {
-     "label": "Teacher",
-     "emoji": "🧑‍🏫"
-    },
-    {
-     "label": "Farmer",
-     "emoji": "🧑‍🌾"
-    },
-    {
-     "label": "Chef",
-     "emoji": "🧑‍🍳"
-    },
-    {
-     "label": "Pilot",
-     "emoji": "🧑‍✈️"
-    },
-    {
-     "label": "Mechanic",
-     "emoji": "🧑‍🔧"
-    },
-    {
-     "label": "Construction Worker",
-     "emoji": "👷"
-    }
-   ]
-  },
-  {
-   "id": "house",
-   "title": "Things Around the House",
-   "emoji": "🏠",
-   "color": "#4E342E",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Bed",
-     "emoji": "🛏️"
-    },
-    {
-     "label": "Chair",
-     "emoji": "🪑"
-    },
-    {
-     "label": "Sofa",
-     "emoji": "🛋️"
-    },
-    {
-     "label": "Door",
-     "emoji": "🚪"
-    },
-    {
-     "label": "Window",
-     "emoji": "🪟"
-    },
-    {
-     "label": "Clock",
-     "emoji": "⏰"
-    },
-    {
-     "label": "Toothbrush",
-     "emoji": "🪥"
-    },
-    {
-     "label": "Bathtub",
-     "emoji": "🛁"
-    },
-    {
-     "label": "Television",
-     "emoji": "📺"
-    },
-    {
-     "label": "Broom",
-     "emoji": "🧹"
-    }
-   ]
-  },
-  {
-   "id": "places",
-   "title": "Places We Visit",
-   "emoji": "🎡",
-   "color": "#283593",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Zoo",
-     "image": "assets/images/zoo.svg"
-    },
-    {
-     "label": "Aquarium",
-     "image": "assets/images/aquarium.svg"
-    },
-    {
-     "label": "Police Station",
-     "image": "assets/images/police_station.svg"
-    },
-    {
-     "label": "School",
-     "emoji": "🏫"
-    },
-    {
-     "label": "Hospital",
-     "emoji": "🏥"
-    },
-    {
-     "label": "Library",
-     "emoji": "📚"
-    },
-    {
-     "label": "Playground",
-     "emoji": "🛝"
-    },
-    {
-     "label": "Beach",
-     "emoji": "🏖️"
-    },
-    {
-     "label": "Grocery Store",
-     "emoji": "🛒"
-    },
-    {
-     "label": "Farm",
-     "emoji": "🚜"
-    }
-   ]
-  },
-  {
-   "id": "phrases",
-   "title": "Phrases",
-   "emoji": "💬",
-   "color": "#00796B",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "How are you?",
-     "emoji": "🤗"
-    },
-    {
-     "label": "I am doing well, thank you",
-     "emoji": "😊"
-    },
-    {
-     "label": "This is fun",
-     "emoji": "🎉"
-    },
-    {
-     "label": "I am happy",
-     "emoji": "😄"
-    },
-    {
-     "label": "I like playing",
-     "emoji": "🧸"
-    },
-    {
-     "label": "I am eating",
-     "emoji": "🥣"
-    },
-    {
-     "label": "Please and thank you",
-     "emoji": "🙏"
-    },
-    {
-     "label": "Good Morning",
-     "emoji": "🌅"
-    },
-    {
-     "label": "Good night",
-     "emoji": "🌙"
-    },
-    {
-     "label": "See you later",
-     "emoji": "👋"
-    }
-   ]
-  },
-  {
    "id": "find_it",
    "title": "Find It",
+   "section": "games",
    "emoji": "🔍",
    "color": "#00897B",
    "layout": "findit",

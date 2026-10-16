@@ -6,21 +6,22 @@ for the full product requirements.
 
 ## What's built so far
 
-- Home screen with the 24 learning sections as big picture tiles
+- Home screen with big picture tiles under four headings: Learning (25 sections), Tracing (Shapes,
+  Letters, Numbers), Games (Find It) and Short Stories (to be added)
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
   - Letters (Aa–Zz, each a different colour); Numbers 1–20 with a different object to count each time ("seven strawberries")
   - Words: one card per letter showing all 5 words; tap a picture to hear it
   - Shapes in different colours, Days of the Week (Monday to Sunday), Colors (swatch + object)
-  - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables (names only, no sounds)
+  - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables, Food (names only, no sounds)
 - 12 more sections: Body Parts, Family, Emotions, Opposites (both words on one card), Weather and
   Seasons, Months, Birds, Sea Creatures, Insects, Community Helpers, Things Around the House, Places
   We Visit – at most 10 items each (12 for Months)
 - Voice: every item, section name and "Great job!" is spoken in a slow, friendly female voice,
   plus a chime when a star is earned
-- Tracing: pick A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
+- Tracing: pick a shape, A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
   widths, and move on with the next button
 - A home button on every screen returns to the main menu
-- Game: **Find It** ("Can you find the cow?", 3 pictures, 5 rounds), last on the home screen
+- Game: **Find It** ("Can you find the cow?", 3 pictures, 5 rounds), under the Games heading
 - **Phrases** section (10 everyday phrases) and **Easy / Medium / Hard** modes (first 5, 8 or all items)
 - The puppy says "Hi! How are you?" on start and "This is fun!" back on the main menu
 - Rewards: at the end of each section, game and the last tracing letter, an animated puppy hops around

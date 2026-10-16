@@ -10,41 +10,32 @@ class ShapePainter extends CustomPainter {
   final Color color;
 
   @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = color;
+  void paint(Canvas canvas, Size size) => canvas.drawPath(pathOf(shape, size), Paint()..color = color);
+
+  /// The outline of [shape], centred in [size].
+  static Path pathOf(String shape, Size size) {
     final s = math.min(size.width, size.height);
     final c = size.center(Offset.zero);
     final box = Rect.fromCenter(center: c, width: s, height: s);
-    switch (shape) {
-      case 'circle':
-        canvas.drawCircle(c, s / 2, paint);
-      case 'square':
-        canvas.drawRect(box.deflate(s * 0.05), paint);
-      case 'rectangle':
-        canvas.drawRect(Rect.fromCenter(center: c, width: s, height: s * 0.6), paint);
-      case 'oval':
-        canvas.drawOval(Rect.fromCenter(center: c, width: s, height: s * 0.65), paint);
-      case 'triangle':
-        canvas.drawPath(_polygon(c, s / 2, 3), paint);
-      case 'diamond':
-        canvas.drawPath(
-          Path()
-            ..moveTo(c.dx, box.top)
-            ..lineTo(c.dx + s * 0.35, c.dy)
-            ..lineTo(c.dx, box.bottom)
-            ..lineTo(c.dx - s * 0.35, c.dy)
-            ..close(),
-          paint,
-        );
-      case 'pentagon':
-        canvas.drawPath(_polygon(c, s / 2, 5), paint);
-      case 'hexagon':
-        canvas.drawPath(_polygon(c, s / 2, 6), paint);
-      case 'star':
-        canvas.drawPath(_star(c, s / 2, s / 4.6), paint);
-      case 'heart':
-        canvas.drawPath(_heart(box), paint);
-    }
+    return switch (shape) {
+      'circle' => Path()..addOval(box),
+      'square' => Path()..addRect(box.deflate(s * 0.05)),
+      'rectangle' => Path()..addRect(Rect.fromCenter(center: c, width: s, height: s * 0.6)),
+      'oval' => Path()..addOval(Rect.fromCenter(center: c, width: s, height: s * 0.65)),
+      'triangle' => _polygon(c, s / 2, 3),
+      'diamond' =>
+        Path()
+          ..moveTo(c.dx, box.top)
+          ..lineTo(c.dx + s * 0.35, c.dy)
+          ..lineTo(c.dx, box.bottom)
+          ..lineTo(c.dx - s * 0.35, c.dy)
+          ..close(),
+      'pentagon' => _polygon(c, s / 2, 5),
+      'hexagon' => _polygon(c, s / 2, 6),
+      'star' => _star(c, s / 2, s / 4.6),
+      'heart' => _heart(box),
+      _ => Path(),
+    };
   }
 
   static Path _polygon(Offset c, double r, int sides) {

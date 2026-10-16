@@ -23,9 +23,10 @@ void main() {
 
   test('speech rules', () {
     expect(clipName('Cow. Moo!'), 'cow_moo');
-    expect(Speech.trace('a'), 'Trace the letter A.');
-    expect(Speech.trace('B'), 'Trace the letter B.');
-    expect(Speech.trace('12'), 'Trace the number 12.');
+    expect(Speech.trace(const LearningItem(label: 'a')), 'Trace the letter A.');
+    expect(Speech.trace(const LearningItem(label: 'B')), 'Trace the letter B.');
+    expect(Speech.trace(const LearningItem(label: '12')), 'Trace the number 12.');
+    expect(Speech.trace(const LearningItem(label: 'Circle', shape: 'circle')), 'Trace the circle.');
   });
 
   test('every picture file exists', () {

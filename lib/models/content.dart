@@ -80,11 +80,25 @@ class ItemGroup {
   final List<LearningItem> items;
 }
 
+/// The headings the home screen's tiles are grouped under.
+enum MenuSection {
+  learning('Learning'),
+  tracing('Tracing'),
+  games('Games'),
+  shortStories('Short Stories');
+
+  const MenuSection(this.heading);
+
+  final String heading;
+}
+
 /// One of the learning sections shown on the home screen.
 class Category {
   const Category({
     required this.id,
     required this.title,
+    this.speak,
+    this.section = MenuSection.learning,
     required this.emoji,
     this.image,
     required this.color,
@@ -96,6 +110,8 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) => Category(
     id: json['id'] as String,
     title: json['title'] as String,
+    speak: json['speak'] as String?,
+    section: MenuSection.values.byName(json['section'] as String? ?? 'learning'),
     emoji: json['emoji'] as String,
     image: json['image'] as String?,
     color: parseHexColor(json['color'] as String),
@@ -106,6 +122,12 @@ class Category {
 
   final String id;
   final String title;
+
+  /// What is said when the section opens, instead of [title] (e.g. "Tracing letters").
+  final String? speak;
+
+  /// The heading the section's tile is under on the home screen.
+  final MenuSection section;
   final String emoji;
 
   /// Asset path of an SVG picture shown instead of [emoji].

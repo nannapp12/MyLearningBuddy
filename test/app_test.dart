@@ -29,17 +29,36 @@ void main() {
     }
   }
 
-  testWidgets('home screen shows all sections', (tester) async {
+  Finder tile(String id) => find.byKey(ValueKey('tile-$id'));
+
+  /// Scrolls the main menu to a section's tile and opens it.
+  Future<void> open(WidgetTester tester, String id) async {
+    final menu = find.descendant(of: find.byType(CustomScrollView), matching: find.byType(Scrollable));
+    tester.state<ScrollableState>(menu).position.jumpTo(0);
+    await tester.pump();
+    await tester.scrollUntilVisible(tile(id), 300, scrollable: menu);
+    await tester.ensureVisible(tile(id));
+    await tester.pumpAndSettle();
+    await tester.tap(tile(id));
+    await tester.pumpAndSettle();
+  }
+
+  testWidgets('home screen shows all sections under their headings, then Short Stories', (tester) async {
     await pumpApp(tester);
+    final menu = find.descendant(of: find.byType(CustomScrollView), matching: find.byType(Scrollable));
     for (final c in content.categories) {
-      expect(find.text(c.title), findsOneWidget);
+      await tester.scrollUntilVisible(tile(c.id), 300, scrollable: menu);
+      expect(find.descendant(of: tile(c.id), matching: find.text(c.title)), findsOneWidget);
     }
+    for (final heading in ['Learning', 'Tracing', 'Games', 'Short Stories']) {
+      await tester.scrollUntilVisible(find.text(heading), -300, scrollable: menu);
+    }
+    await tester.scrollUntilVisible(find.text('To Be Added'), 300, scrollable: menu);
   });
 
   testWidgets('finishing a section: puppy, then pick a sticker for the sticker bar', (tester) async {
     await pumpApp(tester, allItems: true);
-    await tester.tap(find.text('Shapes'));
-    await tester.pumpAndSettle();
+    await open(tester, 'shapes');
     expect(find.text('Circle'), findsOneWidget);
 
     for (var i = 0; i < 8; i++) {
@@ -77,14 +96,13 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Sticker').first);
     await tester.pump(const Duration(seconds: 2));
     await tester.pumpAndSettle();
-    expect(find.text('Letters'), findsOneWidget);
+    expect(tile('shapes'), findsOneWidget);
     expect(find.text('Finish a section or game to win a sticker!'), findsNothing);
   });
 
   testWidgets('Find It: pick a section, find the right picture five times', (tester) async {
     await pumpApp(tester);
-    await tester.tap(find.text('Find It'));
-    await tester.pumpAndSettle();
+    await open(tester, 'find_it');
     await tester.tap(find.text('Fruits'));
     await tester.pumpAndSettle();
     final fruits = content.categories.firstWhere((c) => c.id == 'fruits').items;
@@ -115,8 +133,7 @@ void main() {
     await tester.pumpWidget(MyLearningBuddyApp(content: content, audio: slow, puppyGreetings: false));
     await tester.tap(find.bySemanticsLabel('Hard'));
     await tester.pump();
-    await tester.tap(find.text('Shapes'));
-    await tester.pumpAndSettle();
+    await open(tester, 'shapes');
     for (var i = 0; i < 9; i++) {
       await tester.tap(find.bySemanticsLabel('Next'));
       await tester.pumpAndSettle();
@@ -133,8 +150,7 @@ void main() {
 
   testWidgets('words shows all five words for a letter on one card', (tester) async {
     await pumpApp(tester);
-    await tester.tap(find.text('Words'));
-    await tester.pumpAndSettle();
+    await open(tester, 'words');
     for (final word in ['Apple', 'Ant', 'Airplane', 'Alligator', 'Arrow']) {
       expect(find.byWidgetPredicate((w) => w is RichText && w.text.toPlainText() == word), findsOneWidget);
     }
@@ -145,19 +161,17 @@ void main() {
 
   testWidgets('home button goes back to the main menu', (tester) async {
     await pumpApp(tester);
-    await tester.tap(find.text('Farm Animals'));
-    await tester.pumpAndSettle();
+    await open(tester, 'farm_animals');
     expect(find.text('Cow'), findsOneWidget);
     expect(audio.spoken, ['Farm Animals', 'Cow']);
     await tester.tap(find.bySemanticsLabel('Home'));
     await tester.pumpAndSettle();
-    expect(find.text('Letters'), findsOneWidget);
+    expect(tile('letters'), findsOneWidget);
   });
 
   testWidgets('tracing next button moves on, and stops at Z', (tester) async {
     await pumpApp(tester, allItems: true);
-    await tester.tap(find.text('Tracing'));
-    await tester.pumpAndSettle();
+    await open(tester, 'trace_letters');
     await tester.tap(find.text('Y'));
     await tester.pumpAndSettle();
     expect(audio.spoken.last, 'Trace the letter Y.');
@@ -169,10 +183,20 @@ void main() {
     expect(next.onPressed, isNull);
   });
 
+  testWidgets('tracing shapes: the shapes to pick from, then "Trace the circle."', (tester) async {
+    await pumpApp(tester);
+    await open(tester, 'trace_shapes');
+    expect(audio.spoken.last, 'Tracing shapes');
+    expect(find.bySemanticsLabel('Circle'), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('Circle'));
+    await tester.pumpAndSettle();
+    expect(find.text('Trace Circle'), findsOneWidget);
+    expect(audio.spoken.last, 'Trace the circle.');
+  });
+
   testWidgets('days of the week start on Monday with no "today", all 7 even on Easy', (tester) async {
     await pumpApp(tester);
-    await tester.tap(find.text('Days of the Week'));
-    await tester.pumpAndSettle();
+    await open(tester, 'days');
     expect(find.text('Monday'), findsOneWidget);
     expect(find.text('Today'), findsNothing);
     expect(find.text('1 / 7'), findsOneWidget);
@@ -189,8 +213,7 @@ void main() {
 
   testWidgets('tracing: Great job moves to the next letter; after the last, the puppy and stickers', (tester) async {
     await pumpApp(tester, allItems: true);
-    await tester.tap(find.text('Tracing'));
-    await tester.pumpAndSettle();
+    await open(tester, 'trace_letters');
     await tester.tap(find.text('A'));
     await tester.pumpAndSettle();
     await traceAndFinish(tester);
@@ -210,9 +233,7 @@ void main() {
 
   testWidgets('opposites show both words and say them', (tester) async {
     await pumpApp(tester);
-    await tester.scrollUntilVisible(find.text('Opposites'), 300);
-    await tester.tap(find.text('Opposites'));
-    await tester.pumpAndSettle();
+    await open(tester, 'opposites');
     expect(find.text('Big'), findsOneWidget);
     expect(find.text('Small'), findsOneWidget);
     expect(audio.spoken, ['Opposites', 'Big. Small.']);
@@ -223,31 +244,29 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Easy'));
     await tester.pump();
     expect(audio.effects, ['pop']);
-    await tester.tap(find.text('Shapes'));
-    await tester.pumpAndSettle();
+    await open(tester, 'shapes');
     expect(audio.effects, ['pop', 'pop']);
   });
 
   testWidgets('Easy shows the first 5 items, Medium 8, Hard all; one mode at a time', (tester) async {
     await pumpApp(tester);
     Future<String> countIn(String section) async {
-      await tester.tap(find.text(section));
-      await tester.pumpAndSettle();
+      await open(tester, section);
       final counter = tester.widget<Text>(find.textContaining(' / ')).data!;
       await tester.tap(find.bySemanticsLabel('Home'));
       await tester.pumpAndSettle();
       return counter;
     }
 
-    expect(await countIn('Shapes'), '1 / 5'); // Easy is the default
+    expect(await countIn('shapes'), '1 / 5'); // Easy is the default
     await tester.tap(find.bySemanticsLabel('Hard'));
     await tester.pump();
-    expect(await countIn('Shapes'), '1 / 10');
+    expect(await countIn('shapes'), '1 / 10');
     await tester.tap(find.bySemanticsLabel('Medium'));
     await tester.pump();
-    expect(await countIn('Shapes'), '1 / 8');
-    expect(await countIn('Words'), '1 / 8'); // letters A-H
-    expect(await countIn('Family'), '1 / 8');
+    expect(await countIn('shapes'), '1 / 8');
+    expect(await countIn('words'), '1 / 8'); // letters A-H
+    expect(await countIn('family'), '1 / 8');
 
     final selected = [
       for (final d in ['Easy', 'Medium', 'Hard'])
@@ -262,16 +281,14 @@ void main() {
 
   testWidgets('Phrases say the phrase and wait for the next button', (tester) async {
     await pumpApp(tester, allItems: true);
-    await tester.scrollUntilVisible(find.text('Phrases'), 400);
-    await tester.tap(find.text('Phrases'));
-    await tester.pumpAndSettle();
+    await open(tester, 'phrases');
     expect(audio.spoken, ['Phrases', 'How are you?']);
     await tester.pump(const Duration(seconds: 10));
     expect(find.text('1 / 10'), findsOneWidget);
     await tester.tap(find.bySemanticsLabel('Next'));
     await tester.pumpAndSettle();
     expect(find.text('2 / 10'), findsOneWidget);
-    expect(audio.spoken.last, 'I am doing well, thank you');
+    expect(audio.spoken.last, 'I am doing well');
   });
 
   testWidgets('puppy says hello on start and "This is fun!" back on the main menu', (tester) async {
@@ -285,8 +302,7 @@ void main() {
     expect(audio.spoken, ['Hi! How are you?']);
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Shapes'));
-    await tester.pumpAndSettle();
+    await open(tester, 'shapes');
     await tester.tap(find.bySemanticsLabel('Home'));
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));
@@ -310,15 +326,14 @@ void main() {
     await tester.pumpAndSettle();
 
     // From the sticker screen (which shows the title): back to the main menu.
-    await tester.tap(find.text('Shapes'));
-    await tester.pumpAndSettle();
+    await open(tester, 'shapes');
     final navigator = tester.state<NavigatorState>(find.byType(Navigator));
     navigator.push(MaterialPageRoute<void>(builder: (_) => const StickerPickerScreen()));
     await tester.pumpAndSettle();
     await tester.tap(find.bySemanticsLabel('My Learning Buddy'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
-    expect(find.text('Shapes'), findsOneWidget); // the main menu tile
+    expect(tile('shapes'), findsOneWidget); // the main menu tile
     expect(find.text('Circle'), findsNothing);
     expect(audio.spoken.last, 'This is fun!');
     await tester.pumpAndSettle();
@@ -350,7 +365,11 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Show or hide sections'), findsOneWidget);
 
-    await tester.tap(find.widgetWithText(SwitchListTile, 'Shapes'));
+    final shapes = find.widgetWithText(SwitchListTile, 'Shapes');
+    await tester.scrollUntilVisible(shapes, 300);
+    await tester.ensureVisible(shapes.first); // Learning comes first
+    await tester.pumpAndSettle();
+    await tester.tap(shapes.first);
     await tester.pump();
     expect(state.isHidden('shapes'), isTrue);
   });

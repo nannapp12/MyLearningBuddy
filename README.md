@@ -7,12 +7,14 @@ for the full product requirements.
 ## What's built so far
 
 - Home screen with big picture tiles under four headings: Learning (25 sections), Tracing (Shapes,
-  Letters, Numbers), Games (Find It) and Short Stories (to be added)
+  Letters, Numbers), Games (Find It) and Short Stories (5 fairy tales,
+  one line at a time). Tracing and stories have no voice
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
   - Letters (Aa–Zz, each a different colour); Numbers 1–20 with a different object to count each time ("seven strawberries")
   - Words: one card per letter showing all 5 words; tap a picture to hear it
   - Shapes in different colours, Days of the Week (Monday to Sunday), Colors (swatch + object)
-  - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables, Food (names only, no sounds)
+  - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables, Food, At the Park, In the
+    School (names only, no sounds)
 - 12 more sections: Body Parts, Family, Emotions, Opposites (both words on one card), Weather and
   Seasons, Months, Birds, Sea Creatures, Insects, Community Helpers, Things Around the House, Places
   We Visit – at most 10 items each (12 for Months)

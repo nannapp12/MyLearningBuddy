@@ -51,21 +51,22 @@ Every learning section must, at minimum, support:
 - The puppy next to the title. Tapping the puppy or the title (on any screen that shows it) goes to the
   main menu, where the puppy hops in and says "This is fun!"
 - A soft pop sound for taps on the main menu (section tiles, mode buttons, title)
-- Sticker bar under the title, then three mode buttons – **Easy**, **Medium**, **Hard** – only one can be
+- Sticker bar under the title, then three mode buttons – **Easy** 🐣, **Medium** 🐥, **Hard** 🦢 (a swan) – only one can be
   picked (default Easy, resets when the app is closed):
   - Easy: each section shows only its first 5 items (e.g. letters A–E, Words A–E, tracing A–E)
   - Medium: the first 8
   - Hard: everything
-  Find It uses the same limit when choosing pictures. Days of the Week always shows all 7 days
+  Find It uses the same limit when choosing pictures. Days of the Week always shows all 7 days, and
+  short stories are always read to the end
 - One big picture tile per section; tile pictures must not be cut off at the edges
 - The tiles are grouped under four sub-headings, in this order:
   - **Learning:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
-    Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Days of the Week, Months, Body Parts, Family,
-    Emotions, Community Helpers, Places We Visit, Things Around the House, Opposites, Weather and Seasons,
-    Phrases
+    Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Days of the Week, Months, Weather and Seasons,
+    Body Parts, Family, Emotions, Community Helpers, Places We Visit, Things Around the House, At the Park,
+    In the School, Opposites, Phrases
   - **Tracing:** Shapes, Letters, Numbers
   - **Games:** Find It
-  - **Short Stories:** to be added (shows a grey "To Be Added" tile for now)
+  - **Short Stories:** Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast
 - Fruits tile is yellow
 - When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
   tap, because browsers only allow sound after a tap); each time the child comes back to the main menu,
@@ -143,21 +144,23 @@ subject needs more (letters, numbers, words, tracing letters and numbers, and th
 ### 3.4 Tracing
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website
 - Three tiles under the **Tracing** heading:
-  - **Shapes:** the 10 shapes from the Shapes section, picked from a grid of shape pictures
+  - **Shapes:** every shape from the Shapes section (including the lines and signs), picked from a grid
+    of shape pictures
   - **Letters:** uppercase A–Z and lowercase a–z (two lists)
   - **Numbers:** 1–20
-- Opening a tile says "Tracing shapes", "Tracing letters" or "Tracing numbers"
+- **No voice in tracing** (owner's choice): no section name and no "Trace the …" prompt
 - A next button moves on to the next shape, letter or number in the list
-- Voice prompt: "Trace the circle.", "Trace the letter G." (no "big" or "small") or "Trace the number 7."
 - Tapping "Great job!" after tracing moves on to the next one; after the last one, the puppy and stickers
 - Dotted guide outline with stroke order and a start point
 - Detect whether the child stays roughly on the path; positive feedback (sound/animation) on completion
 - "Clear" / "Try again" button
 - Choice of crayon color and line thickness
 
-### 3.5 Shapes (10)
-Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond, Pentagon, Hexagon
-- Each shape in a different colour
+### 3.5 Shapes (17)
+Circle, Square, Triangle, Rectangle, Oval, Star, Heart, Diamond, Pentagon, Hexagon, then lines and signs:
+Vertical Line, Horizontal Line, Plus, Minus, Cross, Check, Equal
+- Each shape in a different colour; lines and signs are drawn as thick bars so they can be traced
+- Easy and Medium show only the first 5 or 8; Hard shows all 17
 
 ### 3.6 Days of the Week
 Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
@@ -232,6 +235,13 @@ Doctor, Nurse, Firefighter, Police Officer, Teacher, Farmer, Chef, Pilot, Mechan
 ### 3.23 Things Around the House (10)
 Bed, Chair, Sofa, Door, Window, Clock, Toothbrush, Bathtub, Television, Broom
 
+### 3.23a At the Park (10)
+Slide, Swing, Kite, Ball, Bicycle, Tree, Flowers, Picnic Basket, Ice Cream, Duck
+- Listed after Things Around the House; the swing is the project's own drawing
+
+### 3.23b In the School (10)
+Teacher, Book, Pencil, Crayons, Backpack, Scissors, Ruler, Chair, Globe, School Bus
+
 ### 3.24 Places We Visit (10)
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
@@ -242,6 +252,15 @@ Please and thank you · Good Morning · Good night · See you later
   move on (no auto-advance)
 
 ---
+
+### 3.26 Short Stories (under the Short Stories heading)
+Five well-known fairy tales, each condensed to 7–8 short, gentle lines for ages 2–6 (no scary endings:
+Gretel tricks the witch and opens the door; a woodcutter comes and the wolf runs away):
+Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast
+- One line per card with a matching picture; **no voice** (owner's choice) – a parent reads along and the
+  child taps next
+- The line is shown in large text that wraps; a story always shows every line, whatever the mode
+- At the end of a story (5 seconds after the last line shows): the puppy and a sticker, like every section
 
 ## 4. Rewards and Motivation
 

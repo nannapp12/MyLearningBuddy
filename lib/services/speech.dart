@@ -23,7 +23,7 @@ class Speech {
   /// livelier, child-like voice and live in `assets/audio/puppy/`.
   static const mascot = {greatJob, wellDone, pickSticker, puppy, foundIt, tryAgain, hello, thisIsFun};
 
-  static String category(Category category) => category.speak ?? category.title;
+  static String category(Category category) => category.title;
 
   /// E.g. "Apple", "Seven strawberries.", "Big. Small.".
   static String item(LearningItem item) {
@@ -36,28 +36,16 @@ class Speech {
   /// The letter for a page of words, e.g. "A".
   static String group(ItemGroup group) => group.label;
 
-  /// E.g. "Trace the letter G.", "Trace the number 7.", "Trace the circle.".
-  static String trace(LearningItem item) {
-    if (item.shape != null) return 'Trace the ${item.label.toLowerCase()}.';
-    final character = item.label;
-    if (RegExp(r'^\d+$').hasMatch(character)) return 'Trace the number $character.';
-    // Written in capitals so the voice says the letter's name.
-    return 'Trace the letter ${character.toUpperCase()}.';
-  }
-
   /// Everything the app can say for [content].
   static Set<String> all(LearningContent content) => {
     ...mascot,
     ...extras,
-    for (final c in content.categories) ...[
-      category(c),
-      for (final i in c.items) item(i),
-      if (c.layout == CategoryLayout.tracing)
-        for (final g in c.groups)
-          for (final i in g.items) trace(i)
-      else
+    for (final c in content.categories)
+      if (!c.silent) ...[
+        category(c),
+        for (final i in c.items) item(i),
         for (final g in c.groups) ...[group(g), for (final i in g.items) item(i)],
-    ],
+      ],
   };
 }
 

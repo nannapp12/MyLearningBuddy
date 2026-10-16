@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
           return CustomScrollView(
             slivers: [
               for (final section in MenuSection.values) ...[
-                if (section == MenuSection.shortStories || visible.any((c) => c.section == section)) ...[
+                if (visible.any((c) => c.section == section)) ...[
                   SliverToBoxAdapter(child: _Heading(section.heading)),
                   SliverPadding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -112,7 +112,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                       for (final c in visible)
                         if (c.section == section)
                           _CategoryTile(key: ValueKey('tile-${c.id}'), category: c, content: content),
-                      if (section == MenuSection.shortStories) const _ComingSoonTile(),
                     ]),
                   ),
                 ],
@@ -150,39 +149,6 @@ class _Heading extends StatelessWidget {
   );
 }
 
-/// Shown under "Short Stories" until the stories are added.
-class _ComingSoonTile extends StatelessWidget {
-  const _ComingSoonTile();
-
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(color: Colors.grey.shade400, borderRadius: BorderRadius.circular(28)),
-    child: Column(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 6),
-            child: const FittedBox(child: Text('📚', style: TextStyle(fontSize: 80))),
-          ),
-        ),
-        const SizedBox(height: 8),
-        const FittedBox(
-          child: Text(
-            'To Be Added',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              shadows: [Shadow(color: Colors.black45, blurRadius: 4, offset: Offset(0, 1))],
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
 class _CategoryTile extends StatelessWidget {
   const _CategoryTile({super.key, required this.category, required this.content});
 
@@ -195,8 +161,8 @@ class _CategoryTile extends StatelessWidget {
       CategoryLayout.groups => SectionScreen.groups(category, groups: state.limited(category.groups)),
       CategoryLayout.tracing => TracingPickerScreen(category: category),
       CategoryLayout.findit => FindItScreen(game: category, content: content),
-      // A week is always all seven days, Monday to Sunday, whatever the mode.
-      CategoryLayout.days => SectionScreen.items(category, items: category.items),
+      // A week is always all seven days, and a story is always told to the end, whatever the mode.
+      CategoryLayout.days || CategoryLayout.story => SectionScreen.items(category, items: category.items),
       _ => SectionScreen.items(category, items: state.limited(category.items)),
     };
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => screen));

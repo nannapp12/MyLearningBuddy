@@ -34,9 +34,46 @@ class ShapePainter extends CustomPainter {
       'hexagon' => _polygon(c, s / 2, 6),
       'star' => _star(c, s / 2, s / 4.6),
       'heart' => _heart(box),
+      // Lines and signs, drawn as thick bars so they can be traced over.
+      'vertical_line' => _bar(c.translate(0, -s * 0.45), c.translate(0, s * 0.45), s * 0.14),
+      'horizontal_line' => _bar(c.translate(-s * 0.45, 0), c.translate(s * 0.45, 0), s * 0.14),
+      'plus' => _union([
+        _bar(c.translate(0, -s * 0.4), c.translate(0, s * 0.4), s * 0.14),
+        _bar(c.translate(-s * 0.4, 0), c.translate(s * 0.4, 0), s * 0.14),
+      ]),
+      'minus' => _bar(c.translate(-s * 0.4, 0), c.translate(s * 0.4, 0), s * 0.14),
+      'cross' => _union([
+        _bar(c.translate(-s * 0.32, -s * 0.32), c.translate(s * 0.32, s * 0.32), s * 0.14),
+        _bar(c.translate(s * 0.32, -s * 0.32), c.translate(-s * 0.32, s * 0.32), s * 0.14),
+      ]),
+      'check' => _union([
+        _bar(c.translate(-s * 0.36, s * 0.02), c.translate(-s * 0.1, s * 0.28), s * 0.14),
+        _bar(c.translate(-s * 0.1, s * 0.28), c.translate(s * 0.38, -s * 0.28), s * 0.14),
+      ]),
+      'equal' => _union([
+        _bar(c.translate(-s * 0.4, -s * 0.15), c.translate(s * 0.4, -s * 0.15), s * 0.14),
+        _bar(c.translate(-s * 0.4, s * 0.15), c.translate(s * 0.4, s * 0.15), s * 0.14),
+      ]),
       _ => Path(),
     };
   }
+
+  /// A thick bar with round ends from [from] to [to].
+  static Path _bar(Offset from, Offset to, double thickness) {
+    final d = to - from;
+    final along = d / d.distance * (thickness / 2);
+    final across = Offset(-along.dy, along.dx);
+    return Path()
+      ..moveTo((from + across).dx, (from + across).dy)
+      ..lineTo((to + across).dx, (to + across).dy)
+      ..arcToPoint(to - across, radius: Radius.circular(thickness / 2))
+      ..lineTo((from - across).dx, (from - across).dy)
+      ..arcToPoint(from + across, radius: Radius.circular(thickness / 2))
+      ..close();
+  }
+
+  /// One outline around overlapping bars (so the tracing guide has no lines inside).
+  static Path _union(List<Path> paths) => paths.reduce((a, b) => Path.combine(PathOperation.union, a, b));
 
   static Path _polygon(Offset c, double r, int sides) {
     final path = Path();

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 /// How a category's items are presented.
-enum CategoryLayout { cards, groups, tracing, shapes, days, colors, pairs, findit }
+enum CategoryLayout { cards, groups, tracing, shapes, days, colors, pairs, findit, story }
 
 /// One thing a child can look at, e.g. a letter, a word or an animal.
 class LearningItem {
@@ -97,7 +97,6 @@ class Category {
   const Category({
     required this.id,
     required this.title,
-    this.speak,
     this.section = MenuSection.learning,
     required this.emoji,
     this.image,
@@ -110,7 +109,6 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) => Category(
     id: json['id'] as String,
     title: json['title'] as String,
-    speak: json['speak'] as String?,
     section: MenuSection.values.byName(json['section'] as String? ?? 'learning'),
     emoji: json['emoji'] as String,
     image: json['image'] as String?,
@@ -123,9 +121,6 @@ class Category {
   final String id;
   final String title;
 
-  /// What is said when the section opens, instead of [title] (e.g. "Tracing letters").
-  final String? speak;
-
   /// The heading the section's tile is under on the home screen.
   final MenuSection section;
   final String emoji;
@@ -136,6 +131,9 @@ class Category {
   final CategoryLayout layout;
   final List<LearningItem> items;
   final List<ItemGroup> groups;
+
+  /// Tracing and stories have no voice (the owner's choice).
+  bool get silent => layout == CategoryLayout.tracing || layout == CategoryLayout.story;
 }
 
 /// All learning content, loaded from `assets/content/content.json`.

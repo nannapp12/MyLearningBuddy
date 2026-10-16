@@ -1648,6 +1648,41 @@
      "label": "Hexagon",
      "shape": "hexagon",
      "color": "#7CB342"
+    },
+    {
+     "label": "Vertical Line",
+     "shape": "vertical_line",
+     "color": "#3949AB"
+    },
+    {
+     "label": "Horizontal Line",
+     "shape": "horizontal_line",
+     "color": "#00897B"
+    },
+    {
+     "label": "Plus",
+     "shape": "plus",
+     "color": "#43A047"
+    },
+    {
+     "label": "Minus",
+     "shape": "minus",
+     "color": "#E53935"
+    },
+    {
+     "label": "Cross",
+     "shape": "cross",
+     "color": "#D81B60"
+    },
+    {
+     "label": "Check",
+     "shape": "check",
+     "color": "#7CB342"
+    },
+    {
+     "label": "Equal",
+     "shape": "equal",
+     "color": "#FB8C00"
     }
    ]
   },
@@ -1745,6 +1780,56 @@
     {
      "label": "December",
      "emoji": "🎄"
+    }
+   ]
+  },
+  {
+   "id": "weather_seasons",
+   "title": "Weather and Seasons",
+   "section": "learning",
+   "emoji": "🌦️",
+   "color": "#0288D1",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Sunny",
+     "emoji": "☀️"
+    },
+    {
+     "label": "Cloudy",
+     "emoji": "☁️"
+    },
+    {
+     "label": "Rainy",
+     "emoji": "🌧️"
+    },
+    {
+     "label": "Snowy",
+     "emoji": "🌨️"
+    },
+    {
+     "label": "Windy",
+     "emoji": "🌬️"
+    },
+    {
+     "label": "Stormy",
+     "emoji": "⛈️"
+    },
+    {
+     "label": "Spring",
+     "emoji": "🌷"
+    },
+    {
+     "label": "Summer",
+     "emoji": "🏖️"
+    },
+    {
+     "label": "Fall",
+     "emoji": "🍂"
+    },
+    {
+     "label": "Winter",
+     "emoji": "⛄"
     }
    ]
   },
@@ -2041,6 +2126,106 @@
    ]
   },
   {
+   "id": "park",
+   "title": "At the Park",
+   "section": "learning",
+   "emoji": "🛝",
+   "color": "#689F38",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Slide",
+     "emoji": "🛝"
+    },
+    {
+     "label": "Swing",
+     "image": "assets/images/swing.svg"
+    },
+    {
+     "label": "Kite",
+     "emoji": "🪁"
+    },
+    {
+     "label": "Ball",
+     "emoji": "⚽"
+    },
+    {
+     "label": "Bicycle",
+     "emoji": "🚲"
+    },
+    {
+     "label": "Tree",
+     "emoji": "🌳"
+    },
+    {
+     "label": "Flowers",
+     "emoji": "🌷"
+    },
+    {
+     "label": "Picnic Basket",
+     "emoji": "🧺"
+    },
+    {
+     "label": "Ice Cream",
+     "emoji": "🍦"
+    },
+    {
+     "label": "Duck",
+     "emoji": "🦆"
+    }
+   ]
+  },
+  {
+   "id": "school",
+   "title": "In the School",
+   "section": "learning",
+   "emoji": "🏫",
+   "color": "#5C6BC0",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Teacher",
+     "emoji": "🧑‍🏫"
+    },
+    {
+     "label": "Book",
+     "emoji": "📖"
+    },
+    {
+     "label": "Pencil",
+     "emoji": "✏️"
+    },
+    {
+     "label": "Crayons",
+     "emoji": "🖍️"
+    },
+    {
+     "label": "Backpack",
+     "emoji": "🎒"
+    },
+    {
+     "label": "Scissors",
+     "emoji": "✂️"
+    },
+    {
+     "label": "Ruler",
+     "emoji": "📏"
+    },
+    {
+     "label": "Chair",
+     "emoji": "🪑"
+    },
+    {
+     "label": "Globe",
+     "emoji": "🌍"
+    },
+    {
+     "label": "School Bus",
+     "image": "assets/images/school_bus.svg"
+    }
+   ]
+  },
+  {
    "id": "opposites",
    "title": "Opposites",
    "section": "learning",
@@ -2132,56 +2317,6 @@
    ]
   },
   {
-   "id": "weather_seasons",
-   "title": "Weather and Seasons",
-   "section": "learning",
-   "emoji": "🌦️",
-   "color": "#0288D1",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Sunny",
-     "emoji": "☀️"
-    },
-    {
-     "label": "Cloudy",
-     "emoji": "☁️"
-    },
-    {
-     "label": "Rainy",
-     "emoji": "🌧️"
-    },
-    {
-     "label": "Snowy",
-     "emoji": "🌨️"
-    },
-    {
-     "label": "Windy",
-     "emoji": "🌬️"
-    },
-    {
-     "label": "Stormy",
-     "emoji": "⛈️"
-    },
-    {
-     "label": "Spring",
-     "emoji": "🌷"
-    },
-    {
-     "label": "Summer",
-     "emoji": "🏖️"
-    },
-    {
-     "label": "Fall",
-     "emoji": "🍂"
-    },
-    {
-     "label": "Winter",
-     "emoji": "⛄"
-    }
-   ]
-  },
-  {
    "id": "phrases",
    "title": "Phrases",
    "section": "learning",
@@ -2234,7 +2369,6 @@
   {
    "id": "trace_shapes",
    "title": "Shapes",
-   "speak": "Tracing shapes",
    "section": "tracing",
    "emoji": "🔷",
    "color": "#FB8C00",
@@ -2282,6 +2416,34 @@
       {
        "label": "Hexagon",
        "shape": "hexagon"
+      },
+      {
+       "label": "Vertical Line",
+       "shape": "vertical_line"
+      },
+      {
+       "label": "Horizontal Line",
+       "shape": "horizontal_line"
+      },
+      {
+       "label": "Plus",
+       "shape": "plus"
+      },
+      {
+       "label": "Minus",
+       "shape": "minus"
+      },
+      {
+       "label": "Cross",
+       "shape": "cross"
+      },
+      {
+       "label": "Check",
+       "shape": "check"
+      },
+      {
+       "label": "Equal",
+       "shape": "equal"
       }
      ]
     }
@@ -2290,7 +2452,6 @@
   {
    "id": "trace_letters",
    "title": "Letters",
-   "speak": "Tracing letters",
    "section": "tracing",
    "emoji": "🔤",
    "color": "#FB8C00",
@@ -2467,7 +2628,6 @@
   {
    "id": "trace_numbers",
    "title": "Numbers",
-   "speak": "Tracing numbers",
    "section": "tracing",
    "emoji": "🔢",
    "color": "#FB8C00",
@@ -2548,6 +2708,208 @@
    "color": "#00897B",
    "layout": "findit",
    "items": []
+  },
+  {
+   "id": "hansel_gretel",
+   "title": "Hansel & Gretel",
+   "section": "shortStories",
+   "emoji": "🍭",
+   "color": "#8D6E63",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Hansel and Gretel lived near a big forest.",
+     "emoji": "🌲"
+    },
+    {
+     "label": "One day, they got lost among the tall trees.",
+     "emoji": "🌳"
+    },
+    {
+     "label": "They found a little house made of candy!",
+     "emoji": "🍭"
+    },
+    {
+     "label": "A mean witch lived there, and she locked them up.",
+     "emoji": "🧙‍♀️"
+    },
+    {
+     "label": "Clever Gretel tricked the witch and opened the door.",
+     "emoji": "🔑"
+    },
+    {
+     "label": "They followed the path all the way home.",
+     "emoji": "👣"
+    },
+    {
+     "label": "Their father hugged them, and they were safe and happy.",
+     "emoji": "🤗"
+    }
+   ]
+  },
+  {
+   "id": "red_riding_hood",
+   "title": "Red Riding Hood",
+   "section": "shortStories",
+   "emoji": "🧺",
+   "color": "#C62828",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Little Red Riding Hood wore a bright red cape.",
+     "emoji": "👧"
+    },
+    {
+     "label": "She took a basket of treats to her grandma.",
+     "emoji": "🧺"
+    },
+    {
+     "label": "On the way, she met a sly wolf.",
+     "emoji": "🐺"
+    },
+    {
+     "label": "The wolf ran ahead and hid in Grandma's bed.",
+     "emoji": "🛏️"
+    },
+    {
+     "label": "Grandma, what big teeth you have!",
+     "emoji": "🦷"
+    },
+    {
+     "label": "A kind woodcutter came, and the wolf ran far away.",
+     "emoji": "💨"
+    },
+    {
+     "label": "Red Riding Hood and Grandma shared the treats together.",
+     "emoji": "🍪"
+    }
+   ]
+  },
+  {
+   "id": "cinderella",
+   "title": "Cinderella",
+   "section": "shortStories",
+   "emoji": "👠",
+   "color": "#1E88E5",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Cinderella worked hard all day for her stepsisters.",
+     "emoji": "🧹"
+    },
+    {
+     "label": "She wished she could go to the royal ball.",
+     "emoji": "🏰"
+    },
+    {
+     "label": "Her fairy godmother waved her magic wand.",
+     "emoji": "🪄"
+    },
+    {
+     "label": "A pumpkin became a coach, and her rags became a gown.",
+     "emoji": "🎃"
+    },
+    {
+     "label": "She danced with the prince until the clock struck twelve.",
+     "emoji": "🕛"
+    },
+    {
+     "label": "She ran away and left a glass slipper behind.",
+     "emoji": "👠"
+    },
+    {
+     "label": "The prince found her, and the slipper fit perfectly!",
+     "emoji": "🤴"
+    },
+    {
+     "label": "They lived happily ever after.",
+     "emoji": "💖"
+    }
+   ]
+  },
+  {
+   "id": "sleeping_beauty",
+   "title": "Sleeping Beauty",
+   "section": "shortStories",
+   "emoji": "😴",
+   "color": "#8E24AA",
+   "layout": "story",
+   "items": [
+    {
+     "label": "A king and queen had a baby princess.",
+     "emoji": "👶"
+    },
+    {
+     "label": "A grumpy fairy put a sleepy spell on her.",
+     "emoji": "✨"
+    },
+    {
+     "label": "When she grew up, she touched a spinning wheel.",
+     "emoji": "🧵"
+    },
+    {
+     "label": "She fell into a deep, deep sleep.",
+     "emoji": "😴"
+    },
+    {
+     "label": "Everyone in the castle fell asleep too.",
+     "emoji": "🏰"
+    },
+    {
+     "label": "A brave prince came through the thorny roses.",
+     "emoji": "🌹"
+    },
+    {
+     "label": "He woke her up, and the whole castle woke up too.",
+     "emoji": "☀️"
+    },
+    {
+     "label": "Everyone celebrated with a big party.",
+     "emoji": "🎉"
+    }
+   ]
+  },
+  {
+   "id": "beauty_beast",
+   "title": "Beauty & the Beast",
+   "section": "shortStories",
+   "emoji": "🌹",
+   "color": "#D81B60",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Belle loved to read books.",
+     "emoji": "📚"
+    },
+    {
+     "label": "Her father got lost and came to the Beast's castle.",
+     "emoji": "🏰"
+    },
+    {
+     "label": "Belle stayed in the castle so her father could go home.",
+     "emoji": "🏡"
+    },
+    {
+     "label": "The Beast looked scary, but he was kind inside.",
+     "emoji": "🦁"
+    },
+    {
+     "label": "They read books, ate dinner and danced together.",
+     "emoji": "💃"
+    },
+    {
+     "label": "Belle grew to love the Beast.",
+     "emoji": "❤️"
+    },
+    {
+     "label": "Her love broke the spell, and he turned into a prince!",
+     "emoji": "🤴"
+    },
+    {
+     "label": "They lived happily ever after.",
+     "emoji": "🌹"
+    }
+   ]
   }
  ]
 }

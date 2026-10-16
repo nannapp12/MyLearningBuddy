@@ -6,7 +6,7 @@ import '../services/audio_service.dart';
 enum Difficulty {
   easy('Easy', '🐣', 5),
   medium('Medium', '🐥', 8),
-  hard('Hard', '🦅', null);
+  hard('Hard', '🦢', null);
 
   const Difficulty(this.label, this.icon, this.limit);
 

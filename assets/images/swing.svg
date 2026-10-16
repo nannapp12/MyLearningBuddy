@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- A playground swing: a red frame, two ropes and a yellow seat, on grass. -->
+  <ellipse cx="100" cy="186" rx="92" ry="10" fill="#7CB342"/>
+  <g stroke="#D32F2F" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M28 184 L52 30 L76 184"/>
+    <path d="M124 184 L148 30 L172 184"/>
+    <path d="M44 30 H156"/>
+  </g>
+  <g stroke="#5D4037" stroke-width="4" stroke-linecap="round">
+    <line x1="84" y1="32" x2="84" y2="132"/>
+    <line x1="116" y1="32" x2="116" y2="132"/>
+  </g>
+  <rect x="72" y="128" width="56" height="12" rx="5" fill="#FBC02D" stroke="#F57F17" stroke-width="3"/>
+</svg>

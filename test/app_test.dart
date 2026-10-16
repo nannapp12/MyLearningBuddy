@@ -43,7 +43,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('home screen shows all sections under their headings, then Short Stories', (tester) async {
+  testWidgets('home screen shows all sections under their headings', (tester) async {
     await pumpApp(tester);
     final menu = find.descendant(of: find.byType(CustomScrollView), matching: find.byType(Scrollable));
     for (final c in content.categories) {
@@ -53,7 +53,6 @@ void main() {
     for (final heading in ['Learning', 'Tracing', 'Games', 'Short Stories']) {
       await tester.scrollUntilVisible(find.text(heading), -300, scrollable: menu);
     }
-    await tester.scrollUntilVisible(find.text('To Be Added'), 300, scrollable: menu);
   });
 
   testWidgets('finishing a section: puppy, then pick a sticker for the sticker bar', (tester) async {
@@ -61,14 +60,14 @@ void main() {
     await open(tester, 'shapes');
     expect(find.text('Circle'), findsOneWidget);
 
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 15; i++) {
       await tester.tap(find.bySemanticsLabel('Next'));
       await tester.pumpAndSettle();
     }
     await tester.tap(find.bySemanticsLabel('Next'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 360));
-    expect(find.text('Hexagon'), findsOneWidget);
+    expect(find.text('Equal'), findsOneWidget);
     // The puppy follows a short pause after the last item is said.
     expect(find.text('Woof woof! You did it!'), findsNothing);
     await tester.pump(const Duration(seconds: 1));
@@ -83,13 +82,7 @@ void main() {
     expect(find.bySemanticsLabel('Sticker'), findsNWidgets(5));
     expect(
       audio.spoken,
-      containsAllInOrder([
-        'Shapes',
-        'Circle',
-        'Hexagon',
-        'Woof woof! You did it!',
-        'Great job! Now pick your sticker.',
-      ]),
+      containsAllInOrder(['Shapes', 'Circle', 'Equal', 'Woof woof! You did it!', 'Great job! Now pick your sticker.']),
     );
 
     // Picking one adds it to the sticker bar and goes back to the main menu.
@@ -134,11 +127,11 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Hard'));
     await tester.pump();
     await open(tester, 'shapes');
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 16; i++) {
       await tester.tap(find.bySemanticsLabel('Next'));
       await tester.pumpAndSettle();
     }
-    expect(slow.lastSaid, ['Hexagon']);
+    expect(slow.lastSaid, ['Equal']);
     await tester.pump(const Duration(seconds: 2));
     expect(find.text('Great job!'), findsNothing);
 
@@ -174,24 +167,35 @@ void main() {
     await open(tester, 'trace_letters');
     await tester.tap(find.text('Y'));
     await tester.pumpAndSettle();
-    expect(audio.spoken.last, 'Trace the letter Y.');
     await tester.tap(find.byTooltip('Next'));
     await tester.pumpAndSettle();
     expect(find.text('Trace Z'), findsOneWidget);
-    expect(audio.spoken.last, 'Trace the letter Z.');
+    expect(audio.spoken, isEmpty);
     final next = tester.widget<IconButton>(find.widgetWithIcon(IconButton, Icons.arrow_forward_rounded));
     expect(next.onPressed, isNull);
   });
 
-  testWidgets('tracing shapes: the shapes to pick from, then "Trace the circle."', (tester) async {
+  testWidgets('tracing shapes: the shapes to pick from, with no voice', (tester) async {
     await pumpApp(tester);
     await open(tester, 'trace_shapes');
-    expect(audio.spoken.last, 'Tracing shapes');
+    expect(audio.spoken, isEmpty); // tracing has no voice
     expect(find.bySemanticsLabel('Circle'), findsOneWidget);
     await tester.tap(find.bySemanticsLabel('Circle'));
     await tester.pumpAndSettle();
     expect(find.text('Trace Circle'), findsOneWidget);
-    expect(audio.spoken.last, 'Trace the circle.');
+    expect(audio.spoken, isEmpty);
+  });
+
+  testWidgets('a short story shows one line at a time, always to the end', (tester) async {
+    await pumpApp(tester); // Easy: other sections show 5 items
+    await open(tester, 'hansel_gretel');
+    expect(find.text('1 / 7'), findsOneWidget);
+    expect(find.text('Hansel and Gretel lived near a big forest.'), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('Next'));
+    await tester.pumpAndSettle();
+    expect(find.text('One day, they got lost among the tall trees.'), findsOneWidget);
+    expect(audio.spoken, isEmpty); // stories have no voice
+    await tester.pump(const Duration(seconds: 6)); // the reading time before the next page
   });
 
   testWidgets('days of the week start on Monday with no "today", all 7 even on Easy', (tester) async {
@@ -261,7 +265,7 @@ void main() {
     expect(await countIn('shapes'), '1 / 5'); // Easy is the default
     await tester.tap(find.bySemanticsLabel('Hard'));
     await tester.pump();
-    expect(await countIn('shapes'), '1 / 10');
+    expect(await countIn('shapes'), '1 / 17');
     await tester.tap(find.bySemanticsLabel('Medium'));
     await tester.pump();
     expect(await countIn('shapes'), '1 / 8');

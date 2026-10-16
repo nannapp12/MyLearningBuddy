@@ -36,7 +36,7 @@ class SectionScreen extends StatefulWidget {
       pages: [
         for (final item in items ?? category.items)
           SectionPage(
-            speech: [Speech.item(item)],
+            speech: [if (!category.silent) Speech.item(item)],
             child: ItemCard(category: category, item: item),
           ),
       ],
@@ -95,11 +95,17 @@ class _SectionScreenState extends State<SectionScreen> {
   /// finished, so the child sees and hears the last item first.
   Future<void> _speakPage(int page, {bool intro = false}) async {
     final p = widget.pages[page];
-    final texts = [if (intro) Speech.category(widget.category), ...p.speech];
-    final finished = await _state
-        .speak(texts, gap: p.gap)
-        // In case the browser never reports the end of a clip.
-        .timeout(Duration(seconds: 8) + (p.gap + const Duration(seconds: 2)) * texts.length, onTimeout: () => true);
+    final texts = [if (intro && !widget.category.silent) Speech.category(widget.category), ...p.speech];
+    final finished = texts.isEmpty
+        // A story has no voice: leave time to read the last line before the puppy comes.
+        ? await Future<bool>.delayed(const Duration(seconds: 5), () => true)
+        : await _state
+              .speak(texts, gap: p.gap)
+              // In case the browser never reports the end of a clip.
+              .timeout(
+                Duration(seconds: 8) + (p.gap + const Duration(seconds: 2)) * texts.length,
+                onTimeout: () => true,
+              );
     final isLast = page == widget.pages.length - 1;
     if (!finished || !isLast || !mounted || _page != page || _rewarding) return;
     await Future<void>.delayed(const Duration(milliseconds: 400));

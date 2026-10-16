@@ -48,7 +48,15 @@ class ItemCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            ItemLabel(item: item, color: category.color),
+            if (category.layout == CategoryLayout.story)
+              // A story's sentence wraps over a few lines instead of shrinking.
+              Text(
+                item.label,
+                textAlign: TextAlign.center,
+                style: textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+              )
+            else
+              ItemLabel(item: item, color: category.color),
             if (item.subtitle != null)
               Text(item.subtitle!, style: textTheme.headlineSmall?.copyWith(color: Colors.black54)),
           ],

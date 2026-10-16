@@ -22,14 +22,6 @@ class TracingPickerScreen extends StatefulWidget {
 
 class _TracingPickerScreenState extends State<TracingPickerScreen> {
   @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) AppStateScope.of(context).speak([Speech.category(widget.category)]);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     final category = widget.category;
     final tabs = category.groups.length > 1;
@@ -56,7 +48,7 @@ class _TracingPickerScreenState extends State<TracingPickerScreen> {
       length: category.groups.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(Speech.category(category)),
+          title: Text('Tracing ${category.title}'),
           backgroundColor: category.color,
           foregroundColor: Colors.white,
           toolbarHeight: 80,
@@ -112,20 +104,11 @@ class _TracingScreenState extends State<TracingScreen> {
   LearningItem get _item => widget.items[_index];
   bool get _hasNext => _index < widget.items.length - 1;
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) AppStateScope.of(context).speak([Speech.trace(_item)]);
-    });
-  }
-
   void _next() {
     setState(() {
       _index++;
       _strokes.clear();
     });
-    AppStateScope.of(context).speak([Speech.trace(_item)]);
   }
 
   Future<void> _done() async {

@@ -237,7 +237,9 @@ void main() {
     await tester.pump();
     await open(tester, 'twinkle_star');
     expect(audio.spoken, ['Twinkle Twinkle Little Star', 'Twinkle, twinkle, little star,\nHow I wonder what you are!']);
-    await tester.pump(const Duration(seconds: 5));
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('1 / 3'), findsOneWidget); // stories and rhymes wait only 2 seconds
+    await tester.pump(const Duration(seconds: 1));
     await tester.pumpAndSettle();
     expect(find.text('2 / 3'), findsOneWidget);
     expect(audio.spoken.last, 'Up above the world so high,\nLike a diamond in the sky.');

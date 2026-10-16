@@ -64,7 +64,7 @@ Every learning section must, at minimum, support:
   - a section reads each card, waits 5 seconds, then moves to the next card by itself, until the last card,
     then the puppy and the sticker screen
   - stories and nursery rhymes are read aloud too, in a slower voice (speed 0.65 instead of 0.75), and move
-    on the same way
+    on after a shorter 2-second pause
   - tracing stays silent; the child can still tap next/previous or the speaker button at any time
 - One big picture tile per section; tile pictures must not be cut off at the edges
 - The tiles are grouped under five sub-headings, in this order:

@@ -112,8 +112,8 @@ class _SectionScreenState extends State<SectionScreen> {
               );
     final isLast = page == widget.pages.length - 1;
     if (finished && !isLast && mounted && _page == page && _state.autoRead) {
-      // Auto-read: wait 5 seconds, then the next card.
-      await Future<void>.delayed(const Duration(seconds: 5));
+      // Auto-read: wait 5 seconds (2 for stories and rhymes), then the next card.
+      await Future<void>.delayed(Duration(seconds: widget.category.readOnlyInAutoRead ? 2 : 5));
       if (mounted && _page == page && _state.autoRead) _go(1);
       return;
     }

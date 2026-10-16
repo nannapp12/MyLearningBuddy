@@ -22,7 +22,7 @@ for the full product requirements.
   plus a chime when a star is earned
 - Tracing: pick a shape, A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
   widths, and move on with the next button
-- A home button on every screen returns to the main menu
+- A home button on every screen returns to the main menu; a speaker button says the card again
 - Game: **Find It** ("Can you find the cow?", 3 pictures, 5 rounds), under the Games heading
 - **Phrases** section (10 everyday phrases) and **Easy / Medium / Hard** modes (first 5, 8 or all items)
 - The puppy says "Hi! How are you?" on start and "This is fun!" back on the main menu

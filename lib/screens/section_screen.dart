@@ -4,6 +4,7 @@ import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
 import 'sticker_picker_screen.dart';
+import '../widgets/game_widgets.dart';
 import '../widgets/home_button.dart';
 import '../widgets/item_card.dart';
 import '../widgets/star_badge.dart';
@@ -163,7 +164,17 @@ class _SectionScreenState extends State<SectionScreen> {
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      HomeButton(color: color),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // Says the card again (sections with a voice only).
+                          if (!widget.category.silent) ...[
+                            ReplayButton(color: color, onPressed: () => _speakPage(_page)),
+                            const SizedBox(width: 12),
+                          ],
+                          HomeButton(color: color),
+                        ],
+                      ),
                       const SizedBox(height: 4),
                       Text('${_page + 1} / ${widget.pages.length}', style: Theme.of(context).textTheme.labelLarge),
                     ],

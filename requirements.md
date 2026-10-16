@@ -50,6 +50,8 @@ Every learning section must, at minimum, support:
   (free, SIL Open Font License, bundled with the app)
 - The puppy next to the title. Tapping the puppy or the title (on any screen that shows it) goes to the
   main menu, where the puppy hops in and says "This is fun!"
+- A big speaker (repeat) button next to the home button on every section with a voice says the card
+  again (the word, or the letter and its five words); tracing and stories have no voice, so no button
 - A soft pop sound for taps on the main menu (section tiles, mode buttons, title)
 - Sticker bar under the title, then three mode buttons – **Easy** 🐣, **Medium** 🐥, **Hard** 🦢 (a swan) – only one can be
   picked (default Easy, resets when the app is closed):

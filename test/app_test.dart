@@ -157,6 +157,10 @@ void main() {
     await open(tester, 'farm_animals');
     expect(find.text('Cow'), findsOneWidget);
     expect(audio.spoken, ['Farm Animals', 'Cow']);
+    // The speaker button says the card again.
+    await tester.tap(find.byTooltip('Say it again'));
+    await tester.pump();
+    expect(audio.spoken, ['Farm Animals', 'Cow', 'Cow']);
     await tester.tap(find.bySemanticsLabel('Home'));
     await tester.pumpAndSettle();
     expect(tile('letters'), findsOneWidget);
@@ -197,6 +201,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('One day, they got lost among the tall trees.'), findsOneWidget);
     expect(audio.spoken, isEmpty); // stories have no voice
+    expect(find.byTooltip('Say it again'), findsNothing);
     await tester.pump(const Duration(seconds: 6)); // the reading time before the next page
   });
 

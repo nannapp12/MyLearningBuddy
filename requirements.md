@@ -61,13 +61,16 @@ Every learning section must, at minimum, support:
   Find It uses the same limit when choosing pictures. Days of the Week always shows all 7 days, and
   short stories are always read to the end
 - One big picture tile per section; tile pictures must not be cut off at the edges
-- The tiles are grouped under four sub-headings, in this order:
+- The tiles are grouped under five sub-headings, in this order:
   - **Learning:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
     Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Days of the Week, Months, Weather and Seasons,
     Body Parts, Family, Emotions, Community Helpers, Places We Visit, Things Around the House, At the Park,
     In the School, Opposites, Phrases
   - **Tracing:** Shapes, Letters, Numbers
   - **Games:** Find It
+  - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,
+    Teddy Bear Teddy Bear, One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Humpty Dumpty,
+    Row Row Row Your Boat, Hey Diddle Diddle
   - **Short Stories:** Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast,
     The Three Little Pigs, Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling,
     The Lion and the Mouse, The Little Red Hen, Jack and the Beanstalk
@@ -257,6 +260,13 @@ Please and thank you · Good Morning · Good night · See you later
   move on (no auto-advance)
 
 ---
+
+### 3.25a Nursery Rhymes (10, under the Nursery Rhymes heading, before Short Stories)
+Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb, Teddy Bear Teddy Bear,
+One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider (owner's picks), plus Humpty Dumpty,
+Row Row Row Your Boat and Hey Diddle Diddle
+- Traditional (public-domain) words, shown one verse (usually two lines) per card with a picture
+- No voice, like the stories; every verse is shown whatever the mode; the puppy and a sticker at the end
 
 ### 3.26 Short Stories (under the Short Stories heading)
 Twelve well-known fairy tales and fables, each condensed to 7–8 short, gentle lines for ages 2–6 (no scary endings:

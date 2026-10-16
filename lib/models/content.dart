@@ -85,6 +85,7 @@ enum MenuSection {
   learning('Learning'),
   tracing('Tracing'),
   games('Games'),
+  nurseryRhymes('Nursery Rhymes'),
   shortStories('Short Stories');
 
   const MenuSection(this.heading);
@@ -132,7 +133,7 @@ class Category {
   final List<LearningItem> items;
   final List<ItemGroup> groups;
 
-  /// Tracing and stories have no voice (the owner's choice).
+  /// Tracing, nursery rhymes and stories have no voice (the owner's choice).
   bool get silent => layout == CategoryLayout.tracing || layout == CategoryLayout.story;
 }
 

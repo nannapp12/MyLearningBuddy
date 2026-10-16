@@ -7,7 +7,7 @@ for the full product requirements.
 ## What's built so far
 
 - Home screen with big picture tiles under four headings: Learning (25 sections), Tracing (Shapes,
-  Letters, Numbers), Games (Find It) and Short Stories (12 fairy tales and fables,
+  Letters, Numbers), Games (Find It), Nursery Rhymes (10) and Short Stories (12 fairy tales and fables,
   one line at a time). Tracing and stories have no voice
 - Card viewer for each section: swipe or big arrow buttons, item name and picture
   - Letters (Aa–Zz, each a different colour); Numbers 1–20 with a different object to count each time ("seven strawberries")

@@ -2710,6 +2710,270 @@
    "items": []
   },
   {
+   "id": "twinkle_star",
+   "title": "Twinkle Twinkle Little Star",
+   "section": "nurseryRhymes",
+   "emoji": "⭐",
+   "color": "#3949AB",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Twinkle, twinkle, little star,\nHow I wonder what you are!",
+     "emoji": "⭐"
+    },
+    {
+     "label": "Up above the world so high,\nLike a diamond in the sky.",
+     "emoji": "💎"
+    },
+    {
+     "label": "Twinkle, twinkle, little star,\nHow I wonder what you are!",
+     "emoji": "✨"
+    }
+   ]
+  },
+  {
+   "id": "hickory_dickory",
+   "title": "Hickory Dickory Dock",
+   "section": "nurseryRhymes",
+   "emoji": "🕰️",
+   "color": "#6D4C41",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Hickory, dickory, dock,\nThe mouse ran up the clock.",
+     "emoji": "🐭"
+    },
+    {
+     "label": "The clock struck one,\nThe mouse ran down,",
+     "emoji": "🕐"
+    },
+    {
+     "label": "Hickory, dickory, dock.",
+     "emoji": "🕰️"
+    }
+   ]
+  },
+  {
+   "id": "mary_lamb",
+   "title": "Mary Had a Little Lamb",
+   "section": "nurseryRhymes",
+   "emoji": "🐑",
+   "color": "#EC407A",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Mary had a little lamb,\nIts fleece was white as snow.",
+     "emoji": "🐑"
+    },
+    {
+     "label": "And everywhere that Mary went,\nThe lamb was sure to go.",
+     "emoji": "👧"
+    },
+    {
+     "label": "It followed her to school one day,\nWhich was against the rule.",
+     "emoji": "🏫"
+    },
+    {
+     "label": "It made the children laugh and play\nTo see a lamb at school.",
+     "emoji": "😄"
+    }
+   ]
+  },
+  {
+   "id": "teddy_bear",
+   "title": "Teddy Bear, Teddy Bear",
+   "section": "nurseryRhymes",
+   "emoji": "🧸",
+   "color": "#8D6E63",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Teddy bear, teddy bear,\nTurn around.",
+     "emoji": "🧸"
+    },
+    {
+     "label": "Teddy bear, teddy bear,\nTouch the ground.",
+     "emoji": "👇"
+    },
+    {
+     "label": "Teddy bear, teddy bear,\nShow your shoe.",
+     "emoji": "👟"
+    },
+    {
+     "label": "Teddy bear, teddy bear,\nThat will do!",
+     "emoji": "👍"
+    },
+    {
+     "label": "Teddy bear, teddy bear,\nGo upstairs.",
+     "emoji": "🪜"
+    },
+    {
+     "label": "Teddy bear, teddy bear,\nSay your prayers.",
+     "emoji": "🙏"
+    },
+    {
+     "label": "Teddy bear, teddy bear,\nTurn out the light.",
+     "emoji": "💡"
+    },
+    {
+     "label": "Teddy bear, teddy bear,\nSay good night!",
+     "emoji": "🌙"
+    }
+   ]
+  },
+  {
+   "id": "buckle_shoe",
+   "title": "One, Two, Buckle My Shoe",
+   "section": "nurseryRhymes",
+   "emoji": "👞",
+   "color": "#1E88E5",
+   "layout": "story",
+   "items": [
+    {
+     "label": "One, two,\nBuckle my shoe.",
+     "emoji": "👞"
+    },
+    {
+     "label": "Three, four,\nKnock at the door.",
+     "emoji": "🚪"
+    },
+    {
+     "label": "Five, six,\nPick up sticks.",
+     "emoji": "🪵"
+    },
+    {
+     "label": "Seven, eight,\nLay them straight.",
+     "emoji": "📏"
+    },
+    {
+     "label": "Nine, ten,\nA big fat hen!",
+     "emoji": "🐔"
+    }
+   ]
+  },
+  {
+   "id": "baa_baa",
+   "title": "Baa Baa Black Sheep",
+   "section": "nurseryRhymes",
+   "emoji": "🧶",
+   "color": "#424242",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Baa, baa, black sheep,\nHave you any wool?",
+     "emoji": "🐑"
+    },
+    {
+     "label": "Yes sir, yes sir,\nThree bags full.",
+     "emoji": "🛍️"
+    },
+    {
+     "label": "One for the master,\nOne for the dame,",
+     "emoji": "🧶"
+    },
+    {
+     "label": "And one for the little boy\nWho lives down the lane.",
+     "emoji": "👦"
+    }
+   ]
+  },
+  {
+   "id": "itsy_bitsy",
+   "title": "Itsy Bitsy Spider",
+   "section": "nurseryRhymes",
+   "emoji": "🕷️",
+   "color": "#00897B",
+   "layout": "story",
+   "items": [
+    {
+     "label": "The itsy bitsy spider\nClimbed up the water spout.",
+     "emoji": "🕷️"
+    },
+    {
+     "label": "Down came the rain\nAnd washed the spider out.",
+     "emoji": "🌧️"
+    },
+    {
+     "label": "Out came the sun\nAnd dried up all the rain.",
+     "emoji": "☀️"
+    },
+    {
+     "label": "And the itsy bitsy spider\nClimbed up the spout again.",
+     "emoji": "🕸️"
+    }
+   ]
+  },
+  {
+   "id": "humpty_dumpty",
+   "title": "Humpty Dumpty",
+   "section": "nurseryRhymes",
+   "emoji": "🥚",
+   "color": "#F9A825",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Humpty Dumpty sat on a wall.",
+     "emoji": "🥚"
+    },
+    {
+     "label": "Humpty Dumpty had a great fall.",
+     "emoji": "🧱"
+    },
+    {
+     "label": "All the king's horses\nAnd all the king's men",
+     "emoji": "🐴"
+    },
+    {
+     "label": "Couldn't put Humpty together again.",
+     "emoji": "👑"
+    }
+   ]
+  },
+  {
+   "id": "row_boat",
+   "title": "Row, Row, Row Your Boat",
+   "section": "nurseryRhymes",
+   "emoji": "🚣",
+   "color": "#0288D1",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Row, row, row your boat,\nGently down the stream.",
+     "emoji": "🚣"
+    },
+    {
+     "label": "Merrily, merrily, merrily, merrily,\nLife is but a dream.",
+     "emoji": "💭"
+    }
+   ]
+  },
+  {
+   "id": "hey_diddle",
+   "title": "Hey Diddle Diddle",
+   "section": "nurseryRhymes",
+   "emoji": "🐄",
+   "color": "#7B1FA2",
+   "layout": "story",
+   "items": [
+    {
+     "label": "Hey diddle diddle,\nThe cat and the fiddle,",
+     "emoji": "🎻"
+    },
+    {
+     "label": "The cow jumped over the moon.",
+     "emoji": "🐄"
+    },
+    {
+     "label": "The little dog laughed\nTo see such fun,",
+     "emoji": "🐶"
+    },
+    {
+     "label": "And the dish ran away with the spoon!",
+     "emoji": "🥄"
+    }
+   ]
+  },
+  {
    "id": "hansel_gretel",
    "title": "Hansel & Gretel",
    "section": "shortStories",

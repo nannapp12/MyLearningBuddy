@@ -7,30 +7,39 @@ void main() {
   final content = LearningContent.fromJsonString(File('assets/content/content.json').readAsStringSync());
   Category byId(String id) => content.categories.firstWhere((c) => c.id == id);
 
-  test('has the 27 learning sections, 3 tracing sections, the Find It game and 12 stories in order', () {
-    String names(MenuSection section) => [
-      for (final c in content.categories)
-        if (c.section == section) c.title,
-    ].join(', ');
-    expect(
-      names(MenuSection.learning),
-      'Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects, Vehicles, Fruits, '
-      'Vegetables, Food, Colors, Shapes, Days of the Week, Months, Weather and Seasons, Body Parts, Family, '
-      'Emotions, Community Helpers, Places We Visit, Things Around the House, At the Park, In the School, '
-      'Opposites, Phrases',
-    );
-    expect(names(MenuSection.tracing), 'Shapes, Letters, Numbers');
-    expect(names(MenuSection.games), 'Find It');
-    expect(
-      names(MenuSection.shortStories),
-      'Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs, '
-      'Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse, '
-      'The Little Red Hen, Jack and the Beanstalk',
-    );
-    // In content.json the sections are listed in the order of the headings.
-    final order = [for (final c in content.categories) c.section.index];
-    expect(order, [...order]..sort());
-  });
+  test(
+    'has the 27 learning sections, 3 tracing sections, the Find It game 10 nursery rhymes and 12 stories in order',
+    () {
+      String names(MenuSection section) => [
+        for (final c in content.categories)
+          if (c.section == section) c.title,
+      ].join(', ');
+      expect(
+        names(MenuSection.learning),
+        'Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects, Vehicles, Fruits, '
+        'Vegetables, Food, Colors, Shapes, Days of the Week, Months, Weather and Seasons, Body Parts, Family, '
+        'Emotions, Community Helpers, Places We Visit, Things Around the House, At the Park, In the School, '
+        'Opposites, Phrases',
+      );
+      expect(names(MenuSection.tracing), 'Shapes, Letters, Numbers');
+      expect(names(MenuSection.games), 'Find It');
+      expect(
+        names(MenuSection.nurseryRhymes),
+        'Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb, Teddy Bear, Teddy Bear, '
+        'One, Two, Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Humpty Dumpty, '
+        'Row, Row, Row Your Boat, Hey Diddle Diddle',
+      );
+      expect(
+        names(MenuSection.shortStories),
+        'Hansel & Gretel, Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast, The Three Little Pigs, '
+        'Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling, The Lion and the Mouse, '
+        'The Little Red Hen, Jack and the Beanstalk',
+      );
+      // In content.json the sections are listed in the order of the headings.
+      final order = [for (final c in content.categories) c.section.index];
+      expect(order, [...order]..sort());
+    },
+  );
 
   test('sections have at most 10 items, except where the subject needs more', () {
     const longer = {'letters', 'numbers', 'words', 'months', 'shapes'};
@@ -86,6 +95,16 @@ void main() {
       'Check',
       'Equal',
     ]);
+  });
+
+  test('nursery rhymes are shown a verse at a time, each with a picture', () {
+    for (final c in content.categories.where((c) => c.section == MenuSection.nurseryRhymes)) {
+      expect(c.layout, CategoryLayout.story);
+      expect(c.silent, isTrue);
+      for (final verse in c.items) {
+        expect(verse.emoji, isNotNull, reason: verse.label);
+      }
+    }
   });
 
   test('short stories have 6 to 8 lines, each with a picture', () {

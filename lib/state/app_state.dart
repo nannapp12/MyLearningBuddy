@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../services/audio_service.dart';
+import '../services/default_audio_service.dart';
 
 /// How much of each section to show.
 enum Difficulty {
@@ -22,7 +23,7 @@ enum Difficulty {
 /// Held in memory only: per the requirements nothing is saved, so closing the
 /// app or web page resets stars, finished sections and parent settings.
 class AppState extends ChangeNotifier {
-  AppState({AudioService? audio}) : audio = audio ?? ClipAudioService();
+  AppState({AudioService? audio}) : audio = audio ?? createAudioService();
 
   final AudioService audio;
   final Set<String> _hiddenCategoryIds = {};

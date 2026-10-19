@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 /// How a category's items are presented.
-enum CategoryLayout { cards, groups, tracing, shapes, days, colors, pairs, findit, story }
+enum CategoryLayout { cards, groups, tracing, shapes, days, colors, pairs, findit, story, matching, memory }
 
 /// One thing a child can look at, e.g. a letter, a word or an animal.
 class LearningItem {
@@ -80,18 +80,21 @@ class ItemGroup {
   final List<LearningItem> items;
 }
 
-/// The headings the home screen's tiles are grouped under.
+/// The groups the home screen's tiles are in, in order. Each belongs to a [MenuTab].
 enum MenuSection {
-  learning('Learning'),
+  level1('Level 1'),
+  level2('Level 2'),
+  phrases('Phrases'),
   tracing('Tracing'),
-  games('Games'),
   nurseryRhymes('Nursery Rhymes'),
   shortStories(
     'Short Stories',
     note:
         'The stories are abridged and condensed to under 100 words so our little readers can enjoy them, '
         'so the content may have been adjusted accordingly.',
-  );
+  ),
+
+  games('Games');
 
   const MenuSection(this.heading, {this.note});
 
@@ -101,12 +104,29 @@ enum MenuSection {
   final String? note;
 }
 
+/// The tabs across the top of the home screen.
+enum MenuTab {
+  words('Words', [MenuSection.level1, MenuSection.level2]),
+  phrases('Phrases', [MenuSection.phrases]),
+  tracing('Tracing', [MenuSection.tracing]),
+  nurseryRhymes('Nursery Rhymes', [MenuSection.nurseryRhymes]),
+  shortStories('Short Stories', [MenuSection.shortStories]),
+  games('Games', [MenuSection.games]);
+
+  const MenuTab(this.label, this.sections);
+
+  final String label;
+  final List<MenuSection> sections;
+
+  static MenuTab of(MenuSection section) => values.firstWhere((t) => t.sections.contains(section));
+}
+
 /// One of the learning sections shown on the home screen.
 class Category {
   const Category({
     required this.id,
     required this.title,
-    this.section = MenuSection.learning,
+    this.section = MenuSection.level1,
     required this.emoji,
     this.image,
     required this.color,
@@ -118,7 +138,7 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) => Category(
     id: json['id'] as String,
     title: json['title'] as String,
-    section: MenuSection.values.byName(json['section'] as String? ?? 'learning'),
+    section: MenuSection.values.byName(json['section'] as String? ?? 'level1'),
     emoji: json['emoji'] as String,
     image: json['image'] as String?,
     color: parseHexColor(json['color'] as String),

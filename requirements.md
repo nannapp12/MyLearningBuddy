@@ -69,19 +69,23 @@ Every learning section must, at minimum, support:
   - on the website, the voice and sound effects each reuse one audio player, because browsers (Safari above
     all) block sound that starts without a tap on a new player; reusing it keeps auto-read talking on every card
 - One big picture tile per section; tile pictures must not be cut off at the edges
-- The tiles are grouped under five sub-headings, in this order:
-  - **Learning:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
-    Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Days of the Week, Months, Weather and Seasons, Time,
-    Body Parts, Family, Emotions, Community Helpers, Places We Visit, Things Around the House, Appliances,
-    At the Park, In the School, Clothing, Sports, Opposites, Phrases
+- The main menu has **tabs** across the top (owner's order): **Words**, **Phrases**, **Tracing**,
+  **Nursery Rhymes**, **Short Stories**, **Games**. A tab only shows when it has a visible tile.
+  - **Words** has two headings:
+    - **Level 1:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
+      Vehicles, Fruits, Vegetables, Food, Colors, Shapes
+    - **Level 2:** Days of the Week, Months, Weather and Seasons, Time, Body Parts, Family, Emotions,
+      Community Helpers, Places We Visit, Things Around the House, Appliances, At the Park, In the School,
+      Clothing, Sports, Opposites
+  - **Phrases:** Greetings, Activities
   - **Tracing:** Shapes, Letters, Numbers
-  - **Games:** Find It
   - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,
     Teddy Bear Teddy Bear, One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Rain Rain Go Away,
     Row Row Row Your Boat, Hey Diddle Diddle
   - **Short Stories:** Hansel & Gretel, Little Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast,
     The Three Little Pigs, Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling,
     The Lion and the Mouse, The Little Red Hen, Jack and the Beanstalk
+  - **Games:** Find It, Matching, Memory
 - Fruits tile is yellow
 - When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
   tap, because browsers only allow sound after a tap); each time the child comes back to the main menu,
@@ -275,11 +279,15 @@ Refrigerator, Washing Machine, Microwave, Toaster, Stove, Fan, Vacuum Cleaner, C
 ### 3.24 Places We Visit (10)
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
-### 3.25 Phrases (10)
-How are you? · I am doing well · This is fun · I am happy · I like playing · I am eating ·
-Please and thank you · Good Morning · Good night · See you later
+### 3.25 Phrases (Phrases tab: Greetings and Activities, at least 10 each)
+- **Greetings (11):** Hello! · Good Morning · Good afternoon · Good evening · Good night · How are you? ·
+  I am doing well · Nice to meet you · Please and thank you · See you later · Goodbye!
+- **Activities (12):** I like playing · I am eating · This is fun · I am happy · I am reading a book ·
+  I am drawing a picture · I am washing my hands · I am brushing my teeth · I am taking a bath ·
+  I am riding my bike · Let's play together · I am going to sleep
+- The original 10 phrases were split between the two; the rest are new
 - One phrase per card with a matching picture; the voice says the phrase, and the child taps next to
-  move on (no auto-advance)
+  move on (or Auto-read moves on)
 
 ---
 
@@ -325,13 +333,21 @@ and the giant have no fall, and everyone helps the hen next time)
 
 ## 4a. Games
 
-Shown under the **Games** heading on the home screen; parents can hide it like any section.
+In the **Games** tab; parents can hide each game like any section. Each game starts by picking a section
+with clear pictures (animals, fruits, vehicles, shapes, colours …).
 
 - **Find It:** the child picks a section with clear pictures (animals, fruits, shapes, colours …). The
   voice asks "Can you find … Cow?" and shows 3 pictures. Right: the picture grows, shows its name and the
   voice says "Yay! You found it!". Wrong: the picture shakes and the voice says "Try again!".
   5 rounds, then the puppy and a sticker
 - A speaker button repeats the question; stars at the top show the rounds done
+- **Matching:** four pictures on the left and their names, shuffled, on the right. The child draws a line
+  from a picture to its name (or taps a picture, then a name). Right: a green line stays and the voice says
+  the name. Wrong: the name shakes and the voice says "Try again!". Tapping a name says it. 3 rounds, then
+  the puppy and a sticker
+- **Memory:** 8 cards face down (4 pairs). The child turns over two at a time; the voice says each picture.
+  A pair stays face up (green border, chime); otherwise both turn back after about a second. When all
+  4 pairs are found: the puppy and a sticker
 
 ---
 

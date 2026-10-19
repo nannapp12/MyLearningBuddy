@@ -5,21 +5,11 @@ import 'package:flutter/material.dart';
 import '../models/content.dart';
 import '../services/speech.dart';
 import '../state/app_state.dart';
-import '../widgets/category_icon.dart';
 import '../widgets/game_widgets.dart';
 import '../widgets/home_button.dart';
 import '../widgets/item_card.dart';
+import '../widgets/section_picker.dart';
 import 'sticker_picker_screen.dart';
-
-/// Sections that work for Find It: every item has a clear picture and a plain name.
-List<Category> findItSections(LearningContent content) => [
-  for (final c in content.categories)
-    if (const {CategoryLayout.cards, CategoryLayout.shapes, CategoryLayout.colors}.contains(c.layout) &&
-        !const {'letters', 'numbers', 'months'}.contains(c.id) &&
-        c.items.length >= 3 &&
-        c.items.every((i) => (i.emoji ?? i.image ?? i.shape ?? i.swatch) != null && i.count == null))
-      c,
-];
 
 /// "Can you find the cow?": pick a section, then five rounds of three pictures.
 class FindItScreen extends StatefulWidget {
@@ -107,61 +97,11 @@ class _FindItScreenState extends State<FindItScreen> {
     final color = widget.game.color;
     return Scaffold(
       appBar: gameAppBar(widget.game.title, color),
-      body: SafeArea(child: _section == null ? _sectionPicker() : _play(color)),
-    );
-  }
-
-  Widget _sectionPicker() {
-    final state = _state;
-    final sections = [
-      for (final c in findItSections(widget.content))
-        if (!state.isHidden(c.id)) c,
-    ];
-    return Column(
-      children: [
-        const Padding(
-          padding: EdgeInsets.all(16),
-          child: Text(
-            'What shall we find?',
-            style: TextStyle(fontFamily: 'Fredoka', fontSize: 30, fontWeight: FontWeight.w700),
-          ),
-        ),
-        Expanded(
-          child: GridView.extent(
-            padding: const EdgeInsets.all(16),
-            maxCrossAxisExtent: 180,
-            mainAxisSpacing: 12,
-            crossAxisSpacing: 12,
-            children: [
-              for (final c in sections)
-                Material(
-                  color: c.color,
-                  borderRadius: BorderRadius.circular(24),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(24),
-                    onTap: () => _start(c),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: FittedBox(child: CategoryIcon(category: c, size: 100)),
-                          ),
-                          FittedBox(
-                            child: Text(
-                              c.title,
-                              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ],
+      body: SafeArea(
+        child: _section == null
+            ? SectionPicker(content: widget.content, question: 'What shall we find?', onPick: _start)
+            : _play(color),
+      ),
     );
   }
 

@@ -239,7 +239,7 @@ Loud / Quiet, Hard / Soft, Stop / Go
 Weather: Sunny, Cloudy, Rainy, Snowy, Windy, Stormy. Seasons: Spring, Summer, Fall, Winter
 
 ### 3.18 Months (12)
-January to December, each with a picture for that time of year (e.g. a pumpkin for October)
+January to December, each with a picture for that time of year (e.g. a pumpkin for October); January is a snowflake and December a snowman (no Christmas tree, owner's choice)
 
 ### 3.19 Birds (10)
 Parrot, Owl, Eagle, Penguin, Flamingo, Peacock, Swan, Dove, Turkey, Duck

@@ -2607,14 +2607,6 @@
      "emoji": "🥣"
     },
     {
-     "label": "This is fun",
-     "emoji": "🎉"
-    },
-    {
-     "label": "I am happy",
-     "emoji": "😄"
-    },
-    {
      "label": "I am reading a book",
      "emoji": "📖"
     },
@@ -2631,10 +2623,6 @@
      "emoji": "🪥"
     },
     {
-     "label": "I am taking a bath",
-     "emoji": "🛁"
-    },
-    {
      "label": "I am riding my bike",
      "emoji": "🚲"
     },
@@ -2645,6 +2633,68 @@
     {
      "label": "I am going to sleep",
      "emoji": "😴"
+    },
+    {
+     "label": "I am singing a song",
+     "emoji": "🎤"
+    }
+   ]
+  },
+  {
+   "id": "feelings",
+   "title": "Feelings",
+   "section": "phrases",
+   "emoji": "😄",
+   "color": "#FBC02D",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "This is fun",
+     "emoji": "🎉"
+    },
+    {
+     "label": "I am happy",
+     "emoji": "😄"
+    },
+    {
+     "label": "This is awesome",
+     "emoji": "🤩"
+    },
+    {
+     "label": "I am excited",
+     "emoji": "🥳"
+    },
+    {
+     "label": "I did it!",
+     "emoji": "🙌"
+    },
+    {
+     "label": "I can do it!",
+     "emoji": "💪"
+    },
+    {
+     "label": "I am proud of myself",
+     "emoji": "🏅"
+    },
+    {
+     "label": "I feel great",
+     "emoji": "🌟"
+    },
+    {
+     "label": "I love you",
+     "emoji": "❤️"
+    },
+    {
+     "label": "You are my best friend",
+     "emoji": "🧑‍🤝‍🧑"
+    },
+    {
+     "label": "I am brave",
+     "emoji": "🦁"
+    },
+    {
+     "label": "I feel calm",
+     "emoji": "😌"
     }
    ]
   },

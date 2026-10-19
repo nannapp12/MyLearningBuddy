@@ -77,7 +77,7 @@ Every learning section must, at minimum, support:
     - **Level 2:** Days of the Week, Months, Weather and Seasons, Time, Body Parts, Family, Emotions,
       Community Helpers, Places We Visit, Things Around the House, Appliances, At the Park, In the School,
       Clothing, Sports, Opposites
-  - **Phrases:** Greetings, Activities
+  - **Phrases:** Greetings, Activities, Feelings
   - **Tracing:** Shapes, Letters, Numbers
   - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,
     Teddy Bear Teddy Bear, One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Rain Rain Go Away,
@@ -279,12 +279,15 @@ Refrigerator, Washing Machine, Microwave, Toaster, Stove, Fan, Vacuum Cleaner, C
 ### 3.24 Places We Visit (10)
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
-### 3.25 Phrases (Phrases tab: Greetings and Activities, at least 10 each)
+### 3.25 Phrases (Phrases tab: Greetings, Activities and Feelings, at least 10 each)
 - **Greetings (11):** Hello! · Good Morning · Good afternoon · Good evening · Good night · How are you? ·
   I am doing well · Nice to meet you · Please and thank you · See you later · Goodbye!
-- **Activities (12):** I like playing · I am eating · This is fun · I am happy · I am reading a book ·
-  I am drawing a picture · I am washing my hands · I am brushing my teeth · I am taking a bath ·
-  I am riding my bike · Let's play together · I am going to sleep
+- **Activities (10):** I like playing · I am eating · I am reading a book · I am drawing a picture ·
+  I am washing my hands · I am brushing my teeth · I am riding my bike · Let's play together ·
+  I am going to sleep · I am singing a song ("I am taking a bath" removed by the owner)
+- **Feelings (12), positive things children can learn to say:** This is fun · I am happy · This is awesome ·
+  I am excited · I did it! · I can do it! · I am proud of myself · I feel great · I love you ·
+  You are my best friend · I am brave · I feel calm ("This is fun" and "I am happy" moved here from Activities)
 - The original 10 phrases were split between the two; the rest are new
 - One phrase per card with a matching picture; the voice says the phrase, and the child taps next to
   move on (or Auto-read moves on)

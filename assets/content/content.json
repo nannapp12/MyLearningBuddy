@@ -992,10 +992,9 @@
      "label": "X",
      "items": [
       {
-       "label": "X-mas Tree",
-       "highlight": "X",
-       "emoji": "🎄",
-       "speak": "Xmas Tree"
+       "label": "Xylophone",
+       "image": "assets/images/xylophone.svg",
+       "highlight": "X"
       },
       {
        "label": "X-ray",
@@ -2677,10 +2676,6 @@
      "emoji": "🌟"
     },
     {
-     "label": "I love you",
-     "emoji": "❤️"
-    },
-    {
      "label": "You are my best friend",
      "emoji": "🧑‍🤝‍🧑"
     },
@@ -2877,10 +2872,6 @@
      "emoji": "🥄"
     },
     {
-     "label": "I don't like it",
-     "emoji": "🙁"
-    },
-    {
      "label": "Let's wash our hands",
      "emoji": "🧼"
     },
@@ -2891,6 +2882,10 @@
     {
      "label": "All done!",
      "emoji": "✅"
+    },
+    {
+     "label": "May I be excused?",
+     "emoji": "🪑"
     }
    ]
   },
@@ -2998,14 +2993,10 @@
    "id": "body_needs",
    "title": "Body and Needs",
    "section": "phrases",
-   "emoji": "🚽",
+   "emoji": "🩹",
    "color": "#00838F",
    "layout": "cards",
    "items": [
-    {
-     "label": "I need to go potty",
-     "emoji": "🚽"
-    },
     {
      "label": "I am tired",
      "emoji": "🥱"
@@ -3023,10 +3014,6 @@
      "emoji": "🤕"
     },
     {
-     "label": "I need a hug",
-     "emoji": "🫂"
-    },
-    {
      "label": "I want to rest",
      "emoji": "🛋️"
     },
@@ -3041,6 +3028,14 @@
     {
      "label": "I am okay now",
      "emoji": "👍"
+    },
+    {
+     "label": "I need a tissue",
+     "emoji": "🧻"
+    },
+    {
+     "label": "I need a break",
+     "emoji": "⏸️"
     }
    ]
   },
@@ -3089,8 +3084,8 @@
      "emoji": "💤"
     },
     {
-     "label": "I love you, good night",
-     "emoji": "🌙"
+     "label": "Time for bed",
+     "emoji": "🛏️"
     }
    ]
   },
@@ -3139,8 +3134,8 @@
      "emoji": "🚶"
     },
     {
-     "label": "Call 911 for help",
-     "emoji": "☎️"
+     "label": "Stay where I can see you",
+     "emoji": "🧒"
     }
    ]
   },
@@ -3575,10 +3570,6 @@
     {
      "label": "Teddy bear, teddy bear,\nGo upstairs.",
      "emoji": "🪜"
-    },
-    {
-     "label": "Teddy bear, teddy bear,\nSay your prayers.",
-     "emoji": "🙏"
     },
     {
      "label": "Teddy bear, teddy bear,\nTurn out the light.",

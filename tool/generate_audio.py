@@ -327,7 +327,8 @@ def main():
                 break
         else:
             raise ValueError("no audio on its own")
-        for lead_in in [PREFERRED_LEAD_IN[spoken]] * (spoken in PREFERRED_LEAD_IN) + LEAD_INS:
+        preferred = [PREFERRED_LEAD_IN[spoken]] if spoken in PREFERRED_LEAD_IN else []
+        for lead_in in preferred + LEAD_INS:
             samples, rate = tts.create(f"{lead_in} {spoken}", voice=voice, speed=speed, lang="en-us")
             try:
                 samples = drop_onset_hum(cut_lead_in(samples, len(trim(solo))))

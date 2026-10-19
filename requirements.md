@@ -150,7 +150,7 @@ times and the shapes with their lines and signs).
 | U | Umbrella, Unicorn, Upset, Up, Uncle |
 | V | Van, Violin, Vase, Vest, Volcano |
 | W | Watch, Whale, Window, Watermelon, Wolf |
-| X | X-mas Tree, X-ray, Box, Fox, Six |
+| X | Xylophone, X-ray, Box, Fox, Six |
 | Y | Yellow, Yo-yo, Yarn, Yolk, Yacht |
 | Z | Zebra, Zoo, Zip, Zero, Zigzag |
 
@@ -159,7 +159,7 @@ times and the shapes with their lines and signs).
 - Opening a letter's card reads the letter, then each of its 5 words with a 3-second pause between them
 - Tapping a word's picture says just that word (and stops the read-out)
 - Few kid-friendly words start with X, so Box, Fox and Six show X at the end of the word
-- "X-mas Tree" is said as "ex-mas tree"
+- Xylophone is the project's own drawing (it replaced "X-mas Tree", removed by the owner)
 
 ### 3.4 Tracing
 - Touch-screen tracing on mobile/tablet; mouse, stylus or touch on the website
@@ -280,14 +280,18 @@ Refrigerator, Washing Machine, Microwave, Toaster, Stove, Fan, Vacuum Cleaner, C
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
 ### 3.25 Phrases (Phrases tab: 12 sections, at least 10 phrases each, each phrase in only one section)
+- Removed by the owner, as some parents may not want children to practise them: "I love you", "I love you,
+  good night", "I need a hug", "Call 911 for help", "I need to go potty", "I don't like it" (also the
+  "Say your prayers" verse of Teddy Bear, Teddy Bear, and "X-mas Tree" under X). Neutral phrases were added so
+  every section keeps at least 10
 The owner asked for all the suggested sections. In order:
 - **Greetings (10):** Hello! · Good Morning · Good afternoon · Good evening · Good night · How are you? ·
   I am doing well · Nice to meet you · See you later · Goodbye! ("Please and thank you" moved to Good Manners
   as "Please" and "Thank you")
 - **Good Manners (10):** Please · Thank you · You're welcome · Excuse me · I'm sorry · May I have some? ·
   No, thank you · Bless you! · After you · Can I help you?
-- **Feelings (12):** This is fun · I am happy · This is awesome · I am excited · I did it! · I can do it! ·
-  I am proud of myself · I feel great · I love you · You are my best friend · I am brave · I feel calm
+- **Feelings (11):** This is fun · I am happy · This is awesome · I am excited · I did it! · I can do it! ·
+  I am proud of myself · I feel great · You are my best friend · I am brave · I feel calm
 - **Kindness and Friendship (10):** You are kind · Are you okay? · I like your drawing · Let's be friends ·
   I can help you · Don't worry · You can do it! · I'm happy to see you · Thank you for helping · I miss you
 - **Asking for Help (10):** Can you help me? · I need help · I don't understand · Can you show me? ·
@@ -295,19 +299,19 @@ The owner asked for all the suggested sections. In order:
 - **Questions (10):** What is this? · Where are we going? · Who is that? · Why? · How does it work? ·
   When are we going? · Can I try? · What color is it? · What is your name? · How old are you?
 - **Mealtime (10):** I am hungry · I am thirsty · Can I have water, please? · This is yummy! · I am full ·
-  More, please · I don't like it · Let's wash our hands · Thank you for the food · All done!
+  More, please · Let's wash our hands · Thank you for the food · All done! · May I be excused?
 - **Playtime and Sharing (10):** Can I play too? · Let's take turns · Your turn · My turn · Let's share ·
   Do you want to play? · You can have it · Let's build together · Wait, please · Great job, friend!
 - **Activities (10):** I like playing · I am eating · I am reading a book · I am drawing a picture ·
   I am washing my hands · I am brushing my teeth · I am riding my bike · Let's play together ·
   I am going to sleep · I am singing a song ("I am taking a bath" removed by the owner)
-- **Body and Needs (10):** I need to go potty · I am tired · I am cold · I am hot · My tummy hurts ·
-  I need a hug · I want to rest · I feel sick · I bumped my knee · I am okay now
+- **Body and Needs (10):** I am tired · I am cold · I am hot · My tummy hurts · I want to rest ·
+  I feel sick · I bumped my knee · I am okay now · I need a tissue · I need a break
 - **Bedtime and Routines (10):** Time to wake up · Time for breakfast · Let's get dressed · Time for school ·
-  Time to clean up · Time for lunch · Brush your teeth · Story time · Sweet dreams · I love you, good night
+  Time to clean up · Time for lunch · Brush your teeth · Story time · Sweet dreams · Time for bed
   (no bath phrase, as the owner removed it from Activities)
 - **Safety (10):** Stop! · Hold my hand · Look both ways · Wait for the green light · Stay with me ·
-  Don't touch, it's hot · Wear your seatbelt · Ask a grown-up · Walk, don't run · Call 911 for help
+  Don't touch, it's hot · Wear your seatbelt · Ask a grown-up · Walk, don't run · Stay where I can see you
   (no address phrase: nothing personal is stored)
 - One phrase per card with a matching picture; the voice says the phrase, and the child taps next to
   move on (or Auto-read moves on)

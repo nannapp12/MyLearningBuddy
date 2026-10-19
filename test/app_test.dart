@@ -151,36 +151,46 @@ void main() {
       await tester.pump();
     }
 
-    final seen = <String, int>{};
+    // Play like a child with a perfect memory: remember every card seen.
+    final known = <int, String>{};
     final done = <int>{};
+    int? partnerOf(int i) {
+      for (final e in known.entries) {
+        if (e.key != i && !done.contains(e.key) && e.value == known[i]) return e.key;
+      }
+      return null;
+    }
+
+    int nextUnknown() => List.generate(8, (i) => i).firstWhere((i) => !known.containsKey(i));
     var turnedBack = false;
-    for (var i = 0; i < 8; i++) {
-      if (done.contains(i)) continue;
-      await flip(i);
-      final a = label(i);
-      final j = seen[a];
-      if (j != null && j != i) {
-        await flip(j);
-        done.addAll([i, j]);
+    while (done.length < 8) {
+      // A pair already seen: turn both over.
+      final pair = known.keys.where((i) => !done.contains(i) && partnerOf(i) != null).firstOrNull;
+      if (pair != null) {
+        final other = partnerOf(pair)!;
+        await flip(pair);
+        await flip(other);
+        done.addAll([pair, other]);
         continue;
       }
-      seen[a] = i;
-      var k = i + 1;
-      while (done.contains(k) || seen.containsValue(k)) {
-        k++;
-      }
-      await flip(k);
-      final b = label(k);
-      if (b == a) {
-        done.addAll([i, k]);
+      final first = nextUnknown();
+      await flip(first);
+      known[first] = label(first);
+      final match = partnerOf(first);
+      final second = match ?? nextUnknown();
+      await flip(second);
+      known[second] = label(second);
+      if (known[second] == known[first]) {
+        done.addAll([first, second]);
       } else {
-        seen[b] = k;
         await tester.pump(const Duration(seconds: 2)); // not a pair: both turn back over
-        expect(label(i), 'Card');
+        expect(label(first), 'Card');
         turnedBack = true;
       }
     }
-    expect(turnedBack, isTrue);
+    expect(done, hasLength(8));
+    expect(turnedBack || known.length == 8, isTrue);
+    await tester.pump(const Duration(seconds: 5));
     await tester.pumpAndSettle();
     expect(find.text('Now pick your sticker'), findsOneWidget);
   });

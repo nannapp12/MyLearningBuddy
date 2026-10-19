@@ -73,10 +73,9 @@ Every learning section must, at minimum, support:
   **Nursery Rhymes**, **Short Stories**, **Games**. A tab only shows when it has a visible tile.
   - **Words** has two headings:
     - **Level 1:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
-      Vehicles, Fruits, Vegetables, Food, Colors, Shapes
-    - **Level 2:** Days of the Week, Months, Weather and Seasons, Time, Body Parts, Family, Emotions,
-      Community Helpers, Places We Visit, Things Around the House, Appliances, At the Park, In the School,
-      Clothing, Sports, Opposites
+      Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Body Parts, Family, Emotions, Clothing
+    - **Level 2:** Days of the Week, Months, Weather and Seasons, Time, Community Helpers, Places We Visit,
+      Things Around the House, Appliances, At the Park, In the School, Sports, Opposites
   - **Phrases:** Greetings, Activities, Feelings
   - **Tracing:** Shapes, Letters, Numbers
   - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,

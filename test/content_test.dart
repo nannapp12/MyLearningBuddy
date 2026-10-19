@@ -15,12 +15,12 @@ void main() {
     expect(
       names(MenuSection.level1),
       'Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects, Vehicles, Fruits, '
-      'Vegetables, Food, Colors, Shapes',
+      'Vegetables, Food, Colors, Shapes, Body Parts, Family, Emotions, Clothing',
     );
     expect(
       names(MenuSection.level2),
-      'Days of the Week, Months, Weather and Seasons, Time, Body Parts, Family, Emotions, Community Helpers, '
-      'Places We Visit, Things Around the House, Appliances, At the Park, In the School, Clothing, Sports, Opposites',
+      'Days of the Week, Months, Weather and Seasons, Time, Community Helpers, Places We Visit, '
+      'Things Around the House, Appliances, At the Park, In the School, Sports, Opposites',
     );
     expect(names(MenuSection.phrases), 'Greetings, Activities, Feelings');
     expect(names(MenuSection.tracing), 'Shapes, Letters, Numbers');

@@ -1687,6 +1687,198 @@
    ]
   },
   {
+   "id": "body_parts",
+   "title": "Body Parts",
+   "section": "level1",
+   "emoji": "🖐️",
+   "color": "#EF6C00",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Eye",
+     "emoji": "👁️"
+    },
+    {
+     "label": "Ear",
+     "emoji": "👂"
+    },
+    {
+     "label": "Nose",
+     "emoji": "👃"
+    },
+    {
+     "label": "Mouth",
+     "emoji": "👄"
+    },
+    {
+     "label": "Teeth",
+     "emoji": "🦷"
+    },
+    {
+     "label": "Tongue",
+     "emoji": "👅"
+    },
+    {
+     "label": "Hand",
+     "emoji": "✋"
+    },
+    {
+     "label": "Arm",
+     "emoji": "💪"
+    },
+    {
+     "label": "Leg",
+     "emoji": "🦵"
+    },
+    {
+     "label": "Foot",
+     "emoji": "🦶"
+    }
+   ]
+  },
+  {
+   "id": "family",
+   "title": "Family",
+   "section": "level1",
+   "emoji": "👪",
+   "color": "#AD1457",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Mother",
+     "emoji": "👩"
+    },
+    {
+     "label": "Father",
+     "emoji": "👨"
+    },
+    {
+     "label": "Baby",
+     "emoji": "👶"
+    },
+    {
+     "label": "Sister",
+     "emoji": "👧"
+    },
+    {
+     "label": "Brother",
+     "emoji": "👦"
+    },
+    {
+     "label": "Grandmother",
+     "emoji": "👵"
+    },
+    {
+     "label": "Grandfather",
+     "emoji": "👴"
+    },
+    {
+     "label": "Family",
+     "emoji": "👪"
+    }
+   ]
+  },
+  {
+   "id": "emotions",
+   "title": "Emotions",
+   "section": "level1",
+   "emoji": "😊",
+   "color": "#F9A825",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Happy",
+     "emoji": "😄"
+    },
+    {
+     "label": "Sad",
+     "emoji": "😢"
+    },
+    {
+     "label": "Angry",
+     "emoji": "😠"
+    },
+    {
+     "label": "Scared",
+     "emoji": "😨"
+    },
+    {
+     "label": "Surprised",
+     "emoji": "😲"
+    },
+    {
+     "label": "Sleepy",
+     "emoji": "😴"
+    },
+    {
+     "label": "Silly",
+     "emoji": "🤪"
+    },
+    {
+     "label": "Excited",
+     "emoji": "🤩"
+    },
+    {
+     "label": "Calm",
+     "emoji": "😌"
+    },
+    {
+     "label": "Worried",
+     "emoji": "😟"
+    }
+   ]
+  },
+  {
+   "id": "clothing",
+   "title": "Clothing",
+   "section": "level1",
+   "emoji": "👕",
+   "color": "#AB47BC",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Shirt",
+     "emoji": "👕"
+    },
+    {
+     "label": "Pants",
+     "emoji": "👖"
+    },
+    {
+     "label": "Mittens",
+     "emoji": "🧤"
+    },
+    {
+     "label": "Socks",
+     "emoji": "🧦"
+    },
+    {
+     "label": "Scarf",
+     "emoji": "🧣"
+    },
+    {
+     "label": "Cap",
+     "emoji": "🧢"
+    },
+    {
+     "label": "Dress",
+     "emoji": "👗"
+    },
+    {
+     "label": "Boots",
+     "emoji": "🥾"
+    },
+    {
+     "label": "Shoes",
+     "emoji": "👟"
+    },
+    {
+     "label": "Sandals",
+     "emoji": "🩴"
+    }
+   ]
+  },
+  {
    "id": "days",
    "title": "Days of the Week",
    "section": "level2",
@@ -1900,148 +2092,6 @@
      "label": "12 o'clock",
      "speak": "Twelve o'clock.",
      "emoji": "🕛"
-    }
-   ]
-  },
-  {
-   "id": "body_parts",
-   "title": "Body Parts",
-   "section": "level2",
-   "emoji": "🖐️",
-   "color": "#EF6C00",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Eye",
-     "emoji": "👁️"
-    },
-    {
-     "label": "Ear",
-     "emoji": "👂"
-    },
-    {
-     "label": "Nose",
-     "emoji": "👃"
-    },
-    {
-     "label": "Mouth",
-     "emoji": "👄"
-    },
-    {
-     "label": "Teeth",
-     "emoji": "🦷"
-    },
-    {
-     "label": "Tongue",
-     "emoji": "👅"
-    },
-    {
-     "label": "Hand",
-     "emoji": "✋"
-    },
-    {
-     "label": "Arm",
-     "emoji": "💪"
-    },
-    {
-     "label": "Leg",
-     "emoji": "🦵"
-    },
-    {
-     "label": "Foot",
-     "emoji": "🦶"
-    }
-   ]
-  },
-  {
-   "id": "family",
-   "title": "Family",
-   "section": "level2",
-   "emoji": "👪",
-   "color": "#AD1457",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Mother",
-     "emoji": "👩"
-    },
-    {
-     "label": "Father",
-     "emoji": "👨"
-    },
-    {
-     "label": "Baby",
-     "emoji": "👶"
-    },
-    {
-     "label": "Sister",
-     "emoji": "👧"
-    },
-    {
-     "label": "Brother",
-     "emoji": "👦"
-    },
-    {
-     "label": "Grandmother",
-     "emoji": "👵"
-    },
-    {
-     "label": "Grandfather",
-     "emoji": "👴"
-    },
-    {
-     "label": "Family",
-     "emoji": "👪"
-    }
-   ]
-  },
-  {
-   "id": "emotions",
-   "title": "Emotions",
-   "section": "level2",
-   "emoji": "😊",
-   "color": "#F9A825",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Happy",
-     "emoji": "😄"
-    },
-    {
-     "label": "Sad",
-     "emoji": "😢"
-    },
-    {
-     "label": "Angry",
-     "emoji": "😠"
-    },
-    {
-     "label": "Scared",
-     "emoji": "😨"
-    },
-    {
-     "label": "Surprised",
-     "emoji": "😲"
-    },
-    {
-     "label": "Sleepy",
-     "emoji": "😴"
-    },
-    {
-     "label": "Silly",
-     "emoji": "🤪"
-    },
-    {
-     "label": "Excited",
-     "emoji": "🤩"
-    },
-    {
-     "label": "Calm",
-     "emoji": "😌"
-    },
-    {
-     "label": "Worried",
-     "emoji": "😟"
     }
    ]
   },
@@ -2342,56 +2392,6 @@
     {
      "label": "School Bus",
      "image": "assets/images/school_bus.svg"
-    }
-   ]
-  },
-  {
-   "id": "clothing",
-   "title": "Clothing",
-   "section": "level2",
-   "emoji": "👕",
-   "color": "#AB47BC",
-   "layout": "cards",
-   "items": [
-    {
-     "label": "Shirt",
-     "emoji": "👕"
-    },
-    {
-     "label": "Pants",
-     "emoji": "👖"
-    },
-    {
-     "label": "Mittens",
-     "emoji": "🧤"
-    },
-    {
-     "label": "Socks",
-     "emoji": "🧦"
-    },
-    {
-     "label": "Scarf",
-     "emoji": "🧣"
-    },
-    {
-     "label": "Cap",
-     "emoji": "🧢"
-    },
-    {
-     "label": "Dress",
-     "emoji": "👗"
-    },
-    {
-     "label": "Boots",
-     "emoji": "🥾"
-    },
-    {
-     "label": "Shoes",
-     "emoji": "👟"
-    },
-    {
-     "label": "Sandals",
-     "emoji": "🩴"
     }
    ]
   },

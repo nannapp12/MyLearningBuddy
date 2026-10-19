@@ -136,13 +136,13 @@ void main() {
     expect(find.text('Now pick your sticker'), findsOneWidget);
   });
 
-  testWidgets('Memory: turn over two cards at a time to find the 4 pairs, then stickers', (tester) async {
+  testWidgets('Memory: turn over two cards at a time to find the 3 pairs, then stickers', (tester) async {
     await pumpApp(tester);
     await open(tester, 'memory');
     expect(audio.spoken, ['Memory']);
     await tester.tap(find.text('Fruits'));
     await tester.pumpAndSettle();
-    expect(find.bySemanticsLabel('Card'), findsNWidgets(8));
+    expect(find.bySemanticsLabel('Card'), findsNWidgets(6));
 
     Finder card(int i) => find.byKey(ValueKey('card-$i'));
     String label(int i) => tester.getSemantics(card(i)).label;
@@ -161,9 +161,9 @@ void main() {
       return null;
     }
 
-    int nextUnknown() => List.generate(8, (i) => i).firstWhere((i) => !known.containsKey(i));
+    int nextUnknown() => List.generate(6, (i) => i).firstWhere((i) => !known.containsKey(i));
     var turnedBack = false;
-    while (done.length < 8) {
+    while (done.length < 6) {
       // A pair already seen: turn both over.
       final pair = known.keys.where((i) => !done.contains(i) && partnerOf(i) != null).firstOrNull;
       if (pair != null) {
@@ -188,8 +188,8 @@ void main() {
         turnedBack = true;
       }
     }
-    expect(done, hasLength(8));
-    expect(turnedBack || known.length == 8, isTrue);
+    expect(done, hasLength(6));
+    expect(turnedBack || known.length == 6, isTrue);
     await tester.pump(const Duration(seconds: 5));
     await tester.pumpAndSettle();
     expect(find.text('Now pick your sticker'), findsOneWidget);

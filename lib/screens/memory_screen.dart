@@ -12,7 +12,7 @@ import '../widgets/item_card.dart';
 import '../widgets/section_picker.dart';
 import 'sticker_picker_screen.dart';
 
-/// Memory: pick a section, then find the 4 pairs among 8 cards lying face down.
+/// Memory: pick a section, then find the 3 pairs among 6 cards lying face down.
 class MemoryScreen extends StatefulWidget {
   const MemoryScreen({super.key, required this.game, required this.content, this.random});
 
@@ -20,7 +20,7 @@ class MemoryScreen extends StatefulWidget {
   final LearningContent content;
   final Random? random;
 
-  static const pairs = 4;
+  static const pairs = 3;
 
   @override
   State<MemoryScreen> createState() => _MemoryScreenState();
@@ -120,8 +120,8 @@ class _MemoryScreenState extends State<MemoryScreen> {
           padding: const EdgeInsets.all(12),
           child: LayoutBuilder(
             builder: (context, box) {
-              // 4 across and 2 down on a wide screen, 2 across and 4 down on a tall one.
-              final across = box.maxWidth > box.maxHeight ? 4 : 2;
+              // 3 across and 2 down on a wide screen, 2 across and 3 down on a tall one.
+              final across = box.maxWidth > box.maxHeight ? 3 : 2;
               final rows = _cards.length ~/ across;
               return Column(
                 children: [

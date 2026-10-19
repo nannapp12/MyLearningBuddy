@@ -23,7 +23,7 @@ for the full product requirements.
 - Tracing: pick a shape, A–Z, a–z or 1–20, trace over a faint guide with crayon colours and two line
   widths, and move on with the next button
 - A home button on every screen returns to the main menu; a speaker button says the card again
-- Games: **Find It** ("Can you find the cow?") and **Memory** (find the 4 pairs among 8 face-down cards)
+- Games: **Find It** ("Can you find the cow?") and **Memory** (find the 3 pairs among 6 face-down cards)
 - **Phrases**: Greetings (11), Activities (10) and Feelings (12), and **Easy / Medium / Hard** modes (first 5, 8 or all items)
 - **Auto-read** button: reads each card, waits 5 seconds and moves on; also reads stories and rhymes aloud, slowly
 - The puppy says "Hi! How are you?" on start and "This is fun!" back on the main menu

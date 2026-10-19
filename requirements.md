@@ -344,9 +344,9 @@ with clear pictures (animals, fruits, vehicles, shapes, colours …).
   voice says "Yay! You found it!". Wrong: the picture shakes and the voice says "Try again!".
   5 rounds, then the puppy and a sticker
 - A speaker button repeats the question; stars at the top show the rounds done
-- **Memory:** 8 cards face down (4 pairs). The child turns over two at a time; the voice says each picture.
+- **Memory:** 6 cards face down (3 pairs; changed from 4 pairs by the owner). The child turns over two at a time; the voice says each picture.
   A pair stays face up (green border, chime); otherwise both turn back after about a second. When all
-  4 pairs are found: the puppy and a sticker
+  3 pairs are found: the puppy and a sticker
 
 ---
 

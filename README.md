@@ -14,7 +14,7 @@ for the full product requirements.
   - Words: one card per letter showing all 5 words; tap a picture to hear it
   - Shapes in different colours, Days of the Week (Monday to Sunday), Colors (swatch + object)
   - Farm Animals and Wild Animals (whole animals), Vehicles, Fruits, Vegetables, Food, At the Park, In the
-    School (names only, no sounds)
+    School, Clothing, Sports, Appliances (names only, no sounds), and Time (1 to 12 o'clock)
 - 12 more sections: Body Parts, Family, Emotions, Opposites (both words on one card), Weather and
   Seasons, Months, Birds, Sea Creatures, Insects, Community Helpers, Things Around the House, Places
   We Visit – at most 10 items each (12 for Months)

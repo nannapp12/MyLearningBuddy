@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- An upright vacuum cleaner. -->
+  <rect x="104" y="14" width="40" height="14" rx="7" fill="#424242"/>
+  <rect x="118" y="20" width="12" height="70" fill="#757575"/>
+  <rect x="90" y="80" width="64" height="80" rx="20" fill="#7E57C2"/>
+  <rect x="104" y="96" width="36" height="34" rx="8" fill="#D1C4E9"/>
+  <path d="M80 160 H170 Q182 160 182 172 V178 H68 V172 Q68 160 80 160 Z" fill="#5E35B1"/>
+  <rect x="64" y="176" width="122" height="8" rx="4" fill="#424242"/>
+  <circle cx="84" cy="186" r="8" fill="#212121"/>
+  <circle cx="166" cy="186" r="8" fill="#212121"/>
+  <path d="M90 110 Q40 120 50 160" stroke="#9E9E9E" stroke-width="7" fill="none" stroke-linecap="round"/>
+</svg>

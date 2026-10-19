@@ -1834,6 +1834,76 @@
    ]
   },
   {
+   "id": "time",
+   "title": "Time",
+   "section": "learning",
+   "emoji": "⏰",
+   "color": "#00897B",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "1 o'clock",
+     "speak": "One o'clock.",
+     "emoji": "🕐"
+    },
+    {
+     "label": "2 o'clock",
+     "speak": "Two o'clock.",
+     "emoji": "🕑"
+    },
+    {
+     "label": "3 o'clock",
+     "speak": "Three o'clock.",
+     "emoji": "🕒"
+    },
+    {
+     "label": "4 o'clock",
+     "speak": "Four o'clock.",
+     "emoji": "🕓"
+    },
+    {
+     "label": "5 o'clock",
+     "speak": "Five o'clock.",
+     "emoji": "🕔"
+    },
+    {
+     "label": "6 o'clock",
+     "speak": "Six o'clock.",
+     "emoji": "🕕"
+    },
+    {
+     "label": "7 o'clock",
+     "speak": "Seven o'clock.",
+     "emoji": "🕖"
+    },
+    {
+     "label": "8 o'clock",
+     "speak": "Eight o'clock.",
+     "emoji": "🕗"
+    },
+    {
+     "label": "9 o'clock",
+     "speak": "Nine o'clock.",
+     "emoji": "🕘"
+    },
+    {
+     "label": "10 o'clock",
+     "speak": "Ten o'clock.",
+     "emoji": "🕙"
+    },
+    {
+     "label": "11 o'clock",
+     "speak": "Eleven o'clock.",
+     "emoji": "🕚"
+    },
+    {
+     "label": "12 o'clock",
+     "speak": "Twelve o'clock.",
+     "emoji": "🕛"
+    }
+   ]
+  },
+  {
    "id": "body_parts",
    "title": "Body Parts",
    "section": "learning",
@@ -2126,6 +2196,56 @@
    ]
   },
   {
+   "id": "appliances",
+   "title": "Appliances",
+   "section": "learning",
+   "emoji": "🔌",
+   "color": "#546E7A",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Refrigerator",
+     "image": "assets/images/refrigerator.svg"
+    },
+    {
+     "label": "Washing Machine",
+     "image": "assets/images/washing_machine.svg"
+    },
+    {
+     "label": "Microwave",
+     "image": "assets/images/microwave.svg"
+    },
+    {
+     "label": "Toaster",
+     "image": "assets/images/toaster.svg"
+    },
+    {
+     "label": "Stove",
+     "image": "assets/images/stove.svg"
+    },
+    {
+     "label": "Fan",
+     "image": "assets/images/fan.svg"
+    },
+    {
+     "label": "Vacuum Cleaner",
+     "image": "assets/images/vacuum_cleaner.svg"
+    },
+    {
+     "label": "Computer",
+     "emoji": "💻"
+    },
+    {
+     "label": "Telephone",
+     "emoji": "☎️"
+    },
+    {
+     "label": "Radio",
+     "emoji": "📻"
+    }
+   ]
+  },
+  {
    "id": "park",
    "title": "At the Park",
    "section": "learning",
@@ -2222,6 +2342,106 @@
     {
      "label": "School Bus",
      "image": "assets/images/school_bus.svg"
+    }
+   ]
+  },
+  {
+   "id": "clothing",
+   "title": "Clothing",
+   "section": "learning",
+   "emoji": "👕",
+   "color": "#AB47BC",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Shirt",
+     "emoji": "👕"
+    },
+    {
+     "label": "Pants",
+     "emoji": "👖"
+    },
+    {
+     "label": "Mittens",
+     "emoji": "🧤"
+    },
+    {
+     "label": "Socks",
+     "emoji": "🧦"
+    },
+    {
+     "label": "Scarf",
+     "emoji": "🧣"
+    },
+    {
+     "label": "Cap",
+     "emoji": "🧢"
+    },
+    {
+     "label": "Dress",
+     "emoji": "👗"
+    },
+    {
+     "label": "Boots",
+     "emoji": "🥾"
+    },
+    {
+     "label": "Shoes",
+     "emoji": "👟"
+    },
+    {
+     "label": "Sandals",
+     "emoji": "🩴"
+    }
+   ]
+  },
+  {
+   "id": "sports",
+   "title": "Sports",
+   "section": "learning",
+   "emoji": "🏀",
+   "color": "#EF6C00",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Soccer",
+     "emoji": "⚽"
+    },
+    {
+     "label": "Basketball",
+     "emoji": "🏀"
+    },
+    {
+     "label": "Baseball",
+     "emoji": "⚾"
+    },
+    {
+     "label": "Football",
+     "emoji": "🏈"
+    },
+    {
+     "label": "Tennis",
+     "emoji": "🎾"
+    },
+    {
+     "label": "Swimming",
+     "emoji": "🏊"
+    },
+    {
+     "label": "Running",
+     "emoji": "🏃"
+    },
+    {
+     "label": "Cycling",
+     "emoji": "🚴"
+    },
+    {
+     "label": "Volleyball",
+     "emoji": "🏐"
+    },
+    {
+     "label": "Ice Skating",
+     "emoji": "⛸️"
     }
    ]
   },

@@ -71,9 +71,9 @@ Every learning section must, at minimum, support:
 - One big picture tile per section; tile pictures must not be cut off at the edges
 - The tiles are grouped under five sub-headings, in this order:
   - **Learning:** Letters, Numbers, Words, Farm Animals, Wild Animals, Birds, Sea Creatures, Insects,
-    Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Days of the Week, Months, Weather and Seasons,
-    Body Parts, Family, Emotions, Community Helpers, Places We Visit, Things Around the House, At the Park,
-    In the School, Opposites, Phrases
+    Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Days of the Week, Months, Weather and Seasons, Time,
+    Body Parts, Family, Emotions, Community Helpers, Places We Visit, Things Around the House, Appliances,
+    At the Park, In the School, Clothing, Sports, Opposites, Phrases
   - **Tracing:** Shapes, Letters, Numbers
   - **Games:** Find It
   - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,
@@ -103,7 +103,8 @@ Every learning section must, at minimum, support:
 ## 3. Learning Sections
 
 To keep each section easy to learn, a section has **at most 10 items**, except where the
-subject needs more (letters, numbers, words, tracing letters and numbers, and the 12 months).
+subject needs more (letters, numbers, words, tracing letters and numbers, the 12 months, the 12 o'clock
+times and the shapes with their lines and signs).
 
 ### 3.1 Letters
 - Uppercase: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
@@ -257,6 +258,19 @@ Slide, Swing, Kite, Ball, Bicycle, Tree, Flowers, Picnic Basket, Ice Cream, Duck
 
 ### 3.23b In the School (10)
 Teacher, Book, Pencil, Crayons, Backpack, Scissors, Ruler, Chair, Globe, School Bus
+
+### 3.23c Clothing (10, after In the School)
+Shirt, Pants, Mittens, Socks, Scarf, Cap, Dress, Boots, Shoes, Sandals (owner's list)
+
+### 3.23d Sports (10, after Clothing)
+Soccer, Basketball, Baseball, Football, Tennis, Swimming, Running, Cycling, Volleyball, Ice Skating
+
+### 3.23e Appliances (10, after Things Around the House)
+Refrigerator, Washing Machine, Microwave, Toaster, Stove, Fan, Vacuum Cleaner, Computer, Telephone, Radio
+- Appliances without an emoji (the first seven) are the project's own drawings
+
+### 3.23f Time (12, after Weather and Seasons)
+1 o'clock to 12 o'clock, each with a clock face showing the time; the voice says "Seven o'clock."
 
 ### 3.24 Places We Visit (10)
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm

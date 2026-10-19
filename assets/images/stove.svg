@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- A kitchen stove: four burners on top, knobs and an oven door. -->
+  <rect x="25" y="40" width="150" height="150" rx="10" fill="#FAFAFA" stroke="#78909C" stroke-width="5"/>
+  <rect x="25" y="22" width="150" height="22" rx="6" fill="#455A64"/>
+  <ellipse cx="65" cy="33" rx="22" ry="5" fill="#FF7043"/>
+  <ellipse cx="135" cy="33" rx="22" ry="5" fill="#90A4AE"/>
+  <g fill="#455A64"><circle cx="50" cy="62" r="7"/><circle cx="80" cy="62" r="7"/><circle cx="120" cy="62" r="7"/><circle cx="150" cy="62" r="7"/></g>
+  <rect x="40" y="82" width="120" height="94" rx="8" fill="#37474F"/>
+  <rect x="52" y="94" width="96" height="58" rx="6" fill="#FFB74D" opacity="0.8"/>
+  <rect x="60" y="160" width="80" height="8" rx="4" fill="#B0BEC5"/>
+</svg>

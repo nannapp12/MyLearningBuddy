@@ -12,7 +12,6 @@ import '../widgets/puppy.dart';
 import '../widgets/star_badge.dart';
 import '../widgets/sticker_bar.dart';
 import 'find_it_screen.dart';
-import 'matching_screen.dart';
 import 'memory_screen.dart';
 import 'parent_area_screen.dart';
 import 'section_screen.dart';
@@ -219,7 +218,6 @@ class _CategoryTile extends StatelessWidget {
       CategoryLayout.groups => SectionScreen.groups(category, groups: state.limited(category.groups)),
       CategoryLayout.tracing => TracingPickerScreen(category: category),
       CategoryLayout.findit => FindItScreen(game: category, content: content),
-      CategoryLayout.matching => MatchingScreen(game: category, content: content),
       CategoryLayout.memory => MemoryScreen(game: category, content: content),
       // A week is always all seven days, and a story is always told to the end, whatever the mode.
       CategoryLayout.days || CategoryLayout.story => SectionScreen.items(category, items: category.items),

@@ -3732,14 +3732,6 @@
    "items": []
   },
   {
-   "id": "matching",
-   "title": "Matching",
-   "section": "games",
-   "emoji": "🔗",
-   "color": "#5E35B1",
-   "layout": "matching"
-  },
-  {
    "id": "memory",
    "title": "Memory",
    "section": "games",

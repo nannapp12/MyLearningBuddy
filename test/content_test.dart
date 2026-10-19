@@ -24,7 +24,7 @@ void main() {
     );
     expect(names(MenuSection.phrases), 'Greetings, Activities');
     expect(names(MenuSection.tracing), 'Shapes, Letters, Numbers');
-    expect(names(MenuSection.games), 'Find It, Matching, Memory');
+    expect(names(MenuSection.games), 'Find It, Memory');
     expect(MenuTab.values.map((t) => t.label), [
       'Words',
       'Phrases',

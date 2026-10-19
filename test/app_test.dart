@@ -195,48 +195,6 @@ void main() {
     expect(find.text('Now pick your sticker'), findsOneWidget);
   });
 
-  testWidgets('Matching: draw a line (or tap) from each picture to its name, three rounds', (tester) async {
-    await pumpApp(tester);
-    await open(tester, 'matching');
-    await tester.tap(find.text('Fruits'));
-    await tester.pumpAndSettle();
-
-    List<String> pictures() => [
-      for (final e in find.bySemanticsLabel(RegExp(r'^Picture ')).evaluate())
-        tester.getSemantics(find.byElementPredicate((x) => x == e)).label.substring('Picture '.length),
-    ];
-
-    for (var round = 0; round < 3; round++) {
-      final names = pictures();
-      expect(names, hasLength(4));
-      if (round == 0) {
-        // A wrong name: "Try again!".
-        await tester.tap(find.bySemanticsLabel('Picture ${names[0]}'));
-        await tester.pump();
-        await tester.tap(find.bySemanticsLabel('Name ${names[1]}'));
-        await tester.pump();
-        expect(audio.spoken.last, 'Try again!');
-        // Drawing a line from a picture to its name.
-        await tester.dragFrom(
-          tester.getCenter(find.bySemanticsLabel('Picture ${names[0]}')),
-          tester.getCenter(find.bySemanticsLabel('Name ${names[0]}')) -
-              tester.getCenter(find.bySemanticsLabel('Picture ${names[0]}')),
-        );
-        await tester.pump();
-        expect(audio.spoken.last, names[0]);
-      }
-      for (final name in round == 0 ? names.skip(1) : names) {
-        await tester.tap(find.bySemanticsLabel('Picture $name'));
-        await tester.pump();
-        await tester.tap(find.bySemanticsLabel('Name $name'));
-        await tester.pump();
-      }
-      await tester.pump(const Duration(seconds: 5));
-      await tester.pumpAndSettle();
-    }
-    expect(find.text('Now pick your sticker'), findsOneWidget);
-  });
-
   testWidgets('"Great job!" waits until the last item has been said', (tester) async {
     tester.view.physicalSize = const Size(1200, 2000);
     tester.view.devicePixelRatio = 1;

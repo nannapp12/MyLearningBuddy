@@ -85,7 +85,7 @@ Every learning section must, at minimum, support:
   - **Short Stories:** Hansel & Gretel, Little Red Riding Hood, Cinderella, Sleeping Beauty, Beauty & the Beast,
     The Three Little Pigs, Goldilocks and the Three Bears, The Tortoise and the Hare, The Ugly Duckling,
     The Lion and the Mouse, The Little Red Hen, Jack and the Beanstalk
-  - **Games:** Find It, Matching, Memory
+  - **Games:** Find It, Memory (a Matching game was tried and removed for now by the owner)
 - Fruits tile is yellow
 - When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
   tap, because browsers only allow sound after a tap); each time the child comes back to the main menu,
@@ -341,10 +341,6 @@ with clear pictures (animals, fruits, vehicles, shapes, colours …).
   voice says "Yay! You found it!". Wrong: the picture shakes and the voice says "Try again!".
   5 rounds, then the puppy and a sticker
 - A speaker button repeats the question; stars at the top show the rounds done
-- **Matching:** four pictures on the left and their names, shuffled, on the right. The child draws a line
-  from a picture to its name (or taps a picture, then a name). Right: a green line stays and the voice says
-  the name. Wrong: the name shakes and the voice says "Try again!". Tapping a name says it. 3 rounds, then
-  the puppy and a sticker
 - **Memory:** 8 cards face down (4 pairs). The child turns over two at a time; the voice says each picture.
   A pair stays face up (green border, chime); otherwise both turn back after about a second. When all
   4 pairs are found: the puppy and a sticker

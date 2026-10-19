@@ -387,6 +387,11 @@ with clear pictures (animals, fruits, vehicles, shapes, colours …).
   "Try again!"): Kokoro voice "Nova" (`af_nova`) at normal speed, raised 4 semitones so it sounds like a
   child – chosen by the owner (sample 4, "Sparkly"). Same loudness as the learning voice
 - All learning words keep the calm "Heart" voice
+- Every clip must sound exactly as written. The voice engine sometimes added an "s"-like sound at the end
+  ("Banana" heard as "Bananas", "I am happy" as "I am happies", reported by the owner). The generator now
+  trims any hiss or quiet buzz after the last sound of the text, and a few sentences use a hand-picked take
+  (`PREFERRED_TAKE`). `tool/check_plurals.py` uses a speech recognizer to confirm that no clip sounds plural;
+  all 718 clips pass
 - Letter names **and** letter sounds (phonics)
 - Captions: the text of what is spoken is always shown on screen
 - Separate volume / mute controls for speech and for music and sound effects

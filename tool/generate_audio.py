@@ -36,8 +36,46 @@ OUT = ROOT / "assets" / "audio"
 # which is cut off at the pause that follows it. Kokoro occasionally returns no
 # audio for a sentence, so the next lead-in is tried if that happens.
 LEAD_INS = ["Okay...", "Okay…", "Now...", "Yes..."]
-# Sentences whose start is cut too short after "Okay...": tried with these lead-ins first.
-PREFERRED_LEAD_IN = {"Thank you for the food.": "Now..."}
+# Takes chosen by ear-checking (a speech recognizer) for sentences whose usual take was cut short at
+# the start or sounded plural at the end: (lead-in, speed[, ending punctuation]) tried first.
+PREFERRED_TAKE = {
+    "And one for the little boy Who lives down the lane.": ("Now...", 0.67),
+    "Ant.": ("Yes...", 0.75),
+    "Bed.": ("Now...", 0.75),
+    "Bread.": ("Now...", 0.75),
+    "Brown.": ("Yes...", 0.75),
+    "Can you find.": ("Yes...", 0.75),
+    "Cold.": ("Now...", 0.75),
+    "Diamond.": ("So...", 0.77),
+    "Great job, friend!": ("So...", 0.79),
+    "Find It.": ("Now...", 0.75),
+    "Goat.": ("Yes...", 0.75),
+    "Hand.": ("Yes...", 0.73),
+    "Hansel and Gretel lived near a big forest.": ("Now...", 0.65),
+    "Heart.": ("So...", 0.75),
+    "Hen.": ("Now...", 0.75),
+    "Hold my hand.": ("So...", 0.75),
+    "I am brave.": ("Yes...", 0.75),
+    "I can't reach it.": ("Now...", 0.75),
+    "I don't understand.": ("So...", 0.73, "!"),
+    "Lion.": ("Now...", 0.75),
+    "Microwave.": ("So...", 0.73),
+    "N.": ("Yes...", 0.75),
+    "Nest.": ("Yes...", 0.75),
+    "One duckling looked big and gray and different.": ("Yes...", 0.65),
+    "Playground.": ("So...", 0.73),
+    "Red.": ("Now...", 0.75),
+    "Robot.": ("Now...", 0.75),
+    "She ran away and left a glass slipper behind.": ("Yes...", 0.65),
+    "Teddy bear, teddy bear, Touch the ground.": ("Well...", 0.65),
+    "Teddy bear, teddy bear, Turn around.": ("Yes...", 0.65),
+    "Thank you for the food.": ("Now...", 0.75),
+    "Time for bed.": ("Yes...", 0.75),
+    "Vest.": ("Yes...", 0.75),
+    "Worried.": ("Okay...", 0.73),
+    "You are kind.": ("So...", 0.73),
+    "You are my best friend.": ("Yes...", 0.75),
+}
 FRAME = 480  # 20 ms at 24 kHz
 
 # Phrases used by the games (Speech.extras in lib/services/speech.dart).
@@ -158,6 +196,67 @@ def cut_lead_in(samples, solo_length):
                 return rest
             raise ValueError("cut in the wrong place")
     raise ValueError("no pause after the lead-in")
+
+
+# Kokoro sometimes ends a word with an "s"-like hiss, so "Banana" sounds like "Bananas" and
+# "I am happy" like "I am happies". The text's last sound (from the phonemizer) says whether a
+# hiss belongs there.
+FRICATIVE_ENDS = set("szʃʒfvθðh")
+STOP_ENDS = set("tdkpbgʔ")
+HISS_ZERO_CROSSINGS = 170  # per 20 ms frame: hiss crosses zero far more often than a voice
+
+
+def last_sound(phonemes):
+    sounds = [c for c in phonemes if c.isalpha() or c in "ʃʒθðŋəɚɹɾʊɪɛæɑɔʌː"]
+    return sounds[-1] if sounds else ""
+
+
+def drop_trailing_hiss(samples, end_sound, rate=24000):
+    """Cuts an "s"-like hiss off the end of [samples] when the text does not end with one.
+
+    After t, d, k and the like, the first 60 ms of hiss is the sound's own puff of air and stays.
+    """
+    if end_sound in FRICATIVE_ENDS:
+        return samples
+    n = len(samples) // FRAME
+    frames = samples[: n * FRAME].reshape(n, FRAME)
+    rms = np.sqrt(np.mean(frames**2, axis=1))
+    crossings = np.count_nonzero(np.diff(np.signbit(frames), axis=1), axis=1)
+    end = n - 1
+    while end > 0 and rms[end] < 0.012:  # the quiet padding, and the hiss fading out
+        end -= 1
+    start = end
+    while start > 0 and crossings[start] > HISS_ZERO_CROSSINGS and rms[start] >= 0.008:
+        start -= 1
+    hiss = end - start  # frames of hiss at the end of the voice
+    keep = 3 if end_sound in STOP_ENDS else 0
+    if hiss < 2 or hiss <= keep:
+        return samples
+    cut = (start + 1 + keep) * FRAME
+    out = samples[:cut].copy()
+    fade = min(len(out), int(rate * 0.015))
+    out[-fade:] *= np.linspace(1, 0, fade)
+    return np.concatenate([out, np.zeros(int(rate * 0.05), dtype=out.dtype)])
+
+
+def drop_soft_tail(samples, end_sound, rate=24000):
+    """Ends the clip where the voice fades, cutting a quiet buzz ("Apple" heard as "Apples").
+
+    Not used after s, z, t, d and the like, whose endings are quiet but part of the word. The
+    reference is the loudest point of the last half second, so long sentences keep their last word.
+    """
+    if end_sound in FRICATIVE_ENDS or end_sound in STOP_ENDS:
+        return samples
+    n = len(samples) // FRAME
+    rms = np.sqrt(np.mean(samples[: n * FRAME].reshape(n, FRAME) ** 2, axis=1))
+    peak = rms[max(0, n - int(0.5 * rate / FRAME)) :].max()
+    end = n - 1
+    while end > 0 and rms[end] < peak * 0.15:
+        end -= 1
+    out = samples[: (end + 1) * FRAME].copy()
+    fade = min(len(out), int(rate * 0.015))
+    out[-fade:] *= np.linspace(1, 0, fade)
+    return np.concatenate([out, np.zeros(int(rate * 0.05), dtype=out.dtype)])
 
 
 def drop_onset_hum(samples):
@@ -288,6 +387,9 @@ def main():
     args = ap.parse_args()
 
     from kokoro_onnx import Kokoro
+    from kokoro_onnx.tokenizer import Tokenizer
+
+    phonemize = Tokenizer().phonemize
 
     def load(name):
         return np.fromfile(Path(args.voices_dir) / f"{name}.bin", dtype=np.float32).reshape(-1, 1, 256)
@@ -309,7 +411,12 @@ def main():
         Kokoro occasionally returns no audio for a sentence at one speed, so a
         very slightly different speed is tried next.
         """
-        for attempt in (speed, speed + 0.02, speed - 0.02):
+        key = text.replace("\n", " ").rstrip(",")
+        key = key if key[-1] in ".!?" else f"{key}."
+        speeds = (speed, speed + 0.02, speed - 0.02)
+        if key in PREFERRED_TAKE:
+            speeds = (PREFERRED_TAKE[key][1],) + speeds
+        for attempt in speeds:
             try:
                 return record_at(text, voice, attempt)
             except ValueError:
@@ -321,17 +428,22 @@ def main():
         text = text.replace("\n", " ").rstrip(",")
         # Without closing punctuation Kokoro sometimes returns no audio at all.
         spoken = text if text[-1] in ".!?" else f"{text}."
+        take = PREFERRED_TAKE.get(spoken, ())
+        if len(take) > 2:
+            spoken = spoken[:-1] + take[2]  # e.g. "!" instead of "." ends the word more cleanly
         for variant in (spoken, spoken[:-1] + "!", spoken[:-1] + "."):
             solo, rate = tts.create(variant, voice=voice, speed=speed, lang="en-us")
             if len(trim(solo)):
                 break
         else:
             raise ValueError("no audio on its own")
-        preferred = [PREFERRED_LEAD_IN[spoken]] if spoken in PREFERRED_LEAD_IN else []
+        preferred = [take[0]] if take else []
         for lead_in in preferred + LEAD_INS:
             samples, rate = tts.create(f"{lead_in} {spoken}", voice=voice, speed=speed, lang="en-us")
             try:
                 samples = drop_onset_hum(cut_lead_in(samples, len(trim(solo))))
+                end_sound = last_sound(phonemize(spoken, "en-us"))
+                samples = drop_soft_tail(drop_trailing_hiss(samples, end_sound), end_sound)
                 break
             except ValueError:
                 continue

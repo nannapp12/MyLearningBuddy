@@ -55,6 +55,7 @@ for the full product requirements.
 | `assets/images/` | SVG pictures drawn for the app |
 | `lib/services/speech.dart` | What the app says aloud |
 | `tool/generate_audio.py` | Makes the voice clips (see below) |
+| `tool/check_plurals.py` | Checks that no voice clip sounds plural by mistake |
 | `test/` | Content, speech and widget tests |
 
 ## Running it
@@ -82,6 +83,13 @@ script) to make clips for any new sentences. `flutter test` fails if a clip is m
 The puppy's greetings and rewards use a second, livelier voice (`af_nova`, pitched up 4 semitones to
 sound like a child), saved in `assets/audio/puppy/`. The list of puppy lines is `Speech.mascot` in
 `lib/services/speech.dart` and `MASCOT_LINES` in the script.
+
+After generating, check that no clip sounds plural ("Banana" heard as "Bananas"):
+
+```
+.venv/bin/pip install pocketsphinx   # once
+.venv/bin/python tool/check_plurals.py
+```
 
 ## Building
 

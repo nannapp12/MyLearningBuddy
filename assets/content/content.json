@@ -2577,10 +2577,6 @@
      "emoji": "🤝"
     },
     {
-     "label": "Please and thank you",
-     "emoji": "🙏"
-    },
-    {
      "label": "See you later",
      "emoji": "👋"
     },
@@ -2591,52 +2587,52 @@
    ]
   },
   {
-   "id": "activities",
-   "title": "Activities",
+   "id": "manners",
+   "title": "Good Manners",
    "section": "phrases",
-   "emoji": "🎨",
-   "color": "#F4511E",
+   "emoji": "🙏",
+   "color": "#7B1FA2",
    "layout": "cards",
    "items": [
     {
-     "label": "I like playing",
-     "emoji": "🧸"
+     "label": "Please",
+     "emoji": "🙏"
     },
     {
-     "label": "I am eating",
-     "emoji": "🥣"
+     "label": "Thank you",
+     "emoji": "💐"
     },
     {
-     "label": "I am reading a book",
-     "emoji": "📖"
+     "label": "You're welcome",
+     "emoji": "😊"
     },
     {
-     "label": "I am drawing a picture",
-     "emoji": "🖍️"
+     "label": "Excuse me",
+     "emoji": "🙋"
     },
     {
-     "label": "I am washing my hands",
-     "emoji": "🧼"
+     "label": "I'm sorry",
+     "emoji": "😔"
     },
     {
-     "label": "I am brushing my teeth",
-     "emoji": "🪥"
+     "label": "May I have some?",
+     "emoji": "🍪"
     },
     {
-     "label": "I am riding my bike",
-     "emoji": "🚲"
+     "label": "No, thank you",
+     "emoji": "🙅"
     },
     {
-     "label": "Let's play together",
-     "emoji": "🧩"
+     "label": "Bless you!",
+     "emoji": "🤧"
     },
     {
-     "label": "I am going to sleep",
-     "emoji": "😴"
+     "label": "After you",
+     "emoji": "🚪"
     },
     {
-     "label": "I am singing a song",
-     "emoji": "🎤"
+     "label": "Can I help you?",
+     "emoji": "🤲"
     }
    ]
   },
@@ -2695,6 +2691,456 @@
     {
      "label": "I feel calm",
      "emoji": "😌"
+    }
+   ]
+  },
+  {
+   "id": "kindness",
+   "title": "Kindness and Friendship",
+   "section": "phrases",
+   "emoji": "💛",
+   "color": "#F9A825",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "You are kind",
+     "emoji": "💛"
+    },
+    {
+     "label": "Are you okay?",
+     "emoji": "🤗"
+    },
+    {
+     "label": "I like your drawing",
+     "emoji": "🎨"
+    },
+    {
+     "label": "Let's be friends",
+     "emoji": "🧑‍🤝‍🧑"
+    },
+    {
+     "label": "I can help you",
+     "emoji": "🤲"
+    },
+    {
+     "label": "Don't worry",
+     "emoji": "😌"
+    },
+    {
+     "label": "You can do it!",
+     "emoji": "💪"
+    },
+    {
+     "label": "I'm happy to see you",
+     "emoji": "😃"
+    },
+    {
+     "label": "Thank you for helping",
+     "emoji": "🙌"
+    },
+    {
+     "label": "I miss you",
+     "emoji": "💌"
+    }
+   ]
+  },
+  {
+   "id": "help",
+   "title": "Asking for Help",
+   "section": "phrases",
+   "emoji": "🙋",
+   "color": "#1976D2",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Can you help me?",
+     "emoji": "🆘"
+    },
+    {
+     "label": "I need help",
+     "emoji": "🙋"
+    },
+    {
+     "label": "I don't understand",
+     "emoji": "🤔"
+    },
+    {
+     "label": "Can you show me?",
+     "emoji": "👀"
+    },
+    {
+     "label": "I can't reach it",
+     "emoji": "🧗"
+    },
+    {
+     "label": "It's too hard",
+     "emoji": "😣"
+    },
+    {
+     "label": "Please wait for me",
+     "emoji": "✋"
+    },
+    {
+     "label": "Can you open this?",
+     "emoji": "📦"
+    },
+    {
+     "label": "Where is it?",
+     "emoji": "🔍"
+    },
+    {
+     "label": "I'm lost",
+     "emoji": "🗺️"
+    }
+   ]
+  },
+  {
+   "id": "questions",
+   "title": "Questions",
+   "section": "phrases",
+   "emoji": "❓",
+   "color": "#6D4C41",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "What is this?",
+     "emoji": "❓"
+    },
+    {
+     "label": "Where are we going?",
+     "emoji": "🗺️"
+    },
+    {
+     "label": "Who is that?",
+     "emoji": "👤"
+    },
+    {
+     "label": "Why?",
+     "emoji": "🤔"
+    },
+    {
+     "label": "How does it work?",
+     "emoji": "⚙️"
+    },
+    {
+     "label": "When are we going?",
+     "emoji": "🕐"
+    },
+    {
+     "label": "Can I try?",
+     "emoji": "🙋"
+    },
+    {
+     "label": "What color is it?",
+     "emoji": "🎨"
+    },
+    {
+     "label": "What is your name?",
+     "emoji": "📛"
+    },
+    {
+     "label": "How old are you?",
+     "emoji": "🎂"
+    }
+   ]
+  },
+  {
+   "id": "mealtime",
+   "title": "Mealtime",
+   "section": "phrases",
+   "emoji": "🍽️",
+   "color": "#E64A19",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "I am hungry",
+     "emoji": "🍽️"
+    },
+    {
+     "label": "I am thirsty",
+     "emoji": "🥤"
+    },
+    {
+     "label": "Can I have water, please?",
+     "emoji": "💧"
+    },
+    {
+     "label": "This is yummy!",
+     "emoji": "😋"
+    },
+    {
+     "label": "I am full",
+     "emoji": "😌"
+    },
+    {
+     "label": "More, please",
+     "emoji": "🥄"
+    },
+    {
+     "label": "I don't like it",
+     "emoji": "🙁"
+    },
+    {
+     "label": "Let's wash our hands",
+     "emoji": "🧼"
+    },
+    {
+     "label": "Thank you for the food",
+     "emoji": "🙏"
+    },
+    {
+     "label": "All done!",
+     "emoji": "✅"
+    }
+   ]
+  },
+  {
+   "id": "playtime",
+   "title": "Playtime and Sharing",
+   "section": "phrases",
+   "emoji": "🧸",
+   "color": "#388E3C",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Can I play too?",
+     "emoji": "🙋"
+    },
+    {
+     "label": "Let's take turns",
+     "emoji": "🔄"
+    },
+    {
+     "label": "Your turn",
+     "emoji": "👉"
+    },
+    {
+     "label": "My turn",
+     "emoji": "☝️"
+    },
+    {
+     "label": "Let's share",
+     "emoji": "🤝"
+    },
+    {
+     "label": "Do you want to play?",
+     "emoji": "⚽"
+    },
+    {
+     "label": "You can have it",
+     "emoji": "🎁"
+    },
+    {
+     "label": "Let's build together",
+     "emoji": "🧱"
+    },
+    {
+     "label": "Wait, please",
+     "emoji": "⏳"
+    },
+    {
+     "label": "Great job, friend!",
+     "emoji": "👏"
+    }
+   ]
+  },
+  {
+   "id": "activities",
+   "title": "Activities",
+   "section": "phrases",
+   "emoji": "🎨",
+   "color": "#F4511E",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "I like playing",
+     "emoji": "🧸"
+    },
+    {
+     "label": "I am eating",
+     "emoji": "🥣"
+    },
+    {
+     "label": "I am reading a book",
+     "emoji": "📖"
+    },
+    {
+     "label": "I am drawing a picture",
+     "emoji": "🖍️"
+    },
+    {
+     "label": "I am washing my hands",
+     "emoji": "🧼"
+    },
+    {
+     "label": "I am brushing my teeth",
+     "emoji": "🪥"
+    },
+    {
+     "label": "I am riding my bike",
+     "emoji": "🚲"
+    },
+    {
+     "label": "Let's play together",
+     "emoji": "🧩"
+    },
+    {
+     "label": "I am going to sleep",
+     "emoji": "😴"
+    },
+    {
+     "label": "I am singing a song",
+     "emoji": "🎤"
+    }
+   ]
+  },
+  {
+   "id": "body_needs",
+   "title": "Body and Needs",
+   "section": "phrases",
+   "emoji": "🚽",
+   "color": "#00838F",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "I need to go potty",
+     "emoji": "🚽"
+    },
+    {
+     "label": "I am tired",
+     "emoji": "🥱"
+    },
+    {
+     "label": "I am cold",
+     "emoji": "🥶"
+    },
+    {
+     "label": "I am hot",
+     "emoji": "🥵"
+    },
+    {
+     "label": "My tummy hurts",
+     "emoji": "🤕"
+    },
+    {
+     "label": "I need a hug",
+     "emoji": "🫂"
+    },
+    {
+     "label": "I want to rest",
+     "emoji": "🛋️"
+    },
+    {
+     "label": "I feel sick",
+     "emoji": "🤒"
+    },
+    {
+     "label": "I bumped my knee",
+     "emoji": "🩹"
+    },
+    {
+     "label": "I am okay now",
+     "emoji": "👍"
+    }
+   ]
+  },
+  {
+   "id": "routines",
+   "title": "Bedtime and Routines",
+   "section": "phrases",
+   "emoji": "🌙",
+   "color": "#3949AB",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Time to wake up",
+     "emoji": "⏰"
+    },
+    {
+     "label": "Time for breakfast",
+     "emoji": "🥞"
+    },
+    {
+     "label": "Let's get dressed",
+     "emoji": "👕"
+    },
+    {
+     "label": "Time for school",
+     "emoji": "🏫"
+    },
+    {
+     "label": "Time to clean up",
+     "emoji": "🧹"
+    },
+    {
+     "label": "Time for lunch",
+     "emoji": "🥪"
+    },
+    {
+     "label": "Brush your teeth",
+     "emoji": "🪥"
+    },
+    {
+     "label": "Story time",
+     "emoji": "📚"
+    },
+    {
+     "label": "Sweet dreams",
+     "emoji": "💤"
+    },
+    {
+     "label": "I love you, good night",
+     "emoji": "🌙"
+    }
+   ]
+  },
+  {
+   "id": "safety",
+   "title": "Safety",
+   "section": "phrases",
+   "emoji": "🚦",
+   "color": "#C62828",
+   "layout": "cards",
+   "items": [
+    {
+     "label": "Stop!",
+     "emoji": "🛑"
+    },
+    {
+     "label": "Hold my hand",
+     "emoji": "🤝"
+    },
+    {
+     "label": "Look both ways",
+     "emoji": "👀"
+    },
+    {
+     "label": "Wait for the green light",
+     "emoji": "🚦"
+    },
+    {
+     "label": "Stay with me",
+     "emoji": "🧍"
+    },
+    {
+     "label": "Don't touch, it's hot",
+     "emoji": "🔥"
+    },
+    {
+     "label": "Wear your seatbelt",
+     "emoji": "🚗"
+    },
+    {
+     "label": "Ask a grown-up",
+     "emoji": "🧑"
+    },
+    {
+     "label": "Walk, don't run",
+     "emoji": "🚶"
+    },
+    {
+     "label": "Call 911 for help",
+     "emoji": "☎️"
     }
    ]
   },

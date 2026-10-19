@@ -36,6 +36,8 @@ OUT = ROOT / "assets" / "audio"
 # which is cut off at the pause that follows it. Kokoro occasionally returns no
 # audio for a sentence, so the next lead-in is tried if that happens.
 LEAD_INS = ["Okay...", "Okay…", "Now...", "Yes..."]
+# Sentences whose start is cut too short after "Okay...": tried with these lead-ins first.
+PREFERRED_LEAD_IN = {"Thank you for the food.": "Now..."}
 FRAME = 480  # 20 ms at 24 kHz
 
 # Phrases used by the games (Speech.extras in lib/services/speech.dart).
@@ -325,7 +327,7 @@ def main():
                 break
         else:
             raise ValueError("no audio on its own")
-        for lead_in in LEAD_INS:
+        for lead_in in [PREFERRED_LEAD_IN[spoken]] * (spoken in PREFERRED_LEAD_IN) + LEAD_INS:
             samples, rate = tts.create(f"{lead_in} {spoken}", voice=voice, speed=speed, lang="en-us")
             try:
                 samples = drop_onset_hum(cut_lead_in(samples, len(trim(solo))))

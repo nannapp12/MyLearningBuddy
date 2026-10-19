@@ -417,10 +417,10 @@ void main() {
     await open(tester, 'greetings');
     expect(audio.spoken, ['Greetings', 'Hello!']);
     await tester.pump(const Duration(seconds: 10));
-    expect(find.text('1 / 11'), findsOneWidget);
+    expect(find.text('1 / 10'), findsOneWidget);
     await tester.tap(find.bySemanticsLabel('Next'));
     await tester.pumpAndSettle();
-    expect(find.text('2 / 11'), findsOneWidget);
+    expect(find.text('2 / 10'), findsOneWidget);
     expect(audio.spoken.last, 'Good Morning');
   });
 

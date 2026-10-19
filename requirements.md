@@ -76,7 +76,8 @@ Every learning section must, at minimum, support:
       Vehicles, Fruits, Vegetables, Food, Colors, Shapes, Body Parts, Family, Emotions, Clothing
     - **Level 2:** Days of the Week, Months, Weather and Seasons, Time, Community Helpers, Places We Visit,
       Things Around the House, Appliances, At the Park, In the School, Sports, Opposites
-  - **Phrases:** Greetings, Activities, Feelings
+  - **Phrases:** Greetings, Good Manners, Feelings, Kindness and Friendship, Asking for Help, Questions,
+    Mealtime, Playtime and Sharing, Activities, Body and Needs, Bedtime and Routines, Safety
   - **Tracing:** Shapes, Letters, Numbers
   - **Nursery Rhymes:** Twinkle Twinkle Little Star, Hickory Dickory Dock, Mary Had a Little Lamb,
     Teddy Bear Teddy Bear, One Two Buckle My Shoe, Baa Baa Black Sheep, Itsy Bitsy Spider, Rain Rain Go Away,
@@ -278,16 +279,36 @@ Refrigerator, Washing Machine, Microwave, Toaster, Stove, Fan, Vacuum Cleaner, C
 ### 3.24 Places We Visit (10)
 Zoo, Aquarium, Police Station, School, Hospital, Library, Playground, Beach, Grocery Store, Farm
 
-### 3.25 Phrases (Phrases tab: Greetings, Activities and Feelings, at least 10 each)
-- **Greetings (11):** Hello! · Good Morning · Good afternoon · Good evening · Good night · How are you? ·
-  I am doing well · Nice to meet you · Please and thank you · See you later · Goodbye!
+### 3.25 Phrases (Phrases tab: 12 sections, at least 10 phrases each, each phrase in only one section)
+The owner asked for all the suggested sections. In order:
+- **Greetings (10):** Hello! · Good Morning · Good afternoon · Good evening · Good night · How are you? ·
+  I am doing well · Nice to meet you · See you later · Goodbye! ("Please and thank you" moved to Good Manners
+  as "Please" and "Thank you")
+- **Good Manners (10):** Please · Thank you · You're welcome · Excuse me · I'm sorry · May I have some? ·
+  No, thank you · Bless you! · After you · Can I help you?
+- **Feelings (12):** This is fun · I am happy · This is awesome · I am excited · I did it! · I can do it! ·
+  I am proud of myself · I feel great · I love you · You are my best friend · I am brave · I feel calm
+- **Kindness and Friendship (10):** You are kind · Are you okay? · I like your drawing · Let's be friends ·
+  I can help you · Don't worry · You can do it! · I'm happy to see you · Thank you for helping · I miss you
+- **Asking for Help (10):** Can you help me? · I need help · I don't understand · Can you show me? ·
+  I can't reach it · It's too hard · Please wait for me · Can you open this? · Where is it? · I'm lost
+- **Questions (10):** What is this? · Where are we going? · Who is that? · Why? · How does it work? ·
+  When are we going? · Can I try? · What color is it? · What is your name? · How old are you?
+- **Mealtime (10):** I am hungry · I am thirsty · Can I have water, please? · This is yummy! · I am full ·
+  More, please · I don't like it · Let's wash our hands · Thank you for the food · All done!
+- **Playtime and Sharing (10):** Can I play too? · Let's take turns · Your turn · My turn · Let's share ·
+  Do you want to play? · You can have it · Let's build together · Wait, please · Great job, friend!
 - **Activities (10):** I like playing · I am eating · I am reading a book · I am drawing a picture ·
   I am washing my hands · I am brushing my teeth · I am riding my bike · Let's play together ·
   I am going to sleep · I am singing a song ("I am taking a bath" removed by the owner)
-- **Feelings (12), positive things children can learn to say:** This is fun · I am happy · This is awesome ·
-  I am excited · I did it! · I can do it! · I am proud of myself · I feel great · I love you ·
-  You are my best friend · I am brave · I feel calm ("This is fun" and "I am happy" moved here from Activities)
-- The original 10 phrases were split between the two; the rest are new
+- **Body and Needs (10):** I need to go potty · I am tired · I am cold · I am hot · My tummy hurts ·
+  I need a hug · I want to rest · I feel sick · I bumped my knee · I am okay now
+- **Bedtime and Routines (10):** Time to wake up · Time for breakfast · Let's get dressed · Time for school ·
+  Time to clean up · Time for lunch · Brush your teeth · Story time · Sweet dreams · I love you, good night
+  (no bath phrase, as the owner removed it from Activities)
+- **Safety (10):** Stop! · Hold my hand · Look both ways · Wait for the green light · Stay with me ·
+  Don't touch, it's hot · Wear your seatbelt · Ask a grown-up · Walk, don't run · Call 911 for help
+  (no address phrase: nothing personal is stored)
 - One phrase per card with a matching picture; the voice says the phrase, and the child taps next to
   move on (or Auto-read moves on)
 

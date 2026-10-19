@@ -22,7 +22,11 @@ void main() {
       'Days of the Week, Months, Weather and Seasons, Time, Community Helpers, Places We Visit, '
       'Things Around the House, Appliances, At the Park, In the School, Sports, Opposites',
     );
-    expect(names(MenuSection.phrases), 'Greetings, Activities, Feelings');
+    expect(
+      names(MenuSection.phrases),
+      'Greetings, Good Manners, Feelings, Kindness and Friendship, Asking for Help, Questions, Mealtime, '
+      'Playtime and Sharing, Activities, Body and Needs, Bedtime and Routines, Safety',
+    );
     expect(names(MenuSection.tracing), 'Shapes, Letters, Numbers');
     expect(names(MenuSection.games), 'Find It, Memory');
     expect(MenuTab.values.map((t) => t.label), [
@@ -50,15 +54,18 @@ void main() {
     expect(order, [...order]..sort());
   });
 
-  test('greetings, activities and feelings have at least 10 phrases each', () {
-    for (final id in ['greetings', 'activities', 'feelings']) {
-      expect(byId(id).items.length, greaterThanOrEqualTo(10), reason: id);
+  test('every phrase section has at least 10 phrases, and each phrase is in only one section', () {
+    final phrases = content.categories.where((c) => c.section == MenuSection.phrases).toList();
+    for (final c in phrases) {
+      expect(c.items.length, greaterThanOrEqualTo(10), reason: c.title);
     }
+    final all = [for (final c in phrases) ...c.items.map((i) => i.label)];
+    expect(all.toSet(), hasLength(all.length));
     expect(byId('activities').items.map((i) => i.label), isNot(contains('I am taking a bath')));
   });
 
   test('sections have at most 10 items, except where the subject needs more', () {
-    const longer = {'letters', 'numbers', 'words', 'months', 'shapes', 'time', 'greetings', 'activities', 'feelings'};
+    const longer = {'letters', 'numbers', 'words', 'months', 'shapes', 'time', 'feelings'};
     for (final c in content.categories) {
       if (!longer.contains(c.id)) expect(c.items.length, lessThanOrEqualTo(10), reason: c.title);
     }

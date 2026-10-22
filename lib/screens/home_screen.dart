@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
 import '../models/content.dart';
@@ -41,8 +40,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     super.initState();
     if (widget.puppyGreetings) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        // On the web, sound only plays after a tap, so the puppy waits for one.
-        if (mounted) showPuppy(context, message: Speech.hello, short: true, waitForTap: kIsWeb);
+        // On the website the browser may keep this first greeting silent until the child taps.
+        if (mounted) showPuppy(context, message: Speech.hello, short: true);
       });
     }
   }

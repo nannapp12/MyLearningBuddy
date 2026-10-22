@@ -87,9 +87,10 @@ Every learning section must, at minimum, support:
     The Lion and the Mouse, The Little Red Hen, Jack and the Beanstalk
   - **Games:** Find It, Memory (a Matching game was tried and removed for now by the owner)
 - Fruits tile is yellow
-- When the app or website opens, the puppy says "Hi! How are you?" (on the website it waits for the first
-  tap, because browsers only allow sound after a tap); each time the child comes back to the main menu,
-  the puppy hops in and says "This is fun!"
+- When the app or website opens, the puppy hops in and says "Hi! How are you?"; each time the child comes
+  back to the main menu, the puppy hops in and says "This is fun!"
+- No "Tap to play" step (removed by the owner: it confused some users). Browsers only allow sound after the
+  first tap, so on the website the opening greeting may show only the speech bubble, without sound
 
 ---
 
